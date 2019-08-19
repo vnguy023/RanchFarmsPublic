@@ -1,0 +1,33 @@
+# OSX stuff
+.DS_Store
+.Trashes
+.swp
+
+# Xcode Temporary files
+*~.nib
+
+# Xcode build files
+DerivedData/
+
+build/
+
+# Xcode Private Settings
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+
+#Xcode 4 - semi-personal settings (May commment if it's wrong)
+*.xccheckout
+
+# all personal settings (Not sure what this does)
+xcuserdata/
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
