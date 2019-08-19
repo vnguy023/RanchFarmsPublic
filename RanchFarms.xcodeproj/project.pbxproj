@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6C60339B230B60B000746309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60339A230B60B000746309 /* AppDelegate.swift */; };
 		6C60339D230B60B000746309 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C60339C230B60B000746309 /* GameScene.sks */; };
-		6C60339F230B60B000746309 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C60339E230B60B000746309 /* Actions.sks */; };
 		6C6033A1230B60B000746309 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033A0230B60B000746309 /* GameScene.swift */; };
 		6C6033A3230B60B000746309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033A2230B60B000746309 /* ViewController.swift */; };
 		6C6033A5230B60B300746309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C6033A4230B60B300746309 /* Assets.xcassets */; };
@@ -20,7 +19,6 @@
 		6C603397230B60B000746309 /* RanchFarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchFarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C60339A230B60B000746309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C60339C230B60B000746309 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		6C60339E230B60B000746309 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		6C6033A0230B60B000746309 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6C6033A2230B60B000746309 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6C6033A4230B60B300746309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 			children = (
 				6C60339A230B60B000746309 /* AppDelegate.swift */,
 				6C60339C230B60B000746309 /* GameScene.sks */,
-				6C60339E230B60B000746309 /* Actions.sks */,
 				6C6033A0230B60B000746309 /* GameScene.swift */,
 				6C6033A2230B60B000746309 /* ViewController.swift */,
 				6C6033A4230B60B300746309 /* Assets.xcassets */,
@@ -132,7 +129,6 @@
 			files = (
 				6C60339D230B60B000746309 /* GameScene.sks in Resources */,
 				6C6033A5230B60B300746309 /* Assets.xcassets in Resources */,
-				6C60339F230B60B000746309 /* Actions.sks in Resources */,
 				6C6033A8230B60B300746309 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

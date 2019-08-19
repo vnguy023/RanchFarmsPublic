@@ -1,12 +1,3 @@
-//
-//  AppDelegate.swift
-//  RanchFarms
-//
-//  Created by Vincent Nguyen on 8/19/19.
-//  Copyright © 2019 LightTech LLC. All rights reserved.
-//
-
-
 import Cocoa
 
 @NSApplicationMain
