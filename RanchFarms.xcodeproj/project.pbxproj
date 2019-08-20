@@ -27,6 +27,7 @@
 		6C6033D5230B72E800746309 /* TileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033D4230B72E800746309 /* TileType.swift */; };
 		6C6033D7230B731A00746309 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033D6230B731A00746309 /* Tile.swift */; };
 		6C6033D9230B7E5600746309 /* TextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033D8230B7E5600746309 /* TextureManager.swift */; };
+		6C6033DC230B833200746309 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033DB230B833200746309 /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		6C6033D4230B72E800746309 /* TileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileType.swift; sourceTree = "<group>"; };
 		6C6033D6230B731A00746309 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		6C6033D8230B7E5600746309 /* TextureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureManager.swift; sourceTree = "<group>"; };
+		6C6033DB230B833200746309 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				6C60339A230B60B000746309 /* AppDelegate.swift */,
 				6C6033B6230B631A00746309 /* scenes */,
 				6C6033B9230B633A00746309 /* Data */,
+				6C6033DD230B833900746309 /* Controllers */,
 				6C6033A2230B60B000746309 /* ViewController.swift */,
 				6C6033A4230B60B300746309 /* Assets.xcassets */,
 				6C6033A6230B60B300746309 /* Main.storyboard */,
@@ -165,6 +168,14 @@
 				6C6033D8230B7E5600746309 /* TextureManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		6C6033DD230B833900746309 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C6033DB230B833200746309 /* CameraController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +265,7 @@
 				6C6033D5230B72E800746309 /* TileType.swift in Sources */,
 				6C6033D7230B731A00746309 /* Tile.swift in Sources */,
 				6C6033CD230B666F00746309 /* World.swift in Sources */,
+				6C6033DC230B833200746309 /* CameraController.swift in Sources */,
 				6C6033B5230B624700746309 /* BaseScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,7 +1,9 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: BaseScene {    
+class GameScene: BaseScene {
+    let cameraController = CameraController()
+
     override func didMove(to view: SKView) {
         // TODO find a proper home for this
         loadGame()
@@ -11,6 +13,8 @@ class GameScene: BaseScene {
         world = World(saveLocation: "Default")
 
         self.addChild(world)
+
+        self.camera = cameraController.camera
     }
     
     
@@ -35,13 +39,13 @@ class GameScene: BaseScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 13:    // w
-            break
+            cameraController.pan(vector: CGVector(dx: 0, dy: 4))
         case 0:     // a
-            break
+            cameraController.pan(vector: CGVector(dx: -4, dy: 0))
         case 1:     // s
-            break
+            cameraController.pan(vector: CGVector(dx: 0, dy: -4))
         case 2:     // d
-            break
+            cameraController.pan(vector: CGVector(dx: 4, dy: 0))
 
         case 0x31:  // spaceBar
             switch world.currentLocation{
