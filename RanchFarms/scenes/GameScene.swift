@@ -3,10 +3,19 @@ import GameplayKit
 
 class GameScene: BaseScene {
     let cameraController = CameraController()
+    let inputController = InputController()
+    var actionController: ActionController!
 
     override func didMove(to view: SKView) {
         // TODO find a proper home for this
         loadGame()
+
+        linkControllers()
+    }
+
+    private func linkControllers() {
+        actionController = ActionController(world: world)
+        inputController.handleMove = actionController.actionMove
     }
 
     private func loadGame() {
@@ -40,13 +49,31 @@ class GameScene: BaseScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 13:    // w
-            world.player.position = world.player.position + CGVector(dx: 0, dy: 8)
+            inputController.keyDown(.MoveUp)
         case 0:     // a
-            world.player.position = world.player.position + CGVector(dx: -8, dy: 0)
+            inputController.keyDown(.MoveLeft)
         case 1:     // s
-            world.player.position = world.player.position + CGVector(dx: 0, dy: -8)
+            inputController.keyDown(.MoveDown)
         case 2:     // d
-            world.player.position = world.player.position + CGVector(dx: 8, dy: 0)
+            inputController.keyDown(.MoveRight)
+
+        case 0x31:  // spaceBar
+            break
+        default:
+            print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
+        }
+    }
+
+    override func keyUp(with event: NSEvent) {
+        switch event.keyCode {
+        case 13:    // w
+            inputController.keyUp(.MoveUp)
+        case 0:     // a
+            inputController.keyUp(.MoveLeft)
+        case 1:     // s
+            inputController.keyUp(.MoveDown)
+        case 2:     // d
+            inputController.keyUp(.MoveRight)
 
         case 0x31:  // spaceBar
             switch world.currentLocation{
@@ -56,7 +83,7 @@ class GameScene: BaseScene {
                 world.changeLocation(to: .Farm, playerPosition: CGPoint(x: -5*32, y: 0))
             }
         default:
-            print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
+            print("keyUp: \(event.characters!) keyCode: \(event.keyCode)")
         }
     }
 
@@ -64,5 +91,6 @@ class GameScene: BaseScene {
         // Called before each frame is rendered
 
         cameraController.update()
+        inputController.update()
     }
 }

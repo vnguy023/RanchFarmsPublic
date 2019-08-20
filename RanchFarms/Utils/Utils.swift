@@ -90,7 +90,7 @@ extension CGVector {
     }
 
     func angleRadians() -> CGFloat {
-        if isZeroVector() {
+        if isZeroVector {
             return CGFloat.pi / -2
         }
 
@@ -101,12 +101,11 @@ extension CGVector {
         }
     }
 
-    func isZeroVector() -> Bool {
-        if self.dx == 0 && self.dy == 0 {
-            return true
+    var isZeroVector: Bool {
+        get {
+            if self.dx == 0 && self.dy == 0 { return true }
+            return false
         }
-
-        return false
     }
 
     static func getDirection(start: CGPoint, end: CGPoint) -> CGVector {
