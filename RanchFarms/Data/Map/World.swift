@@ -18,10 +18,15 @@ class World: SKNode {
 
         currentLocation = .Farm
 
-        preloadGameObjects()
+        reloadGameObjects()
     }
 
-    func preloadGameObjects() {
+    func changeLocation(to newLocation: Location) {
+        currentLocation = newLocation
+        reloadGameObjects()
+    }
+
+    func reloadGameObjects() {
         self.removeAllChildren()
 
         for gameArea in gameAreas.filter({$0.location == currentLocation}) {

@@ -43,7 +43,13 @@ class GameScene: BaseScene {
         case 2:     // d
             break
 
-        case 0x31: break// spaceBar
+        case 0x31:  // spaceBar
+            switch world.currentLocation{
+            case .Farm:
+                world.changeLocation(to: .Town)
+            case .Town:
+                world.changeLocation(to: .Farm)
+            }
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
