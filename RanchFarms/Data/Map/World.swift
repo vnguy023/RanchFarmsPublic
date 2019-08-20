@@ -33,6 +33,7 @@ class World: SKNode {
 
     private func loadDefault() {
         gameAreas.append(sampleFarm())
+        gameAreas.append(sampleTown())
     }
 
     private func sampleFarm() -> GameArea {
@@ -45,6 +46,22 @@ class World: SKNode {
                 if x%2 == 0 {
                     tileType = .Grass
                 }
+
+                let tile = Tile.init(tileType: tileType, position: CGPoint(x: x*32, y: y*32), location: gameArea.location)
+                gameArea.tiles.append(tile)
+            }
+        }
+
+        return gameArea
+    }
+
+    private func sampleTown() -> GameArea {
+        let gameArea = GameArea()
+        gameArea.location = Location.Town
+
+        for x in 0...10 {
+            for y in -5...5 {
+                let tileType = TileType.Water
 
                 let tile = Tile.init(tileType: tileType, position: CGPoint(x: x*32, y: y*32), location: gameArea.location)
                 gameArea.tiles.append(tile)
