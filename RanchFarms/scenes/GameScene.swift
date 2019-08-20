@@ -1,12 +1,16 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: BaseScene {
-    
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    
+class GameScene: BaseScene {    
     override func didMove(to view: SKView) {
+        // TODO find a proper home for this
+        loadGame()
+    }
+
+    private func loadGame() {
+        world = World(saveLocation: "Default")
+
+        self.addChild(world)
     }
     
     
@@ -30,6 +34,15 @@ class GameScene: BaseScene {
     
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
+        case 13:    // w
+            break
+        case 0:     // a
+            break
+        case 1:     // s
+            break
+        case 2:     // d
+            break
+
         case 0x31: break// spaceBar
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
