@@ -40,13 +40,13 @@ class GameScene: BaseScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 13:    // w
-            world.player.position.y += 8
+            world.player.position = world.player.position + CGVector(dx: 0, dy: 8)
         case 0:     // a
-            world.player.position.x += -8
+            world.player.position = world.player.position + CGVector(dx: -8, dy: 0)
         case 1:     // s
-            world.player.position.y += -8
+            world.player.position = world.player.position + CGVector(dx: 0, dy: -8)
         case 2:     // d
-            world.player.position.x += 8
+            world.player.position = world.player.position + CGVector(dx: 8, dy: 0)
 
         case 0x31:  // spaceBar
             switch world.currentLocation{
