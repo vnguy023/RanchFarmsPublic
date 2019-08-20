@@ -16,7 +16,9 @@ class GameScene: BaseScene {
 
     private func linkControllers() {
         actionController = ActionController(world: world)
+
         inputController.handleMove = actionController.actionMove
+        inputController.handlePrimary[.ClickDown] = actionController.actionPrimary
     }
 
     private func loadGame() {
@@ -59,6 +61,7 @@ class GameScene: BaseScene {
             inputController.keyDown(.MoveRight)
 
         case 0x31:  // spaceBar
+            inputController.pressedDown(inputKey: .Primary, value: true)
             break
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
@@ -77,12 +80,7 @@ class GameScene: BaseScene {
             inputController.keyUp(.MoveRight)
 
         case 0x31:  // spaceBar
-            switch world.currentLocation{
-            case .Farm:
-                world.changeLocation(to: .Town, playerPosition: CGPoint(x: 0*32, y: 0))
-            case .Town:
-                world.changeLocation(to: .Farm, playerPosition: CGPoint(x: -5*32, y: 0))
-            }
+            inputController.pressedDown(inputKey: .Primary, value: false)
 
         case 42:    // \
             inputController.keyUp(.TOGGLE_KEYBOARD_MODE)
@@ -119,6 +117,30 @@ class GameScene: BaseScene {
                                       dy: CGFloat(gc.extendedGamepad!.leftThumbstick.yAxis.value))
             let movePower = min(moveVector.getMagnitude(), CGFloat(1))
             inputController.SetLeftThumbStick(player: player, direction: moveVector, power: movePower)
+
+            if gc.extendedGamepad!.buttonA.isPressed {
+                inputController.keyUp(.Primary)
+            }
+
+            if gc.extendedGamepad!.buttonB.isPressed {
+                inputController.keyUp(.Cancel)
+            }
+
+            if gc.extendedGamepad!.buttonX.isPressed {
+                inputController.keyUp(.Use)
+            }
+
+            if gc.extendedGamepad!.buttonX.isPressed {
+                inputController.keyUp(.Menu)
+            }
+
+            if gc.extendedGamepad!.leftShoulder.isPressed {
+                inputController.keyUp(.SwitchLeft)
+            }
+
+            if gc.extendedGamepad!.rightShoulder.isPressed {
+                inputController.keyUp(.SwitchRight)
+            }
         }
     }
 }
