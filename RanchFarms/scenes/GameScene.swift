@@ -52,17 +52,19 @@ class GameScene: BaseScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 13:    // w
-            inputController.keyDown(.MoveUp)
+            inputController.pressedDown(inputKey: .MoveUp, value: true)
         case 0:     // a
-            inputController.keyDown(.MoveLeft)
+            inputController.pressedDown(inputKey: .MoveLeft, value: true)
         case 1:     // s
-            inputController.keyDown(.MoveDown)
+            inputController.pressedDown(inputKey: .MoveDown, value: true)
         case 2:     // d
-            inputController.keyDown(.MoveRight)
+            inputController.pressedDown(inputKey: .MoveRight, value: true)
 
         case 0x31:  // spaceBar
             inputController.pressedDown(inputKey: .Primary, value: true)
-            break
+
+        case 42:    // \
+            inputController.pressedDown(inputKey: .TOGGLE_KEYBOARD_MODE, value: true)
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
@@ -71,19 +73,19 @@ class GameScene: BaseScene {
     override func keyUp(with event: NSEvent) {
         switch event.keyCode {
         case 13:    // w
-            inputController.keyUp(.MoveUp)
+            inputController.pressedDown(inputKey: .MoveUp, value: false)
         case 0:     // a
-            inputController.keyUp(.MoveLeft)
+            inputController.pressedDown(inputKey: .MoveLeft, value: false)
         case 1:     // s
-            inputController.keyUp(.MoveDown)
+            inputController.pressedDown(inputKey: .MoveDown, value: false)
         case 2:     // d
-            inputController.keyUp(.MoveRight)
+            inputController.pressedDown(inputKey: .MoveRight, value: false)
 
         case 0x31:  // spaceBar
             inputController.pressedDown(inputKey: .Primary, value: false)
 
         case 42:    // \
-            inputController.keyUp(.TOGGLE_KEYBOARD_MODE)
+            inputController.pressedDown(inputKey: .TOGGLE_KEYBOARD_MODE, value: false)
         default:
             print("keyUp: \(event.characters!) keyCode: \(event.keyCode)")
         }
@@ -118,29 +120,13 @@ class GameScene: BaseScene {
             let movePower = min(moveVector.getMagnitude(), CGFloat(1))
             inputController.SetLeftThumbStick(player: player, direction: moveVector, power: movePower)
 
-            if gc.extendedGamepad!.buttonA.isPressed {
-                inputController.keyUp(.Primary)
-            }
+            inputController.pressedDown(inputKey: .Primary, value: gc.extendedGamepad!.buttonA.isPressed)
+            inputController.pressedDown(inputKey: .Cancel, value: gc.extendedGamepad!.buttonB.isPressed)
+            inputController.pressedDown(inputKey: .Use, value: gc.extendedGamepad!.buttonX.isPressed)
+            inputController.pressedDown(inputKey: .Menu, value: gc.extendedGamepad!.buttonY.isPressed)
 
-            if gc.extendedGamepad!.buttonB.isPressed {
-                inputController.keyUp(.Cancel)
-            }
-
-            if gc.extendedGamepad!.buttonX.isPressed {
-                inputController.keyUp(.Use)
-            }
-
-            if gc.extendedGamepad!.buttonX.isPressed {
-                inputController.keyUp(.Menu)
-            }
-
-            if gc.extendedGamepad!.leftShoulder.isPressed {
-                inputController.keyUp(.SwitchLeft)
-            }
-
-            if gc.extendedGamepad!.rightShoulder.isPressed {
-                inputController.keyUp(.SwitchRight)
-            }
+            inputController.pressedDown(inputKey: .SwitchLeft, value: gc.extendedGamepad!.leftShoulder.isPressed)
+            inputController.pressedDown(inputKey: .SwitchRight, value: gc.extendedGamepad!.rightShoulder.isPressed)
         }
     }
 }

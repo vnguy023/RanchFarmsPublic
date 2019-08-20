@@ -18,9 +18,6 @@ class InputController {
         case ClickUp, ClickDown
     }
 
-    private var IsKeyDown = [InputKey: Bool]()
-    private var IsKeyUp = [InputKey: Bool]()
-
     private var mButtonState = [InputKey: ButtonState]()
 
     private var keyBoardEnabled = true
@@ -54,9 +51,6 @@ class InputController {
             } else {
                 keyBoardEnabled = true
             }
-
-            IsKeyDown.removeAll()
-            IsKeyUp.removeAll()
             print ("[KeyboardMode=\(keyBoardEnabled)]")
         }
 
@@ -89,16 +83,16 @@ class InputController {
 
     private func ProcessKeyboardMode() {
         var moveVector = CGVector()
-        if IsKeyDown[InputKey.MoveUp] != nil {
+        if getButtonState(.MoveUp) == .ClickDown ||  getButtonState(.MoveUp) == .IsDown {
             moveVector.dy += 1.0
         }
-        if IsKeyDown[InputKey.MoveDown] != nil {
+        if getButtonState(.MoveDown) == .ClickDown ||  getButtonState(.MoveDown) == .IsDown {
             moveVector.dy -= 1.0
         }
-        if IsKeyDown[InputKey.MoveRight] != nil {
+        if getButtonState(.MoveRight) == .ClickDown ||  getButtonState(.MoveRight) == .IsDown {
             moveVector.dx += 1.0
         }
-        if IsKeyDown[InputKey.MoveLeft] != nil {
+        if getButtonState(.MoveLeft) == .ClickDown ||  getButtonState(.MoveLeft) == .IsDown {
             moveVector.dx -= 1.0
         }
         moveVector = moveVector.normalize()
@@ -128,16 +122,6 @@ class InputController {
 
         if let executeHandle = handleSwitchLeft[getButtonState(.SwitchLeft)] { executeHandle() }
         if let executeHandle = handleSwitchRight[getButtonState(.SwitchRight)] { executeHandle() }
-    }
-
-    func keyUp(_ inputKey: InputKey) {
-        IsKeyDown[inputKey] = nil
-        IsKeyUp[inputKey] = true
-    }
-
-    func keyDown(_ inputKey: InputKey) {
-        IsKeyDown[inputKey] = true
-        IsKeyUp[inputKey] = nil
     }
 
     func pressedDown(inputKey: InputKey, value: Bool) {
