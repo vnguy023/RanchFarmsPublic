@@ -1,4 +1,5 @@
 import SpriteKit
+import GameController
 import GameplayKit
 
 class GameScene: BaseScene {
@@ -82,6 +83,9 @@ class GameScene: BaseScene {
             case .Town:
                 world.changeLocation(to: .Farm, playerPosition: CGPoint(x: -5*32, y: 0))
             }
+
+        case 42:    // \
+            inputController.keyUp(.TOGGLE_KEYBOARD_MODE)
         default:
             print("keyUp: \(event.characters!) keyCode: \(event.keyCode)")
         }
@@ -89,8 +93,32 @@ class GameScene: BaseScene {
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        processControllerInput()
+        inputController.update()
 
         cameraController.update()
-        inputController.update()
+    }
+
+    func processControllerInput() {
+        // TODO: Figure out how to do this properly for multiple people/controllers
+        for gc in GCController.controllers() {
+            if gc.playerIndex == .indexUnset {
+                // need to assign a player to this
+                // for now setting all to player 1
+                gc.playerIndex = .index1
+            }
+
+            var player = PlayerIndex.PlayerOne
+            switch gc.playerIndex {
+            case .index1:
+                player = .PlayerOne
+            default: break
+            }
+
+            let moveVector = CGVector(dx: CGFloat(gc.extendedGamepad!.leftThumbstick.xAxis.value),
+                                      dy: CGFloat(gc.extendedGamepad!.leftThumbstick.yAxis.value))
+            let movePower = min(moveVector.getMagnitude(), CGFloat(1))
+            inputController.SetLeftThumbStick(player: player, direction: moveVector, power: movePower)
+        }
     }
 }
