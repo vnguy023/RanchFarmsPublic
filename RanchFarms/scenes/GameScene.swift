@@ -15,6 +15,7 @@ class GameScene: BaseScene {
         self.addChild(world)
 
         self.camera = cameraController.camera
+        cameraController.gameObjectToFollow = world.player
     }
     
     
@@ -62,8 +63,6 @@ class GameScene: BaseScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
 
-        if world != nil {
-            cameraController.moveTo(position: world.player.position)
-        }
+        cameraController.update()
     }
 }
