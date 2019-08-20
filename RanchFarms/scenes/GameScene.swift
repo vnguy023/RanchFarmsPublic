@@ -39,20 +39,20 @@ class GameScene: BaseScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 13:    // w
-            cameraController.pan(vector: CGVector(dx: 0, dy: 4))
+            world.player.position.y += 8
         case 0:     // a
-            cameraController.pan(vector: CGVector(dx: -4, dy: 0))
+            world.player.position.x += -8
         case 1:     // s
-            cameraController.pan(vector: CGVector(dx: 0, dy: -4))
+            world.player.position.y += -8
         case 2:     // d
-            cameraController.pan(vector: CGVector(dx: 4, dy: 0))
+            world.player.position.x += 8
 
         case 0x31:  // spaceBar
             switch world.currentLocation{
             case .Farm:
-                world.changeLocation(to: .Town)
+                world.changeLocation(to: .Town, playerPosition: CGPoint(x: 0*32, y: 0))
             case .Town:
-                world.changeLocation(to: .Farm)
+                world.changeLocation(to: .Farm, playerPosition: CGPoint(x: -5*32, y: 0))
             }
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
@@ -61,5 +61,9 @@ class GameScene: BaseScene {
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+
+        if world != nil {
+            cameraController.moveTo(position: world.player.position)
+        }
     }
 }

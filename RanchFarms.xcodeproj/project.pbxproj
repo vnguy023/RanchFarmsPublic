@@ -28,6 +28,7 @@
 		6C6033D7230B731A00746309 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033D6230B731A00746309 /* Tile.swift */; };
 		6C6033D9230B7E5600746309 /* TextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033D8230B7E5600746309 /* TextureManager.swift */; };
 		6C6033DC230B833200746309 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033DB230B833200746309 /* CameraController.swift */; };
+		6C6033DF230B850C00746309 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033DE230B850C00746309 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		6C6033D6230B731A00746309 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		6C6033D8230B7E5600746309 /* TextureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureManager.swift; sourceTree = "<group>"; };
 		6C6033DB230B833200746309 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		6C6033DE230B850C00746309 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				6C6033C2230B646D00746309 /* GameObjects */,
 				6C6033C7230B64EB00746309 /* Items */,
 				6C6033D0230B66B400746309 /* Map */,
+				6C6033E0230B851700746309 /* people */,
 				6C6033D3230B72DA00746309 /* Tiles */,
 				6C6033DA230B7E5E00746309 /* Managers */,
 			);
@@ -176,6 +179,14 @@
 				6C6033DB230B833200746309 /* CameraController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6C6033E0230B851700746309 /* people */ = {
+			isa = PBXGroup;
+			children = (
+				6C6033DE230B850C00746309 /* Person.swift */,
+			);
+			path = people;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +267,7 @@
 				6C6033B3230B61BF00746309 /* SplashScene.swift in Sources */,
 				6C6033D2230B6A1500746309 /* ItemInfo.swift in Sources */,
 				6C6033BB230B636B00746309 /* GameObject.swift in Sources */,
+				6C6033DF230B850C00746309 /* Person.swift in Sources */,
 				6C6033A1230B60B000746309 /* GameScene.swift in Sources */,
 				6C6033CF230B66A600746309 /* Location.swift in Sources */,
 				6C6033C6230B64B200746309 /* ItemType.swift in Sources */,

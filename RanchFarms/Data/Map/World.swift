@@ -1,12 +1,18 @@
 import SpriteKit
 
 class World: SKNode {
+
+    var player: Person!
+
     var gameAreas = [GameArea]()
     var npcs = [GameObject]()
     var buildings = [GameObject]()
     var envItems = [GameObject]()
 
-    var currentLocation = Location.Farm
+    var currentLocation: Location {
+        get {return player.location}
+        set {player.location = newValue}
+    }
     
     override init() {
         super.init()
@@ -16,18 +22,19 @@ class World: SKNode {
         super.init()
         loadDefault()
 
-        currentLocation = .Farm
-
         reloadGameObjects()
     }
 
-    func changeLocation(to newLocation: Location) {
+    func changeLocation(to newLocation: Location, playerPosition: CGPoint) {
+        player.position = playerPosition
         currentLocation = newLocation
         reloadGameObjects()
     }
 
     func reloadGameObjects() {
         self.removeAllChildren()
+
+        self.addChild(player)
 
         for gameArea in gameAreas.filter({$0.location == currentLocation}) {
             for tile in gameArea.tiles {
@@ -37,6 +44,8 @@ class World: SKNode {
     }
 
     private func loadDefault() {
+        player = Person(position: CGPoint(), location: .Farm)
+
         gameAreas.append(sampleFarm())
         gameAreas.append(sampleTown())
     }
