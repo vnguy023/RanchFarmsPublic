@@ -6,6 +6,7 @@ class GameScene: BaseScene {
     let cameraController = CameraController()
     let inputController = InputController()
     var actionController: ActionController!
+    var hudController: HudController!
 
     override func didMove(to view: SKView) {
         // TODO find a proper home for this
@@ -16,6 +17,7 @@ class GameScene: BaseScene {
 
     private func linkControllers() {
         actionController = ActionController(world: world)
+        hudController = HudController(camera: cameraController.camera, world: world, screenSize: self.size)
 
         inputController.handleMove = actionController.actionMove
         inputController.handlePrimary[.ClickDown] = actionController.actionPrimary
@@ -29,13 +31,6 @@ class GameScene: BaseScene {
         self.camera = cameraController.camera
         cameraController.gameObjectToFollow = world.player
         self.addChild(cameraController.camera)
-
-        // TODO: find a home for this hud stuff
-
-        let viewInventory = ViewInventory(inventory: world.player.inventory)
-        viewInventory.position.y = self.size.height / -2 + viewInventory.size.height/2
-
-        cameraController.camera.addChild(viewInventory)
     }
     
     
@@ -105,6 +100,7 @@ class GameScene: BaseScene {
         inputController.update()
 
         cameraController.update()
+        hudController.update()
     }
 
     func processControllerInput() {
