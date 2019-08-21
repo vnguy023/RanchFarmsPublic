@@ -42,8 +42,7 @@ class TextureManager {
     }
 
     private func postProcess () {
-        for texture in tileMap {
-            texture.value.filteringMode = .nearest
-        }
+        itemMap.forEach({$0.value.filteringMode = .nearest})
+        tileMap.forEach({$0.value.filteringMode = .nearest})
     }
 }

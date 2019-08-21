@@ -45,6 +45,9 @@ class World: SKNode {
 
     private func loadDefault() {
         player = Person(position: CGPoint(), location: .Farm)
+        player.inventory.items[2] = Item(itemType: .Axe, quantity: 2)
+        player.inventory.items[5] = Item(itemType: .Axe, quantity: 1)
+        player.inventory.items[6] = Item(itemType: .Axe, quantity: 3)
 
         gameAreas.append(sampleFarm())
         gameAreas.append(sampleTown())
