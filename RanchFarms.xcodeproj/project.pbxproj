@@ -111,6 +111,7 @@
 				6C6033B9230B633A00746309 /* Data */,
 				6C6033DD230B833900746309 /* Controllers */,
 				6C6033A2230B60B000746309 /* ViewController.swift */,
+				6C6033DA230B7E5E00746309 /* Managers */,
 				6C9E3DFE230CE2DD007417E1 /* Views */,
 				6C9D3605230BA82A00168A28 /* Utils */,
 				6C6033A4230B60B300746309 /* Assets.xcassets */,
@@ -141,7 +142,6 @@
 				6C6033D0230B66B400746309 /* Map */,
 				6C6033E0230B851700746309 /* people */,
 				6C6033D3230B72DA00746309 /* Tiles */,
-				6C6033DA230B7E5E00746309 /* Managers */,
 			);
 			path = Data;
 			sourceTree = "<group>";
