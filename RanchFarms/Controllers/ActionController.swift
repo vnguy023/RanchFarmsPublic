@@ -19,4 +19,12 @@ class ActionController {
             world.changeLocation(to: .Farm, playerPosition: CGPoint(x: -5*32, y: 0))
         }
     }
+
+    func actionSwitchLeft() {
+        
+    }
+
+    func actionSwitchRight() {
+
+    }
 }

@@ -21,6 +21,8 @@ class GameScene: BaseScene {
 
         inputController.handleMove = actionController.actionMove
         inputController.handlePrimary[.ClickDown] = actionController.actionPrimary
+        inputController.handleSwitchLeft[.ClickDown] = actionController.actionSwitchLeft
+        inputController.handleSwitchRight[.ClickDown] = actionController.actionSwitchRight
     }
 
     private func loadGame() {
