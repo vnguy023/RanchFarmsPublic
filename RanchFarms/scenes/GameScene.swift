@@ -66,6 +66,11 @@ class GameScene: BaseScene {
         case 0x31:  // spaceBar
             inputController.pressedDown(inputKey: .Primary, value: true)
 
+        case 12:    // q
+            inputController.pressedDown(inputKey: .SwitchLeft, value: true)
+        case 14:    // e
+            inputController.pressedDown(inputKey: .SwitchRight, value: true)
+
         case 42:    // \
             inputController.pressedDown(inputKey: .TOGGLE_KEYBOARD_MODE, value: true)
         default:
@@ -86,6 +91,11 @@ class GameScene: BaseScene {
 
         case 0x31:  // spaceBar
             inputController.pressedDown(inputKey: .Primary, value: false)
+
+        case 12:    // q
+            inputController.pressedDown(inputKey: .SwitchLeft, value: false)
+        case 14:    // e
+            inputController.pressedDown(inputKey: .SwitchRight, value: false)
 
         case 42:    // \
             inputController.pressedDown(inputKey: .TOGGLE_KEYBOARD_MODE, value: false)
