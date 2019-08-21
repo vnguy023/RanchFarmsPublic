@@ -28,6 +28,26 @@ class GameScene: BaseScene {
 
         self.camera = cameraController.camera
         cameraController.gameObjectToFollow = world.player
+
+        // TODO: find a home for this hud stuff
+        let item1 = ViewItemButton(item: nil)
+        let item2 = ViewItemButton(item: Item(itemType: .Axe, quantity: 2))
+        let item3 = ViewItemButton(item: Item(itemType: .Axe, quantity: 1))
+
+        item3.highlight = true
+
+        item1.position.y = (self.size.height / -2) + item1.size.height/2
+        item1.position.x = 0 - item1.size.width
+
+        item2.position = item1.position
+        item2.position.x += item2.size.width
+
+        item3.position = item2.position
+        item3.position.x += item3.size.width
+
+        self.addChild(item1)
+        self.addChild(item2)
+        self.addChild(item3)
     }
     
     
