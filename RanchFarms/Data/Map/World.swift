@@ -64,7 +64,9 @@ class World: SKNode {
                     tileType = .Grass
                 }
 
-                let tile = Tile.init(tileType: tileType, position: CGPoint(x: x*32, y: y*32), location: gameArea.location)
+                let tile = Tile.init(tileType: tileType,
+                                     position: CGPoint(x: CGFloat(x) * Config.tileSize.width, y: CGFloat(y) * Config.tileSize.height),
+                                     location: gameArea.location)
                 gameArea.tiles.append(tile)
             }
         }
@@ -80,7 +82,9 @@ class World: SKNode {
             for y in -5...5 {
                 let tileType = TileType.Water
 
-                let tile = Tile.init(tileType: tileType, position: CGPoint(x: x*32, y: y*32), location: gameArea.location)
+                let tile = Tile.init(tileType: tileType,
+                                     position: CGPoint(x: CGFloat(x) * Config.tileSize.width, y: CGFloat(y) * Config.tileSize.height),
+                                     location: gameArea.location)
                 gameArea.tiles.append(tile)
             }
         }
