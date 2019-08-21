@@ -8,7 +8,7 @@ class ActionController {
     }
 
     func actionMove(moveVector: CGVector) {
-        world.player.position = world.player.position + moveVector
+        world.player.position = world.player.position + moveVector.scale(world.player.moveSpeed)
     }
 
     func actionPrimary() {

@@ -7,6 +7,8 @@ class GameObject: SKSpriteNode {
     }
     var location = Location.Farm
 
+    var moveSpeed = Config.tileSize.width * 4 / 60
+
     var inventory = Inventory()
 
     init() {
