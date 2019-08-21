@@ -26,6 +26,10 @@ class ViewInventory: SKSpriteNode {
             itemButton.zPosition = 100
             itemButton.position.x = self.size.width / -2 + (CGFloat(index) * Config.itemImageSize.width) + Config.itemImageSize.width/2
             self.addChild(itemButton)
+
+            if index == selectedItemPos {
+                itemButton.highlight = true
+            }
         }
     }
 
