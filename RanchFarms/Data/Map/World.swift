@@ -91,10 +91,16 @@ class World: SKNode {
     }
 
     private func sampleTown() -> GameArea {
+        let location = Location.Town
+
         let gameArea = GameArea()
-        gameArea.location = Location.Town
+        gameArea.location = location
 
         //Buildings
+        let door = Building(buildingType: .Door,
+                            position: CGPoint(x: CGFloat(5) * Config.tileSize.width, y: CGFloat(-6) * Config.tileSize.height),
+                            location: location)
+        gameArea.buildings.append(door)
 
         // Tiles
         for x in 0...10 {
@@ -103,7 +109,7 @@ class World: SKNode {
 
                 let tile = Tile.init(tileType: tileType,
                                      position: CGPoint(x: CGFloat(x) * Config.tileSize.width, y: CGFloat(y) * Config.tileSize.height),
-                                     location: gameArea.location)
+                                     location: location)
                 gameArea.tiles.append(tile)
             }
         }
