@@ -21,10 +21,10 @@ class ActionController {
     }
 
     func actionSwitchLeft() {
-        
+        world.player.inventory.changeHotBarIndexLeft()
     }
 
     func actionSwitchRight() {
-
+        world.player.inventory.changeHotBarIndexRight()
     }
 }

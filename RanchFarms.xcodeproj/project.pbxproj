@@ -35,7 +35,7 @@
 		6C9D3609230BEC3C00168A28 /* ActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9D3608230BEC3C00168A28 /* ActionController.swift */; };
 		6C9E3DFD230CE2D6007417E1 /* ViewItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3DFC230CE2D6007417E1 /* ViewItemButton.swift */; };
 		6C9E3E00230CE31B007417E1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3DFF230CE31B007417E1 /* Config.swift */; };
-		6C9E3E02230CFCAE007417E1 /* ViewInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E01230CFCAE007417E1 /* ViewInventory.swift */; };
+		6C9E3E02230CFCAE007417E1 /* ViewInventoryHotbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E01230CFCAE007417E1 /* ViewInventoryHotbar.swift */; };
 		6C9E3E04230D43D3007417E1 /* HudController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E03230D43D3007417E1 /* HudController.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +71,7 @@
 		6C9D3608230BEC3C00168A28 /* ActionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionController.swift; sourceTree = "<group>"; };
 		6C9E3DFC230CE2D6007417E1 /* ViewItemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewItemButton.swift; sourceTree = "<group>"; };
 		6C9E3DFF230CE31B007417E1 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		6C9E3E01230CFCAE007417E1 /* ViewInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInventory.swift; sourceTree = "<group>"; };
+		6C9E3E01230CFCAE007417E1 /* ViewInventoryHotbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInventoryHotbar.swift; sourceTree = "<group>"; };
 		6C9E3E03230D43D3007417E1 /* HudController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,7 +223,7 @@
 		6C9E3DFE230CE2DD007417E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6C9E3E01230CFCAE007417E1 /* ViewInventory.swift */,
+				6C9E3E01230CFCAE007417E1 /* ViewInventoryHotbar.swift */,
 				6C9E3DFC230CE2D6007417E1 /* ViewItemButton.swift */,
 			);
 			path = Views;
@@ -302,7 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C6033C9230B651500746309 /* Inventory.swift in Sources */,
-				6C9E3E02230CFCAE007417E1 /* ViewInventory.swift in Sources */,
+				6C9E3E02230CFCAE007417E1 /* ViewInventoryHotbar.swift in Sources */,
 				6C6033C4230B648100746309 /* Item.swift in Sources */,
 				6C6033A3230B60B000746309 /* ViewController.swift in Sources */,
 				6C6033B3230B61BF00746309 /* SplashScene.swift in Sources */,

@@ -7,7 +7,7 @@ class HudController{
 
     let camera: SKCameraNode!
 
-    let viewInventory: ViewInventory
+    let viewInventoryHotbar: ViewInventoryHotbar
 
     init(camera: SKCameraNode, world: World, screenSize: CGSize) {
         self.screenSize = screenSize
@@ -15,12 +15,12 @@ class HudController{
         self.camera = camera
         self.world = world
 
-        viewInventory = ViewInventory(inventory: world.player.inventory)
-        viewInventory.position.y = screenSize.height / -2 + viewInventory.size.height/2
-        camera.addChild(viewInventory)
+        viewInventoryHotbar = ViewInventoryHotbar(inventory: world.player.inventory)
+        viewInventoryHotbar.position.y = screenSize.height / -2 + viewInventoryHotbar.size.height/2
+        camera.addChild(viewInventoryHotbar)
     }
 
     func update() {
-        viewInventory.update()
+        viewInventoryHotbar.update()
     }
 }

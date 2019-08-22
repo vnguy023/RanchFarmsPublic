@@ -1,6 +1,6 @@
 import SpriteKit
 
-class ViewInventory: SKSpriteNode {
+class ViewInventoryHotbar: SKSpriteNode {
     private var MAX_ITEM_SIZE = CGFloat(10)
 
     private var selectedItemPos = 0
@@ -27,7 +27,7 @@ class ViewInventory: SKSpriteNode {
             itemButton.position.x = self.size.width / -2 + (CGFloat(index) * Config.itemImageSize.width) + Config.itemImageSize.width/2
             self.addChild(itemButton)
 
-            if index == selectedItemPos {
+            if index == inventory.hotBarSelectedIndex {
                 itemButton.highlight = true
             }
         }
