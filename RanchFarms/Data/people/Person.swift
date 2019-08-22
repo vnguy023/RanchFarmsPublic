@@ -1,6 +1,8 @@
 import SpriteKit
 
 class Person: GameObject {
+    var faceDirection = CGVector.SOUTH
+
     override init(position: CGPoint, location: Location) {
         super.init(position: position, location: location)
 

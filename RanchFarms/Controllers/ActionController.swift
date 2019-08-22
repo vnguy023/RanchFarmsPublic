@@ -15,7 +15,7 @@ class ActionController {
         let currentGameArea = world.gameAreas.filter({$0.location == world.currentLocation})[0]
 
         if let door = currentGameArea.buildings.filter({$0.type == .Door}).first {
-            world.changeLocation(to: door.teleport!.location, playerPosition: door.teleport!.position)
+            world.teleport(to: door.teleport!)
         }
     }
 

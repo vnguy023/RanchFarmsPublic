@@ -29,9 +29,11 @@ class World: SKNode {
         reloadGameObjects()
     }
 
-    func changeLocation(to newLocation: Location, playerPosition: CGPoint) {
-        player.position = playerPosition
-        currentLocation = newLocation
+    func teleport(to teleport: Teleport) {
+        player.position = teleport.position
+        player.faceDirection = teleport.directionToFace
+        currentLocation = teleport.location
+
         reloadGameObjects()
     }
 
