@@ -41,9 +41,8 @@ class World: SKNode {
         self.addChild(player)
 
         for gameArea in gameAreas.filter({$0.location == currentLocation}) {
-            for tile in gameArea.tiles {
-                self.addChild(tile)
-            }
+            gameArea.buildings.forEach({self.addChild($0)})
+            gameArea.tiles.forEach({self.addChild($0)})
         }
     }
 
@@ -58,9 +57,22 @@ class World: SKNode {
     }
 
     private func sampleFarm() -> GameArea {
-        let gameArea = GameArea()
-        gameArea.location = Location.Farm
+        let location = Location.Farm
 
+        let gameArea = GameArea()
+        gameArea.location = location
+
+        //Buildings
+        let door = Building(buildingType: .Door,
+                            position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(6) * Config.tileSize.height),
+                            location: location)
+        gameArea.buildings.append(door)
+        let bed = Building(buildingType: .SingleBed,
+                           position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(-3) * Config.tileSize.height),
+                           location: location)
+        gameArea.buildings.append(bed)
+
+        // Tiles
         for x in -5...5 {
             for y in -5...5 {
                 var tileType = TileType.Dirt
@@ -70,7 +82,7 @@ class World: SKNode {
 
                 let tile = Tile.init(tileType: tileType,
                                      position: CGPoint(x: CGFloat(x) * Config.tileSize.width, y: CGFloat(y) * Config.tileSize.height),
-                                     location: gameArea.location)
+                                     location: location)
                 gameArea.tiles.append(tile)
             }
         }
@@ -82,6 +94,9 @@ class World: SKNode {
         let gameArea = GameArea()
         gameArea.location = Location.Town
 
+        //Buildings
+
+        // Tiles
         for x in 0...10 {
             for y in -5...5 {
                 let tileType = TileType.Water

@@ -7,7 +7,7 @@ class Person: GameObject {
         self.texture = SKTexture(imageNamed: "personLily")
         self.texture!.filteringMode = .nearest
 
-        self.zPosition = 100
+        self.zPosition = 500
     }
     
     required init?(coder aDecoder: NSCoder) {

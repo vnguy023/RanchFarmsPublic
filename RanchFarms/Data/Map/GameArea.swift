@@ -1,8 +1,11 @@
 import SpriteKit
 
 class GameArea {
-    var tiles = [Tile]()
     var location = Location.Farm
+
+
+    var buildings = [GameObject]()
+    var tiles = [Tile]()
 
     init() {
     }

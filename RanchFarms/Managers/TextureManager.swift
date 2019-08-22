@@ -3,12 +3,15 @@ import SpriteKit
 class TextureManager {
     static let shared = TextureManager()
 
-    private var hudMap = [String:SKTexture]()
-    private var itemMap = [ItemType:SKTexture]()
-    private var tileMap = [TileType:SKTexture]()
+    private var hudMap = [String: SKTexture]()
+    private var buildingMap = [BuildingType: SKTexture]()
+    private var itemMap = [ItemType: SKTexture]()
+    private var tileMap = [TileType: SKTexture]()
 
     private init() {
         loadHud()
+
+        loadBuildings()
         loadItems()
         loadTiles()
 
@@ -19,6 +22,12 @@ class TextureManager {
         hudMap["hudItemBorder"] = SKTexture(imageNamed: "hudItemBorder")
         hudMap["hudItemBorderHighlight"] = SKTexture(imageNamed: "hudItemBorderHighlight")
         hudMap["hudItemBorderShadow"] = SKTexture(imageNamed: "hudItemBorderShadow")
+    }
+
+    private func loadBuildings() {
+        buildingMap[.Door] = SKTexture(imageNamed: "buildingDoor")
+        buildingMap[.SingleBed] = SKTexture(imageNamed: "buildingSingleBed")
+        buildingMap[.Rock] = SKTexture(imageNamed: "buildingRock")
     }
 
     private func loadItems() {
@@ -36,6 +45,15 @@ class TextureManager {
             print ("[TextureManager] [Desc=No texture] [hudImageName=\(hudImageName)]")
         } else {
             return hudMap[hudImageName]
+        }
+        return nil
+    }
+
+    func getTexture(buildingType: BuildingType) -> SKTexture? {
+        if buildingMap[buildingType] == nil {
+            print ("[TextureManager] [Desc=No texture] [BuildingType=\(buildingType)]")
+        } else {
+            return buildingMap[buildingType]
         }
         return nil
     }
@@ -60,6 +78,8 @@ class TextureManager {
 
     private func postProcess () {
         hudMap.forEach({$0.value.filteringMode = .nearest})
+
+        buildingMap.forEach({$0.value.filteringMode = .nearest})
         itemMap.forEach({$0.value.filteringMode = .nearest})
         tileMap.forEach({$0.value.filteringMode = .nearest})
     }
