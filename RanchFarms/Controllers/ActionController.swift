@@ -12,11 +12,10 @@ class ActionController {
     }
 
     func actionPrimary() {
-        switch world.currentLocation{
-        case .Farm:
-            world.changeLocation(to: .Town, playerPosition: CGPoint(x: 0*32, y: 0))
-        case .Town:
-            world.changeLocation(to: .Farm, playerPosition: CGPoint(x: -5*32, y: 0))
+        let currentGameArea = world.gameAreas.filter({$0.location == world.currentLocation})[0]
+
+        if let door = currentGameArea.buildings.filter({$0.type == .Door}).first {
+            world.changeLocation(to: door.teleport!.location, playerPosition: door.teleport!.position)
         }
     }
 

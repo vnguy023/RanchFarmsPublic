@@ -4,7 +4,7 @@ class GameArea {
     var location = Location.Farm
 
 
-    var buildings = [GameObject]()
+    var buildings = [Building]()
     var tiles = [Tile]()
 
     init() {

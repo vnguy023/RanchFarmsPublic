@@ -11,6 +11,8 @@ class Building: GameObject {
         }
     }
 
+    var teleport: Teleport?
+
     init(buildingType: BuildingType, position: CGPoint, location: Location) {
         super.init(position: position, location: location)
         self.type = buildingType

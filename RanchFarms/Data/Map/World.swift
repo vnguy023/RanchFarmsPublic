@@ -6,7 +6,7 @@ class World: SKNode {
 
     var gameAreas = [GameArea]()
     var npcs = [GameObject]()
-    var buildings = [GameObject]()
+    var buildings = [Building]()
     var envItems = [GameObject]()
 
     var currentLocation: Location {
@@ -64,8 +64,11 @@ class World: SKNode {
 
         //Buildings
         let door = Building(buildingType: .Door,
-                            position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(6) * Config.tileSize.height),
+                            position: CGPoint(x: CGFloat(6) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
                             location: location)
+        door.teleport = Teleport(position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(0) * Config.tileSize.height),
+                                 location: .Town,
+                                 directionToFace: .EAST)
         gameArea.buildings.append(door)
         let bed = Building(buildingType: .SingleBed,
                            position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(-3) * Config.tileSize.height),
@@ -98,8 +101,11 @@ class World: SKNode {
 
         //Buildings
         let door = Building(buildingType: .Door,
-                            position: CGPoint(x: CGFloat(5) * Config.tileSize.width, y: CGFloat(-6) * Config.tileSize.height),
+                            position: CGPoint(x: CGFloat(-1) * Config.tileSize.width, y: CGFloat(0) * Config.tileSize.height),
                             location: location)
+        door.teleport = Teleport(position: CGPoint(x: CGFloat(5) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
+                                 location: .Farm,
+                                 directionToFace: .EAST)
         gameArea.buildings.append(door)
 
         // Tiles
