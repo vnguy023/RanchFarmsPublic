@@ -15,7 +15,7 @@ class HudController{
         self.camera = camera
         self.world = world
 
-        viewInventoryHotbar = ViewInventoryHotbar(inventory: world.player.inventory)
+        viewInventoryHotbar = ViewInventoryHotbar(inventory: world.player.inventory, hudInterfaceData: world.hudInterfaceData)
         viewInventoryHotbar.position.y = screenSize.height / -2 + viewInventoryHotbar.size.height/2
         camera.addChild(viewInventoryHotbar)
     }

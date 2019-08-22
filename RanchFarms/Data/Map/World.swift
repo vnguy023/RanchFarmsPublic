@@ -13,6 +13,10 @@ class World: SKNode {
         get {return player.location}
         set {player.location = newValue}
     }
+
+    // Hud Data
+    // This should be temporary data for now. Think about throwing this into global
+    var hudInterfaceData = HudInterfaceData()
     
     override init() {
         super.init()

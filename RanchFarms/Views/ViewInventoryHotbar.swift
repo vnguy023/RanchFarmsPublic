@@ -1,14 +1,15 @@
 import SpriteKit
 
 class ViewInventoryHotbar: SKSpriteNode {
-    private var MAX_ITEM_SIZE = CGFloat(10)
+    let hudInterfaceData: HudInterfaceData
 
-    private var selectedItemPos = 0
+    private var MAX_ITEM_SIZE = CGFloat(10)
 
     private var itemButtons = [ViewItemButton]()
     private var inventory: Inventory
 
-    init(inventory: Inventory) {
+    init(inventory: Inventory, hudInterfaceData: HudInterfaceData) {
+        self.hudInterfaceData = hudInterfaceData
         self.inventory = inventory
 
         let inventorySize = CGSize(width: Config.itemImageSize.width * MAX_ITEM_SIZE, height: Config.itemImageSize.height)
@@ -27,14 +28,14 @@ class ViewInventoryHotbar: SKSpriteNode {
             itemButton.position.x = self.size.width / -2 + (CGFloat(index) * Config.itemImageSize.width) + Config.itemImageSize.width/2
             self.addChild(itemButton)
 
-            if index == inventory.hotBarSelectedIndex {
+            if index == hudInterfaceData.selectedItemInventoryHotbarIndex {
                 itemButton.highlight = true
             }
         }
     }
 
     func getSelectedItem() -> Item? {
-        return inventory.items[selectedItemPos]
+        return inventory.items[hudInterfaceData.selectedItemInventoryHotbarIndex]
     }
 
     required init?(coder aDecoder: NSCoder) {
