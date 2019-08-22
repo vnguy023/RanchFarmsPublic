@@ -10,6 +10,7 @@ class GameObject: SKSpriteNode {
     var moveSpeed = Config.tileSize.width * 4 / 60
 
     var inventory = Inventory()
+    var money = Int(1050)
 
     init() {
         super.init(texture: nil, color: .red, size: CGSize(width: 32, height: 32))
