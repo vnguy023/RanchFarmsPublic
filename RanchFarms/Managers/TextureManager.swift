@@ -8,12 +8,16 @@ class TextureManager {
     private var itemMap = [ItemType: SKTexture]()
     private var tileMap = [TileType: SKTexture]()
 
+    private var personMap = [String: SKTexture]()
+
     private init() {
         loadHud()
 
         loadBuildings()
         loadItems()
         loadTiles()
+
+        loadPeople()
 
         postProcess()
     }
@@ -76,11 +80,29 @@ class TextureManager {
         return nil
     }
 
+    func getTexture(personTextureName: String) -> SKTexture? {
+        if personMap[personTextureName] == nil {
+            print ("[TextureManager] [Desc=No texture] [PersonTextureName=\(personTextureName)]")
+        } else {
+            return personMap[personTextureName]
+        }
+        return nil
+    }
+
+    func loadPeople() {
+        personMap["playerIdleUp"] = SKTexture.init(imageNamed: "personPlayerIdleUp")
+        personMap["playerIdleDown"] = SKTexture.init(imageNamed: "personPlayerIdleDown")
+        personMap["playerIdleLeft"] = SKTexture.init(imageNamed: "personPlayerIdleLeft")
+        personMap["playerIdleRight"] = SKTexture.init(imageNamed: "personPlayerIdleRight")
+    }
+
     private func postProcess () {
         hudMap.forEach({$0.value.filteringMode = .nearest})
 
         buildingMap.forEach({$0.value.filteringMode = .nearest})
         itemMap.forEach({$0.value.filteringMode = .nearest})
         tileMap.forEach({$0.value.filteringMode = .nearest})
+
+        personMap.forEach({$0.value.filteringMode = .nearest})
     }
 }

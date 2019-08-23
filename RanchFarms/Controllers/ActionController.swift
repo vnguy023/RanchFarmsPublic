@@ -8,7 +8,11 @@ class ActionController {
     }
 
     func actionMove(moveVector: CGVector) {
-        world.player.position = world.player.position + moveVector.scale(world.player.moveSpeed)
+        if !moveVector.isZeroVector {
+            let initPosition = world.player.position
+            world.player.position = world.player.position + moveVector.scale(world.player.moveSpeed)
+            world.player.faceDirection = CGVector.getDirection(start: initPosition, end: world.player.position)
+        }
     }
 
     func actionPrimary() {

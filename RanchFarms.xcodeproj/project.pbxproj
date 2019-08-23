@@ -42,6 +42,10 @@
 		6C9E3E10230E84F5007417E1 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E0F230E84F5007417E1 /* Building.swift */; };
 		6C9E3E12230E8500007417E1 /* BuildingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E11230E8500007417E1 /* BuildingType.swift */; };
 		6C9E3E15230E8FFE007417E1 /* Teleport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E14230E8FFE007417E1 /* Teleport.swift */; };
+		6C9E3E19230EAB8A007417E1 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E18230EAB8A007417E1 /* AnimationManager.swift */; };
+		6C9E3E1B230F7905007417E1 /* RenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1A230F7905007417E1 /* RenderController.swift */; };
+		6C9E3E1D230F79FF007417E1 /* PersonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1C230F79FF007417E1 /* PersonType.swift */; };
+		6C9E3E1F230F83C5007417E1 /* PersonTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1E230F83C5007417E1 /* PersonTexture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +87,10 @@
 		6C9E3E0F230E84F5007417E1 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		6C9E3E11230E8500007417E1 /* BuildingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingType.swift; sourceTree = "<group>"; };
 		6C9E3E14230E8FFE007417E1 /* Teleport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teleport.swift; sourceTree = "<group>"; };
+		6C9E3E18230EAB8A007417E1 /* AnimationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		6C9E3E1A230F7905007417E1 /* RenderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
+		6C9E3E1C230F79FF007417E1 /* PersonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonType.swift; sourceTree = "<group>"; };
+		6C9E3E1E230F83C5007417E1 /* PersonTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTexture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +207,9 @@
 		6C6033DA230B7E5E00746309 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				6C9E3E18230EAB8A007417E1 /* AnimationManager.swift */,
 				6C6033D8230B7E5600746309 /* TextureManager.swift */,
+				6C9E3E1E230F83C5007417E1 /* PersonTexture.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -211,6 +221,7 @@
 				6C6033DB230B833200746309 /* CameraController.swift */,
 				6C9E3E03230D43D3007417E1 /* HudController.swift */,
 				6C9D3603230BA7C000168A28 /* InputController.swift */,
+				6C9E3E1A230F7905007417E1 /* RenderController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -219,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				6C6033DE230B850C00746309 /* Person.swift */,
+				6C9E3E1C230F79FF007417E1 /* PersonType.swift */,
 			);
 			path = people;
 			sourceTree = "<group>";
@@ -332,10 +344,14 @@
 				6C9E3E0E230E61D2007417E1 /* ViewMoneyInfo.swift in Sources */,
 				6C6033B3230B61BF00746309 /* SplashScene.swift in Sources */,
 				6C6033D2230B6A1500746309 /* ItemInfo.swift in Sources */,
+				6C9E3E1F230F83C5007417E1 /* PersonTexture.swift in Sources */,
 				6C9E3E00230CE31B007417E1 /* Config.swift in Sources */,
+				6C9E3E1B230F7905007417E1 /* RenderController.swift in Sources */,
 				6C6033BB230B636B00746309 /* GameObject.swift in Sources */,
 				6C6033DF230B850C00746309 /* Person.swift in Sources */,
 				6C6033A1230B60B000746309 /* GameScene.swift in Sources */,
+				6C9E3E19230EAB8A007417E1 /* AnimationManager.swift in Sources */,
+				6C9E3E1D230F79FF007417E1 /* PersonType.swift in Sources */,
 				6C9D3604230BA7C000168A28 /* InputController.swift in Sources */,
 				6C6033CF230B66A600746309 /* Location.swift in Sources */,
 				6C6033C6230B64B200746309 /* ItemType.swift in Sources */,

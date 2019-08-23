@@ -97,7 +97,7 @@ extension CGVector {
         if self.dy >= 0 {
             return acos(self.normalize().dx)
         } else {
-            return acos(self.normalize().dx) * -1
+            return acos(self.normalize().dx) * -1 + CGFloat.pi * 2
         }
     }
 
@@ -111,32 +111,27 @@ extension CGVector {
     static func getDirection(start: CGPoint, end: CGPoint) -> CGVector {
         let vector = CGVector(pointA: start, pointB: end)
 
-        if vector.dx == 0 {
-            if vector.dy < 0 {
-                return .SOUTH
-            } else {
-                return .NORTH
-            }
-        } else if vector.dy == 0 {
-            if vector.dx < 0 {
-                return .WEST
-            } else {
-                return .EAST
-            }
-        } else if vector.dy >= 0 {
-            if vector.dx < 0 {
-                return .NORTHWEST
-            } else {
-                return .NORTHEAST
-            }
-        } else if vector.dy < 0 {
-            if vector.dx < 0 {
-                return .SOUTHWEST
-            } else {
-                return .SOUTHEAST
-            }
+        let angleRad = vector.angleRadians()
+
+        if angleRad < CGFloat.pi * 0.125 || angleRad > CGFloat.pi * 1.875 {
+            return .EAST
+        } else if CGFloat.pi * 0.125 < angleRad && angleRad < CGFloat.pi * 0.375{
+            return .NORTHEAST
+        } else if CGFloat.pi * 0.375 < angleRad && angleRad < CGFloat.pi * 0.625{
+            return .NORTH
+        } else if CGFloat.pi * 0.625 < angleRad && angleRad < CGFloat.pi * 0.875{
+            return .NORTHWEST
+        } else if CGFloat.pi * 0.875 < angleRad && angleRad < CGFloat.pi * 1.125{
+            return .WEST
+        } else if CGFloat.pi * 1.125 < angleRad && angleRad < CGFloat.pi * 1.375{
+            return .SOUTHWEST
+        } else if CGFloat.pi * 1.375 < angleRad && angleRad < CGFloat.pi * 1.625{
+            return .SOUTH
+        } else if CGFloat.pi * 1.625 < angleRad && angleRad < CGFloat.pi * 1.875{
+            return .SOUTHEAST
         }
 
+        // default value
         return CGVector.NORTH
     }
 }

@@ -49,7 +49,7 @@ class World: SKNode {
     }
 
     private func loadDefault() {
-        player = Person(position: CGPoint(), location: .Farm)
+        player = Person(position: CGPoint(), location: .Farm, personType: .Player)
         player.inventory.items[2] = Item(itemType: .Axe, quantity: 2)
         player.inventory.items[5] = Item(itemType: .Axe, quantity: 1)
         player.inventory.items[6] = Item(itemType: .Axe, quantity: 3)
@@ -107,7 +107,7 @@ class World: SKNode {
                             location: location)
         door.teleport = Teleport(position: CGPoint(x: CGFloat(5) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
                                  location: .Farm,
-                                 directionToFace: .EAST)
+                                 directionToFace: .WEST)
         gameArea.buildings.append(door)
 
         // Tiles

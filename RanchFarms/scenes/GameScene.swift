@@ -5,7 +5,9 @@ import GameplayKit
 class GameScene: BaseScene {
     let cameraController = CameraController()
     let inputController = InputController()
+
     var actionController: ActionController!
+    var renderController: RenderController!
     var hudController: HudController!
 
     override func didMove(to view: SKView) {
@@ -17,6 +19,7 @@ class GameScene: BaseScene {
 
     private func linkControllers() {
         actionController = ActionController(world: world)
+        renderController = RenderController(world: world)
         hudController = HudController(camera: cameraController.camera, world: world, screenSize: self.size)
 
         inputController.handleMove = actionController.actionMove
@@ -112,6 +115,7 @@ class GameScene: BaseScene {
         inputController.update()
 
         cameraController.update()
+        renderController.update()
         hudController.update()
     }
 
