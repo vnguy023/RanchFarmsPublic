@@ -18,7 +18,9 @@ class ActionController {
     func actionPrimary() {
         let currentGameArea = world.gameAreas.filter({$0.location == world.currentLocation})[0]
 
-        if let door = currentGameArea.buildings.filter({$0.type == .Door}).first {
+        let doors = currentGameArea.buildings.filter({$0.contains(world.player.getPositionInFront())}).filter({$0.type == .Door})
+
+        if let door = doors.first {
             world.teleport(to: door.teleport!)
         }
     }

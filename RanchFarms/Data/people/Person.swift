@@ -3,8 +3,6 @@ import SpriteKit
 class Person: GameObject {
     let type: PersonType
 
-    var faceDirection = CGVector.SOUTH
-
     enum State {
         case Idle
     }
