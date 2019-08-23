@@ -11,7 +11,7 @@ class ActionController {
         if !moveVector.isZeroVector {
             let initPosition = world.player.position
             world.player.position = world.player.position + moveVector.scale(world.player.moveSpeed)
-            world.player.faceDirection = CGVector.getDirection(start: initPosition, end: world.player.position)
+            world.player.faceDirection = CGVector.getDirection4(start: initPosition, end: world.player.position)
         }
     }
 

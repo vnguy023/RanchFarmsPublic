@@ -108,7 +108,26 @@ extension CGVector {
         }
     }
 
-    static func getDirection(start: CGPoint, end: CGPoint) -> CGVector {
+    static func getDirection4(start: CGPoint, end: CGPoint) -> CGVector {
+        let vector = CGVector(pointA: start, pointB: end)
+
+        let angleRad = vector.angleRadians()
+
+        if angleRad < CGFloat.pi * 0.25 || angleRad > CGFloat.pi * 1.75 {
+            return .EAST
+        } else if angleRad < CGFloat.pi * 0.75 || angleRad < CGFloat.pi * 0.25 {
+            return .NORTH
+        } else if angleRad < CGFloat.pi * 1.25 || angleRad < CGFloat.pi * 0.75 {
+            return .WEST
+        } else if angleRad < CGFloat.pi * 1.75 || angleRad < CGFloat.pi * 1.25 {
+            return .SOUTH
+        }
+
+        // default value
+        return CGVector.NORTH
+    }
+
+    static func getDirection8(start: CGPoint, end: CGPoint) -> CGVector {
         let vector = CGVector(pointA: start, pointB: end)
 
         let angleRad = vector.angleRadians()
