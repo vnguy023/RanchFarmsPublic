@@ -24,6 +24,7 @@ class GameScene: BaseScene {
 
         inputController.handleMove = actionController.actionMove
         inputController.handlePrimary[.ClickDown] = actionController.actionPrimary
+        inputController.handleUse[.ClickDown] = actionController.actionUse
         inputController.handleSwitchLeft[.ClickDown] = actionController.actionSwitchLeft
         inputController.handleSwitchRight[.ClickDown] = actionController.actionSwitchRight
     }
@@ -69,6 +70,8 @@ class GameScene: BaseScene {
             inputController.pressedDown(inputKey: .MoveRight, value: true)
 
         case 0x31:  // spaceBar
+            inputController.pressedDown(inputKey: .Use, value: true)
+        case 36:  // enter
             inputController.pressedDown(inputKey: .Primary, value: true)
 
         case 12:    // q
@@ -95,6 +98,8 @@ class GameScene: BaseScene {
             inputController.pressedDown(inputKey: .MoveRight, value: false)
 
         case 0x31:  // spaceBar
+            inputController.pressedDown(inputKey: .Use, value: false)
+        case 36:  // enter
             inputController.pressedDown(inputKey: .Primary, value: false)
 
         case 12:    // q

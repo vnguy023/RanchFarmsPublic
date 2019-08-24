@@ -29,6 +29,16 @@ class World: SKNode {
         reloadGameObjects()
     }
 
+    func getTileAt(position: CGPoint, location: Location) -> Tile? {
+        if let gameArea = gameAreas.filter({$0.location == location}).first {
+            if let chosenTile = gameArea.tiles.filter({$0.contains(position)}).first {
+                return chosenTile
+            }
+        }
+
+        return nil
+    }
+
     func teleport(to teleport: Teleport) {
         player.position = teleport.position
         player.faceDirection = teleport.directionToFace
@@ -52,7 +62,7 @@ class World: SKNode {
         player = Person(position: CGPoint(), location: .Farm, personType: .Player)
         player.inventory.items[2] = Item(itemType: .Axe, quantity: 2)
         player.inventory.items[5] = Item(itemType: .Axe, quantity: 1)
-        player.inventory.items[6] = Item(itemType: .Axe, quantity: 3)
+        player.inventory.items[0] = Item(itemType: .Hoe, quantity: 1)
 
         gameAreas.append(sampleFarm())
         gameAreas.append(sampleTown())

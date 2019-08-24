@@ -25,6 +25,23 @@ class ActionController {
         }
     }
 
+    func actionUse() {
+        if let itemToUse = world.player.inventory.items[world.hudInterfaceData.selectedItemInventoryHotbarIndex] {
+            switch itemToUse.itemType {
+            case .Axe: break
+            case .Hoe:
+                if let tileInFront = world.getTileAt(position: world.player.getPositionInFront(), location: world.currentLocation) {
+                    if tileInFront.tileType == .Dirt {
+                        tileInFront.tileType = .TilledDirt
+                    }
+                }
+            default: break
+            }
+        }
+    }
+
+
+
     func actionSwitchLeft() {
         world.hudInterfaceData.changeHotBarIndexLeft()
     }
