@@ -1,22 +1,19 @@
 import SpriteKit
 
 class Building: GameObject {
-    private var mType = BuildingType.Unknown
-    var type: BuildingType {
-        get {return mType}
-        set {
-            mType = newValue
+    let buildingId: BuildingId
 
-            self.texture = TextureManager.shared.getTexture(buildingType: newValue)
-        }
-    }
+    let buildingInfo: BuildingInfo!
 
     var teleport: Teleport?
 
-    init(buildingType: BuildingType, position: CGPoint, location: Location) {
-        super.init(position: position, location: location)
-        self.type = buildingType
+    init(buildingId: BuildingId, position: CGPoint, location: Location) {
+        self.buildingId = buildingId
+        self.buildingInfo = BuildingInfoManager.shared.getBuildingInfo(buildingId: buildingId)
 
+        super.init(position: position, location: location)
+
+        self.texture = TextureManager.shared.getTexture(buildingId: buildingId)
         self.zPosition = 100
     }
 

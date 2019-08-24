@@ -4,7 +4,7 @@ class TextureManager {
     static let shared = TextureManager()
 
     private var hudMap = [String: SKTexture]()
-    private var buildingMap = [BuildingType: SKTexture]()
+    private var buildingMap = [BuildingId: SKTexture]()
     private var itemMap = [ItemId: SKTexture]()
     private var tileMap = [TileType: SKTexture]()
 
@@ -56,20 +56,20 @@ class TextureManager {
         return nil
     }
 
-    func getTexture(buildingType: BuildingType) -> SKTexture? {
-        if buildingMap[buildingType] == nil {
-            print ("[TextureManager] [Desc=No texture] [BuildingType=\(buildingType)]")
+    func getTexture(buildingId: BuildingId) -> SKTexture? {
+        if buildingMap[buildingId] == nil {
+            print ("[TextureManager] [Desc=No texture] [BuildingType=\(buildingId)]")
         } else {
-            return buildingMap[buildingType]
+            return buildingMap[buildingId]
         }
         return nil
     }
 
-    func getTexture(itemType: ItemId) -> SKTexture? {
-        if itemMap[itemType] == nil {
-            print ("[TextureManager] [Desc=No texture] [ItemType=\(itemType)]")
+    func getTexture(itemId: ItemId) -> SKTexture? {
+        if itemMap[itemId] == nil {
+            print ("[TextureManager] [Desc=No texture] [ItemType=\(itemId)]")
         } else {
-            return itemMap[itemType]
+            return itemMap[itemId]
         }
         return nil
     }

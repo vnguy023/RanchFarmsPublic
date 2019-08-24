@@ -1,6 +1,6 @@
 enum BuildingType: UInt, Codable {
     case Unknown = 0
-    case Door = 100
-    case SingleBed = 110
-    case Rock = 1000
+    
+    case Teleport = 100
+    case Bed = 110
 }
