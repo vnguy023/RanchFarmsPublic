@@ -5,7 +5,7 @@ class TextureManager {
 
     private var hudMap = [String: SKTexture]()
     private var buildingMap = [BuildingType: SKTexture]()
-    private var itemMap = [ItemType: SKTexture]()
+    private var itemMap = [ItemId: SKTexture]()
     private var tileMap = [TileType: SKTexture]()
 
     private var personMap = [String: SKTexture]()
@@ -65,7 +65,7 @@ class TextureManager {
         return nil
     }
 
-    func getTexture(itemType: ItemType) -> SKTexture? {
+    func getTexture(itemType: ItemId) -> SKTexture? {
         if itemMap[itemType] == nil {
             print ("[TextureManager] [Desc=No texture] [ItemType=\(itemType)]")
         } else {

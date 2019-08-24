@@ -26,7 +26,7 @@ class ViewItemButton: SKSpriteNode {
         if item != nil {
             itemSprite = SKSpriteNode(texture: nil, color: .red, size: Config.itemImageSize)
             itemSprite.zPosition = 100
-            itemSprite.texture = TextureManager.shared.getTexture(itemType: item!.itemType)
+            itemSprite.texture = TextureManager.shared.getTexture(itemType: item!.itemId)
             self.addChild(itemSprite)
 
             shadowSprite = SKSpriteNode(texture: nil, color: .red, size: Config.itemImageSize)

@@ -1,10 +1,10 @@
 class ItemInfo {
-    let itemType: ItemType
+    let id: ItemId
 
     let name: String
 
-    init(itemType: ItemType, name: String) {
-        self.itemType = itemType
+    init(itemId: ItemId, name: String) {
+        self.id = itemId
         self.name = name
     }
 }

@@ -1,12 +1,12 @@
 import SpriteKit
 
 class Item {
-    let itemType: ItemType
+    let itemId: ItemId
 
     var quantity: Int
 
-    init(itemType: ItemType, quantity: Int) {
-        self.itemType = itemType
+    init(itemId: ItemId, quantity: Int) {
+        self.itemId = itemId
 
         self.quantity = quantity
     }
