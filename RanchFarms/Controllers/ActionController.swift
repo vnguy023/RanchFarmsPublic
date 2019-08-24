@@ -27,7 +27,7 @@ class ActionController {
 
     func actionUse() {
         if let itemToUse = world.player.inventory.items[world.hudInterfaceData.selectedItemInventoryHotbarIndex] {
-            switch itemToUse.itemId {
+            switch itemToUse.itemInfo.itemType {
             case .Axe: break
             case .Hoe:
                 if let tileInFront = world.getTileAt(position: world.player.getPositionInFront(), location: world.currentLocation) {
@@ -35,7 +35,9 @@ class ActionController {
                         tileInFront.tileType = .TilledDirt
                     }
                 }
-            default: break
+            case .Unknown: break
+            default:
+                print ("[ActionUse] [Desc=itemType notHandled] [itemType=\(itemToUse.itemInfo.itemType)]")
             }
         }
     }

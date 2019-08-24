@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C2336E42311387700261944 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E32311387700261944 /* ItemType.swift */; };
+		6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E52311390400261944 /* ItemInfoManager.swift */; };
 		6C60339B230B60B000746309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60339A230B60B000746309 /* AppDelegate.swift */; };
 		6C60339D230B60B000746309 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C60339C230B60B000746309 /* GameScene.sks */; };
 		6C6033A1230B60B000746309 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033A0230B60B000746309 /* GameScene.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C2336E32311387700261944 /* ItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		6C2336E52311390400261944 /* ItemInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoManager.swift; sourceTree = "<group>"; };
 		6C603397230B60B000746309 /* RanchFarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchFarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C60339A230B60B000746309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C60339C230B60B000746309 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				6C6033C3230B648100746309 /* Item.swift */,
 				6C6033D1230B6A1500746309 /* ItemInfo.swift */,
 				6C6033C5230B64B200746309 /* ItemId.swift */,
+				6C2336E32311387700261944 /* ItemType.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				6C9E3E18230EAB8A007417E1 /* AnimationManager.swift */,
+				6C2336E52311390400261944 /* ItemInfoManager.swift */,
 				6C6033D8230B7E5600746309 /* TextureManager.swift */,
 				6C9E3E1E230F83C5007417E1 /* PersonTexture.swift */,
 			);
@@ -351,6 +357,7 @@
 				6C9E3E00230CE31B007417E1 /* Config.swift in Sources */,
 				6C9E3E1B230F7905007417E1 /* RenderController.swift in Sources */,
 				6C6033BB230B636B00746309 /* GameObject.swift in Sources */,
+				6C2336E42311387700261944 /* ItemType.swift in Sources */,
 				6C6033DF230B850C00746309 /* Person.swift in Sources */,
 				6C6033A1230B60B000746309 /* GameScene.swift in Sources */,
 				6C9E3E19230EAB8A007417E1 /* AnimationManager.swift in Sources */,
@@ -360,6 +367,7 @@
 				6C6033CF230B66A600746309 /* Location.swift in Sources */,
 				6C6033C6230B64B200746309 /* ItemId.swift in Sources */,
 				6C9D3609230BEC3C00168A28 /* ActionController.swift in Sources */,
+				6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */,
 				6C9E3E10230E84F5007417E1 /* Building.swift in Sources */,
 				6C6033CB230B663500746309 /* GameArea.swift in Sources */,
 				6C60339B230B60B000746309 /* AppDelegate.swift in Sources */,
