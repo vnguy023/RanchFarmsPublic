@@ -19,8 +19,13 @@ class ViewMoneyInfo: SKSpriteNode {
         amountLabel.verticalAlignmentMode = .center
         amountLabel.fontSize = Config.viewMoneySize.height - 8
         amountLabel.fontColor = .black
-        amountLabel.text = "\(player.money)"
         self.addChild(amountLabel)
+
+        update()
+    }
+
+    func update() {
+        amountLabel.text = "\(player.money)"
     }
 
     required init?(coder aDecoder: NSCoder) {
