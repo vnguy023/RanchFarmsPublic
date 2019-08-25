@@ -40,7 +40,7 @@ class ActionController {
                     if tileInFront.tileType == .TilledDirt
                         && world.getBuildingAt(position: world.player.getPositionInFront(), location: world.currentLocation) == nil {
                         // Somehow need to create a buildingat that tile position
-                        let newCrop = Building(buildingId: .Rock, position: tileInFront.position, location: world.currentLocation)
+                        let newCrop = Building(buildingId: .Garlic, position: tileInFront.position, location: world.currentLocation)
 
                         let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
                         gameArea.buildings.append(newCrop)

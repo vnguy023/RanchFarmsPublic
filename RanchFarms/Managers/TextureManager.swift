@@ -33,6 +33,8 @@ class TextureManager {
         buildingMap[.Door] = SKTexture(imageNamed: "buildingDoor")
         buildingMap[.SingleBed] = SKTexture(imageNamed: "buildingSingleBed")
         buildingMap[.Rock] = SKTexture(imageNamed: "buildingRock")
+
+        buildingMap[.Garlic] = SKTexture(imageNamed: "buildingGarlic1")
     }
 
     private func loadItems() {

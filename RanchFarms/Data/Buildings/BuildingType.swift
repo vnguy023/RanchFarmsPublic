@@ -3,4 +3,6 @@ enum BuildingType: UInt, Codable {
     
     case Teleport = 100
     case Bed = 110
+
+    case Crop
 }

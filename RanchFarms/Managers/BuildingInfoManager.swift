@@ -22,5 +22,8 @@ class BuildingInfoManager {
         buildingIdToBuildingInfo[.Door] = BuildingInfo(buildingId: .Door, buildingType: .Teleport, name: "Door")
         buildingIdToBuildingInfo[.Rock] = BuildingInfo(buildingId: .Rock, buildingType: .Unknown, name: "Rock")
         buildingIdToBuildingInfo[.SingleBed] = BuildingInfo(buildingId: .SingleBed, buildingType: .Bed, name: "SingleBed")
+
+        // Crops
+        buildingIdToBuildingInfo[.Garlic] = BuildingInfo(buildingId: .Garlic, buildingType: .Crop, name: "Garlic")
     }
 }
