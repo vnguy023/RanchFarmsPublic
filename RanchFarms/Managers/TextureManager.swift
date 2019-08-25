@@ -51,6 +51,7 @@ class TextureManager {
     private func loadItems() {
         itemMap[.Axe] = SKTexture(imageNamed: "itemAxe")
         itemMap[.Hoe] = SKTexture(imageNamed: "itemHoe")
+        itemMap[.WaterCan] = SKTexture(imageNamed: "itemWatercan")
 
         itemMap[.GarlicSeed] = SKTexture(imageNamed: "itemGarlicSeed")
         itemMap[.Garlic] = SKTexture(imageNamed: "itemGarlic")
@@ -58,9 +59,11 @@ class TextureManager {
 
     private func loadTiles() {
         tileMap[.Dirt] = SKTexture(imageNamed: "tileDirt")
+        tileMap[.DirtWatered] = SKTexture(imageNamed: "tileDirtWatered")
+        tileMap[.DirtTilled] = SKTexture(imageNamed: "tileDirtTilled")
+        tileMap[.DirtTilledWatered] = SKTexture(imageNamed: "tileDirtTilledWatered")
         tileMap[.Grass] = SKTexture(imageNamed: "tileGrass")
         tileMap[.Water] = SKTexture(imageNamed: "tileWater")
-        tileMap[.TilledDirt] = SKTexture(imageNamed: "tileTilledDirt")
     }
 
     func getTexture(hudImageName: String) -> SKTexture? {

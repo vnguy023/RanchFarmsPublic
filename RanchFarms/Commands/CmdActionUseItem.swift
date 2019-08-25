@@ -21,6 +21,8 @@ class CmdActionUseItem: Command {
                 processHoe()
             case .Seed:
                 processSeed()
+            case .WaterCan:
+                processWaterCan()
             case .Unknown: break
             default:
                 print ("[ActionUse] [Desc=itemType notHandled] [itemType=\(itemToUse.itemInfo.itemType)]")
@@ -33,8 +35,8 @@ class CmdActionUseItem: Command {
             return
         }
 
-        if tileInFront.tileType == .Dirt {
-            tileInFront.tileType = .TilledDirt
+        if tileInFront.tileType == .Dirt || tileInFront.tileType == .DirtWatered || tileInFront.tileType == .DirtTilledWatered {
+            tileInFront.tileType = .DirtTilled
         }
     }
 
@@ -43,7 +45,7 @@ class CmdActionUseItem: Command {
             return
         }
 
-        if tileInFront.tileType == .TilledDirt {
+        if tileInFront.tileType == .DirtTilled || tileInFront.tileType == .DirtTilledWatered {
             let newCrop = Building(buildingId: .Garlic, position: tileInFront.position, location: world.currentLocation)
 
             let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
@@ -55,5 +57,13 @@ class CmdActionUseItem: Command {
                 world.player.inventory.items[world.hudInterfaceData.selectedItemInventoryHotbarIndex] = nil
             }
         }
+    }
+
+    private func processWaterCan() {
+        if tileInFront == nil {
+            return
+        }
+
+        tileInFront.water()
     }
 }

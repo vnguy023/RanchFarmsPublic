@@ -14,7 +14,7 @@ class CmdEndDay: Command {
             }
 
             for tile in gameArea.tiles {
-                if tile.tileType == .TilledDirt {
+                if tile.tileType == .DirtTilled {
                     tile.tileType = .Dirt
                 }
             }
