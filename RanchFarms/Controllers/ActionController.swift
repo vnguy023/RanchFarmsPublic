@@ -29,38 +29,9 @@ class ActionController {
     }
 
     func actionUse() {
-        if let itemToUse = world.player.inventory.items[world.hudInterfaceData.selectedItemInventoryHotbarIndex] {
-            switch itemToUse.itemInfo.itemType {
-            case .Axe: break
-            case .Hoe:
-                if let tileInFront = world.getTileAt(position: world.player.getPositionInFront(), location: world.currentLocation) {
-                    if tileInFront.tileType == .Dirt {
-                        tileInFront.tileType = .TilledDirt
-                    }
-                }
-            case .Seed:
-                if let tileInFront = world.getTileAt(position: world.player.getPositionInFront(), location: world.currentLocation) {
-                    if tileInFront.tileType == .TilledDirt
-                        && world.getBuildingAt(position: world.player.getPositionInFront(), location: world.currentLocation) == nil {
-                        // Somehow need to create a buildingat that tile position
-                        let newCrop = Building(buildingId: .Garlic, position: tileInFront.position, location: world.currentLocation)
-
-                        let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
-                        gameArea.buildings.append(newCrop)
-                        world.addChild(newCrop)
-
-                        // TODO: update player Inventory
-                    }
-                }
-                
-            case .Unknown: break
-            default:
-                print ("[ActionUse] [Desc=itemType notHandled] [itemType=\(itemToUse.itemInfo.itemType)]")
-            }
-        }
+        let cmdActionUseItem  = CmdActionUseItem(world: world)
+        cmdActionUseItem.execute()
     }
-
-
 
     func actionSwitchLeft() {
         world.hudInterfaceData.changeHotBarIndexLeft()

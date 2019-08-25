@@ -1,7 +1,6 @@
 class CmdEndDay: Command {
     let world: World
 
-
     init(world: World) {
         self.world = world
     }
