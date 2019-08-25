@@ -35,6 +35,19 @@ class ActionController {
                         tileInFront.tileType = .TilledDirt
                     }
                 }
+            case .Seed:
+                if let tileInFront = world.getTileAt(position: world.player.getPositionInFront(), location: world.currentLocation) {
+                    if tileInFront.tileType == .TilledDirt
+                        && world.getBuildingAt(position: world.player.getPositionInFront(), location: world.currentLocation) == nil {
+                        // Somehow need to create a buildingat that tile position
+                        let newCrop = Building(buildingId: .Rock, position: tileInFront.position, location: world.currentLocation)
+
+                        let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
+                        gameArea.buildings.append(newCrop)
+                        world.addChild(newCrop)
+                    }
+                }
+                
             case .Unknown: break
             default:
                 print ("[ActionUse] [Desc=itemType notHandled] [itemType=\(itemToUse.itemInfo.itemType)]")

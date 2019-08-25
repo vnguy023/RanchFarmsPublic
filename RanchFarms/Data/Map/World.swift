@@ -39,6 +39,16 @@ class World: SKNode {
         return nil
     }
 
+    func getBuildingAt(position: CGPoint, location: Location) -> Building? {
+        if let gameArea = gameAreas.filter({$0.location == location}).first {
+            if let chosenBuilding = gameArea.buildings.filter({$0.contains(position)}).first {
+                return chosenBuilding
+            }
+        }
+
+        return nil
+    }
+
     func teleport(to teleport: Teleport) {
         player.position = teleport.position
         player.faceDirection = teleport.directionToFace
