@@ -5,6 +5,7 @@ class TextureManager {
 
     private var hudMap = [String: SKTexture]()
     private var buildingMap = [BuildingId: SKTexture]()
+    private var cropMap = [String: SKTexture]()
     private var itemMap = [ItemId: SKTexture]()
     private var tileMap = [TileType: SKTexture]()
 
@@ -14,6 +15,7 @@ class TextureManager {
         loadHud()
 
         loadBuildings()
+        loadCrops()
         loadItems()
         loadTiles()
 
@@ -34,7 +36,16 @@ class TextureManager {
         buildingMap[.SingleBed] = SKTexture(imageNamed: "buildingSingleBed")
         buildingMap[.Rock] = SKTexture(imageNamed: "buildingRock")
 
-        buildingMap[.Garlic] = SKTexture(imageNamed: "buildingGarlic1")
+
+    }
+
+    private func loadCrops() {
+        cropMap["garlic1"] = SKTexture(imageNamed: "buildingGarlic1")
+        cropMap["garlic2"] = SKTexture(imageNamed: "buildingGarlic2")
+        cropMap["garlic3"] = SKTexture(imageNamed: "buildingGarlic3")
+        cropMap["garlic4"] = SKTexture(imageNamed: "buildingGarlic4")
+        cropMap["garlic5"] = SKTexture(imageNamed: "buildingGarlic5")
+        cropMap["garlic6"] = SKTexture(imageNamed: "buildingGarlic6")
     }
 
     private func loadItems() {
@@ -66,6 +77,15 @@ class TextureManager {
             print ("[TextureManager] [Desc=No texture] [BuildingType=\(buildingId)]")
         } else {
             return buildingMap[buildingId]
+        }
+        return nil
+    }
+
+    func getTexture(cropName: String) -> SKTexture? {
+        if cropMap[cropName] == nil {
+            print ("[TextureManager] [Desc=No texture] [cropName=\(cropName)]")
+        } else {
+            return cropMap[cropName]
         }
         return nil
     }
