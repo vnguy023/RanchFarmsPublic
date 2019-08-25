@@ -45,6 +45,8 @@ class ActionController {
                         let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
                         gameArea.buildings.append(newCrop)
                         world.addChild(newCrop)
+
+                        // TODO: update player Inventory
                     }
                 }
                 
