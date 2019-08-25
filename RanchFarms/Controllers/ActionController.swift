@@ -23,27 +23,9 @@ class ActionController {
         if let teleport = buildings.filter({$0.buildingInfo.buildingType == .Teleport}).first {
             world.teleport(to: teleport.teleport!)
         } else if let _ = buildings.filter({$0.buildingInfo.buildingType == .Bed}).first {
-            ProcessSleep()
+            let cmdEndDay  = CmdEndDay(world: world)
+            cmdEndDay.execute()
         }
-    }
-
-    // TODO: move this somewhere else
-    private func ProcessSleep() {
-        for gameArea in world.gameAreas {
-            for building in gameArea.buildings {
-                if building.buildingInfo.buildingType == .Crop {
-                    building.growthProgress += 1
-                }
-            }
-
-            for tile in gameArea.tiles {
-                if tile.tileType == .TilledDirt {
-                    tile.tileType = .Dirt
-                }
-            }
-        }
-
-        print ("[ProcessSleep] [Desc=Completed a day]")
     }
 
     func actionUse() {
