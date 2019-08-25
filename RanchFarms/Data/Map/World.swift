@@ -6,8 +6,6 @@ class World: SKNode {
 
     var gameAreas = [GameArea]()
     var npcs = [GameObject]()
-    var buildings = [Building]()
-    var envItems = [GameObject]()
 
     var currentLocation: Location {
         get {return player.location}

@@ -18,11 +18,26 @@ class ActionController {
     func actionPrimary() {
         let currentGameArea = world.gameAreas.filter({$0.location == world.currentLocation})[0]
 
-        let teleports = currentGameArea.buildings.filter({$0.contains(world.player.getPositionInFront())}).filter({$0.buildingInfo.buildingType == .Teleport})
+        let buildings = currentGameArea.buildings.filter({$0.contains(world.player.getPositionInFront())})
 
-        if let teleport = teleports.first {
+        if let teleport = buildings.filter({$0.buildingInfo.buildingType == .Teleport}).first {
             world.teleport(to: teleport.teleport!)
+        } else if let _ = buildings.filter({$0.buildingInfo.buildingType == .Bed}).first {
+            ProcessSleep()
         }
+    }
+
+    // TODO: move this somewhere else
+    private func ProcessSleep() {
+        for gameArea in world.gameAreas {
+            for building in gameArea.buildings {
+                if building.buildingInfo.buildingType == .Crop {
+                    building.growthProgress += 1
+                }
+            }
+        }
+
+        print ("[ProcessSleep] [Desc=Completed a day]")
     }
 
     func actionUse() {
