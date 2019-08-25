@@ -2,7 +2,7 @@ import SpriteKit
 
 class Tile: GameObject {
     private var mType = TileType.Dirt
-    var tileType: TileType {
+    var type: TileType {
         get {return mType}
         set {
             mType = newValue
@@ -13,7 +13,7 @@ class Tile: GameObject {
 
     var isWatered: Bool {
         get {
-            if tileType == .DirtWatered || tileType == .DirtTilledWatered {
+            if type == .DirtWatered || type == .DirtTilledWatered {
                 return true
             }
             return false
@@ -22,7 +22,7 @@ class Tile: GameObject {
 
     init(tileType: TileType, position: CGPoint, location: Location) {
         super.init(position: position, location: location)
-        self.tileType = tileType
+        self.type = tileType
 
         self.zPosition = 0
     }
@@ -32,10 +32,10 @@ class Tile: GameObject {
     }
 
     func water() {
-        if tileType == .Dirt {
-            tileType = .DirtWatered
-        } else if tileType == .DirtTilled {
-            tileType = .DirtTilledWatered
+        if type == .Dirt {
+            type = .DirtWatered
+        } else if type == .DirtTilled {
+            type = .DirtTilledWatered
         }
     }
 }

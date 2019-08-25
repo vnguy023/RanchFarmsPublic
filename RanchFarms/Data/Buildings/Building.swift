@@ -2,6 +2,9 @@ import SpriteKit
 
 class Building: GameObject {
     let buildingId: BuildingId
+    var type: BuildingType {
+        get {return buildingInfo.buildingType}
+    }
 
     let buildingInfo: BuildingInfo!
 

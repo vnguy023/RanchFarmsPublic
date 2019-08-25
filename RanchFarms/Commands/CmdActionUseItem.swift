@@ -35,8 +35,12 @@ class CmdActionUseItem: Command {
             return
         }
 
-        if tileInFront.tileType == .Dirt || tileInFront.tileType == .DirtWatered || tileInFront.tileType == .DirtTilledWatered {
-            tileInFront.tileType = .DirtTilled
+        if buildingInFront != nil {
+            return
+        }
+
+        if tileInFront.type == .Dirt || tileInFront.type == .DirtWatered || tileInFront.type == .DirtTilledWatered {
+            tileInFront.type = .DirtTilled
         }
     }
 
@@ -45,7 +49,7 @@ class CmdActionUseItem: Command {
             return
         }
 
-        if tileInFront.tileType == .DirtTilled || tileInFront.tileType == .DirtTilledWatered {
+        if tileInFront.type == .DirtTilled || tileInFront.type == .DirtTilledWatered {
             let newCrop = Building(buildingId: .Garlic, position: tileInFront.position, location: world.currentLocation)
 
             let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!

@@ -2,6 +2,9 @@ import SpriteKit
 
 class Item {
     let itemId: ItemId
+    var type: ItemType {
+        get {return itemInfo.itemType}
+    }
 
     var quantity: Int
 

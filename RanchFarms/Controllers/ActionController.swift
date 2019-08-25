@@ -16,13 +16,13 @@ class ActionController {
     }
 
     func actionPrimary() {
-        let currentGameArea = world.gameAreas.filter({$0.location == world.currentLocation})[0]
+        let currentGameArea = world.getCurrentGameArea()
 
         let buildings = currentGameArea.buildings.filter({$0.contains(world.player.getPositionInFront())})
 
-        if let teleport = buildings.filter({$0.buildingInfo.buildingType == .Teleport}).first {
+        if let teleport = buildings.filter({$0.type == .Teleport}).first {
             world.teleport(to: teleport.teleport!)
-        } else if let _ = buildings.filter({$0.buildingInfo.buildingType == .Bed}).first {
+        } else if let _ = buildings.filter({$0.type == .Bed}).first {
             let cmdEndDay  = CmdEndDay(world: world)
             cmdEndDay.execute()
         }

@@ -27,6 +27,10 @@ class World: SKNode {
         reloadGameObjects()
     }
 
+    func getCurrentGameArea() -> GameArea {
+        return gameAreas.filter({$0.location == currentLocation}).first!
+    }
+
     func getTileAt(position: CGPoint, location: Location) -> Tile? {
         if let gameArea = gameAreas.filter({$0.location == location}).first {
             if let chosenTile = gameArea.tiles.filter({$0.contains(position)}).first {
