@@ -35,6 +35,12 @@ class ActionController {
                     building.growthProgress += 1
                 }
             }
+
+            for tile in gameArea.tiles {
+                if tile.tileType == .TilledDirt {
+                    tile.tileType = .Dirt
+                }
+            }
         }
 
         print ("[ProcessSleep] [Desc=Completed a day]")
