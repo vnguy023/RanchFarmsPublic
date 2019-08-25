@@ -38,6 +38,9 @@ class TextureManager {
     private func loadItems() {
         itemMap[.Axe] = SKTexture(imageNamed: "itemAxe")
         itemMap[.Hoe] = SKTexture(imageNamed: "itemHoe")
+
+        itemMap[.GarlicSeed] = SKTexture(imageNamed: "itemGarlicSeed")
+        itemMap[.Garlic] = SKTexture(imageNamed: "itemGarlic")
     }
 
     private func loadTiles() {

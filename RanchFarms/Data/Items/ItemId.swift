@@ -1,5 +1,6 @@
-enum ItemType: UInt, Codable {
+enum ItemId: UInt, Codable {
     case Unknown = 0
+    
     case Axe = 100
     case FishingPole
     case Hammer
@@ -7,4 +8,8 @@ enum ItemType: UInt, Codable {
     case PickAxe
     case Sickle
     case WaterCan
+
+    // Crops
+    case GarlicSeed = 1000
+    case Garlic
 }
