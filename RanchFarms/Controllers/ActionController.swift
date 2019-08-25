@@ -28,6 +28,12 @@ class ActionController {
         }
     }
 
+    func actionCancel() {
+    }
+
+    func actionMenu() {
+    }
+
     func actionUse() {
         let cmdActionUseItem  = CmdActionUseItem(world: world)
         cmdActionUseItem.execute()
