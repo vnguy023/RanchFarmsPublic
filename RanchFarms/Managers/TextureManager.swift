@@ -64,6 +64,8 @@ class TextureManager {
         tileMap[.DirtTilledWatered] = SKTexture(imageNamed: "tileDirtTilledWatered")
         tileMap[.Grass] = SKTexture(imageNamed: "tileGrass")
         tileMap[.Water] = SKTexture(imageNamed: "tileWater")
+
+        tileMap[.Wood] = SKTexture(imageNamed: "tileWood")
     }
 
     func getTexture(hudImageName: String) -> SKTexture? {

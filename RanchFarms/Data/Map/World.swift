@@ -79,8 +79,43 @@ class World: SKNode {
         player.inventory.items[8] = Item(itemId: .GarlicSeed, quantity: 9)
         player.inventory.items[9] = Item(itemId: .Garlic, quantity: 2)
 
+        gameAreas.append(sampleHouse())
         gameAreas.append(sampleFarm())
         gameAreas.append(sampleTown())
+    }
+
+    private func sampleHouse() -> GameArea {
+        let location = Location.House
+
+        let gameArea = GameArea()
+        gameArea.location = location
+
+        //Buildings
+        let door = Building(buildingId: .Door,
+                            position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(-5) * Config.tileSize.height),
+                            location: location)
+        door.teleport = Teleport(position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(5) * Config.tileSize.height),
+                                 location: .Farm,
+                                 directionToFace: .SOUTH)
+        gameArea.buildings.append(door)
+        let bed = Building(buildingId: .SingleBed,
+                           position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
+                           location: location)
+        gameArea.buildings.append(bed)
+
+        // Tiles
+        for x in -4...4 {
+            for y in -4...4 {
+                let tileType = TileType.Wood
+
+                let tile = Tile.init(tileType: tileType,
+                                     position: CGPoint(x: CGFloat(x) * Config.tileSize.width, y: CGFloat(y) * Config.tileSize.height),
+                                     location: location)
+                gameArea.tiles.append(tile)
+            }
+        }
+
+        return gameArea
     }
 
     private func sampleFarm() -> GameArea {
@@ -90,17 +125,21 @@ class World: SKNode {
         gameArea.location = location
 
         //Buildings
-        let door = Building(buildingId: .Door,
-                            position: CGPoint(x: CGFloat(6) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
+        let houseDoor = Building(buildingId: .Door,
+                            position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(6) * Config.tileSize.height),
                             location: location)
-        door.teleport = Teleport(position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(0) * Config.tileSize.height),
-                                 location: .Town,
-                                 directionToFace: .EAST)
-        gameArea.buildings.append(door)
-        let bed = Building(buildingId: .SingleBed,
-                           position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(-3) * Config.tileSize.height),
-                           location: location)
-        gameArea.buildings.append(bed)
+        houseDoor.teleport = Teleport(position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(-4) * Config.tileSize.height),
+                                     location: .House,
+                                     directionToFace: .NORTH)
+        gameArea.buildings.append(houseDoor)
+
+        let townDoor = Building(buildingId: .Door,
+                                position: CGPoint(x: CGFloat(6) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
+                                location: location)
+        townDoor.teleport = Teleport(position: CGPoint(x: CGFloat(6) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
+                                     location: .Town,
+                                     directionToFace: .EAST)
+        gameArea.buildings.append(townDoor)
 
         // Tiles
         for x in -5...5 {

@@ -7,4 +7,7 @@ enum TileType: UInt, Codable {
     case DirtTilledWatered
     case Grass
     case Water
+
+    // Craftable Floors
+    case Wood = 100
 }
