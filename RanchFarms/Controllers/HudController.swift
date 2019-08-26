@@ -7,6 +7,8 @@ class HudController{
 
     let camera: SKCameraNode!
 
+    let worldHudNode = SKNode()
+
     // Hud Overlay
     let viewInventoryHotbar: ViewInventoryHotbar
     let viewMoneyInfo: ViewMoneyInfo
@@ -31,7 +33,7 @@ class HudController{
 
         viewSelectedGameTile = ViewSelectedGameTile(player: world.player, world: world)
         viewSelectedGameTile.zPosition = 500
-        world.addChild(viewSelectedGameTile)
+        worldHudNode.addChild(viewSelectedGameTile)
     }
 
     func update() {

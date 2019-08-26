@@ -15,6 +15,12 @@ class GameScene: BaseScene {
         loadGame()
 
         linkControllers()
+
+        linkNodes()
+    }
+
+    private func loadGame() {
+        world = World(saveLocation: "Default")
     }
 
     private func linkControllers() {
@@ -23,14 +29,14 @@ class GameScene: BaseScene {
         actionController = ActionController(world: world, hudController: hudController, inputController: inputController)
     }
 
-    private func loadGame() {
-        world = World(saveLocation: "Default")
-
+    private func linkNodes() {
         self.addChild(world)
+        self.addChild(hudController.worldHudNode)
 
         self.camera = cameraController.camera
         cameraController.gameObjectToFollow = world.player
         self.addChild(cameraController.camera)
+
     }
     
     
