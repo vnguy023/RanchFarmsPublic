@@ -3,8 +3,27 @@ import SpriteKit
 class ActionController {
     let world: World!
 
-    init(world: World) {
+    let inputController: InputController!
+    let hudController: HudController!
+
+    init(world: World,  hudController: HudController, inputController: InputController) {
         self.world = world
+
+        self.hudController = hudController
+        self.inputController = inputController
+
+        assignActions()
+    }
+
+    private func assignActions() {
+        inputController.handleMove = actionMove
+        inputController.handlePrimary[.ClickDown] = actionPrimary
+        inputController.handleCancel[.ClickDown] = actionCancel
+        inputController.handleMenu[.ClickDown] = actionMenu
+        inputController.handleUse[.ClickDown] = actionUse
+
+        inputController.handleSwitchLeft[.ClickDown] = actionSwitchLeft
+        inputController.handleSwitchRight[.ClickDown] = actionSwitchRight
     }
 
     func actionMove(moveVector: CGVector) {

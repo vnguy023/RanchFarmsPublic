@@ -18,18 +18,9 @@ class GameScene: BaseScene {
     }
 
     private func linkControllers() {
-        actionController = ActionController(world: world)
         renderController = RenderController(world: world)
         hudController = HudController(camera: cameraController.camera, world: world, screenSize: self.size)
-
-        inputController.handleMove = actionController.actionMove
-        inputController.handlePrimary[.ClickDown] = actionController.actionPrimary
-        inputController.handleCancel[.ClickDown] = actionController.actionCancel
-        inputController.handleMenu[.ClickDown] = actionController.actionMenu
-        inputController.handleUse[.ClickDown] = actionController.actionUse
-        
-        inputController.handleSwitchLeft[.ClickDown] = actionController.actionSwitchLeft
-        inputController.handleSwitchRight[.ClickDown] = actionController.actionSwitchRight
+        actionController = ActionController(world: world, hudController: hudController, inputController: inputController)
     }
 
     private func loadGame() {
