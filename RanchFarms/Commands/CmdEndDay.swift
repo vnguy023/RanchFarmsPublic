@@ -8,7 +8,9 @@ class CmdEndDay: Command {
     func execute() {
         for gameArea in world.gameAreas {
             for building in gameArea.buildings {
-                if building.buildingInfo.buildingType == .Crop {
+                let tile = world.getTileAt(position: building.position, location: building.location)
+                if building.buildingInfo.buildingType == .Crop
+                    && tile != nil && tile!.isWatered {
                     building.growthProgress += 1
                 }
             }
