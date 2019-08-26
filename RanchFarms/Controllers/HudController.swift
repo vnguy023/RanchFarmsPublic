@@ -10,6 +10,7 @@ class HudController{
     let worldHudNode = SKNode()
 
     // Hud Overlay
+    let viewDayInfo: ViewDayInfo
     let viewInventoryHotbar: ViewInventoryHotbar
     let viewMoneyInfo: ViewMoneyInfo
 
@@ -21,6 +22,11 @@ class HudController{
 
         self.camera = camera
         self.world = world
+
+        viewDayInfo = ViewDayInfo(world: world)
+        viewDayInfo.position.x = screenSize.width / -2 + viewDayInfo.size.width/2
+        viewDayInfo.position.y = screenSize.height / 2 - viewDayInfo.size.height/2
+        camera.addChild(viewDayInfo)
 
         viewInventoryHotbar = ViewInventoryHotbar(inventory: world.player.inventory, hudInterfaceData: world.hudInterfaceData)
         viewInventoryHotbar.position.y = screenSize.height / -2 + viewInventoryHotbar.size.height/2
@@ -37,6 +43,7 @@ class HudController{
     }
 
     func update() {
+        viewDayInfo.update()
         viewInventoryHotbar.update()
         viewMoneyInfo.update()
         viewSelectedGameTile.update()

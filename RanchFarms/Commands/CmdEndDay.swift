@@ -36,5 +36,7 @@ class CmdEndDay: Command {
                 }
             }
         }
+
+        world.daysElapsed += 1
     }
 }

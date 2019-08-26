@@ -1,7 +1,6 @@
 import SpriteKit
 
 class World: SKNode {
-
     var player: Person!
 
     var gameAreas = [GameArea]()
@@ -10,6 +9,11 @@ class World: SKNode {
     var currentLocation: Location {
         get {return player.location}
         set {player.location = newValue}
+    }
+
+    var daysElapsed = Int(0)
+    var currentDay: Int {
+        get { return daysElapsed + 1 }
     }
 
     var teleportStartDay = Teleport(position: CGPoint(x: CGFloat(2) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
