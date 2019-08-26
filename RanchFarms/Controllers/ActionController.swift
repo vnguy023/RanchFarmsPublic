@@ -44,6 +44,9 @@ class ActionController {
         } else if let _ = buildings.filter({$0.type == .Bed}).first {
             let cmdEndDay  = CmdEndDay(world: world)
             cmdEndDay.execute()
+
+            let cmdStartDay = CmdStartDay(world: world)
+            cmdStartDay.execute()
         }
     }
 

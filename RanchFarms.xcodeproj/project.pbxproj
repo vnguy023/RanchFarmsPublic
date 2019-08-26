@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C0F561B2313BE930017192E /* CmdStartDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0F561A2313BE930017192E /* CmdStartDay.swift */; };
 		6C2336E42311387700261944 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E32311387700261944 /* ItemType.swift */; };
 		6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E52311390400261944 /* ItemInfoManager.swift */; };
 		6C2336E8231147BA00261944 /* BuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E7231147BA00261944 /* BuildingInfo.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C0F561A2313BE930017192E /* CmdStartDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdStartDay.swift; sourceTree = "<group>"; };
 		6C2336E32311387700261944 /* ItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		6C2336E52311390400261944 /* ItemInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoManager.swift; sourceTree = "<group>"; };
 		6C2336E7231147BA00261944 /* BuildingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingInfo.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				6C2336F4231272ED00261944 /* CmdBase.swift */,
 				6C2336F62312744D00261944 /* CmdActionUseItem.swift */,
+				6C0F561A2313BE930017192E /* CmdStartDay.swift */,
 				6C2336F2231272B300261944 /* CmdEndDay.swift */,
 			);
 			path = Commands;
@@ -377,6 +380,7 @@
 				6C9E3E0C230E4C08007417E1 /* HudInterfaceData.swift in Sources */,
 				6C6033A3230B60B000746309 /* ViewController.swift in Sources */,
 				6C2336EA231147EA00261944 /* BuildingType.swift in Sources */,
+				6C0F561B2313BE930017192E /* CmdStartDay.swift in Sources */,
 				6C9E3E0E230E61D2007417E1 /* ViewMoneyInfo.swift in Sources */,
 				6C6033B3230B61BF00746309 /* SplashScene.swift in Sources */,
 				6C2336F5231272ED00261944 /* CmdBase.swift in Sources */,

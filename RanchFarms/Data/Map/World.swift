@@ -12,6 +12,9 @@ class World: SKNode {
         set {player.location = newValue}
     }
 
+    var teleportStartDay = Teleport(position: CGPoint(x: CGFloat(2) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
+                                    location: .House,
+                                    directionToFace: .SOUTH)
     // Hud Data
     // This should be temporary data for now. Think about throwing this into global
     var hudInterfaceData = HudInterfaceData()

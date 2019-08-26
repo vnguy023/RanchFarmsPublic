@@ -21,6 +21,8 @@ class GameScene: BaseScene {
 
     private func loadGame() {
         world = World(saveLocation: "Default")
+        let cmdStartDay = CmdStartDay(world: world)
+        cmdStartDay.execute()
     }
 
     private func linkControllers() {
