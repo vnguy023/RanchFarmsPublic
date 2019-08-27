@@ -24,7 +24,7 @@ class HudController{
         self.world = world
 
         viewDayInfo = ViewDayInfo(world: world)
-        viewDayInfo.position.x = screenSize.width / -2 + viewDayInfo.size.width/2
+        viewDayInfo.position.x = screenSize.width / 2 - viewDayInfo.size.width/2
         viewDayInfo.position.y = screenSize.height / 2 - viewDayInfo.size.height/2
         camera.addChild(viewDayInfo)
 
@@ -34,7 +34,7 @@ class HudController{
 
         viewMoneyInfo = ViewMoneyInfo(player: world.player)
         viewMoneyInfo.position.x = screenSize.width / 2 - viewMoneyInfo.size.width/2
-        viewMoneyInfo.position.y = screenSize.height / 2 - viewMoneyInfo.size.height/2
+        viewMoneyInfo.position.y = screenSize.height / 2 - viewDayInfo.size.height - viewMoneyInfo.size.height/2
         camera.addChild(viewMoneyInfo)
 
         viewSelectedGameTile = ViewSelectedGameTile(player: world.player, world: world)

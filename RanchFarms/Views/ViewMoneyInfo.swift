@@ -25,7 +25,7 @@ class ViewMoneyInfo: SKSpriteNode {
     }
 
     func update() {
-        amountLabel.text = "\(player.money)"
+        amountLabel.text = "$\(player.money)"
     }
 
     required init?(coder aDecoder: NSCoder) {
