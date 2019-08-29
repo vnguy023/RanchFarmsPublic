@@ -10,9 +10,13 @@ class HudController{
     let worldHudNode = SKNode()
 
     // Hud Overlay
+    // -- Game views
     let viewDayInfo: ViewDayInfo
     let viewInventoryHotbar: ViewInventoryHotbar
     let viewMoneyInfo: ViewMoneyInfo
+
+    // -- Inventory Views
+    let viewInventory :ViewInventory
 
     // Hud Ingame
     let viewSelectedGameTile: ViewSelectedGameTile
@@ -21,6 +25,8 @@ class HudController{
         self.screenSize = screenSize
 
         self.camera = camera
+        camera.zPosition = 10000
+
         self.world = world
 
         viewDayInfo = ViewDayInfo(world: world)
@@ -40,6 +46,10 @@ class HudController{
         viewSelectedGameTile = ViewSelectedGameTile(player: world.player, world: world)
         viewSelectedGameTile.zPosition = 500
         worldHudNode.addChild(viewSelectedGameTile)
+
+        viewInventory = ViewInventory(inventory: world.player.inventory, hudInterfaceData: world.hudInterfaceData)
+        viewInventory.zPosition = 1000
+        camera.addChild(viewInventory)
     }
 
     func update() {
@@ -47,5 +57,13 @@ class HudController{
         viewInventoryHotbar.update()
         viewMoneyInfo.update()
         viewSelectedGameTile.update()
+
+        if world.hudInterfaceData.gameState == .Inventory {
+            viewInventory.update()
+            viewInventory.isHidden = false
+        } else {
+            viewInventory.isHidden = true
+        }
+
     }
 }

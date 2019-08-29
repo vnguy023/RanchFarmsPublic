@@ -1,8 +1,15 @@
 // meant to store temporary data for our views
 class HudInterfaceData {
 
+    enum GameState {
+        case Game
+        case Inventory
+    }
+
+    var gameState = GameState.Game
+
     var selectedItemInventoryHotbarIndex = 0
-    let MAX_INVENTORY_HOTBAR_INDEX = 9
+    let MAX_INVENTORY_HOTBAR_INDEX = Int(Config.viewInventoryWidth - 1)
     
     init() {
 

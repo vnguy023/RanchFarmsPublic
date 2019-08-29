@@ -10,6 +10,8 @@ class Config {
 
     static let dayInfoSize = CGSize(width: 150, height: 50)
 
+    static let viewInventoryWidth = CGFloat(12)
+
     private init() {
 
     }

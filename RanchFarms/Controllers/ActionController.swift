@@ -54,6 +54,12 @@ class ActionController {
     }
 
     func actionMenu() {
+        switch world.hudInterfaceData.gameState {
+        case .Game:
+            world.hudInterfaceData.gameState = .Inventory
+        case .Inventory:
+            world.hudInterfaceData.gameState = .Game
+        }
     }
 
     func actionUse() {
