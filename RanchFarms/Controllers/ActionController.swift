@@ -12,18 +12,7 @@ class ActionController {
         self.hudController = hudController
         self.inputController = inputController
 
-        assignActions()
-    }
-
-    private func assignActions() {
-        inputController.handleMove = actionMove
-        inputController.handlePrimary[.ClickDown] = actionPrimary
-        inputController.handleCancel[.ClickDown] = actionCancel
-        inputController.handleMenu[.ClickDown] = actionMenu
-        inputController.handleUse[.ClickDown] = actionUse
-
-        inputController.handleSwitchLeft[.ClickDown] = actionSwitchLeft
-        inputController.handleSwitchRight[.ClickDown] = actionSwitchRight
+        changeGameState(to: .Game)
     }
 
     func actionMove(moveVector: CGVector) {
@@ -51,15 +40,11 @@ class ActionController {
     }
 
     func actionCancel() {
+        changeGameState(to: .Game)
     }
 
     func actionMenu() {
-        switch world.hudInterfaceData.gameState {
-        case .Game:
-            world.hudInterfaceData.gameState = .Inventory
-        case .Inventory:
-            world.hudInterfaceData.gameState = .Game
-        }
+        changeGameState(to: .Inventory)
     }
 
     func actionUse() {
@@ -73,5 +58,31 @@ class ActionController {
 
     func actionSwitchRight() {
         world.hudInterfaceData.changeHotBarIndexRight()
+    }
+
+    func changeGameState(to gameState: HudInterfaceData.GameState) {
+        if world.hudInterfaceData.gameState == gameState {
+            return
+        }
+
+        world.hudInterfaceData.gameState = gameState
+
+        switch gameState {
+        case .Game:
+            assignActionsGameStateGame()
+        default:
+            print ("[Desc=newActions not assigned] [GameState=\(gameState)]")
+        }
+    }
+
+    private func assignActionsGameStateGame() {
+        inputController.handleMove = actionMove
+        inputController.handlePrimary[.ClickDown] = actionPrimary
+        inputController.handleCancel[.ClickDown] = actionCancel
+        inputController.handleMenu[.ClickDown] = actionMenu
+        inputController.handleUse[.ClickDown] = actionUse
+
+        inputController.handleSwitchLeft[.ClickDown] = actionSwitchLeft
+        inputController.handleSwitchRight[.ClickDown] = actionSwitchRight
     }
 }

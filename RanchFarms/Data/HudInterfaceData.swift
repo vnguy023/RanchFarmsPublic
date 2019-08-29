@@ -2,11 +2,12 @@
 class HudInterfaceData {
 
     enum GameState {
+        case Unknown
         case Game
         case Inventory
     }
 
-    var gameState = GameState.Game
+    var gameState = GameState.Unknown
 
     var selectedItemInventoryHotbarIndex = 0
     let MAX_INVENTORY_HOTBAR_INDEX = Int(Config.viewInventoryWidth - 1)
