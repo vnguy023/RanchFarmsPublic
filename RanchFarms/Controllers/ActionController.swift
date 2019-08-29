@@ -15,7 +15,10 @@ class ActionController {
         changeGameState(to: .Game)
     }
 
-    func actionMove(moveVector: CGVector) {
+    // GameState.Game
+    ///////////////////////
+
+    func actionMoveGameStateGame(moveVector: CGVector) {
         if !moveVector.isZeroVector {
             let initPosition = world.player.position
             world.player.position = world.player.position + moveVector.scale(world.player.moveSpeed)
@@ -23,7 +26,7 @@ class ActionController {
         }
     }
 
-    func actionPrimary() {
+    func actionPrimaryGameStateGame() {
         let currentGameArea = world.getCurrentGameArea()
 
         let buildings = currentGameArea.buildings.filter({$0.contains(world.player.getPositionInFront())})
@@ -39,25 +42,36 @@ class ActionController {
         }
     }
 
-    func actionCancel() {
-        changeGameState(to: .Game)
-    }
-
-    func actionMenu() {
+    func actionMenuGameStateGame() {
         changeGameState(to: .Inventory)
     }
 
-    func actionUse() {
+    func actionUseGameStateGame() {
         let cmdActionUseItem  = CmdActionUseItem(world: world)
         cmdActionUseItem.execute()
     }
 
-    func actionSwitchLeft() {
+    func actionSwitchLeftGameStateGame() {
         world.hudInterfaceData.changeHotBarIndexLeft()
     }
 
-    func actionSwitchRight() {
+    func actionSwitchRightGameStateGame() {
         world.hudInterfaceData.changeHotBarIndexRight()
+    }
+
+    // GameState.Inventory
+    ///////////////////////
+
+    func actionCancelGameStateInventory() {
+        changeGameState(to: .Game)
+    }
+
+    func actionSwitchLeftGameStateInventory() {
+        world.hudInterfaceData.changeInventoryIndexLeft()
+    }
+
+    func actionSwitchRightGameStateInventory() {
+        world.hudInterfaceData.changeInventoryIndexRight()
     }
 
     func changeGameState(to gameState: HudInterfaceData.GameState) {
@@ -80,18 +94,21 @@ class ActionController {
     private func assignActionsGameStateGame() {
         inputController.clearHandles()
 
-        inputController.handleMove = actionMove
-        inputController.handlePrimary[.ClickDown] = actionPrimary
-        inputController.handleMenu[.ClickDown] = actionMenu
-        inputController.handleUse[.ClickDown] = actionUse
+        inputController.handleMove = actionMoveGameStateGame
+        inputController.handlePrimary[.ClickDown] = actionPrimaryGameStateGame
+        inputController.handleMenu[.ClickDown] = actionMenuGameStateGame
+        inputController.handleUse[.ClickDown] = actionUseGameStateGame
 
-        inputController.handleSwitchLeft[.ClickDown] = actionSwitchLeft
-        inputController.handleSwitchRight[.ClickDown] = actionSwitchRight
+        inputController.handleSwitchLeft[.ClickDown] = actionSwitchLeftGameStateGame
+        inputController.handleSwitchRight[.ClickDown] = actionSwitchRightGameStateGame
     }
 
     private func assignActionsGameStateInventory() {
         inputController.clearHandles()
         
-        inputController.handleCancel[.ClickDown] = actionCancel
+        inputController.handleCancel[.ClickDown] = actionCancelGameStateInventory
+
+        inputController.handleSwitchLeft[.ClickDown] = actionSwitchLeftGameStateInventory
+        inputController.handleSwitchRight[.ClickDown] = actionSwitchRightGameStateInventory
     }
 }

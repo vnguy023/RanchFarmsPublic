@@ -11,6 +11,8 @@ class HudInterfaceData {
 
     var selectedItemInventoryHotbarIndex = 0
     let MAX_INVENTORY_HOTBAR_INDEX = Int(Config.viewInventoryWidth - 1)
+
+    var selectedItemInventoryIndex = 0
     
     init() {
 
@@ -22,5 +24,17 @@ class HudInterfaceData {
 
     func changeHotBarIndexRight() {
         selectedItemInventoryHotbarIndex = min(selectedItemInventoryHotbarIndex + 1, MAX_INVENTORY_HOTBAR_INDEX)
+    }
+
+    func changeInventoryIndexLeft() {
+        if (selectedItemInventoryIndex % Int(Config.viewInventoryWidth)) > 0 {
+            selectedItemInventoryIndex -= 1
+        }
+    }
+
+    func changeInventoryIndexRight() {
+        if (selectedItemInventoryIndex % Int(Config.viewInventoryWidth)) < Int(Config.viewInventoryWidth) - 1 {
+            selectedItemInventoryIndex += 1
+        }
     }
 }
