@@ -76,6 +76,8 @@ class ActionController {
     }
 
     private func assignActionsGameStateGame() {
+        inputController.clearHandles()
+
         inputController.handleMove = actionMove
         inputController.handlePrimary[.ClickDown] = actionPrimary
         inputController.handleCancel[.ClickDown] = actionCancel
