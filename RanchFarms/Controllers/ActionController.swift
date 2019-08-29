@@ -70,6 +70,8 @@ class ActionController {
         switch gameState {
         case .Game:
             assignActionsGameStateGame()
+        case .Inventory:
+            assignActionsGameStateInventory()
         default:
             print ("[Desc=newActions not assigned] [GameState=\(gameState)]")
         }
@@ -80,11 +82,16 @@ class ActionController {
 
         inputController.handleMove = actionMove
         inputController.handlePrimary[.ClickDown] = actionPrimary
-        inputController.handleCancel[.ClickDown] = actionCancel
         inputController.handleMenu[.ClickDown] = actionMenu
         inputController.handleUse[.ClickDown] = actionUse
 
         inputController.handleSwitchLeft[.ClickDown] = actionSwitchLeft
         inputController.handleSwitchRight[.ClickDown] = actionSwitchRight
+    }
+
+    private func assignActionsGameStateInventory() {
+        inputController.clearHandles()
+        
+        inputController.handleCancel[.ClickDown] = actionCancel
     }
 }
