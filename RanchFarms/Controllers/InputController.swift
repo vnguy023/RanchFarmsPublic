@@ -3,6 +3,7 @@ import SpriteKit
 class InputController {
     enum InputKey {
         case MoveUp, MoveDown, MoveLeft, MoveRight
+        case DPadUp, DPadDown, DPadLeft, DPadRight
 
         case Primary
         case Cancel
@@ -26,6 +27,11 @@ class InputController {
     private var playerRightThumbStickVector = [PlayerIndex: CGVector]()
 
     var handleMove: ((CGVector)->())!
+
+    var handleDPadUp = [ButtonState: (()->())]()
+    var handleDPadDown = [ButtonState: (()->())]()
+    var handleDPadLeft = [ButtonState: (()->())]()
+    var handleDPadRight = [ButtonState: (()->())]()
 
     var handlePrimary = [ButtonState: (()->())]()
     var handleCancel = [ButtonState: (()->())]()
@@ -63,7 +69,7 @@ class InputController {
 
         ProcessUpdate()
 
-        // need to set the state to IsUp/IsDown
+        // need to set the state to IsUp/IsDown -- this is for isUp
         if getButtonState(.Primary) == .ClickUp {mButtonState[.Primary] = .IsUp}
         if getButtonState(.Cancel) == .ClickUp {mButtonState[.Cancel] = .IsUp}
         if getButtonState(.Use) == .ClickUp {mButtonState[.Use] = .IsUp}
@@ -72,6 +78,13 @@ class InputController {
         if getButtonState(.SwitchLeft) == .ClickUp {mButtonState[.SwitchLeft] = .IsUp}
         if getButtonState(.SwitchRight) == .ClickUp {mButtonState[.SwitchRight] = .IsUp}
 
+        if getButtonState(.DPadUp) == .ClickDown {mButtonState[.DPadUp] = .IsUp}
+        if getButtonState(.DPadDown) == .ClickDown {mButtonState[.DPadDown] = .IsUp}
+        if getButtonState(.DPadLeft) == .ClickDown {mButtonState[.DPadLeft] = .IsUp}
+        if getButtonState(.DPadRight) == .ClickDown {mButtonState[.DPadRight] = .IsUp}
+
+
+        // For setting to isdown
         if getButtonState(.Primary) == .ClickDown {mButtonState[.Primary] = .IsDown}
         if getButtonState(.Cancel) == .ClickDown {mButtonState[.Cancel] = .IsDown}
         if getButtonState(.Use) == .ClickDown {mButtonState[.Use] = .IsDown}
@@ -79,6 +92,11 @@ class InputController {
 
         if getButtonState(.SwitchLeft) == .ClickDown {mButtonState[.SwitchLeft] = .IsDown}
         if getButtonState(.SwitchRight) == .ClickDown {mButtonState[.SwitchRight] = .IsDown}
+
+        if getButtonState(.DPadUp) == .ClickDown {mButtonState[.DPadUp] = .IsDown}
+        if getButtonState(.DPadDown) == .ClickDown {mButtonState[.DPadDown] = .IsDown}
+        if getButtonState(.DPadLeft) == .ClickDown {mButtonState[.DPadLeft] = .IsDown}
+        if getButtonState(.DPadRight) == .ClickDown {mButtonState[.DPadRight] = .IsDown}
     }
 
     private func ProcessKeyboardMode() {
@@ -122,6 +140,11 @@ class InputController {
 
         if let executeHandle = handleSwitchLeft[getButtonState(.SwitchLeft)] { executeHandle() }
         if let executeHandle = handleSwitchRight[getButtonState(.SwitchRight)] { executeHandle() }
+
+        if let executeHandle = handleDPadUp[getButtonState(.DPadUp)] { executeHandle() }
+        if let executeHandle = handleDPadDown[getButtonState(.DPadDown)] { executeHandle() }
+        if let executeHandle = handleDPadLeft[getButtonState(.DPadLeft)] { executeHandle() }
+        if let executeHandle = handleDPadRight[getButtonState(.DPadRight)] { executeHandle() }
     }
 
     func pressedDown(inputKey: InputKey, value: Bool) {
@@ -168,5 +191,10 @@ class InputController {
 
         handleSwitchLeft.removeAll()
         handleSwitchRight.removeAll()
+
+        handleDPadUp.removeAll()
+        handleDPadDown.removeAll()
+        handleDPadLeft.removeAll()
+        handleDPadRight.removeAll()
     }
 }

@@ -85,6 +85,15 @@ class GameScene: BaseScene {
         case 14:    // e
             inputController.pressedDown(inputKey: .SwitchRight, value: true)
 
+        case 126:   // ArrowUp
+            inputController.pressedDown(inputKey: .DPadUp, value: true)
+        case 125:   // ArrowDown
+            inputController.pressedDown(inputKey: .DPadDown, value: true)
+        case 123:   // ArrowLeft
+            inputController.pressedDown(inputKey: .DPadLeft, value: true)
+        case 124:   // ArrowRight
+            inputController.pressedDown(inputKey: .DPadRight, value: true)
+
         case 42:    // \
             inputController.pressedDown(inputKey: .TOGGLE_KEYBOARD_MODE, value: true)
         default:
@@ -116,6 +125,15 @@ class GameScene: BaseScene {
             inputController.pressedDown(inputKey: .SwitchLeft, value: false)
         case 14:    // e
             inputController.pressedDown(inputKey: .SwitchRight, value: false)
+
+        case 126:   // ArrowUp
+            inputController.pressedDown(inputKey: .DPadUp, value: false)
+        case 125:   // ArrowDown
+            inputController.pressedDown(inputKey: .DPadDown, value: false)
+        case 123:   // ArrowLeft
+            inputController.pressedDown(inputKey: .DPadLeft, value: false)
+        case 124:   // ArrowRight
+            inputController.pressedDown(inputKey: .DPadRight, value: false)
 
         case 42:    // \
             inputController.pressedDown(inputKey: .TOGGLE_KEYBOARD_MODE, value: false)
@@ -162,6 +180,11 @@ class GameScene: BaseScene {
 
             inputController.pressedDown(inputKey: .SwitchLeft, value: gc.extendedGamepad!.leftShoulder.isPressed)
             inputController.pressedDown(inputKey: .SwitchRight, value: gc.extendedGamepad!.rightShoulder.isPressed)
+
+            inputController.pressedDown(inputKey: .DPadUp, value: gc.extendedGamepad!.dpad.up.isPressed)
+            inputController.pressedDown(inputKey: .DPadDown, value: gc.extendedGamepad!.dpad.down.isPressed)
+            inputController.pressedDown(inputKey: .DPadLeft, value: gc.extendedGamepad!.dpad.left.isPressed)
+            inputController.pressedDown(inputKey: .DPadRight, value: gc.extendedGamepad!.dpad.right.isPressed)
         }
     }
 }
