@@ -10,7 +10,7 @@ class ViewInventoryHotbar: SKSpriteNode {
         self.hudInterfaceData = hudInterfaceData
         self.inventory = inventory
 
-        let inventorySize = CGSize(width: Config.itemImageSize.width * Config.viewInventoryWidth,
+        let inventorySize = CGSize(width: Config.itemImageSize.width * Config.viewInventoryColumns,
                                    height: Config.itemImageSize.height)
         super.init(texture: nil, color: .red, size: inventorySize)
 
@@ -21,7 +21,7 @@ class ViewInventoryHotbar: SKSpriteNode {
         self.removeAllChildren()
         itemButtons.removeAll()
 
-        for index in 0 ..< Int(Config.viewInventoryWidth) {
+        for index in 0 ..< Int(Config.viewInventoryColumns) {
             let itemButton = ViewItemButton(item: inventory.items[index])
             itemButton.zPosition = 100
             itemButton.position.x = self.size.width / -2 + (CGFloat(index) * Config.itemImageSize.width) + Config.itemImageSize.width/2

@@ -10,7 +10,7 @@ class ViewInventory: SKSpriteNode {
         self.hudInterfaceData = hudInterfaceData
         self.inventory = inventory
 
-        let inventorySize = CGSize(width: Config.itemImageSize.width * Config.viewInventoryWidth,
+        let inventorySize = CGSize(width: Config.itemImageSize.width * Config.viewInventoryColumns,
                                    height: Config.itemImageSize.height)
         super.init(texture: nil, color: .red, size: inventorySize)
 
@@ -21,14 +21,20 @@ class ViewInventory: SKSpriteNode {
         self.removeAllChildren()
         itemButtons.removeAll()
 
-        for index in 0 ..< Int(Config.viewInventoryWidth) {
-            let itemButton = ViewItemButton(item: inventory.items[index])
-            itemButton.zPosition = 100
-            itemButton.position.x = self.size.width / -2 + (CGFloat(index) * Config.itemImageSize.width) + Config.itemImageSize.width/2
-            self.addChild(itemButton)
+        var index = 0
 
-            if index == hudInterfaceData.selectedItemInventoryIndex {
-                itemButton.highlight = true
+        for y in 0 ..< Int(Config.viewInventoryRows) {
+            for x in 0 ..< Int(Config.viewInventoryColumns) {
+                let itemButton = ViewItemButton(item: inventory.items[index])
+                itemButton.zPosition = 100
+                itemButton.position.x = self.size.width / -2 + (CGFloat(x) * Config.itemImageSize.width) + Config.itemImageSize.width/2
+                itemButton.position.y = self.size.height / 2 - (CGFloat(y) * Config.itemImageSize.height) - Config.itemImageSize.height/2
+                self.addChild(itemButton)
+
+                if index == hudInterfaceData.selectedItemInventoryIndex {
+                    itemButton.highlight = true
+                }
+                index += 1
             }
         }
     }

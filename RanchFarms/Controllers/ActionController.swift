@@ -66,6 +66,14 @@ class ActionController {
         changeGameState(to: .Game)
     }
 
+    func actionDPadUpGameStateInventory() {
+        world.hudInterfaceData.changeInventoryIndexUp()
+    }
+
+    func actionDPadDownGameStateInventory() {
+        world.hudInterfaceData.changeInventoryIndexDown()
+    }
+
     func actionDPadLeftGameStateInventory() {
         world.hudInterfaceData.changeInventoryIndexLeft()
     }
@@ -108,6 +116,8 @@ class ActionController {
         
         inputController.handleCancel[.ClickDown] = actionCancelGameStateInventory
 
+        inputController.handleDPadUp[.ClickDown] = actionDPadUpGameStateInventory
+        inputController.handleDPadDown[.ClickDown] = actionDPadDownGameStateInventory
         inputController.handleDPadLeft[.ClickDown] = actionDPadLeftGameStateInventory
         inputController.handleDPadRight[.ClickDown] = actionDPadRightGameStateInventory
     }

@@ -10,7 +10,7 @@ class HudInterfaceData {
     var gameState = GameState.Unknown
 
     var selectedItemInventoryHotbarIndex = 0
-    let MAX_INVENTORY_HOTBAR_INDEX = Int(Config.viewInventoryWidth - 1)
+    let MAX_INVENTORY_HOTBAR_INDEX = Int(Config.viewInventoryColumns - 1)
 
     var selectedItemInventoryIndex = 0
     
@@ -26,14 +26,26 @@ class HudInterfaceData {
         selectedItemInventoryHotbarIndex = min(selectedItemInventoryHotbarIndex + 1, MAX_INVENTORY_HOTBAR_INDEX)
     }
 
+    func changeInventoryIndexUp() {
+        if selectedItemInventoryIndex >= Int(Config.viewInventoryColumns) {
+            selectedItemInventoryIndex -= Int(Config.viewInventoryColumns)
+        }
+    }
+
+    func changeInventoryIndexDown() {
+        if selectedItemInventoryIndex < Int(Config.viewInventoryColumns * (Config.viewInventoryRows - 1)) {
+            selectedItemInventoryIndex += Int(Config.viewInventoryColumns)
+        }
+    }
+
     func changeInventoryIndexLeft() {
-        if (selectedItemInventoryIndex % Int(Config.viewInventoryWidth)) > 0 {
+        if (selectedItemInventoryIndex % Int(Config.viewInventoryColumns)) > 0 {
             selectedItemInventoryIndex -= 1
         }
     }
 
     func changeInventoryIndexRight() {
-        if (selectedItemInventoryIndex % Int(Config.viewInventoryWidth)) < Int(Config.viewInventoryWidth) - 1 {
+        if (selectedItemInventoryIndex % Int(Config.viewInventoryColumns)) < Int(Config.viewInventoryColumns) - 1 {
             selectedItemInventoryIndex += 1
         }
     }
