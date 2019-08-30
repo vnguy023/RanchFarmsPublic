@@ -21,7 +21,7 @@ class InputController {
 
     private var mButtonState = [InputKey: ButtonState]()
 
-    private var keyBoardEnabled = true
+    var keyBoardEnabled = true
 
     private var playerLeftThumbStickVector = [PlayerIndex: CGVector]()
     private var playerRightThumbStickVector = [PlayerIndex: CGVector]()
@@ -83,7 +83,6 @@ class InputController {
         if getButtonState(.DPadLeft) == .ClickUp {mButtonState[.DPadLeft] = .IsUp}
         if getButtonState(.DPadRight) == .ClickUp {mButtonState[.DPadRight] = .IsUp}
 
-
         // For setting to isdown
         if getButtonState(.Primary) == .ClickDown {mButtonState[.Primary] = .IsDown}
         if getButtonState(.Cancel) == .ClickDown {mButtonState[.Cancel] = .IsDown}
@@ -97,6 +96,13 @@ class InputController {
         if getButtonState(.DPadDown) == .ClickDown {mButtonState[.DPadDown] = .IsDown}
         if getButtonState(.DPadLeft) == .ClickDown {mButtonState[.DPadLeft] = .IsDown}
         if getButtonState(.DPadRight) == .ClickDown {mButtonState[.DPadRight] = .IsDown}
+
+        // Miscellaneous stuff
+        if getButtonState(.TOGGLE_KEYBOARD_MODE) == ButtonState.ClickDown {
+            mButtonState[.TOGGLE_KEYBOARD_MODE] = .IsDown
+        } else if getButtonState(.TOGGLE_KEYBOARD_MODE) == ButtonState.ClickUp {
+            mButtonState[.TOGGLE_KEYBOARD_MODE] = .IsUp
+        }
     }
 
     private func ProcessKeyboardMode() {
