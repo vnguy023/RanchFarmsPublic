@@ -18,6 +18,12 @@ class Building: GameObject {
             updateTexture()
         }
     }
+    var canHarvest: Bool {
+        if type == .Crop && growthProgress >= buildingInfo.harvestDate! {
+            return true
+        }
+        return false
+    }
 
     init(buildingId: BuildingId, position: CGPoint, location: Location) {
         self.buildingId = buildingId

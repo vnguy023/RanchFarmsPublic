@@ -31,14 +31,23 @@ class ActionController {
 
         let buildings = currentGameArea.buildings.filter({$0.contains(world.player.getPositionInFront())})
 
-        if let teleport = buildings.filter({$0.type == .Teleport}).first {
-            world.teleport(to: teleport.teleport!)
-        } else if let _ = buildings.filter({$0.type == .Bed}).first {
-            let cmdEndDay  = CmdEndDay(world: world)
-            cmdEndDay.execute()
+        if let buildingInFront = buildings.first {
+            switch buildingInFront.type {
+            case .Teleport:
+                world.teleport(to: buildingInFront.teleport!)
+            case .Bed:
+                let cmdEndDay  = CmdEndDay(world: world)
+                cmdEndDay.execute()
 
-            let cmdStartDay = CmdStartDay(world: world)
-            cmdStartDay.execute()
+                let cmdStartDay = CmdStartDay(world: world)
+                cmdStartDay.execute()
+            case .Crop:
+                if buildingInFront.canHarvest {
+                    print("[Desc=yay Harvest me somehow] [name=\(buildingInFront.buildingInfo.name)]")
+                }
+            default:
+                print ("[Desc=Primary Action not handled for this building] [BuildingType=\(buildingInFront.type)]")
+            }
         }
     }
 
