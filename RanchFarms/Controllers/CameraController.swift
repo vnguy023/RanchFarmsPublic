@@ -6,7 +6,7 @@ class CameraController {
     var gameObjectToFollow: GameObject!
 
     init() {
-
+        camera.setScale(0.5)
     }
 
     func update() {
