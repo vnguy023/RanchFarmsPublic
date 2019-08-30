@@ -78,10 +78,10 @@ class InputController {
         if getButtonState(.SwitchLeft) == .ClickUp {mButtonState[.SwitchLeft] = .IsUp}
         if getButtonState(.SwitchRight) == .ClickUp {mButtonState[.SwitchRight] = .IsUp}
 
-        if getButtonState(.DPadUp) == .ClickDown {mButtonState[.DPadUp] = .IsUp}
-        if getButtonState(.DPadDown) == .ClickDown {mButtonState[.DPadDown] = .IsUp}
-        if getButtonState(.DPadLeft) == .ClickDown {mButtonState[.DPadLeft] = .IsUp}
-        if getButtonState(.DPadRight) == .ClickDown {mButtonState[.DPadRight] = .IsUp}
+        if getButtonState(.DPadUp) == .ClickUp {mButtonState[.DPadUp] = .IsUp}
+        if getButtonState(.DPadDown) == .ClickUp {mButtonState[.DPadDown] = .IsUp}
+        if getButtonState(.DPadLeft) == .ClickUp {mButtonState[.DPadLeft] = .IsUp}
+        if getButtonState(.DPadRight) == .ClickUp {mButtonState[.DPadRight] = .IsUp}
 
 
         // For setting to isdown

@@ -107,7 +107,7 @@ class World: SKNode {
                                  directionToFace: .SOUTH)
         gameArea.buildings.append(door)
         let bed = Building(buildingId: .SingleBed,
-                           position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
+                           position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(-3) * Config.tileSize.height),
                            location: location)
         gameArea.buildings.append(bed)
 
@@ -144,7 +144,7 @@ class World: SKNode {
         let townDoor = Building(buildingId: .Door,
                                 position: CGPoint(x: CGFloat(6) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
                                 location: location)
-        townDoor.teleport = Teleport(position: CGPoint(x: CGFloat(6) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
+        townDoor.teleport = Teleport(position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(0) * Config.tileSize.height),
                                      location: .Town,
                                      directionToFace: .EAST)
         gameArea.buildings.append(townDoor)
