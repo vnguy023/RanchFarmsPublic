@@ -71,8 +71,19 @@ class ActionController {
     // GameState.Inventory
     ///////////////////////
 
+    func actionPrimaryGameStateInventory() {
+        // just keep reassigning for now
+        if world.hudInterfaceData.selectedItemInventoryIndex == nil {
+            world.hudInterfaceData.selectedItemInventoryIndex = world.hudInterfaceData.highlightedItemInventoryIndex
+        }
+    }
+
     func actionCancelGameStateInventory() {
-        changeGameState(to: .Game)
+        if world.hudInterfaceData.selectedItemInventoryIndex != nil {
+            world.hudInterfaceData.selectedItemInventoryIndex = nil
+        } else {
+            changeGameState(to: .Game)
+        }
     }
 
     func actionDPadUpGameStateInventory() {
@@ -90,6 +101,9 @@ class ActionController {
     func actionDPadRightGameStateInventory() {
         world.hudInterfaceData.changeInventoryIndexRight()
     }
+
+    // Change of GameStates and assigning of Actions to controller
+    ///////////////////////
 
     func changeGameState(to gameState: HudInterfaceData.GameState) {
         if world.hudInterfaceData.gameState == gameState {
@@ -122,7 +136,8 @@ class ActionController {
 
     private func assignActionsGameStateInventory() {
         inputController.clearHandles()
-        
+
+        inputController.handlePrimary[.ClickDown] = actionPrimaryGameStateInventory
         inputController.handleCancel[.ClickDown] = actionCancelGameStateInventory
 
         inputController.handleDPadUp[.ClickDown] = actionDPadUpGameStateInventory

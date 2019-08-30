@@ -26,6 +26,7 @@ class TextureManager {
 
     private func loadHud() {
         hudMap["hudItemBorder"] = SKTexture(imageNamed: "hudItemBorder")
+        hudMap["hudItemBorderSelect"] = SKTexture(imageNamed: "hudItemBorderSelect")
         hudMap["hudItemBorderHighlight"] = SKTexture(imageNamed: "hudItemBorderHighlight")
         hudMap["hudItemBorderShadow"] = SKTexture(imageNamed: "hudItemBorderShadow")
         hudMap["hudTileCursor"] = SKTexture(imageNamed: "hudTileCursor")

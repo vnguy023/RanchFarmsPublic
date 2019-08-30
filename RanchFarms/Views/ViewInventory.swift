@@ -32,15 +32,20 @@ class ViewInventory: SKSpriteNode {
                 self.addChild(itemButton)
 
                 if index == hudInterfaceData.selectedItemInventoryIndex {
-                    itemButton.highlight = true
+                    itemButton.state = .Select
                 }
+
+                if index == hudInterfaceData.highlightedItemInventoryIndex {
+                    itemButton.state = .Highlight
+                }
+
                 index += 1
             }
         }
     }
 
     func getSelectedItem() -> Item? {
-        return inventory.items[hudInterfaceData.selectedItemInventoryHotbarIndex]
+        return inventory.items[hudInterfaceData.highlightedItemInventoryHotbarIndex]
     }
 
     required init?(coder aDecoder: NSCoder) {

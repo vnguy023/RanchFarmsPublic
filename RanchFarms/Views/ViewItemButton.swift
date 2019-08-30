@@ -5,14 +5,23 @@ class ViewItemButton: SKSpriteNode {
     private var shadowSprite: SKSpriteNode!
     private var quantityLabel: SKLabelNode!
 
-    private var mHighlight = false
-    var highlight: Bool {
-        get { return mHighlight}
+    enum State {
+        case None
+        case Select
+        case Highlight
+    }
+
+    private var mState = State.None
+    var state: State {
+        get { return mState}
         set {
-            mHighlight = newValue
-            if mHighlight {
+            mState = newValue
+            switch mState {
+            case .Highlight:
                 self.texture = TextureManager.shared.getTexture(hudImageName: "hudItemBorderHighlight")
-            } else {
+            case .Select:
+                self.texture = TextureManager.shared.getTexture(hudImageName: "hudItemBorderSelect")
+            default:
                 self.texture = TextureManager.shared.getTexture(hudImageName: "hudItemBorder")
             }
         }
@@ -21,7 +30,7 @@ class ViewItemButton: SKSpriteNode {
     init(item: Item?) {
         super.init(texture: nil, color: .red, size: Config.itemImageSize)
 
-        highlight = false
+        state = .None
 
         if item != nil {
             itemSprite = SKSpriteNode(texture: nil, color: .red, size: Config.itemImageSize)
