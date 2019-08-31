@@ -33,6 +33,16 @@ class Inventory {
     }
 
     func acquire(item: Item) {
+        // see if we can stack first
+        for i in 0..<Int(capacity) {
+            if canAcquire(item: item, slot: i)
+                && items[i] != nil && items[i]!.type == item.type {
+                acquire(item: item, slot: i)
+                return
+            }
+        }
+
+        // can't stack so therefore take first empty slot
         for i in 0..<Int(capacity) {
             if canAcquire(item: item, slot: i) {
                 acquire(item: item, slot: i)
