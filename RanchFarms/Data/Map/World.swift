@@ -149,6 +149,12 @@ class World: SKNode {
                                      directionToFace: .EAST)
         gameArea.buildings.append(townDoor)
 
+        let garlic = Building(buildingId: .Garlic,
+                              position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(2) * Config.tileSize.height),
+                              location: location)
+        garlic.growthProgress = 8
+        gameArea.buildings.append(garlic)
+
         // Tiles
         for x in -5...5 {
             for y in -5...5 {

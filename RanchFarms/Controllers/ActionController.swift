@@ -43,7 +43,8 @@ class ActionController {
                 cmdStartDay.execute()
             case .Crop:
                 if buildingInFront.canHarvest {
-                    print("[Desc=yay Harvest me somehow] [name=\(buildingInFront.buildingInfo.name)]")
+                    let cmdHarvest = CmdActionHarvest(world: world, crop: buildingInFront)
+                    cmdHarvest.execute()
                 }
             default:
                 print ("[Desc=Primary Action not handled for this building] [BuildingType=\(buildingInFront.type)]")
