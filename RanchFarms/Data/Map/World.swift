@@ -8,7 +8,6 @@ class World: SKNode {
 
     var currentLocation: Location {
         get {return player.location}
-        set {player.location = newValue}
     }
 
     var daysElapsed = Int(0)
@@ -16,8 +15,7 @@ class World: SKNode {
         get { return daysElapsed + 1 }
     }
 
-    var teleportStartDay = Teleport(position: CGPoint(x: CGFloat(2) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
-                                    location: .House,
+    let teleportStartDay = Teleport(mapPoint: MapPoint(x: 2, y: -3, location: .House),
                                     directionToFace: .SOUTH)
     // Hud Data
     // This should be temporary data for now. Think about throwing this into global
@@ -59,9 +57,8 @@ class World: SKNode {
     }
 
     func teleport(to teleport: Teleport) {
-        player.position = teleport.position
+        player.mapPoint = teleport.mapPoint
         player.faceDirection = teleport.directionToFace
-        currentLocation = teleport.location
 
         reloadGameObjects()
     }
@@ -78,7 +75,7 @@ class World: SKNode {
     }
 
     private func loadDefault() {
-        player = Person(position: CGPoint(), location: .Farm, personType: .Player)
+        player = Person(mapPoint: MapPoint(x: 0, y: 0, location: .Farm), personType: .Player)
         player.inventory.items[0] = Item(itemId: .Hoe, quantity: 1)
         player.inventory.items[1] = Item(itemId: .WaterCan, quantity: 1)
         player.inventory.items[2] = Item(itemId: .Axe, quantity: 1)
@@ -100,15 +97,12 @@ class World: SKNode {
 
         //Buildings
         let door = Building(buildingId: .Door,
-                            position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(-5) * Config.tileSize.height),
-                            location: location)
-        door.teleport = Teleport(position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(5) * Config.tileSize.height),
-                                 location: .Farm,
+                            mapPoint: MapPoint(x: 0, y: -5, location: location))
+        door.teleport = Teleport(mapPoint: MapPoint(x: 3, y: 5, location: .Farm),
                                  directionToFace: .SOUTH)
         gameArea.buildings.append(door)
         let bed = Building(buildingId: .SingleBed,
-                           position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(-3) * Config.tileSize.height),
-                           location: location)
+                           mapPoint: MapPoint(x: 3, y: -3, location: location))
         gameArea.buildings.append(bed)
 
         // Tiles
@@ -117,8 +111,7 @@ class World: SKNode {
                 let tileType = TileType.Wood
 
                 let tile = Tile.init(tileType: tileType,
-                                     position: CGPoint(x: CGFloat(x) * Config.tileSize.width, y: CGFloat(y) * Config.tileSize.height),
-                                     location: location)
+                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 gameArea.tiles.append(tile)
             }
         }
@@ -134,24 +127,19 @@ class World: SKNode {
 
         //Buildings
         let houseDoor = Building(buildingId: .Door,
-                            position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(6) * Config.tileSize.height),
-                            location: location)
-        houseDoor.teleport = Teleport(position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(-4) * Config.tileSize.height),
-                                     location: .House,
+                                 mapPoint: MapPoint(x: 3, y: 6, location: location))
+        houseDoor.teleport = Teleport(mapPoint: MapPoint(x: 0, y: -4, location: .House),
                                      directionToFace: .NORTH)
         gameArea.buildings.append(houseDoor)
 
         let townDoor = Building(buildingId: .Door,
-                                position: CGPoint(x: CGFloat(6) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
-                                location: location)
-        townDoor.teleport = Teleport(position: CGPoint(x: CGFloat(0) * Config.tileSize.width, y: CGFloat(0) * Config.tileSize.height),
-                                     location: .Town,
+                                mapPoint: MapPoint(x: 6, y: 3, location: location))
+        townDoor.teleport = Teleport(mapPoint: MapPoint(x: 0, y: 0, location: .Town),
                                      directionToFace: .EAST)
         gameArea.buildings.append(townDoor)
 
         let garlic = Building(buildingId: .Garlic,
-                              position: CGPoint(x: CGFloat(3) * Config.tileSize.width, y: CGFloat(2) * Config.tileSize.height),
-                              location: location)
+                              mapPoint: MapPoint(x: 3, y: 2, location: location))
         garlic.growthProgress = 8
         gameArea.buildings.append(garlic)
 
@@ -164,8 +152,7 @@ class World: SKNode {
                 }
 
                 let tile = Tile.init(tileType: tileType,
-                                     position: CGPoint(x: CGFloat(x) * Config.tileSize.width, y: CGFloat(y) * Config.tileSize.height),
-                                     location: location)
+                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 gameArea.tiles.append(tile)
             }
         }
@@ -181,10 +168,8 @@ class World: SKNode {
 
         //Buildings
         let door = Building(buildingId: .Door,
-                            position: CGPoint(x: CGFloat(-1) * Config.tileSize.width, y: CGFloat(0) * Config.tileSize.height),
-                            location: location)
-        door.teleport = Teleport(position: CGPoint(x: CGFloat(5) * Config.tileSize.width, y: CGFloat(3) * Config.tileSize.height),
-                                 location: .Farm,
+                            mapPoint: MapPoint(x: -1, y: 0, location: location))
+        door.teleport = Teleport(mapPoint: MapPoint(x: 5, y: 3, location: .Farm),
                                  directionToFace: .WEST)
         gameArea.buildings.append(door)
 
@@ -194,8 +179,7 @@ class World: SKNode {
                 let tileType = TileType.Water
 
                 let tile = Tile.init(tileType: tileType,
-                                     position: CGPoint(x: CGFloat(x) * Config.tileSize.width, y: CGFloat(y) * Config.tileSize.height),
-                                     location: location)
+                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 gameArea.tiles.append(tile)
             }
         }

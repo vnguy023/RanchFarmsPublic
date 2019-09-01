@@ -9,9 +9,9 @@ class Person: GameObject {
 
     var state = State.Idle
 
-    init(position: CGPoint, location: Location, personType: PersonType) {
+    init(mapPoint: MapPoint, personType: PersonType) {
         self.type = personType
-        super.init(position: position, location: location)
+        super.init(mapPoint: mapPoint)
 
         self.texture = SKTexture(imageNamed: "personLily")
         self.texture!.filteringMode = .nearest

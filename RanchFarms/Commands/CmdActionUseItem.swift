@@ -50,7 +50,7 @@ class CmdActionUseItem: Command {
         }
 
         if tileInFront.type == .DirtTilled || tileInFront.type == .DirtTilledWatered {
-            let newCrop = Building(buildingId: .Garlic, position: tileInFront.position, location: world.currentLocation)
+            let newCrop = Building(buildingId: .Garlic, mapPoint: tileInFront.mapPoint)
 
             let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
             gameArea.buildings.append(newCrop)

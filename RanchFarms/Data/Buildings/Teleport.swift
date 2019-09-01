@@ -1,13 +1,15 @@
 import SpriteKit
 
 struct Teleport {
-    let position: CGPoint
-    let location: Location
+    let mapPoint: MapPoint
     let directionToFace: CGVector
 
-    init(position: CGPoint, location: Location, directionToFace: CGVector) {
-        self.position = position
-        self.location = location
+    var location: Location {
+        get {return mapPoint.location}
+    }
+
+    init(mapPoint: MapPoint, directionToFace: CGVector) {
+        self.mapPoint = mapPoint
         self.directionToFace = directionToFace
     }
 }

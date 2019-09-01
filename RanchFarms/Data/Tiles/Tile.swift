@@ -20,8 +20,8 @@ class Tile: GameObject {
         }
     }
 
-    init(tileType: TileType, position: CGPoint, location: Location) {
-        super.init(position: position, location: location)
+    init(tileType: TileType, mapPoint: MapPoint) {
+        super.init(mapPoint: mapPoint)
         self.type = tileType
 
         self.zPosition = 0

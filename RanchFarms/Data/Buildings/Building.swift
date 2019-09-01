@@ -25,11 +25,11 @@ class Building: GameObject {
         return false
     }
 
-    init(buildingId: BuildingId, position: CGPoint, location: Location) {
+    init(buildingId: BuildingId, mapPoint: MapPoint) {
         self.buildingId = buildingId
         self.buildingInfo = BuildingInfoManager.shared.getBuildingInfo(buildingId: buildingId)
 
-        super.init(position: position, location: location)
+        super.init(mapPoint: mapPoint)
 
         updateTexture()
         self.zPosition = 100

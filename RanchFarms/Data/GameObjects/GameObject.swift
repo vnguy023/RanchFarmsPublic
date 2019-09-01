@@ -3,9 +3,28 @@ import SpriteKit
 class GameObject: SKSpriteNode {
     override var position: CGPoint {
         get { return super.position }
-        set { super.position = newValue }
+        set { super.position = newValue
+            mMapPoint.x = Int(super.position.x) / Int(Config.tileSize.width)
+            mMapPoint.y = Int(super.position.y) / Int(Config.tileSize.height)
+            if super.position.x < 0 { mMapPoint.x -= 1 }
+            if super.position.y < 0 { mMapPoint.y -= 1 }
+        }
     }
-    var location = Location.Farm
+
+    var location: Location {
+        get {return mMapPoint.location }
+        set {mMapPoint.location = newValue}
+    }
+
+    private var mMapPoint: MapPoint
+    var mapPoint: MapPoint {
+        get {return mMapPoint}
+        set {
+            mMapPoint = newValue
+            super.position = CGPoint(x: CGFloat(mMapPoint.x) * Config.tileSize.width,
+                                     y: CGFloat(mMapPoint.y) * Config.tileSize.height)
+        }
+    }
 
     var faceDirection = CGVector.SOUTH
 
@@ -14,14 +33,10 @@ class GameObject: SKSpriteNode {
     var inventory = Inventory()
     var money = Int(1050)
 
-    init() {
-        super.init(texture: nil, color: .red, size: CGSize(width: 32, height: 32))
-    }
-    init (position: CGPoint, location: Location) {
-        super.init(texture: nil, color: .red, size: CGSize(width: 32, height: 32))
-    
-        self.position = position
-        self.location = location
+    init (mapPoint: MapPoint) {
+        mMapPoint = MapPoint(x: 0, y: 0, location: .House)
+        super.init(texture: nil, color: .red, size: Config.tileSize)
+        self.mapPoint = mapPoint
     }
 
     func getPositionInFront() -> CGPoint {
