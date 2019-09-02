@@ -3,6 +3,11 @@ import SpriteKit
 class Config {
     static let shared = Config()
 
+    // Make this temporary for now
+    static let screenSize = CGSize(width: 1024, height: 768)
+    static let frameRate = 60.0
+    static let blackScreenFadeTime = 2.0
+
     static let viewMoneySize = CGSize(width: 150, height: 32)
 
     static let itemImageSize = CGSize(width: 72, height: 72)

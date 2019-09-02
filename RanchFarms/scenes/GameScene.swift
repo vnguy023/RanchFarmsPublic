@@ -28,7 +28,7 @@ class GameScene: BaseScene {
     private func linkControllers() {
         renderController = RenderController(world: world)
         hudController = HudController(camera: cameraController.camera, world: world, screenSize: self.size)
-        actionController = ActionController(world: world, hudController: hudController, inputController: inputController)
+        actionController = ActionController(world: world, cameraController: cameraController, hudController: hudController, inputController: inputController)
     }
 
     private func linkNodes() {

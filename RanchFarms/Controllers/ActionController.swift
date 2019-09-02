@@ -3,12 +3,14 @@ import SpriteKit
 class ActionController {
     let world: World!
 
+    let cameraController: CameraController!
     let inputController: InputController!
     let hudController: HudController!
 
-    init(world: World,  hudController: HudController, inputController: InputController) {
+    init(world: World, cameraController: CameraController, hudController: HudController, inputController: InputController) {
         self.world = world
 
+        self.cameraController = cameraController
         self.hudController = hudController
         self.inputController = inputController
 
@@ -35,12 +37,14 @@ class ActionController {
             switch buildingInFront.type {
             case .Teleport:
                 world.teleport(to: buildingInFront.teleport!)
+                cameraController.fadeScreen()
             case .Bed:
                 let cmdEndDay  = CmdEndDay(world: world)
                 cmdEndDay.execute()
 
                 let cmdStartDay = CmdStartDay(world: world)
                 cmdStartDay.execute()
+                cameraController.fadeScreen()
             case .Crop:
                 if buildingInFront.canHarvest {
                     let cmdHarvest = CmdActionHarvest(world: world, crop: buildingInFront)
