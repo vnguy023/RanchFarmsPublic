@@ -187,6 +187,15 @@ class World: SKNode {
         return gameArea
     }
 
+    func delete(building: Building) {
+        if let gameArea = gameAreas.filter({$0.location == building.location}).first {
+            gameArea.buildings = gameArea.buildings.filter({$0 !== building})
+            if building.parent != nil {
+                building.removeFromParent()
+            }
+        }
+    }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

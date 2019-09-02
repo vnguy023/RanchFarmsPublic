@@ -17,7 +17,7 @@ class CmdActionHarvest: Command {
             if let harvestItem = getItemsFromHarvest() {
                 if player.inventory.canAcquire(item: harvestItem) {
                     player.inventory.acquire(item: harvestItem)
-                    // need to somehow mark building for delete
+                    world.delete(building: crop)
                 }
             }
         default:
