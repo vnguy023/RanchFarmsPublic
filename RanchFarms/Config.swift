@@ -18,6 +18,12 @@ class Config {
     static let viewInventoryColumns = CGFloat(12)
     static let viewInventoryRows = CGFloat(3)
 
+    static let SaveDirectory = "savefiles/"
+    static let SaveFileName1 = "save1"
+    static let SaveFileName2 = "save2"
+    static let SaveFileName3 = "save3"
+    static let SaveFileExtension = "json"
+
     private init() {
 
     }

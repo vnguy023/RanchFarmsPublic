@@ -17,6 +17,23 @@ class GameScene: BaseScene {
         linkControllers()
 
         linkNodes()
+
+        // Temporary to test stuff out
+        let cmdSaveFile = CmdSaveFile(directory: Config.SaveDirectory,
+                                      fileName: Config.SaveFileName2,
+                                      fileExtension: Config.SaveFileExtension,
+                                      text: "Hello World, Ranch Farms1243")
+        cmdSaveFile.execute()
+
+        let cmdLoadFile = CmdLoadFile(directory: Config.SaveDirectory,
+                                      fileName: Config.SaveFileName2,
+                                      fileExtension: Config.SaveFileExtension)
+        cmdLoadFile.execute()
+        if cmdLoadFile.success {
+            print ("[LoadFileResult] [SUCCESS] \(cmdLoadFile.text)")
+        } else {
+            print ("[LoadFileResult] [Failure]")
+        }
     }
 
     private func loadGame() {

@@ -62,6 +62,8 @@
 		6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D13231B425D005454E1 /* MapPoint.swift */; };
 		6CBC8D17231CC833005454E1 /* ActionControllerStateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D16231CC833005454E1 /* ActionControllerStateGame.swift */; };
 		6CBC8D19231CC8AB005454E1 /* ActionControllerStateInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D18231CC8AB005454E1 /* ActionControllerStateInventory.swift */; };
+		6CBC8D1B231CF5D4005454E1 /* CmdSaveFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */; };
+		6CBC8D1D231CF5DF005454E1 /* CmdLoadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +125,8 @@
 		6CBC8D13231B425D005454E1 /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
 		6CBC8D16231CC833005454E1 /* ActionControllerStateGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerStateGame.swift; sourceTree = "<group>"; };
 		6CBC8D18231CC8AB005454E1 /* ActionControllerStateInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerStateInventory.swift; sourceTree = "<group>"; };
+		6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdSaveFile.swift; sourceTree = "<group>"; };
+		6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdLoadFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 				6C2336F62312744D00261944 /* CmdActionUseItem.swift */,
 				6C0F561A2313BE930017192E /* CmdStartDay.swift */,
 				6C2336F2231272B300261944 /* CmdEndDay.swift */,
+				6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */,
+				6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CBC8D1D231CF5DF005454E1 /* CmdLoadFile.swift in Sources */,
 				6CBC8D12231A5C38005454E1 /* CmdActionHarvest.swift in Sources */,
 				6C6033C9230B651500746309 /* Inventory.swift in Sources */,
 				6C9E3E02230CFCAE007417E1 /* ViewInventoryHotbar.swift in Sources */,
@@ -447,6 +454,7 @@
 				6C2336EC2311484C00261944 /* BuildingInfoManager.swift in Sources */,
 				6C9E3E12230E8500007417E1 /* BuildingId.swift in Sources */,
 				6C9D3607230BA83500168A28 /* PlayerIndex.swift in Sources */,
+				6CBC8D1B231CF5D4005454E1 /* CmdSaveFile.swift in Sources */,
 				6C9E3E15230E8FFE007417E1 /* Teleport.swift in Sources */,
 				6C9E3E04230D43D3007417E1 /* HudController.swift in Sources */,
 				6C6033E2230BA4F000746309 /* Utils.swift in Sources */,
