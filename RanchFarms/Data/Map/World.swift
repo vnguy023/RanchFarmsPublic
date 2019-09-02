@@ -79,6 +79,7 @@ class World: SKNode {
         player.inventory.items[0] = Item(itemId: .Hoe, quantity: 1)
         player.inventory.items[1] = Item(itemId: .WaterCan, quantity: 1)
         player.inventory.items[2] = Item(itemId: .Axe, quantity: 1)
+        player.inventory.items[3] = Item(itemId: .PickAxe, quantity: 1)
 
         player.inventory.items[8] = Item(itemId: .GarlicSeed, quantity: 9)
         player.inventory.items[9] = Item(itemId: .Garlic, quantity: 2)

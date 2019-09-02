@@ -19,6 +19,8 @@ class CmdActionUseItem: Command {
             case .Axe: break
             case .Hoe:
                 processHoe()
+            case .PickAxe:
+                processPickAxe()
             case .Seed:
                 processSeed()
             case .WaterCan:
@@ -41,6 +43,22 @@ class CmdActionUseItem: Command {
 
         if tileInFront.type == .Dirt || tileInFront.type == .DirtWatered || tileInFront.type == .DirtTilledWatered {
             tileInFront.type = .DirtTilled
+        }
+    }
+
+    private func processPickAxe() {
+        if tileInFront == nil {
+            return
+        }
+
+        if buildingInFront == nil {
+            if tileInFront.type == .DirtTilled || tileInFront.type == .DirtWatered || tileInFront.type == .DirtTilledWatered {
+                tileInFront.type = .Dirt
+            }
+        } else {
+            if buildingInFront.type == .Crop {
+                world.delete(building: buildingInFront)
+            }
         }
     }
 
