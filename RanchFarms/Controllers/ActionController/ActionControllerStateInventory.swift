@@ -2,7 +2,6 @@ import SpriteKit
 
 extension ActionController {
     func actionPrimaryGameStateInventory() {
-        // just keep reassigning for now
         if world.hudInterfaceData.selectedItemInventoryIndex == nil {
             if world.player.inventory.items[world.hudInterfaceData.highlightedItemInventoryIndex] != nil {
                 world.hudInterfaceData.selectedItemInventoryIndex = world.hudInterfaceData.highlightedItemInventoryIndex
