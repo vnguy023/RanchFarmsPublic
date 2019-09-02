@@ -82,8 +82,9 @@ class World: SKNode {
         player.inventory.items[3] = Item(itemId: .PickAxe, quantity: 1)
 
         player.inventory.items[8] = Item(itemId: .GarlicSeed, quantity: 9)
-        player.inventory.items[9] = Item(itemId: .Garlic, quantity: 2)
-        player.inventory.items[29] = Item(itemId: .Garlic, quantity: 2)
+        player.inventory.items[9] = Item(itemId: .Garlic, quantity: 5)
+        player.inventory.items[28] = Item(itemId: .Garlic, quantity: 990)
+        player.inventory.items[29] = Item(itemId: .Garlic, quantity: 5)
 
         gameAreas.append(sampleHouse())
         gameAreas.append(sampleFarm())
