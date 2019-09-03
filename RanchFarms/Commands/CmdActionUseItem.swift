@@ -36,7 +36,7 @@ class CmdActionUseItem: Command {
 
     private func processCrop() {
         if buildingInFront != nil {
-            if buildingInFront.type == .FarmSellBox {
+            if buildingInFront.type == .DeliveryBox {
                 sellItem()
             }
 
@@ -76,7 +76,7 @@ class CmdActionUseItem: Command {
 
     private func processSeed() {
         if buildingInFront != nil {
-            if buildingInFront.type == .FarmSellBox {
+            if buildingInFront.type == .DeliveryBox {
                 sellItem()
             }
 
@@ -108,6 +108,11 @@ class CmdActionUseItem: Command {
     }
 
     private func sellItem() {
-        print ("[ActionuseItem] [SellItem] [item=\(itemToUse.itemInfo.name)]")
+        if itemToUse.itemInfo.canSell {
+            if buildingInFront.buildingId == .FarmDeliveryBox {
+                world.farmDeliveryBoxItems.append(itemToUse)
+                world.player.inventory.deleteItem(item: itemToUse)
+            }
+        }
     }
 }

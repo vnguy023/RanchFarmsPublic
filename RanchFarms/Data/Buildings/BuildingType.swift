@@ -2,7 +2,7 @@ enum BuildingType: UInt, Codable {
     case Unknown = 0
     
     case Teleport = 100
-    case FarmSellBox
+    case DeliveryBox
     
     case Bed = 110
 

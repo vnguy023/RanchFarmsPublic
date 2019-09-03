@@ -60,4 +60,12 @@ class Inventory {
             }
         }
     }
+
+    func deleteItem(item: Item) {
+        for i in 0..<Int(capacity) {
+            if items[i] === item {
+                items[i] = nil
+            }
+        }
+    }
 }

@@ -20,7 +20,7 @@ class BuildingInfoManager {
 
     private func loadBuildingInfo() {
         buildingIdToBuildingInfo[.Door] = BuildingInfo(buildingId: .Door, buildingType: .Teleport, name: "Door")
-        buildingIdToBuildingInfo[.FarmSellBox] = BuildingInfo(buildingId: .FarmSellBox, buildingType: .FarmSellBox, name: "Farm Sell Box")
+        buildingIdToBuildingInfo[.FarmDeliveryBox] = BuildingInfo(buildingId: .FarmDeliveryBox, buildingType: .DeliveryBox, name: "Farm Sell Box")
         buildingIdToBuildingInfo[.Rock] = BuildingInfo(buildingId: .Rock, buildingType: .Unknown, name: "Rock")
         buildingIdToBuildingInfo[.SingleBed] = BuildingInfo(buildingId: .SingleBed, buildingType: .Bed, name: "Single Bed")
 

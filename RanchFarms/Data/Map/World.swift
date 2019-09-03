@@ -17,9 +17,14 @@ class World: SKNode {
 
     let teleportStartDay = Teleport(mapPoint: MapPoint(x: 2, y: -3, location: .House),
                                     directionToFace: .SOUTH)
+    // Items to sell
+    var farmDeliveryBoxItems = [Item]()
+
     // Hud Data
     // This should be temporary data for now. Think about throwing this into global
     var hudInterfaceData = HudInterfaceData()
+
+
     
     override init() {
         super.init()
@@ -140,9 +145,9 @@ class World: SKNode {
                                      directionToFace: .EAST)
         gameArea.buildings.append(townDoor)
 
-        let farmSellBox = Building(buildingId: .FarmSellBox,
-                                mapPoint: MapPoint(x: 5, y: 6, location: location))
-        gameArea.buildings.append(farmSellBox)
+        let farmDeliveryBox = Building(buildingId: .FarmDeliveryBox,
+                                       mapPoint: MapPoint(x: 5, y: 6, location: location))
+        gameArea.buildings.append(farmDeliveryBox)
 
         let garlic = Building(buildingId: .Garlic,
                               mapPoint: MapPoint(x: 3, y: 2, location: location))
