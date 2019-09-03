@@ -152,10 +152,7 @@
 				6C2336F62312744D00261944 /* CmdActionUseItem.swift */,
 				6C0F561A2313BE930017192E /* CmdStartDay.swift */,
 				6C2336F2231272B300261944 /* CmdEndDay.swift */,
-				6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */,
-				6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */,
-				6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */,
-				6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */,
+				6CD007B8231DFD66008B9825 /* FileUtils */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -338,6 +335,17 @@
 				6CBC8D18231CC8AB005454E1 /* ActionControllerStateInventory.swift */,
 			);
 			path = ActionController;
+			sourceTree = "<group>";
+		};
+		6CD007B8231DFD66008B9825 /* FileUtils */ = {
+			isa = PBXGroup;
+			children = (
+				6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */,
+				6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */,
+				6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */,
+				6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */,
+			);
+			path = FileUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
