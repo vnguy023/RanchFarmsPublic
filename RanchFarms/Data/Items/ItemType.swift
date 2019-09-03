@@ -9,4 +9,6 @@ enum ItemType: UInt, Codable {
     case Sickle
     case Seed
     case WaterCan
+
+    case Crop
 }

@@ -25,10 +25,22 @@ class CmdActionUseItem: Command {
                 processSeed()
             case .WaterCan:
                 processWaterCan()
+            case .Crop:
+                processCrop()
             case .Unknown: break
             default:
                 print ("[ActionUse] [Desc=itemType notHandled] [itemType=\(itemToUse.itemInfo.itemType)]")
             }
+        }
+    }
+
+    private func processCrop() {
+        if buildingInFront != nil {
+            if buildingInFront.type == .FarmSellBox {
+                sellItem()
+            }
+
+            return
         }
     }
 
@@ -63,7 +75,13 @@ class CmdActionUseItem: Command {
     }
 
     private func processSeed() {
-        if tileInFront == nil || buildingInFront != nil{
+        if buildingInFront != nil {
+            if buildingInFront.type == .FarmSellBox {
+                sellItem()
+            }
+
+            return
+        } else if tileInFront == nil {
             return
         }
 
@@ -87,5 +105,9 @@ class CmdActionUseItem: Command {
         }
 
         tileInFront.water()
+    }
+
+    private func sellItem() {
+        print ("[ActionuseItem] [SellItem] [item=\(itemToUse.itemInfo.name)]")
     }
 }

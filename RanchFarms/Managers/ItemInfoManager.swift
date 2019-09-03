@@ -29,6 +29,6 @@ class ItemInfoManager {
 
         // Crops
         itemIdToItemInfoMap[.GarlicSeed]    = ItemInfo(itemId: .GarlicSeed,     itemType: .Seed,            name: "Garlic Seed")
-        itemIdToItemInfoMap[.Garlic]        = ItemInfo(itemId: .Garlic,         itemType: .Unknown,         name: "Garlic")
+        itemIdToItemInfoMap[.Garlic]        = ItemInfo(itemId: .Garlic,         itemType: .Crop,         name: "Garlic")
     }
 }
