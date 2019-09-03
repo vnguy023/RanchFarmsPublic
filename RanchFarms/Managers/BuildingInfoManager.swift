@@ -20,8 +20,9 @@ class BuildingInfoManager {
 
     private func loadBuildingInfo() {
         buildingIdToBuildingInfo[.Door] = BuildingInfo(buildingId: .Door, buildingType: .Teleport, name: "Door")
+        buildingIdToBuildingInfo[.FarmSellBox] = BuildingInfo(buildingId: .FarmSellBox, buildingType: .FarmSellBox, name: "Farm Sell Box")
         buildingIdToBuildingInfo[.Rock] = BuildingInfo(buildingId: .Rock, buildingType: .Unknown, name: "Rock")
-        buildingIdToBuildingInfo[.SingleBed] = BuildingInfo(buildingId: .SingleBed, buildingType: .Bed, name: "SingleBed")
+        buildingIdToBuildingInfo[.SingleBed] = BuildingInfo(buildingId: .SingleBed, buildingType: .Bed, name: "Single Bed")
 
         // Crops
         var garlicTextureMap = [Int: String]()

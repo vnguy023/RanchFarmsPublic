@@ -140,6 +140,10 @@ class World: SKNode {
                                      directionToFace: .EAST)
         gameArea.buildings.append(townDoor)
 
+        let farmSellBox = Building(buildingId: .FarmSellBox,
+                                mapPoint: MapPoint(x: 5, y: 6, location: location))
+        gameArea.buildings.append(farmSellBox)
+
         let garlic = Building(buildingId: .Garlic,
                               mapPoint: MapPoint(x: 3, y: 2, location: location))
         garlic.growthProgress = 8
