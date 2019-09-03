@@ -15,7 +15,7 @@ class World: SKNode {
         get { return daysElapsed + 1 }
     }
 
-    let teleportStartDay = Teleport(mapPoint: MapPoint(x: 2, y: -3, location: .House),
+    let teleportStartDay = Teleport(mapPoint: MapPoint(x: 3, y: 1, location: .House),
                                     directionToFace: .SOUTH)
     // Items to sell
     var farmDeliveryBoxItems = [Item]()
@@ -104,17 +104,17 @@ class World: SKNode {
 
         //Buildings
         let door = Building(buildingId: .Door,
-                            mapPoint: MapPoint(x: 0, y: -5, location: location))
+                            mapPoint: MapPoint(x: 1, y: -1, location: location))
         door.teleport = Teleport(mapPoint: MapPoint(x: 3, y: 5, location: .Farm),
                                  directionToFace: .SOUTH)
         gameArea.buildings.append(door)
         let bed = Building(buildingId: .SingleBed,
-                           mapPoint: MapPoint(x: 3, y: -3, location: location))
+                           mapPoint: MapPoint(x: 4, y: 1, location: location))
         gameArea.buildings.append(bed)
 
         // Tiles
-        for x in -4...4 {
-            for y in -4...4 {
+        for x in 0...4 {
+            for y in 0...3 {
                 let tileType = TileType.Wood
 
                 let tile = Tile.init(tileType: tileType,
@@ -135,7 +135,7 @@ class World: SKNode {
         //Buildings
         let houseDoor = Building(buildingId: .Door,
                                  mapPoint: MapPoint(x: 3, y: 6, location: location))
-        houseDoor.teleport = Teleport(mapPoint: MapPoint(x: 0, y: -4, location: .House),
+        houseDoor.teleport = Teleport(mapPoint: MapPoint(x: 1, y: 0, location: .House),
                                      directionToFace: .NORTH)
         gameArea.buildings.append(houseDoor)
 
