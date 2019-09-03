@@ -34,6 +34,11 @@ class GameScene: BaseScene {
         } else {
             print ("[LoadFileResult] [Failure]")
         }
+
+        let cmdDeleteFile = CmdDeleteFile(directory: Config.SaveDirectory,
+                                      fileName: Config.SaveFileName2,
+                                      fileExtension: Config.SaveFileExtension)
+        cmdDeleteFile.execute()
     }
 
     private func loadGame() {

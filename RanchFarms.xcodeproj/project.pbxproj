@@ -64,6 +64,8 @@
 		6CBC8D19231CC8AB005454E1 /* ActionControllerStateInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D18231CC8AB005454E1 /* ActionControllerStateInventory.swift */; };
 		6CBC8D1B231CF5D4005454E1 /* CmdSaveFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */; };
 		6CBC8D1D231CF5DF005454E1 /* CmdLoadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */; };
+		6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */; };
+		6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,8 @@
 		6CBC8D18231CC8AB005454E1 /* ActionControllerStateInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerStateInventory.swift; sourceTree = "<group>"; };
 		6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdSaveFile.swift; sourceTree = "<group>"; };
 		6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdLoadFile.swift; sourceTree = "<group>"; };
+		6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDeleteFile.swift; sourceTree = "<group>"; };
+		6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdFileExists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 				6C2336F2231272B300261944 /* CmdEndDay.swift */,
 				6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */,
 				6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */,
+				6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */,
+				6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 				6C6033D2230B6A1500746309 /* ItemInfo.swift in Sources */,
 				6C9E3E1F230F83C5007417E1 /* PersonTexture.swift in Sources */,
 				6C2336E8231147BA00261944 /* BuildingInfo.swift in Sources */,
+				6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */,
 				6C0F561D2313D56E0017192E /* ViewDayInfo.swift in Sources */,
 				6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */,
 				6C2336F3231272B300261944 /* CmdEndDay.swift in Sources */,
@@ -455,6 +462,7 @@
 				6C9E3E12230E8500007417E1 /* BuildingId.swift in Sources */,
 				6C9D3607230BA83500168A28 /* PlayerIndex.swift in Sources */,
 				6CBC8D1B231CF5D4005454E1 /* CmdSaveFile.swift in Sources */,
+				6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */,
 				6C9E3E15230E8FFE007417E1 /* Teleport.swift in Sources */,
 				6C9E3E04230D43D3007417E1 /* HudController.swift in Sources */,
 				6C6033E2230BA4F000746309 /* Utils.swift in Sources */,
