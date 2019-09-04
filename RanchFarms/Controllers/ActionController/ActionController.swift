@@ -25,13 +25,29 @@ class ActionController {
         world.hudInterfaceData.gameState = gameState
 
         switch gameState {
+        case .Dialog:
+            assignActionsGameStateDialog()
         case .Game:
             assignActionsGameStateGame()
         case .Inventory:
             assignActionsGameStateInventory()
+        case .Store:
+            assignActionsGameStateStore()
         default:
             print ("[Desc=newActions not assigned] [GameState=\(gameState)]")
         }
+    }
+
+    private func assignActionsGameStateDialog() {
+        inputController.clearHandles()
+
+        inputController.handlePrimary[.ClickDown] = actionPrimaryGameStateDialog
+        inputController.handleCancel[.ClickDown] = actionCancelGameStateDialog
+
+        inputController.handleDPadUp[.ClickDown] = actionDPadUpGameStateDialog
+        inputController.handleDPadDown[.ClickDown] = actionDPadDownGameStateDialog
+        inputController.handleDPadLeft[.ClickDown] = actionDPadLeftGameStateDialog
+        inputController.handleDPadRight[.ClickDown] = actionDPadRightGameStateDialog
     }
 
     private func assignActionsGameStateGame() {
@@ -56,5 +72,17 @@ class ActionController {
         inputController.handleDPadDown[.ClickDown] = actionDPadDownGameStateInventory
         inputController.handleDPadLeft[.ClickDown] = actionDPadLeftGameStateInventory
         inputController.handleDPadRight[.ClickDown] = actionDPadRightGameStateInventory
+    }
+
+    private func assignActionsGameStateStore() {
+        inputController.clearHandles()
+
+        inputController.handlePrimary[.ClickDown] = actionPrimaryGameStateStore
+        inputController.handleCancel[.ClickDown] = actionCancelGameStateStore
+
+        inputController.handleDPadUp[.ClickDown] = actionDPadUpGameStateStore
+        inputController.handleDPadDown[.ClickDown] = actionDPadDownGameStateStore
+        inputController.handleDPadLeft[.ClickDown] = actionDPadLeftGameStateStore
+        inputController.handleDPadRight[.ClickDown] = actionDPadRightGameStateStore
     }
 }

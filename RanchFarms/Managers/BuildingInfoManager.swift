@@ -33,5 +33,9 @@ class BuildingInfoManager {
         garlicTextureMap[6] = "garlic5"
         garlicTextureMap[8] = "garlic6"
         buildingIdToBuildingInfo[.Garlic] = BuildingInfo(buildingId: .Garlic, buildingType: .Crop, name: "Garlic", growthTextureMap: garlicTextureMap)
+
+        // Temporary stuff that we should replace
+        buildingIdToBuildingInfo[.PlayerHouseSign] = BuildingInfo(buildingId: .PlayerHouseSign, buildingType: .Sign, name: "Player House Sign")
+        buildingIdToBuildingInfo[.VendingMachine] = BuildingInfo(buildingId: .VendingMachine, buildingType: .VendingMachine, name: "Vending Machine")
     }
 }

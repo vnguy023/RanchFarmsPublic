@@ -38,7 +38,8 @@ class TextureManager {
         buildingMap[.Rock] = SKTexture(imageNamed: "buildingRock")
         buildingMap[.FarmDeliveryBox] = SKTexture(imageNamed: "buildingChest")
 
-
+        buildingMap[.VendingMachine] = SKTexture(imageNamed: "buildingVendingMachine")
+        buildingMap[.PlayerHouseSign] = SKTexture(imageNamed: "buildingSign")
     }
 
     private func loadCrops() {

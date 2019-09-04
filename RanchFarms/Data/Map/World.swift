@@ -149,6 +149,14 @@ class World: SKNode {
                                        mapPoint: MapPoint(x: 5, y: 6, location: location))
         gameArea.buildings.append(farmDeliveryBox)
 
+        let sign = Building(buildingId: .PlayerHouseSign,
+                            mapPoint: MapPoint(x: 4, y: 6, location: location))
+        gameArea.buildings.append(sign)
+
+        let vendingMachine = Building(buildingId: .VendingMachine,
+                                      mapPoint: MapPoint(x: 1, y: 6, location: location))
+        gameArea.buildings.append(vendingMachine)
+
         let garlic = Building(buildingId: .Garlic,
                               mapPoint: MapPoint(x: 3, y: 2, location: location))
         garlic.growthProgress = 8

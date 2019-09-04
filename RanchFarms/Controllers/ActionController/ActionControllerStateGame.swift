@@ -31,6 +31,10 @@ extension ActionController {
                     let cmdHarvest = CmdActionHarvest(world: world, crop: buildingInFront)
                     cmdHarvest.execute()
                 }
+            case .Sign:
+                changeGameState(to: .Dialog)
+            case .VendingMachine:
+                changeGameState(to: .Store)
             default:
                 print ("[Desc=Primary Action not handled for this building] [BuildingType=\(buildingInFront.type)]")
             }

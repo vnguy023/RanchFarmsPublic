@@ -68,6 +68,8 @@
 		6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */; };
 		6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B9231F3C15008B9825 /* ViewStore.swift */; };
 		6CD007BC231F3C5D008B9825 /* ViewDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007BB231F3C5D008B9825 /* ViewDialog.swift */; };
+		6CD007BE231F4D53008B9825 /* ActionControllerStateDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007BD231F4D53008B9825 /* ActionControllerStateDialog.swift */; };
+		6CD007C0231F4DB1008B9825 /* ActionControllerStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007BF231F4DB1008B9825 /* ActionControllerStateStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +137,8 @@
 		6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdFileExists.swift; sourceTree = "<group>"; };
 		6CD007B9231F3C15008B9825 /* ViewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStore.swift; sourceTree = "<group>"; };
 		6CD007BB231F3C5D008B9825 /* ViewDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDialog.swift; sourceTree = "<group>"; };
+		6CD007BD231F4D53008B9825 /* ActionControllerStateDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerStateDialog.swift; sourceTree = "<group>"; };
+		6CD007BF231F4DB1008B9825 /* ActionControllerStateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerStateStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,8 +341,10 @@
 			isa = PBXGroup;
 			children = (
 				6C9D3608230BEC3C00168A28 /* ActionController.swift */,
+				6CD007BD231F4D53008B9825 /* ActionControllerStateDialog.swift */,
 				6CBC8D16231CC833005454E1 /* ActionControllerStateGame.swift */,
 				6CBC8D18231CC8AB005454E1 /* ActionControllerStateInventory.swift */,
+				6CD007BF231F4DB1008B9825 /* ActionControllerStateStore.swift */,
 			);
 			path = ActionController;
 			sourceTree = "<group>";
@@ -439,6 +445,8 @@
 				6C9E3E0E230E61D2007417E1 /* ViewMoneyInfo.swift in Sources */,
 				6C6033B3230B61BF00746309 /* SplashScene.swift in Sources */,
 				6C2336F5231272ED00261944 /* CmdBase.swift in Sources */,
+				6CD007C0231F4DB1008B9825 /* ActionControllerStateStore.swift in Sources */,
+				6CD007BE231F4D53008B9825 /* ActionControllerStateDialog.swift in Sources */,
 				6C6033D2230B6A1500746309 /* ItemInfo.swift in Sources */,
 				6C9E3E1F230F83C5007417E1 /* PersonTexture.swift in Sources */,
 				6C2336E8231147BA00261944 /* BuildingInfo.swift in Sources */,
