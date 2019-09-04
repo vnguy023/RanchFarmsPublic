@@ -66,6 +66,8 @@
 		6CBC8D1D231CF5DF005454E1 /* CmdLoadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */; };
 		6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */; };
 		6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */; };
+		6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B9231F3C15008B9825 /* ViewStore.swift */; };
+		6CD007BC231F3C5D008B9825 /* ViewDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007BB231F3C5D008B9825 /* ViewDialog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +133,8 @@
 		6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdLoadFile.swift; sourceTree = "<group>"; };
 		6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDeleteFile.swift; sourceTree = "<group>"; };
 		6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdFileExists.swift; sourceTree = "<group>"; };
+		6CD007B9231F3C15008B9825 /* ViewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStore.swift; sourceTree = "<group>"; };
+		6CD007BB231F3C5D008B9825 /* ViewDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDialog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,11 +310,13 @@
 			isa = PBXGroup;
 			children = (
 				6C0F561C2313D56E0017192E /* ViewDayInfo.swift */,
+				6CD007BB231F3C5D008B9825 /* ViewDialog.swift */,
 				6C9E3E01230CFCAE007417E1 /* ViewInventoryHotbar.swift */,
 				6C97F8D12317808A00940C61 /* ViewInventory.swift */,
 				6C9E3DFC230CE2D6007417E1 /* ViewItemButton.swift */,
 				6C9E3E0D230E61D2007417E1 /* ViewMoneyInfo.swift */,
 				6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */,
+				6CD007B9231F3C15008B9825 /* ViewStore.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 				6C2336E8231147BA00261944 /* BuildingInfo.swift in Sources */,
 				6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */,
 				6C0F561D2313D56E0017192E /* ViewDayInfo.swift in Sources */,
+				6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */,
 				6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */,
 				6C2336F3231272B300261944 /* CmdEndDay.swift in Sources */,
 				6C9E3E00230CE31B007417E1 /* Config.swift in Sources */,
@@ -472,6 +479,7 @@
 				6CBC8D1B231CF5D4005454E1 /* CmdSaveFile.swift in Sources */,
 				6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */,
 				6C9E3E15230E8FFE007417E1 /* Teleport.swift in Sources */,
+				6CD007BC231F3C5D008B9825 /* ViewDialog.swift in Sources */,
 				6C9E3E04230D43D3007417E1 /* HudController.swift in Sources */,
 				6C6033E2230BA4F000746309 /* Utils.swift in Sources */,
 				6C6033B5230B624700746309 /* BaseScene.swift in Sources */,

@@ -3,8 +3,10 @@ class HudInterfaceData {
 
     enum GameState {
         case Unknown
+        case Dialog
         case Game
         case Inventory
+        case Store
     }
 
     var gameState = GameState.Unknown

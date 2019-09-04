@@ -18,6 +18,10 @@ class Config {
     static let viewInventoryColumns = CGFloat(12)
     static let viewInventoryRows = CGFloat(3)
 
+    static var viewStoreSize: CGSize{ get {return Config.screenSize} }
+
+    static var viewDialogSize = CGSize(width: Config.screenSize.width, height: 300)
+
     static let SaveDirectory = "savefiles/"
     static let SaveFileName1 = "save1"
     static let SaveFileName2 = "save2"

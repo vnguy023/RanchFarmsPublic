@@ -18,6 +18,12 @@ class HudController{
     // -- Inventory Views
     let viewInventory :ViewInventory
 
+    // -- Dialog Views
+    let viewDialog: ViewDialog
+
+    // -- Store Views
+    let viewStore: ViewStore
+
     // Hud Ingame
     let viewSelectedGameTile: ViewSelectedGameTile
 
@@ -50,6 +56,16 @@ class HudController{
         viewInventory = ViewInventory(inventory: world.player.inventory, hudInterfaceData: world.hudInterfaceData)
         viewInventory.zPosition = 1000
         camera.addChild(viewInventory)
+
+        viewDialog = ViewDialog()
+        viewDialog.position = CGPoint(x: 0, y: screenSize.height / -2 + viewDialog.size.height/2)
+        viewDialog.zPosition = 1000
+        camera.addChild(viewDialog)
+
+        viewStore = ViewStore(world: world)
+        viewStore.position = CGPoint(x: 0, y: 0)
+        viewStore.zPosition = 1000
+        camera.addChild(viewStore)
     }
 
     func update() {
@@ -58,12 +74,27 @@ class HudController{
         viewMoneyInfo.update()
         viewSelectedGameTile.update()
 
+        if world.hudInterfaceData.gameState == .Dialog {
+            viewDialog.update()
+            viewDialog.isHidden = false
+        } else {
+            viewDialog.isHidden = true
+        }
+
         if world.hudInterfaceData.gameState == .Inventory {
             viewInventory.update()
             viewInventory.isHidden = false
         } else {
             viewInventory.isHidden = true
         }
+
+        if world.hudInterfaceData.gameState == .Store {
+            viewStore.update()
+            viewStore.isHidden = false
+        } else {
+            viewStore.isHidden = true
+        }
+
 
     }
 }
