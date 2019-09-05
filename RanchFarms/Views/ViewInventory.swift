@@ -18,7 +18,7 @@ class ViewInventory: SKSpriteNode {
     }
 
     func update() {
-        self.removeAllChildren()
+        itemButtons.forEach({$0.removeFromParent()})
         itemButtons.removeAll()
 
         var index = 0
@@ -40,6 +40,8 @@ class ViewInventory: SKSpriteNode {
                 }
 
                 index += 1
+
+                itemButtons.append(itemButton)
             }
         }
     }

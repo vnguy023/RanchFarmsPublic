@@ -18,7 +18,7 @@ class ViewInventoryHotbar: SKSpriteNode {
     }
 
     func update() {
-        self.removeAllChildren()
+        itemButtons.forEach({$0.removeFromParent()})
         itemButtons.removeAll()
 
         for index in 0 ..< Int(Config.viewInventoryColumns) {
@@ -30,6 +30,8 @@ class ViewInventoryHotbar: SKSpriteNode {
             if index == hudInterfaceData.highlightedItemInventoryHotbarIndex {
                 itemButton.state = .Highlight
             }
+
+            itemButtons.append(itemButton)
         }
     }
 

@@ -131,6 +131,8 @@ class TextureManager {
         personMap["playerIdleDown"] = SKTexture.init(imageNamed: "personPlayerIdleDown")
         personMap["playerIdleLeft"] = SKTexture.init(imageNamed: "personPlayerIdleLeft")
         personMap["playerIdleRight"] = SKTexture.init(imageNamed: "personPlayerIdleRight")
+
+        personMap["lilyClerk"] = SKTexture.init(imageNamed: "personLily")
     }
 
     private func postProcess () {
