@@ -2,20 +2,33 @@ import SpriteKit
 
 extension ActionController {
     func actionPrimaryGameStateStore() {
-        if let storeItemIndex = world.hudInterfaceData.getStoreStoreItemIndex()
-            , let storeItem = world.hudInterfaceData.store!.items[storeItemIndex] {
-            let cmdPurchaseItem = CmdPurchaseItem(itemToPurchase: storeItem.clone(), player: world.player)
-            cmdPurchaseItem.execute()
-        }
+        actionGameStateStoreBuySellItems(quantity: 1, stack: false)
     }
 
     func actionUseGameStateStore() {
+        actionGameStateStoreBuySellItems(quantity: 10, stack: false)
+    }
+    
+    func actionMenuGameStateStore() {
+        actionGameStateStoreBuySellItems(quantity: 100, stack: true)
+    }
+
+    private func actionGameStateStoreBuySellItems(quantity: Int, stack: Bool) {
         if let storeItemIndex = world.hudInterfaceData.getStoreStoreItemIndex()
             , let storeItem = world.hudInterfaceData.store!.items[storeItemIndex] {
             let item = storeItem.clone()
-            item.quantity = 10
+            item.quantity = quantity
             let cmdPurchaseItem = CmdPurchaseItem(itemToPurchase: item, player: world.player)
             cmdPurchaseItem.execute()
+        } else if let playerItemIndex = world.hudInterfaceData.getStorePlayerItemIndex()
+            , let playerItem = world.player.inventory.items[playerItemIndex] {
+            if stack {
+                let cmdSellItem = CmdSellItem(itemToSell: playerItem, quantity: playerItem.quantity, player: world.player)
+                cmdSellItem.execute()
+            } else {
+                let cmdSellItem = CmdSellItem(itemToSell: playerItem, quantity: quantity, player: world.player)
+                cmdSellItem.execute()
+            }
         }
     }
 

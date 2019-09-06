@@ -68,4 +68,30 @@ class Inventory {
             }
         }
     }
+
+    func canDeleteItem(item: Item, quantity: Int) -> Bool {
+        for i in 0..<Int(capacity) {
+            if items[i] === item && quantity <= item.quantity {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    func deleteItem(item: Item, quantity: Int) {
+        if !canDeleteItem(item: item, quantity: quantity) {
+            return
+        }
+
+        for i in 0..<Int(capacity) {
+            if items[i] === item {
+                if quantity < item.quantity {
+                    item.quantity -= quantity
+                } else {
+                    items[i] = nil
+                }
+            }
+        }
+    }
 }

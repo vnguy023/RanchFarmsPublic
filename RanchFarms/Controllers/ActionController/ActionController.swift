@@ -80,6 +80,7 @@ class ActionController {
 
         inputController.handlePrimary[.ClickDown] = actionPrimaryGameStateStore
         inputController.handleUse[.ClickDown] = actionUseGameStateStore
+        inputController.handleMenu[.ClickDown] = actionMenuGameStateStore
         inputController.handleCancel[.ClickDown] = actionCancelGameStateStore
 
         inputController.handleDPadUp[.ClickDown] = actionDPadUpGameStateStore
