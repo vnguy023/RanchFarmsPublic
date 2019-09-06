@@ -12,7 +12,7 @@ class HudController{
     // Hud Overlay
     // -- Game views
     let viewDayInfo: ViewDayInfo
-    let viewInventoryHotbar: ViewInventoryHotbar
+    let viewHotbar: ViewHotbar
     let viewMoneyInfo: ViewMoneyInfo
 
     // -- Inventory Views
@@ -40,9 +40,9 @@ class HudController{
         viewDayInfo.position.y = screenSize.height / 2 - viewDayInfo.size.height/2
         camera.addChild(viewDayInfo)
 
-        viewInventoryHotbar = ViewInventoryHotbar(world: world)
-        viewInventoryHotbar.position.y = screenSize.height / -2 + viewInventoryHotbar.size.height/2
-        camera.addChild(viewInventoryHotbar)
+        viewHotbar = ViewHotbar(world: world)
+        viewHotbar.position.y = screenSize.height / -2 + viewHotbar.size.height/2
+        camera.addChild(viewHotbar)
 
         viewMoneyInfo = ViewMoneyInfo(world: world)
         viewMoneyInfo.position.x = screenSize.width / 2 - viewMoneyInfo.size.width/2
@@ -70,7 +70,7 @@ class HudController{
 
     func update() {
         viewDayInfo.update()
-        viewInventoryHotbar.update()
+        viewHotbar.update()
         viewMoneyInfo.update()
         viewSelectedGameTile.update()
 

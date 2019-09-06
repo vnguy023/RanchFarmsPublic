@@ -1,6 +1,6 @@
 import SpriteKit
 
-class ViewInventoryHotbar: SKSpriteNode {
+class ViewHotbar: SKSpriteNode {
     let world: World
 
     var hudInterfaceData: HudInterfaceData {
