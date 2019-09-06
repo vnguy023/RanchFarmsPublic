@@ -1,7 +1,23 @@
 import SpriteKit
 
 extension ActionController {
-    func actionPrimaryGameStateStore() { }
+    func actionPrimaryGameStateStore() {
+        if let storeItemIndex = world.hudInterfaceData.getStoreStoreItemIndex()
+            , let storeItem = world.hudInterfaceData.store!.items[storeItemIndex] {
+            let cmdPurchaseItem = CmdPurchaseItem(itemToPurchase: storeItem.clone(), player: world.player)
+            cmdPurchaseItem.execute()
+        }
+    }
+
+    func actionUseGameStateStore() {
+        if let storeItemIndex = world.hudInterfaceData.getStoreStoreItemIndex()
+            , let storeItem = world.hudInterfaceData.store!.items[storeItemIndex] {
+            let item = storeItem.clone()
+            item.quantity = 10
+            let cmdPurchaseItem = CmdPurchaseItem(itemToPurchase: item, player: world.player)
+            cmdPurchaseItem.execute()
+        }
+    }
 
     func actionCancelGameStateStore() {
         changeGameState(to: .Game)

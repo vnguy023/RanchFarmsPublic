@@ -56,7 +56,7 @@ class Inventory {
             if let currentItemInSlot = items[slot] {
                 currentItemInSlot.quantity += item.quantity
             } else {
-                items[slot] = item
+                items[slot] = item.clone()
             }
         }
     }

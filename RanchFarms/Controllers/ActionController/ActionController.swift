@@ -79,6 +79,7 @@ class ActionController {
         inputController.clearHandles()
 
         inputController.handlePrimary[.ClickDown] = actionPrimaryGameStateStore
+        inputController.handleUse[.ClickDown] = actionUseGameStateStore
         inputController.handleCancel[.ClickDown] = actionCancelGameStateStore
 
         inputController.handleDPadUp[.ClickDown] = actionDPadUpGameStateStore

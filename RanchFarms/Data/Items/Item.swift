@@ -16,4 +16,8 @@ class Item {
 
         self.quantity = quantity
     }
+
+    func clone() -> Item {
+        return Item(itemId: itemId, quantity: quantity)
+    }
 }
