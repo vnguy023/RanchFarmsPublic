@@ -1,14 +1,18 @@
 import SpriteKit
 
 class ViewInventory: SKSpriteNode {
+    let world: World
     let hudInterfaceData: HudInterfaceData
 
     private var itemButtons = [ViewItemButton]()
-    private var inventory: Inventory
 
-    init(inventory: Inventory, hudInterfaceData: HudInterfaceData) {
+    private var inventory: Inventory {
+        get {return world.player.inventory}
+    }
+
+    init(world: World, hudInterfaceData: HudInterfaceData) {
         self.hudInterfaceData = hudInterfaceData
-        self.inventory = inventory
+        self.world = world
 
         let inventorySize = CGSize(width: Config.itemImageSize.width * Config.viewInventoryColumns,
                                    height: Config.itemImageSize.height)

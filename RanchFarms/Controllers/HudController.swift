@@ -40,7 +40,7 @@ class HudController{
         viewDayInfo.position.y = screenSize.height / 2 - viewDayInfo.size.height/2
         camera.addChild(viewDayInfo)
 
-        viewInventoryHotbar = ViewInventoryHotbar(inventory: world.player.inventory, hudInterfaceData: world.hudInterfaceData)
+        viewInventoryHotbar = ViewInventoryHotbar(world: world, hudInterfaceData: world.hudInterfaceData)
         viewInventoryHotbar.position.y = screenSize.height / -2 + viewInventoryHotbar.size.height/2
         camera.addChild(viewInventoryHotbar)
 
@@ -53,7 +53,7 @@ class HudController{
         viewSelectedGameTile.zPosition = 500
         worldHudNode.addChild(viewSelectedGameTile)
 
-        viewInventory = ViewInventory(inventory: world.player.inventory, hudInterfaceData: world.hudInterfaceData)
+        viewInventory = ViewInventory(world: world, hudInterfaceData: world.hudInterfaceData)
         viewInventory.zPosition = 1000
         camera.addChild(viewInventory)
 
