@@ -4,6 +4,10 @@ class ViewStore: SKSpriteNode {
     private let world: World
     private let player: Person
 
+    private var store: Store!{
+        get {return world.hudInterfaceData.store}
+    }
+
     private let blackScreen = SKSpriteNode(color: .black, size: Config.screenSize)
 
     private let clerkPortrait = SKSpriteNode(color: .systemPink, size: Config.viewStoreClerkSize)
@@ -22,7 +26,7 @@ class ViewStore: SKSpriteNode {
                                                     y: -200)
     private var playerItems = [ViewItemButton]()
 
-    private let topLeftStoreItemPosition = CGPoint(x: Config.viewInventoryColumns * Config.itemImageSize.width / -2 + 50,
+    private let topLeftStoreItemPosition = CGPoint(x: Config.viewStoreItemColumns * Config.itemImageSize.width / -2 + 50,
                                                    y: 200)
     private var storeItems = [ViewItemButton]()
 
@@ -74,9 +78,15 @@ class ViewStore: SKSpriteNode {
     }
 
     func update() {
+        if store == nil {
+            print ("[Desc=ViewStore] [attempting to update the store without a valid store object being set]")
+            return
+        }
+
+        clerkPortrait.texture = TextureManager.shared.getTexture(portraitId: store.storeFront.portraitId)
+        sloganText.text = store.storeFront.slogan
+
         // these values need to be replaced
-        clerkPortrait.texture = TextureManager.shared.getTexture(personTextureName: "lilyClerk")
-        sloganText.text = "Welcome"
         itemInfoDescriptionText.text = "Garlic: Delicious~"
 
         updatePlayerItems()
@@ -108,9 +118,9 @@ class ViewStore: SKSpriteNode {
         storeItems.removeAll()
 
         var index = 0
-        for y in 0 ..< Int(Config.viewInventoryRows) {
-            for x in 0 ..< Int(Config.viewInventoryColumns) {
-                let itemButton = ViewItemButton(item: player.inventory.items[index])
+        for y in 0 ..< Int(Config.viewStoreItemRows) {
+            for x in 0 ..< Int(Config.viewStoreItemColumns) {
+                let itemButton = ViewItemButton(item: store.items[index])
                 itemButton.zPosition = 100
                 itemButton.position = topLeftStoreItemPosition
                 itemButton.position.x += (CGFloat(x) * Config.itemImageSize.width) + Config.itemImageSize.width/2

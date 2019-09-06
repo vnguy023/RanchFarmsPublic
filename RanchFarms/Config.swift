@@ -22,7 +22,9 @@ class Config {
     static let viewStoreClerkSize = CGSize(width: 200, height: 200)
     static let viewStoreSloganSize = CGSize(width: 200, height: 60)
     static let viewStoreItemInfoPortraitSize = CGSize(width: 96, height: 96)
-    
+
+    static let viewStoreItemColumns = CGFloat(10)
+    static let viewStoreItemRows = CGFloat(3)
 
     static var viewDialogSize = CGSize(width: Config.screenSize.width, height: 300)
 

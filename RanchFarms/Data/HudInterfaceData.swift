@@ -16,9 +16,11 @@ class HudInterfaceData {
 
     var selectedItemInventoryIndex = Int?(nil)
     var highlightedItemInventoryIndex = 0
+
+    var store: Store?
     
     init() {
-
+        store = Store(storeFrontId: .VendingMachine, storeCatalogId: .VendingMachine)
     }
 
     func changeHotBarIndexLeft() {

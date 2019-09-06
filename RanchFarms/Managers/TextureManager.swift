@@ -10,6 +10,7 @@ class TextureManager {
     private var tileMap = [TileType: SKTexture]()
 
     private var personMap = [String: SKTexture]()
+    private var portraitMap = [PortraitId: SKTexture]()
 
     private init() {
         loadHud()
@@ -20,6 +21,7 @@ class TextureManager {
         loadTiles()
 
         loadPeople()
+        loadPortraits()
 
         postProcess()
     }
@@ -59,6 +61,17 @@ class TextureManager {
 
         itemMap[.GarlicSeed] = SKTexture(imageNamed: "itemGarlicSeed")
         itemMap[.Garlic] = SKTexture(imageNamed: "itemGarlic")
+    }
+
+    func loadPeople() {
+        personMap["playerIdleUp"] = SKTexture.init(imageNamed: "personPlayerIdleUp")
+        personMap["playerIdleDown"] = SKTexture.init(imageNamed: "personPlayerIdleDown")
+        personMap["playerIdleLeft"] = SKTexture.init(imageNamed: "personPlayerIdleLeft")
+        personMap["playerIdleRight"] = SKTexture.init(imageNamed: "personPlayerIdleRight")
+    }
+
+    private func loadPortraits() {
+        portraitMap[.VendingMachine] = SKTexture(imageNamed: "personLily")
     }
 
     private func loadTiles() {
@@ -126,13 +139,13 @@ class TextureManager {
         return nil
     }
 
-    func loadPeople() {
-        personMap["playerIdleUp"] = SKTexture.init(imageNamed: "personPlayerIdleUp")
-        personMap["playerIdleDown"] = SKTexture.init(imageNamed: "personPlayerIdleDown")
-        personMap["playerIdleLeft"] = SKTexture.init(imageNamed: "personPlayerIdleLeft")
-        personMap["playerIdleRight"] = SKTexture.init(imageNamed: "personPlayerIdleRight")
-
-        personMap["lilyClerk"] = SKTexture.init(imageNamed: "personLily")
+    func getTexture(portraitId: PortraitId) -> SKTexture? {
+        if portraitMap[portraitId] == nil {
+            print ("[TextureManager] [Desc=No texture] [PortraitId=\(portraitId)]")
+        } else {
+            return portraitMap[portraitId]
+        }
+        return nil
     }
 
     private func postProcess () {
@@ -143,5 +156,6 @@ class TextureManager {
         tileMap.forEach({$0.value.filteringMode = .nearest})
 
         personMap.forEach({$0.value.filteringMode = .nearest})
+        portraitMap.forEach({$0.value.filteringMode = .nearest})
     }
 }

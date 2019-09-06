@@ -75,22 +75,22 @@ class HudController{
         viewSelectedGameTile.update()
 
         if world.hudInterfaceData.gameState == .Dialog {
-            viewDialog.update()
             viewDialog.isHidden = false
+            viewDialog.update()
         } else {
             viewDialog.isHidden = true
         }
 
         if world.hudInterfaceData.gameState == .Inventory {
-            viewInventory.update()
             viewInventory.isHidden = false
+            viewInventory.update()
         } else {
             viewInventory.isHidden = true
         }
 
         if world.hudInterfaceData.gameState == .Store {
-            viewStore.update()
             viewStore.isHidden = false
+            viewStore.update()
         } else {
             viewStore.isHidden = true
         }

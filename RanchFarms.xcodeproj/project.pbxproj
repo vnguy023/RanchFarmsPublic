@@ -40,6 +40,7 @@
 		6C6033DC230B833200746309 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033DB230B833200746309 /* CameraController.swift */; };
 		6C6033DF230B850C00746309 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033DE230B850C00746309 /* Person.swift */; };
 		6C6033E2230BA4F000746309 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033E1230BA4F000746309 /* Utils.swift */; };
+		6C6D78DD2321F8BB00573B25 /* PortraitId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6D78DC2321F8BB00573B25 /* PortraitId.swift */; };
 		6C97F8D22317808A00940C61 /* ViewInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C97F8D12317808A00940C61 /* ViewInventory.swift */; };
 		6C9D3604230BA7C000168A28 /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9D3603230BA7C000168A28 /* InputController.swift */; };
 		6C9D3607230BA83500168A28 /* PlayerIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9D3606230BA83500168A28 /* PlayerIndex.swift */; };
@@ -114,6 +115,7 @@
 		6C6033DB230B833200746309 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		6C6033DE230B850C00746309 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		6C6033E1230BA4F000746309 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6C6D78DC2321F8BB00573B25 /* PortraitId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortraitId.swift; sourceTree = "<group>"; };
 		6C97F8D12317808A00940C61 /* ViewInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInventory.swift; sourceTree = "<group>"; };
 		6C9D3603230BA7C000168A28 /* InputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputController.swift; sourceTree = "<group>"; };
 		6C9D3606230BA83500168A28 /* PlayerIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerIndex.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				6C6033C7230B64EB00746309 /* Items */,
 				6C6033D0230B66B400746309 /* Map */,
 				6CD007C3231FAD7D008B9825 /* Store */,
+				6C6D78DC2321F8BB00573B25 /* PortraitId.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				6C6033C6230B64B200746309 /* ItemId.swift in Sources */,
 				6C9D3609230BEC3C00168A28 /* ActionController.swift in Sources */,
 				6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */,
+				6C6D78DD2321F8BB00573B25 /* PortraitId.swift in Sources */,
 				6CBC8D19231CC8AB005454E1 /* ActionControllerStateInventory.swift in Sources */,
 				6C2336F72312744D00261944 /* CmdActionUseItem.swift in Sources */,
 				6C9E3E10230E84F5007417E1 /* Building.swift in Sources */,
