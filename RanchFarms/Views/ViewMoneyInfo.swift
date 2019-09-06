@@ -1,12 +1,12 @@
 import SpriteKit
 
 class ViewMoneyInfo: SKSpriteNode {
-    let player: Person
+    let world: World
 
     private var amountLabel: SKLabelNode!
 
-    init(player: Person) {
-        self.player = player
+    init(world: World) {
+        self.world = world
 
         super.init(texture: nil, color: .red, size: Config.viewMoneySize)
 
@@ -25,7 +25,7 @@ class ViewMoneyInfo: SKSpriteNode {
     }
 
     func update() {
-        amountLabel.text = "$\(player.money)"
+        amountLabel.text = "$\(world.player.money)"
     }
 
     required init?(coder aDecoder: NSCoder) {

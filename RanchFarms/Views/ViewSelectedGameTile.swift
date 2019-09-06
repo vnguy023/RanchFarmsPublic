@@ -1,11 +1,13 @@
 import SpriteKit
 
 class ViewSelectedGameTile: SKSpriteNode {
-    let player: Person
     let world: World
 
-    init(player: Person, world: World) {
-        self.player = player
+    var player: Person {
+        get {return world.player}
+    }
+
+    init(world: World) {
         self.world = world
 
         super.init(texture: nil, color: .red, size: Config.tileSize)

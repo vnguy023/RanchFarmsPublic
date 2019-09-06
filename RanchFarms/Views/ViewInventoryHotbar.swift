@@ -3,16 +3,17 @@ import SpriteKit
 class ViewInventoryHotbar: SKSpriteNode {
     let world: World
 
-    let hudInterfaceData: HudInterfaceData
+    var hudInterfaceData: HudInterfaceData {
+        get {return world.hudInterfaceData}
+    }
 
     private var itemButtons = [ViewItemButton]()
     private var inventory: Inventory {
         get {return world.player.inventory}
     }
 
-    init(world: World, hudInterfaceData: HudInterfaceData) {
+    init(world: World) {
         self.world = world
-        self.hudInterfaceData = hudInterfaceData
 
         let inventorySize = CGSize(width: Config.itemImageSize.width * Config.viewInventoryColumns,
                                    height: Config.itemImageSize.height)
