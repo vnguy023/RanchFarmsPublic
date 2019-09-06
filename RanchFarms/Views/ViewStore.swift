@@ -88,14 +88,24 @@ class ViewStore: SKSpriteNode {
         clerkPortrait.texture = TextureManager.shared.getTexture(portraitId: store.storeFront.portraitId)
         sloganText.text = store.storeFront.slogan
 
-        // these values need to be replaced
-        itemInfoDescriptionText.text = "Garlic: Delicious~"
-
         updatePlayerItems()
         updateStoreItems()
+
+        if let playerItemIndex = world.hudInterfaceData.getStorePlayerItemIndex()
+            , let item = world.player.inventory.items[playerItemIndex] {
+            itemInfoPortrait.setItem(item: item)
+            itemInfoDescriptionText.text = item.itemInfo.name
+        } else if let storeItemIndex = world.hudInterfaceData.getStoreStoreItemIndex()
+            , let item = store.items[storeItemIndex] {
+            itemInfoPortrait.setItem(item: item)
+            itemInfoDescriptionText.text = item.itemInfo.name
+        } else {
+            itemInfoPortrait.setItem(item: nil)
+            itemInfoDescriptionText.text = ""
+        }
     }
 
-    func updatePlayerItems() {
+    private func updatePlayerItems() {
         playerItems.forEach({$0.removeFromParent()})
         playerItems.removeAll()
 
@@ -119,7 +129,7 @@ class ViewStore: SKSpriteNode {
         }
     }
 
-    func updateStoreItems() {
+    private func updateStoreItems() {
         storeItems.forEach({$0.removeFromParent()})
         storeItems.removeAll()
 

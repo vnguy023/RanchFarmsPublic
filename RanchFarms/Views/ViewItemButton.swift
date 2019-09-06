@@ -32,6 +32,23 @@ class ViewItemButton: SKSpriteNode {
 
         state = .None
 
+        setItem(item: item)
+    }
+
+    func setItem(item: Item?) {
+        if itemSprite != nil {
+            itemSprite.removeFromParent()
+            itemSprite = nil
+        }
+        if shadowSprite != nil {
+            shadowSprite.removeFromParent()
+            shadowSprite = nil
+        }
+        if quantityLabel != nil {
+            quantityLabel.removeFromParent()
+            quantityLabel = nil
+        }
+
         if item != nil {
             itemSprite = SKSpriteNode(texture: nil, color: .red, size: Config.itemImageSize)
             itemSprite.zPosition = 100
