@@ -7,6 +7,9 @@ class ViewStore: SKSpriteNode {
     private var store: Store!{
         get {return world.hudInterfaceData.store}
     }
+    private var cursor: CGPoint {
+        get {return world.hudInterfaceData.storeCursor}
+    }
 
     private let blackScreen = SKSpriteNode(color: .black, size: Config.screenSize)
 
@@ -29,7 +32,6 @@ class ViewStore: SKSpriteNode {
     private let topLeftStoreItemPosition = CGPoint(x: Config.viewStoreItemColumns * Config.itemImageSize.width / -2 + 50,
                                                    y: 200)
     private var storeItems = [ViewItemButton]()
-
 
     init(world: World) {
         self.world = world
@@ -107,6 +109,14 @@ class ViewStore: SKSpriteNode {
                 itemButton.position.y -= (CGFloat(y) * Config.itemImageSize.height) - Config.itemImageSize.height/2
                 self.addChild(itemButton)
 
+                if (Int(cursor.y) == 0 && y == 2)
+                    || (Int(cursor.y) == 1 && y == 1)
+                    || (Int(cursor.y) == 2 && y == 0) {
+                    if x == Int(cursor.x) {
+                        itemButton.state = .Highlight
+                    }
+                }
+
                 playerItems.append(itemButton)
                 index += 1
             }
@@ -126,6 +136,14 @@ class ViewStore: SKSpriteNode {
                 itemButton.position.x += (CGFloat(x) * Config.itemImageSize.width) + Config.itemImageSize.width/2
                 itemButton.position.y -= (CGFloat(y) * Config.itemImageSize.height) - Config.itemImageSize.height/2
                 self.addChild(itemButton)
+
+                if (Int(cursor.y) == 3 && y == 2)
+                    || (Int(cursor.y) == 4 && y == 1)
+                    || (Int(cursor.y) == 5 && y == 0) {
+                    if x == Int(cursor.x) {
+                        itemButton.state = .Highlight
+                    }
+                }
 
                 storeItems.append(itemButton)
                 index += 1

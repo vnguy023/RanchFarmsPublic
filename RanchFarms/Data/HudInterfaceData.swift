@@ -1,3 +1,5 @@
+import SpriteKit
+
 // meant to store temporary data for our views
 class HudInterfaceData {
 
@@ -16,6 +18,8 @@ class HudInterfaceData {
 
     var selectedItemInventoryIndex = Int?(nil)
     var highlightedItemInventoryIndex = 0
+
+    var storeCursor = CGPoint() // (0,0) is bottom left most option
 
     var store: Store?
     
@@ -53,5 +57,14 @@ class HudInterfaceData {
         if (highlightedItemInventoryIndex % Int(Config.viewInventoryColumns)) < Int(Config.viewInventoryColumns) - 1 {
             highlightedItemInventoryIndex += 1
         }
+    }
+
+    func changeStoreCursorPosition(vector: CGVector) {
+        storeCursor = storeCursor + vector
+        storeCursor.x = max(0, storeCursor.x)
+        storeCursor.x = min(storeCursor.x, CGFloat(Config.viewStoreItemColumns-1))
+
+        storeCursor.y = max(0, storeCursor.y)
+        storeCursor.y = min(storeCursor.y, CGFloat(Config.viewStoreItemRows) * 2 - 1)
     }
 }

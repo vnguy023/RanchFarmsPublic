@@ -7,11 +7,19 @@ extension ActionController {
         changeGameState(to: .Game)
     }
 
-    func actionDPadUpGameStateStore() { }
+    func actionDPadUpGameStateStore() {
+        world.hudInterfaceData.changeStoreCursorPosition(vector: CGVector(dx:0, dy: 1))
+    }
 
-    func actionDPadDownGameStateStore() { }
+    func actionDPadDownGameStateStore() {
+        world.hudInterfaceData.changeStoreCursorPosition(vector: CGVector(dx:0, dy: -1))
+    }
 
-    func actionDPadLeftGameStateStore() { }
+    func actionDPadLeftGameStateStore() {
+        world.hudInterfaceData.changeStoreCursorPosition(vector: CGVector(dx:-1, dy: 0))
+    }
 
-    func actionDPadRightGameStateStore() { }
+    func actionDPadRightGameStateStore() {
+        world.hudInterfaceData.changeStoreCursorPosition(vector: CGVector(dx:1, dy: 0))
+    }
 }

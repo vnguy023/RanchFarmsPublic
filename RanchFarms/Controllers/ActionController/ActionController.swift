@@ -32,6 +32,7 @@ class ActionController {
         case .Inventory:
             assignActionsGameStateInventory()
         case .Store:
+            world.hudInterfaceData.storeCursor = CGPoint(x: 0, y: 2)
             assignActionsGameStateStore()
         default:
             print ("[Desc=newActions not assigned] [GameState=\(gameState)]")
