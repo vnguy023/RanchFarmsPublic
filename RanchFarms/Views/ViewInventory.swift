@@ -47,7 +47,7 @@ class ViewInventory: SKSpriteNode {
     }
 
     func getSelectedItem() -> Item? {
-        return inventory.items[hudInterfaceData.highlightedItemInventoryHotbarIndex]
+        return inventory.items[hudInterfaceData.hotbarCursor]
     }
 
     required init?(coder aDecoder: NSCoder) {

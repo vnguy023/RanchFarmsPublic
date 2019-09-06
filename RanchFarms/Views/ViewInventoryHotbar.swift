@@ -27,7 +27,7 @@ class ViewInventoryHotbar: SKSpriteNode {
             itemButton.position.x = self.size.width / -2 + (CGFloat(index) * Config.itemImageSize.width) + Config.itemImageSize.width/2
             self.addChild(itemButton)
 
-            if index == hudInterfaceData.highlightedItemInventoryHotbarIndex {
+            if index == hudInterfaceData.hotbarCursor {
                 itemButton.state = .Highlight
             }
 
@@ -36,7 +36,7 @@ class ViewInventoryHotbar: SKSpriteNode {
     }
 
     func getSelectedItem() -> Item? {
-        return inventory.items[hudInterfaceData.highlightedItemInventoryHotbarIndex]
+        return inventory.items[hudInterfaceData.hotbarCursor]
     }
 
     required init?(coder aDecoder: NSCoder) {

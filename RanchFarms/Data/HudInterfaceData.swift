@@ -13,8 +13,7 @@ class HudInterfaceData {
 
     var gameState = GameState.Unknown
 
-    var highlightedItemInventoryHotbarIndex = 0
-    let MAX_INVENTORY_HOTBAR_INDEX = Int(Config.viewInventoryColumns - 1)
+    var hotbarCursor = Int(0)
 
     var selectedItemInventoryIndex = Int?(nil)
     var highlightedItemInventoryIndex = 0
@@ -27,12 +26,10 @@ class HudInterfaceData {
         store = Store(storeFrontId: .VendingMachine, storeCatalogId: .VendingMachine)
     }
 
-    func changeHotBarIndexLeft() {
-        highlightedItemInventoryHotbarIndex = max(highlightedItemInventoryHotbarIndex - 1, 0)
-    }
-
-    func changeHotBarIndexRight() {
-        highlightedItemInventoryHotbarIndex = min(highlightedItemInventoryHotbarIndex + 1, MAX_INVENTORY_HOTBAR_INDEX)
+    func changeHotBarCursorPosition(_ value: Int) {
+        hotbarCursor = hotbarCursor + value
+        hotbarCursor = max(0, hotbarCursor)
+        hotbarCursor = min(hotbarCursor, Int(Config.viewInventoryColumns) - 1)
     }
 
     func changeInventoryIndexUp() {
@@ -59,8 +56,8 @@ class HudInterfaceData {
         }
     }
 
-    func changeStoreCursorPosition(vector: CGVector) {
-        storeCursor = storeCursor + vector
+    func changeStoreCursorPosition(_ value: CGVector) {
+        storeCursor = storeCursor + value
         storeCursor.x = max(0, storeCursor.x)
         storeCursor.x = min(storeCursor.x, CGFloat(Config.viewStoreItemColumns-1))
 
