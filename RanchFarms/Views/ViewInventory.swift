@@ -10,6 +10,8 @@ class ViewInventory: SKSpriteNode {
         get {return world.player.inventory}
     }
 
+    private let blackScreen = SKSpriteNode(color: .black, size: Config.screenSize)
+
     init(world: World, hudInterfaceData: HudInterfaceData) {
         self.hudInterfaceData = hudInterfaceData
         self.world = world
@@ -17,6 +19,10 @@ class ViewInventory: SKSpriteNode {
         let inventorySize = CGSize(width: Config.itemImageSize.width * Config.viewInventoryColumns,
                                    height: Config.itemImageSize.height)
         super.init(texture: nil, color: .red, size: inventorySize)
+
+        blackScreen.alpha = 0.5
+        blackScreen.zPosition = -10
+        self.addChild(blackScreen)
 
         update()
     }
