@@ -8,7 +8,9 @@ class CmdActionUseItem: Command {
     init(world: World) {
         self.world = world
 
-        itemToUse = world.player.inventory.items[world.hudInterfaceData.hotbarCursor]
+        if let itemIndex = world.hudInterfaceData.getHotBarItemIndex() {
+            itemToUse = world.player.inventory.items[itemIndex]
+        }
         tileInFront = world.getTileAt(position: world.player.getPositionInFront(), location: world.currentLocation)
         buildingInFront = world.getBuildingAt(position: world.player.getPositionInFront(), location: world.currentLocation)
     }
@@ -94,7 +96,9 @@ class CmdActionUseItem: Command {
 
             itemToUse.quantity -= 1
             if itemToUse.quantity <= 0 {
-                world.player.inventory.items[world.hudInterfaceData.hotbarCursor] = nil
+                if let itemIndex = world.hudInterfaceData.getHotBarItemIndex() {
+                    world.player.inventory.items[itemIndex] = nil
+                }
             }
         }
     }

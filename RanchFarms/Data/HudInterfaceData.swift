@@ -32,6 +32,10 @@ class HudInterfaceData {
         hotbarCursor = min(hotbarCursor, Int(Config.viewInventoryColumns) - 1)
     }
 
+    func getHotBarItemIndex() -> Int? {
+        return hotbarCursor
+    }
+
     func changeInventoryIndexUp() {
         if highlightedItemInventoryIndex >= Int(Config.viewInventoryColumns) {
             highlightedItemInventoryIndex -= Int(Config.viewInventoryColumns)
@@ -56,6 +60,14 @@ class HudInterfaceData {
         }
     }
 
+    func getInventorySelectedItemIndex() -> Int? {
+        return selectedItemInventoryIndex
+    }
+
+    func getInventoryHighlightedItemIndex() -> Int? {
+        return highlightedItemInventoryIndex
+    }
+
     func changeStoreCursorPosition(_ value: CGVector) {
         storeCursor = storeCursor + value
         storeCursor.x = max(0, storeCursor.x)
@@ -63,5 +75,29 @@ class HudInterfaceData {
 
         storeCursor.y = max(0, storeCursor.y)
         storeCursor.y = min(storeCursor.y, CGFloat(Config.viewStoreItemRows) * 2 - 1)
+    }
+
+    func getStorePlayerItemIndex() -> Int? {
+        if Int(storeCursor.y) == 0 && storeCursor.x < Config.viewInventoryColumns {
+            return Int(storeCursor.x) + Int(Config.viewInventoryColumns * 2)
+        } else if Int(storeCursor.y) == 1 && storeCursor.x < Config.viewInventoryColumns {
+            return Int(storeCursor.x) + Int(Config.viewInventoryColumns * 1)
+        } else if Int(storeCursor.y) == 2 && storeCursor.x < Config.viewInventoryColumns {
+            return Int(storeCursor.x) + Int(Config.viewInventoryColumns * 0)
+        }
+
+        return nil
+    }
+
+    func getStoreStoreItemIndex() -> Int? {
+        if Int(storeCursor.y) == 3 && storeCursor.x < Config.viewInventoryColumns {
+            return Int(storeCursor.x) + Int(Config.viewInventoryColumns * 2)
+        } else if Int(storeCursor.y) == 4 && storeCursor.x < Config.viewInventoryColumns {
+            return Int(storeCursor.x) + Int(Config.viewInventoryColumns * 1)
+        } else if Int(storeCursor.y) == 5 && storeCursor.x < Config.viewInventoryColumns {
+            return Int(storeCursor.x) + Int(Config.viewInventoryColumns * 0)
+        }
+
+        return nil
     }
 }

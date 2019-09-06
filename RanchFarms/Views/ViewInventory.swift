@@ -46,10 +46,6 @@ class ViewInventory: SKSpriteNode {
         }
     }
 
-    func getSelectedItem() -> Item? {
-        return inventory.items[hudInterfaceData.hotbarCursor]
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

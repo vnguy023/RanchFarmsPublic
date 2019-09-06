@@ -109,12 +109,8 @@ class ViewStore: SKSpriteNode {
                 itemButton.position.y -= (CGFloat(y) * Config.itemImageSize.height) - Config.itemImageSize.height/2
                 self.addChild(itemButton)
 
-                if (Int(cursor.y) == 0 && y == 2)
-                    || (Int(cursor.y) == 1 && y == 1)
-                    || (Int(cursor.y) == 2 && y == 0) {
-                    if x == Int(cursor.x) {
-                        itemButton.state = .Highlight
-                    }
+                if let itemIndex = world.hudInterfaceData.getStorePlayerItemIndex(), itemIndex == index {
+                    itemButton.state = .Highlight
                 }
 
                 playerItems.append(itemButton)
@@ -137,12 +133,8 @@ class ViewStore: SKSpriteNode {
                 itemButton.position.y -= (CGFloat(y) * Config.itemImageSize.height) - Config.itemImageSize.height/2
                 self.addChild(itemButton)
 
-                if (Int(cursor.y) == 3 && y == 2)
-                    || (Int(cursor.y) == 4 && y == 1)
-                    || (Int(cursor.y) == 5 && y == 0) {
-                    if x == Int(cursor.x) {
-                        itemButton.state = .Highlight
-                    }
+                if let itemIndex = world.hudInterfaceData.getStoreStoreItemIndex(), itemIndex == index {
+                    itemButton.state = .Highlight
                 }
 
                 storeItems.append(itemButton)
