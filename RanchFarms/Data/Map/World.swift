@@ -108,9 +108,22 @@ class World: SKNode {
         door.teleport = Teleport(mapPoint: MapPoint(x: 3, y: 5, location: .Farm),
                                  directionToFace: .SOUTH)
         gameArea.buildings.append(door)
+
         let bed = Building(buildingId: .SingleBed,
                            mapPoint: MapPoint(x: 4, y: 1, location: location))
         gameArea.buildings.append(bed)
+
+        let chair = Building(buildingId: .Chair,
+                           mapPoint: MapPoint(x: 1, y: 3, location: location))
+        gameArea.buildings.append(chair)
+
+        let table = Building(buildingId: .Table,
+                           mapPoint: MapPoint(x: 2, y: 3, location: location))
+        gameArea.buildings.append(table)
+
+        let tv = Building(buildingId: .TV,
+                           mapPoint: MapPoint(x: 0, y: 3, location: location))
+        gameArea.buildings.append(tv)
 
         // Tiles
         for x in 0...4 {

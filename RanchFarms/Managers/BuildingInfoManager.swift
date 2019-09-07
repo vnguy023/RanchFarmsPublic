@@ -24,6 +24,10 @@ class BuildingInfoManager {
         buildingIdToBuildingInfo[.Rock] = BuildingInfo(buildingId: .Rock, buildingType: .Unknown, name: "Rock")
         buildingIdToBuildingInfo[.SingleBed] = BuildingInfo(buildingId: .SingleBed, buildingType: .Bed, name: "Single Bed")
 
+        buildingIdToBuildingInfo[.Chair] = BuildingInfo(buildingId: .Chair, buildingType: .Unknown, name: "Chair")
+        buildingIdToBuildingInfo[.Table] = BuildingInfo(buildingId: .Table, buildingType: .Unknown, name: "Table")
+        buildingIdToBuildingInfo[.TV] = BuildingInfo(buildingId: .TV, buildingType: .Unknown, name: "TV")
+
         // Crops
         var garlicTextureMap = [Int: String]()
         garlicTextureMap[0] = "garlic1"

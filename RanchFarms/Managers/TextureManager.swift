@@ -40,6 +40,10 @@ class TextureManager {
         buildingMap[.Rock] = SKTexture(imageNamed: "buildingRock")
         buildingMap[.FarmDeliveryBox] = SKTexture(imageNamed: "buildingChest")
 
+        buildingMap[.Chair] = SKTexture(imageNamed: "buildingChair")
+        buildingMap[.Table] = SKTexture(imageNamed: "buildingTable")
+        buildingMap[.TV] = SKTexture(imageNamed: "buildingTv")
+
         buildingMap[.VendingMachine] = SKTexture(imageNamed: "buildingVendingMachine")
         buildingMap[.PlayerHouseSign] = SKTexture(imageNamed: "buildingSign")
     }
