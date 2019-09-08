@@ -27,10 +27,13 @@ class CmdActionHarvest: Command {
 
     private func getItemsFromHarvest() -> Item? {
         if crop.canHarvest {
-            //temporary until we figure out a system for this
-            return Item(itemId: .Garlic, quantity: 1)
+            if crop.buildingInfo.harvestItemId == nil {
+                print( "[ActionHarvest] [Error] [Desc=No harvestItemId Assigned] [buildingId=\(crop.buildingId)] [growth=\(crop.growthProgress)]")
+                return nil
+            }
+            return Item(itemId: crop.buildingInfo.harvestItemId!, quantity: 1)
         } else {
-            print( "[ActionHarvest] [Desc=Not ready to Harvest [name=\(crop.buildingInfo.name)] [growth=\(crop.growthProgress)]")
+            print( "[ActionHarvest] [Desc=Not ready to Harvest] [buildingId=\(crop.buildingId)] [growth=\(crop.growthProgress)]")
             return nil
         }
     }

@@ -36,7 +36,7 @@ class BuildingInfoManager {
         garlicTextureMap[4] = "garlic4"
         garlicTextureMap[6] = "garlic5"
         garlicTextureMap[8] = "garlic6"
-        buildingIdToBuildingInfo[.Garlic] = BuildingInfo(buildingId: .Garlic, buildingType: .Crop, name: "Garlic", growthTextureMap: garlicTextureMap)
+        buildingIdToBuildingInfo[.Garlic] = BuildingInfo(buildingId: .Garlic, buildingType: .Crop, name: "Garlic", growthTextureMap: garlicTextureMap, harvestItemId: .Garlic)
 
         var turnipTextureMap = [Int: String]()
         turnipTextureMap[0] = "turnip1"
@@ -44,7 +44,7 @@ class BuildingInfoManager {
         turnipTextureMap[2] = "turnip3"
         turnipTextureMap[4] = "turnip4"
         turnipTextureMap[5] = "turnip5"
-        buildingIdToBuildingInfo[.Turnip] = BuildingInfo(buildingId: .Turnip, buildingType: .Crop, name: "Turnip", growthTextureMap: turnipTextureMap)
+        buildingIdToBuildingInfo[.Turnip] = BuildingInfo(buildingId: .Turnip, buildingType: .Crop, name: "Turnip", growthTextureMap: turnipTextureMap, harvestItemId: .Turnip)
 
         // Temporary stuff that we should replace
         buildingIdToBuildingInfo[.PlayerHouseSign] = BuildingInfo(buildingId: .PlayerHouseSign, buildingType: .Sign, name: "Player House Sign")
