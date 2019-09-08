@@ -13,9 +13,6 @@ class Person: GameObject {
         self.type = personType
         super.init(mapPoint: mapPoint)
 
-        self.texture = SKTexture(imageNamed: "personLily")
-        self.texture!.filteringMode = .nearest
-
         self.zPosition = 500
     }
     

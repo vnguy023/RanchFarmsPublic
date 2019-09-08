@@ -7,7 +7,7 @@ class Tile: GameObject {
         set {
             mType = newValue
 
-            self.texture = TextureManager.shared.getTexture(tileType: newValue)
+            applyTexture(TextureManager.shared.getTexture(tileType: newValue))
         }
     }
 

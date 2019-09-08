@@ -37,7 +37,7 @@ class Building: GameObject {
 
     private func updateTexture() {
         if buildingInfo.growthTextureMap == nil {
-            self.texture = TextureManager.shared.getTexture(buildingId: buildingId)
+            applyTexture(TextureManager.shared.getTexture(buildingId: buildingId)) 
         } else {
             var textureName = "\(buildingInfo.name)"
             for i in 0...mGrowthProgress {
@@ -45,7 +45,7 @@ class Building: GameObject {
                     textureName = temp
                 }
             }
-            self.texture = TextureManager.shared.getTexture(cropName: textureName)
+            applyTexture(TextureManager.shared.getTexture(cropName: textureName))
         }
     }
 

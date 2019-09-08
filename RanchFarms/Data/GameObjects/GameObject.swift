@@ -1,6 +1,6 @@
 import SpriteKit
 
-class GameObject: SKSpriteNode {
+class GameObject: SKNode {
     override var position: CGPoint {
         get { return super.position }
         set { super.position = newValue
@@ -33,14 +33,24 @@ class GameObject: SKSpriteNode {
     var inventory = Inventory()
     var money = Int(1050)
 
+    let sprite = SKSpriteNode(color: .red, size: Config.tileSize)
+
     init (mapPoint: MapPoint) {
         mMapPoint = MapPoint(x: 0, y: 0, location: .House)
-        super.init(texture: nil, color: .red, size: Config.tileSize)
+        super.init()
         self.mapPoint = mapPoint
+
+        self.addChild(sprite)
     }
 
     func getPositionInFront() -> CGPoint {
         return self.position + faceDirection.scale(Config.tileSize.width)
+    }
+
+    func applyTexture(_ texture: SKTexture?) {
+        if texture != nil {
+            self.sprite.texture = texture!
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -12,6 +12,6 @@ class RenderController {
     }
 
     private func renderPlayer() {
-        world.player.texture = AnimationManager.shared.getTexture(person: world.player)
+        world.player.applyTexture(AnimationManager.shared.getTexture(person: world.player))
     }
 }
