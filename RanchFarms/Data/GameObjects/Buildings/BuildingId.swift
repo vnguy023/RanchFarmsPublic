@@ -16,4 +16,5 @@ enum BuildingId: UInt, Codable {
     case Rock = 1000
 
     case Garlic = 2000
+    case Turnip
 }

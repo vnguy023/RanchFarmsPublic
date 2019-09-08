@@ -55,6 +55,13 @@ class TextureManager {
         cropMap["garlic4"] = SKTexture(imageNamed: "buildingGarlic4")
         cropMap["garlic5"] = SKTexture(imageNamed: "buildingGarlic5")
         cropMap["garlic6"] = SKTexture(imageNamed: "buildingGarlic6")
+
+        cropMap["turnip1"] = SKTexture(imageNamed: "buildingTurnip1")
+        cropMap["turnip2"] = SKTexture(imageNamed: "buildingTurnip2")
+        cropMap["turnip3"] = SKTexture(imageNamed: "buildingTurnip3")
+        cropMap["turnip4"] = SKTexture(imageNamed: "buildingTurnip4")
+        cropMap["turnip5"] = SKTexture(imageNamed: "buildingTurnip5")
+
     }
 
     private func loadItems() {
@@ -63,8 +70,11 @@ class TextureManager {
         itemMap[.PickAxe] = SKTexture(imageNamed: "itemPickAxe")
         itemMap[.WaterCan] = SKTexture(imageNamed: "itemWatercan")
 
+        // Crops
         itemMap[.GarlicSeed] = SKTexture(imageNamed: "itemGarlicSeed")
         itemMap[.Garlic] = SKTexture(imageNamed: "itemGarlic")
+        itemMap[.TurnipSeed] = SKTexture(imageNamed: "itemTurnipSeed")
+        itemMap[.Turnip] = SKTexture(imageNamed: "itemTurnip")
     }
 
     func loadPeople() {

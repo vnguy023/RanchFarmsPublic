@@ -24,7 +24,7 @@ class Inventory {
 
     func canAcquire(item: Item, slot: Int) -> Bool {
         if let currentItemInSlot = items[slot] {
-            if currentItemInSlot.type != item.type
+            if currentItemInSlot.itemId != item.itemId
                 || currentItemInSlot.quantity + item.quantity > currentItemInSlot.itemInfo.maxStack {
                 return false
             }
@@ -36,7 +36,7 @@ class Inventory {
         // see if we can stack first
         for i in 0..<Int(capacity) {
             if canAcquire(item: item, slot: i)
-                && items[i] != nil && items[i]!.type == item.type {
+                && items[i] != nil && items[i]!.itemId == item.itemId {
                 acquire(item: item, slot: i)
                 return
             }

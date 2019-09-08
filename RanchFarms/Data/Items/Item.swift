@@ -18,6 +18,6 @@ class Item {
     }
 
     func clone() -> Item {
-        return Item(itemId: itemId, quantity: quantity)
+        return Item(itemId: self.itemId, quantity: self.quantity)
     }
 }

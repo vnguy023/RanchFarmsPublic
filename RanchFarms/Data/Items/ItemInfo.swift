@@ -9,7 +9,9 @@ class ItemInfo {
     let sellPrice: Int
     let purchasePrice: Int
 
-    init(itemId: ItemId, itemType: ItemType, name: String, canSell: Bool, sellPrice: Int, purchasePrice: Int) {
+    let buildingId: BuildingId?
+
+    init(itemId: ItemId, itemType: ItemType, name: String, canSell: Bool, sellPrice: Int, purchasePrice: Int, buildingId: BuildingId?) {
         self.id = itemId
         self.itemType = itemType
         self.name = name
@@ -17,5 +19,7 @@ class ItemInfo {
         self.canSell = canSell
         self.sellPrice = sellPrice
         self.purchasePrice = purchasePrice
+
+        self.buildingId = buildingId
     }
 }
