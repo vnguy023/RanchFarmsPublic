@@ -166,6 +166,7 @@ class TextureManager {
         hudMap.forEach({$0.value.filteringMode = .nearest})
 
         buildingMap.forEach({$0.value.filteringMode = .nearest})
+        cropMap.forEach({$0.value.filteringMode = .nearest})
         itemMap.forEach({$0.value.filteringMode = .nearest})
         tileMap.forEach({$0.value.filteringMode = .nearest})
 
