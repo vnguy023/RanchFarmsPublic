@@ -1,7 +1,7 @@
 import SpriteKit
 
 class Building: GameObject {
-    let buildingId: BuildingId
+    let id: BuildingId
     var type: BuildingType {
         get {return buildingInfo.buildingType}
     }
@@ -26,7 +26,7 @@ class Building: GameObject {
     }
 
     init(buildingId: BuildingId, mapPoint: MapPoint) {
-        self.buildingId = buildingId
+        self.id = buildingId
         self.buildingInfo = BuildingInfoManager.shared.getBuildingInfo(buildingId: buildingId)
 
         super.init(mapPoint: mapPoint)
@@ -37,7 +37,9 @@ class Building: GameObject {
 
     private func updateTexture() {
         if buildingInfo.growthTextureMap == nil {
-            applyTexture(TextureManager.shared.getTexture(buildingId: buildingId)) 
+            if let animation = AnimationManager.shared.getAnimation(building: self) {
+                applyAnimationFrame(animation.getFrame(gameTicksElapsed: 0))
+            }
         } else {
             var textureName = "\(buildingInfo.name)"
             for i in 0...mGrowthProgress {

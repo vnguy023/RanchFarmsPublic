@@ -25,13 +25,6 @@ class Person: GameObject {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func applyAnimationFrame(_ frame: AnimationFrame) {
-        self.sprite.texture = frame.texture
-        self.sprite.size = frame.imageSize
-        self.sprite.anchorPoint = frame.anchorPoint
-        self.sprite.position = frame.positionOffset
-    }
-
     func move(direction: CGVector) {
         if state == .Idle {
             state = .Walking

@@ -118,7 +118,7 @@ class CmdActionUseItem: Command {
 
     private func sellItem() {
         if itemToUse.itemInfo.canSell {
-            if buildingInFront.buildingId == .FarmDeliveryBox {
+            if buildingInFront.id == .FarmDeliveryBox {
                 world.farmDeliveryBoxItems.append(itemToUse)
                 world.player.inventory.deleteItem(item: itemToUse)
             }

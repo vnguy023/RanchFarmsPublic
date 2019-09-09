@@ -15,7 +15,7 @@ class World: SKNode {
         get { return daysElapsed + 1 }
     }
 
-    let teleportStartDay = Teleport(mapPoint: MapPoint(x: 3, y: 1, location: .House),
+    let teleportStartDay = Teleport(mapPoint: MapPoint(x: 7, y: 1, location: .House),
                                     directionToFace: .SOUTH)
     // Items to sell
     var farmDeliveryBoxItems = [Item]()
@@ -122,30 +122,30 @@ class World: SKNode {
 
         //Buildings
         let door = Building(buildingId: .Door,
-                            mapPoint: MapPoint(x: 1, y: -1, location: location))
+                            mapPoint: MapPoint(x: 1, y: -2, location: location))
         door.teleport = Teleport(mapPoint: MapPoint(x: 3, y: 5, location: .Farm),
                                  directionToFace: .SOUTH)
         gameArea.buildings.append(door)
 
         let bed = Building(buildingId: .SingleBed,
-                           mapPoint: MapPoint(x: 4, y: 1, location: location))
+                           mapPoint: MapPoint(x: 8, y: 0, location: location))
         gameArea.buildings.append(bed)
 
         let chair = Building(buildingId: .Chair,
-                           mapPoint: MapPoint(x: 1, y: 3, location: location))
+                           mapPoint: MapPoint(x: 2, y: 6, location: location))
         gameArea.buildings.append(chair)
 
         let table = Building(buildingId: .Table,
-                           mapPoint: MapPoint(x: 2, y: 3, location: location))
+                           mapPoint: MapPoint(x: 3, y: 5, location: location))
         gameArea.buildings.append(table)
 
         let tv = Building(buildingId: .TV,
-                           mapPoint: MapPoint(x: 0, y: 3, location: location))
+                           mapPoint: MapPoint(x: 0, y: 5, location: location))
         gameArea.buildings.append(tv)
 
         // Tiles
-        for x in 0...4 {
-            for y in 0...3 {
+        for x in 0...9 {
+            for y in 0...6 {
                 let tileType = TileType.Wood
 
                 let tile = Tile.init(tileType: tileType,

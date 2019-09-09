@@ -47,6 +47,13 @@ class GameObject: SKNode {
         return self.position + faceDirection.scale(Config.tileSize.width)
     }
 
+    func applyAnimationFrame(_ frame: AnimationFrame) {
+        self.sprite.texture = frame.texture
+        self.sprite.size = frame.imageSize
+        self.sprite.anchorPoint = frame.anchorPoint
+        self.sprite.position = frame.positionOffset
+    }
+
     func applyTexture(_ texture: SKTexture?) {
         if texture != nil {
             self.sprite.texture = texture!
