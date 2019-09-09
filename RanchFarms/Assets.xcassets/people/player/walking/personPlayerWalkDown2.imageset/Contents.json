@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "playerDownIdle.png",
+      "filename" : "walkDown2.png",
       "scale" : "1x"
     },
     {

@@ -166,9 +166,12 @@ class GameScene: BaseScene {
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+
+        // one frame at a time
         processControllerInput()
         inputController.update()
-
+        world.update()
+        // end of the n ticks
         cameraController.update()
         renderController.update()
         hudController.update()

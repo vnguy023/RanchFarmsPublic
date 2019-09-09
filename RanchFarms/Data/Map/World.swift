@@ -23,8 +23,6 @@ class World: SKNode {
     // Hud Data
     // This should be temporary data for now. Think about throwing this into global
     var hudInterfaceData = HudInterfaceData()
-
-
     
     override init() {
         super.init()
@@ -35,6 +33,26 @@ class World: SKNode {
         loadDefault()
 
         reloadGameObjects()
+    }
+
+    // advances world by one gameTick
+    func update() {
+        switch player.state {
+        case .Idle: break
+        case .Walking:
+            if player.position == player.previousPosition {
+                player.state = .Idle
+                player.stateDurationElapsed = 0
+            }
+        }
+
+        postUpdate()
+    }
+
+    private func postUpdate() {
+        player.stateDurationElapsed += 1
+        player.previousLocation = player.location
+        player.previousPosition = player.position
     }
 
     func getCurrentGameArea() -> GameArea {

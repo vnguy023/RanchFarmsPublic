@@ -2,10 +2,10 @@ import SpriteKit
 
 extension ActionController {
     func actionMoveGameStateGame(moveVector: CGVector) {
-        if !moveVector.isZeroVector {
-            let initPosition = world.player.position
-            world.player.position = world.player.position + moveVector.scale(world.player.moveSpeed)
-            world.player.faceDirection = CGVector.getDirection4(start: initPosition, end: world.player.position)
+        if world.player.state == .Idle || world.player.state == .Walking {
+            if !moveVector.isZeroVector {
+                world.player.move(direction: moveVector)
+            }
         }
     }
 

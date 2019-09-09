@@ -7,5 +7,8 @@ class CmdStartDay: Command {
 
     func execute() {
         world.teleport(to: world.teleportStartDay)
+
+        world.player.location = world.player.location
+        world.player.previousPosition = world.player.position
     }
 }
