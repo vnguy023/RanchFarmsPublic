@@ -37,18 +37,18 @@ class AnimationManager {
 
         buildingAnimations[.VendingMachine] = Animation()
         buildingAnimations[.VendingMachine]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .VendingMachine),
-                                                                     imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
-                                                                     anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+                                                                     imageSize: CGSize(width: stdImgSize.width*2, height: stdImgSize.height*2),
+                                                                     anchorPoint: CGPoint(x:1.0/4.0, y: 1.0/4.0)))
 
         buildingAnimations[.FarmDeliveryBox] = Animation()
         buildingAnimations[.FarmDeliveryBox]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .FarmDeliveryBox),
-                                                                imageSize: CGSize(width: stdImgSize.width*2, height: stdImgSize.height),
-                                                                anchorPoint: CGPoint(x:1.0/4.0, y: 1.0/2.0)))
+                                                                imageSize: CGSize(width: stdImgSize.width*2, height: stdImgSize.height*1.5),
+                                                                anchorPoint: CGPoint(x:1.0/4.0, y: 1.0/3.0)))
 
         buildingAnimations[.Chair] = Animation()
         buildingAnimations[.Chair]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .Chair),
-                                                            imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height),
-                                                            anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/2.0)))
+                                                            imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*1.5),
+                                                            anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/3.0)))
         buildingAnimations[.Table] = Animation()
         buildingAnimations[.Table]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .Table),
                                                             imageSize: CGSize(width: stdImgSize.width*2, height: stdImgSize.height*2),
