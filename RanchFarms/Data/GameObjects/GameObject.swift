@@ -34,6 +34,9 @@ class GameObject: SKNode {
     var money = Int(1050)
 
     let sprite = SKSpriteNode(color: .red, size: Config.tileSize)
+    var boundaryAnchorPoint = CGPoint(x: 0.5, y: 0.5)
+    var boundarySize = Config.tileSize
+    let boundaryTrim = CGFloat(2) // this is to account for imperfect movement
 
     init (mapPoint: MapPoint) {
         mMapPoint = MapPoint(x: 0, y: 0, location: .House)
@@ -41,6 +44,20 @@ class GameObject: SKNode {
         self.mapPoint = mapPoint
 
         self.addChild(sprite)
+    }
+
+    func boundaryContains(point: CGPoint) -> Bool {
+        let bottomLeftPoint = CGPoint(x: self.position.x - boundarySize.width * boundaryAnchorPoint.x,
+                                      y: self.position.y - boundarySize.height * boundaryAnchorPoint.y)
+        let topRightPoint = CGPoint(x: bottomLeftPoint.x + boundarySize.width,
+                                    y: bottomLeftPoint.y + boundarySize.height)
+
+        if bottomLeftPoint.x + boundaryTrim <= point.x && point.x <= topRightPoint.x - boundaryTrim
+            && bottomLeftPoint.y + boundaryTrim <= point.y && point.y <= topRightPoint.y - boundaryTrim {
+            return true
+        }
+
+        return false
     }
 
     func getPositionInFront() -> CGPoint {

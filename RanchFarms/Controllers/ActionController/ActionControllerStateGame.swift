@@ -12,8 +12,7 @@ extension ActionController {
     func actionPrimaryGameStateGame() {
         let currentGameArea = world.getCurrentGameArea()
 
-        // TODO: Need to fix this to using mapPoint occupation
-        let buildings = currentGameArea.buildings.filter({$0.contains(world.player.getPositionInFront())})
+        let buildings = currentGameArea.buildings.filter({$0.boundaryContains(point: world.player.getPositionInFront())})
 
         if let buildingInFront = buildings.first {
             switch buildingInFront.type {

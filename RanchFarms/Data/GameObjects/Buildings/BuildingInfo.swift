@@ -1,3 +1,5 @@
+import SpriteKit
+
 class BuildingInfo {
     let id: BuildingId
 
@@ -6,10 +8,12 @@ class BuildingInfo {
     let growthTextureMap: [Int: String]?
     let harvestDate: Int? // amke it the greatest int in growthTextureMap
     let harvestItemId: ItemId?
+    let objSize: CGSize
 
-    init(buildingId: BuildingId, buildingType: BuildingType, name: String, growthTextureMap: [Int: String]?, harvestItemId: ItemId?) {
+    init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, name: String, growthTextureMap: [Int: String]?, harvestItemId: ItemId?) {
         self.id = buildingId
         self.buildingType = buildingType
+        self.objSize = objSize
         self.name = name
         self.growthTextureMap = growthTextureMap
 
@@ -27,7 +31,7 @@ class BuildingInfo {
         self.harvestItemId = harvestItemId
     }
 
-    convenience init(buildingId: BuildingId, buildingType: BuildingType, name: String) {
-        self.init(buildingId: buildingId, buildingType: buildingType, name: name, growthTextureMap: nil, harvestItemId: nil)
+    convenience init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, name: String) {
+        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, name: name, growthTextureMap: nil, harvestItemId: nil)
     }
 }
