@@ -1,7 +1,7 @@
 import SpriteKit
 
 class Person: GameObject {
-    let type: PersonType
+    let id: PersonId
 
     enum State {
         case Idle
@@ -9,8 +9,8 @@ class Person: GameObject {
 
     var state = State.Idle
 
-    init(mapPoint: MapPoint, personType: PersonType) {
-        self.type = personType
+    init(personId: PersonId, mapPoint: MapPoint) {
+        self.id = personId
         super.init(mapPoint: mapPoint)
 
         self.zPosition = 500
@@ -18,5 +18,12 @@ class Person: GameObject {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func applyAnimationFrame(_ frame: AnimationFrame) {
+        self.sprite.texture = frame.texture
+        self.sprite.size = frame.imageSize
+        self.sprite.anchorPoint = frame.anchorPoint
+        self.sprite.position = frame.positionOffset
     }
 }

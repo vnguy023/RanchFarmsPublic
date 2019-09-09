@@ -80,7 +80,7 @@ class World: SKNode {
     }
 
     private func loadDefault() {
-        player = Person(mapPoint: MapPoint(x: 0, y: 0, location: .Farm), personType: .Player)
+        player = Person(personId: .Player, mapPoint: MapPoint(x: 0, y: 0, location: .Farm))
         player.inventory.items[0] = Item(itemId: .Hoe, quantity: 1)
         player.inventory.items[1] = Item(itemId: .WaterCan, quantity: 1)
         player.inventory.items[2] = Item(itemId: .Axe, quantity: 1)

@@ -53,7 +53,7 @@ extension CGSize {
     }
 }
 
-extension CGVector {
+extension CGVector: Hashable {
     static let NORTH = CGVector(dx: 0, dy: 1)
     static let SOUTH = CGVector(dx: 0, dy: -1)
     static let WEST = CGVector(dx: -1, dy: 0)
@@ -66,6 +66,11 @@ extension CGVector {
 
     init(pointA: CGPoint, pointB: CGPoint) {
         self.init(dx: pointB.x - pointA.x, dy: pointB.y - pointA.y)
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(dx)
+        hasher.combine(dy)
     }
 
     func getMagnitude() -> CGFloat {
