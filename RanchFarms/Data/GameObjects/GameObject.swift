@@ -68,7 +68,6 @@ class GameObject: SKNode {
         self.sprite.texture = frame.texture
         self.sprite.size = frame.imageSize
         self.sprite.anchorPoint = frame.anchorPoint
-        self.sprite.position = frame.positionOffset
     }
 
     func applyTexture(_ texture: SKTexture?) {

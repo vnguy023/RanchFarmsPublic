@@ -2,14 +2,14 @@ import SpriteKit
 
 class AnimationFrame{
     let texture: SKTexture?
+    let duration: Int // used for determing how long it should be displayed
     let imageSize: CGSize
-    let duration = Int(8) // used for determing how long it should be displayed
     let anchorPoint: CGPoint
-    let positionOffset = CGPoint(x: 0, y: 0)
 
-    init(texture: SKTexture?, imageSize: CGSize, anchorPoint: CGPoint) {
+    init(texture: SKTexture?, duration: Int, imageSize: CGSize, anchorPoint: CGPoint) {
         self.texture = texture
         self.imageSize = imageSize
+        self.duration = duration
         self.anchorPoint = anchorPoint
     }
 }

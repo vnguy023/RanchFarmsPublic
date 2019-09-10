@@ -19,7 +19,7 @@ class Building: GameObject {
         }
     }
     var canHarvest: Bool {
-        if type == .Crop && growthProgress >= buildingInfo.harvestDate! {
+        if type == .Crop && growthProgress >= buildingInfo.harvestDate {
             return true
         }
         return false
@@ -41,18 +41,15 @@ class Building: GameObject {
     }
 
     private func updateTexture() {
-        if buildingInfo.growthTextureMap == nil {
+        switch type {
+        case .Crop:
+            if let animation = AnimationManager.shared.getAnimation(building: self) {
+                applyAnimationFrame(animation.getFrame(gameTicksElapsed: growthProgress))
+            }
+        default:
             if let animation = AnimationManager.shared.getAnimation(building: self) {
                 applyAnimationFrame(animation.getFrame(gameTicksElapsed: 0))
             }
-        } else {
-            var textureName = "\(buildingInfo.name)"
-            for i in 0...mGrowthProgress {
-                if let temp = buildingInfo.growthTextureMap![i] {
-                    textureName = temp
-                }
-            }
-            applyTexture(TextureManager.shared.getTexture(cropName: textureName))
         }
     }
 

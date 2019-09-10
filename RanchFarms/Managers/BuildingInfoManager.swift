@@ -57,32 +57,20 @@ class BuildingInfoManager {
                                                      name: "TV")
 
         // Crops
-        var garlicTextureMap = [Int: String]()
-        garlicTextureMap[0] = "garlic1"
-        garlicTextureMap[1] = "garlic2"
-        garlicTextureMap[2] = "garlic3"
-        garlicTextureMap[4] = "garlic4"
-        garlicTextureMap[6] = "garlic5"
-        garlicTextureMap[8] = "garlic6"
         buildingIdToBuildingInfo[.Garlic] = BuildingInfo(buildingId: .Garlic,
                                                          buildingType: .Crop,
                                                          objSize: CGSize(width: Config.tileSize.width * 1,
                                                                          height: Config.tileSize.height * 1),
-                                                         name: "Garlic", growthTextureMap: garlicTextureMap,
+                                                         name: "Garlic",
+                                                         harvestDate: 8,
                                                          harvestItemId: .Garlic)
 
-        var turnipTextureMap = [Int: String]()
-        turnipTextureMap[0] = "turnip1"
-        turnipTextureMap[1] = "turnip2"
-        turnipTextureMap[2] = "turnip3"
-        turnipTextureMap[4] = "turnip4"
-        turnipTextureMap[5] = "turnip5"
         buildingIdToBuildingInfo[.Turnip] = BuildingInfo(buildingId: .Turnip,
                                                          buildingType: .Crop,
                                                          objSize: CGSize(width: Config.tileSize.width * 1,
                                                                          height: Config.tileSize.height * 1),
                                                          name: "Turnip",
-                                                         growthTextureMap: turnipTextureMap,
+                                                         harvestDate: 4,
                                                          harvestItemId: .Turnip)
 
         // Temporary stuff that we should replace
