@@ -44,11 +44,11 @@ class Building: GameObject {
         switch type {
         case .Crop:
             if let animation = AnimationManager.shared.getAnimation(building: self) {
-                applyAnimationFrame(animation.getFrame(gameTicksElapsed: growthProgress))
+                applyAnimationFrame(animation.getFrame(cropProgress: growthProgress))
             }
         default:
             if let animation = AnimationManager.shared.getAnimation(building: self) {
-                applyAnimationFrame(animation.getFrame(gameTicksElapsed: 0))
+                applyAnimationFrame(animation.getFrame(animationProgress: 0.0))
             }
         }
     }

@@ -34,6 +34,8 @@ class Config {
     static let SaveFileName3 = "save3"
     static let SaveFileExtension = "json"
 
+    static let animationWalkGameTickDuration = 30
+
     private init() {
 
     }

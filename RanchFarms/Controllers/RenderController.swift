@@ -13,7 +13,15 @@ class RenderController {
 
     private func renderPlayer() {
         if let animation = AnimationManager.shared.getAnimation(person: world.player) {
-            world.player.applyAnimationFrame(animation.getFrame(gameTicksElapsed: world.player.stateDurationElapsed))
+            var stateAnimationDuration = 1
+            switch world.player.state {
+            case .Idle: break
+            case .Walking:
+                stateAnimationDuration = Config.animationWalkGameTickDuration
+            }
+
+            let progressPercentage = CGFloat(world.player.stateDurationElapsed)/CGFloat(stateAnimationDuration)
+            world.player.applyAnimationFrame(animation.getFrame(animationProgress: progressPercentage))
         }
     }
 }
