@@ -254,6 +254,10 @@ class World: SKNode {
         return daysElapsed%Config.GameDaysPerMonth + 1
     }
 
+    func getCurrentWeekDay() -> Int {
+        return daysElapsed % 7
+    }
+
     func getCurrentHour() -> Int {
         return Int(gameTicksElapsedToday/Config.GameTicksPerGameMinute/60)
     }
