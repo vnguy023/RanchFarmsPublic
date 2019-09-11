@@ -11,9 +11,7 @@ class World: SKNode {
     }
 
     var daysElapsed = Int(0)
-    var currentDay: Int {
-        get { return daysElapsed + 1 }
-    }
+
     var gameTicksElapsedToday = GameTick(0)
 
     let teleportStartDay = Teleport(mapPoint: MapPoint(x: 7, y: 1, location: .House),
@@ -246,6 +244,14 @@ class World: SKNode {
                 building.removeFromParent()
             }
         }
+    }
+
+    func getCurrentSeason() -> Season {
+        return Season(rawValue: UInt(daysElapsed / 28 % 4))!
+    }
+
+    func getCurrentDay() -> Int {
+        return daysElapsed%Config.GameDaysPerMonth + 1
     }
 
     func getCurrentHour() -> Int {

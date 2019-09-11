@@ -17,6 +17,7 @@
 		6C2336F3231272B300261944 /* CmdEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336F2231272B300261944 /* CmdEndDay.swift */; };
 		6C2336F5231272ED00261944 /* CmdBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336F4231272ED00261944 /* CmdBase.swift */; };
 		6C2336F72312744D00261944 /* CmdActionUseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336F62312744D00261944 /* CmdActionUseItem.swift */; };
+		6C40AA072328EB14001D21BB /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C40AA062328EB14001D21BB /* Season.swift */; };
 		6C60339B230B60B000746309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60339A230B60B000746309 /* AppDelegate.swift */; };
 		6C60339D230B60B000746309 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C60339C230B60B000746309 /* GameScene.sks */; };
 		6C6033A1230B60B000746309 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033A0230B60B000746309 /* GameScene.swift */; };
@@ -95,6 +96,7 @@
 		6C2336F2231272B300261944 /* CmdEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdEndDay.swift; sourceTree = "<group>"; };
 		6C2336F4231272ED00261944 /* CmdBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdBase.swift; sourceTree = "<group>"; };
 		6C2336F62312744D00261944 /* CmdActionUseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdActionUseItem.swift; sourceTree = "<group>"; };
+		6C40AA062328EB14001D21BB /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		6C603397230B60B000746309 /* RanchFarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchFarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C60339A230B60B000746309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C60339C230B60B000746309 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				6C8735552325D68B006020A7 /* Animation.swift */,
 				6C8735532325CB23006020A7 /* AnimationFrame.swift */,
 				6C9D3606230BA83500168A28 /* PlayerIndex.swift */,
+				6C40AA062328EB14001D21BB /* Season.swift */,
 				6C6033E1230BA4F000746309 /* Utils.swift */,
 			);
 			path = Utils;
@@ -540,6 +543,7 @@
 				6C9E3E12230E8500007417E1 /* BuildingId.swift in Sources */,
 				6C9D3607230BA83500168A28 /* PlayerIndex.swift in Sources */,
 				6CBC8D1B231CF5D4005454E1 /* CmdSaveFile.swift in Sources */,
+				6C40AA072328EB14001D21BB /* Season.swift in Sources */,
 				6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */,
 				6C9E3E15230E8FFE007417E1 /* Teleport.swift in Sources */,
 				6CD007BC231F3C5D008B9825 /* ViewDialog.swift in Sources */,

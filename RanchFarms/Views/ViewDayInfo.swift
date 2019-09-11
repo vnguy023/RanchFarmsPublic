@@ -3,6 +3,7 @@ import SpriteKit
 class ViewDayInfo: SKSpriteNode {
     let world: World
 
+    let currentSeasonLabel = SKLabelNode(fontNamed: "Chalkduster")
     let currentDayLabel = SKLabelNode(fontNamed: "Chalkduster")
     let currentTimeLabel = SKLabelNode(fontNamed: "Chalkduster")
 
@@ -11,7 +12,15 @@ class ViewDayInfo: SKSpriteNode {
 
         super.init(texture: nil, color: .white, size: Config.dayInfoSize)
 
-        currentDayLabel.position = CGPoint(x: self.size.width / 2 - 10, y: self.size.height / 4)
+        currentSeasonLabel.position = CGPoint(x: self.size.width / 2 - 10, y: self.size.height / 3)
+        currentSeasonLabel.fontSize = 24
+        currentSeasonLabel.fontColor = .black
+        currentSeasonLabel.horizontalAlignmentMode = .right
+        currentSeasonLabel.verticalAlignmentMode = .center
+        currentSeasonLabel.zPosition = 100
+        self.addChild(currentSeasonLabel)
+
+        currentDayLabel.position = CGPoint(x: self.size.width / 2 - 10, y: 0)
         currentDayLabel.fontSize = 24
         currentDayLabel.fontColor = .black
         currentDayLabel.horizontalAlignmentMode = .right
@@ -19,7 +28,7 @@ class ViewDayInfo: SKSpriteNode {
         currentDayLabel.zPosition = 100
         self.addChild(currentDayLabel)
 
-        currentTimeLabel.position = CGPoint(x: size.width / 2 - 10, y: self.size.height / -4)
+        currentTimeLabel.position = CGPoint(x: size.width / 2 - 10, y: self.size.height / -3)
         currentTimeLabel.fontSize = 24
         currentTimeLabel.fontColor = .black
         currentTimeLabel.horizontalAlignmentMode = .right
@@ -31,7 +40,8 @@ class ViewDayInfo: SKSpriteNode {
     }
 
     func update() {
-        currentDayLabel.text = "Day \(world.currentDay)"
+        currentSeasonLabel.text = "\(world.getCurrentSeason().toString())"
+        currentDayLabel.text = "Day \(world.getCurrentDay())"
 
         var hoursText = "\(world.getCurrentHour())"
         if world.getCurrentHour() == 0 { hoursText = "12" }
