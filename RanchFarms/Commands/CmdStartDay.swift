@@ -10,5 +10,7 @@ class CmdStartDay: Command {
 
         world.player.location = world.player.location
         world.player.previousPosition = world.player.position
+
+        world.gameTicksElapsedToday = 0
     }
 }

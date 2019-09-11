@@ -7,6 +7,9 @@ class ActionController {
     let inputController: InputController!
     let hudController: HudController!
 
+    var handlePause: (()->())!
+    var handleUnpause: (()->())!
+
     init(world: World, cameraController: CameraController, hudController: HudController, inputController: InputController) {
         self.world = world
 
@@ -27,13 +30,17 @@ class ActionController {
         switch gameState {
         case .Dialog:
             assignActionsGameStateDialog()
+            if handlePause != nil { handlePause() }
         case .Game:
             assignActionsGameStateGame()
+            if handlePause != nil { handleUnpause() }
         case .Inventory:
             assignActionsGameStateInventory()
+            if handlePause != nil { handlePause() }
         case .Store:
             world.hudInterfaceData.storeCursor = CGPoint(x: 0, y: 2)
             assignActionsGameStateStore()
+            if handlePause != nil { handlePause() }
         default:
             print ("[Desc=newActions not assigned] [GameState=\(gameState)]")
         }

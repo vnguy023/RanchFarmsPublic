@@ -34,7 +34,10 @@ class Config {
     static let SaveFileName3 = "save3"
     static let SaveFileExtension = "json"
 
-    static let animationWalkGameTickDuration = 30
+    static let animationWalkGameTickDuration = GameTick(30)
+
+    static let GameTicksPerSecond = GameTick(60)
+    static let MaxGameTickUpdatesPerCycle = GameTick(6)// only allow us to be behind by this much
 
     private init() {
 

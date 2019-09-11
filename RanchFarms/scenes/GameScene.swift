@@ -10,8 +10,13 @@ class GameScene: BaseScene {
     var renderController: RenderController!
     var hudController: HudController!
 
+    private var mLastUpdate = Date.init()
+    private var mPaused = false
+
     override func didMove(to view: SKView) {
-        // TODO find a proper home for this
+        mLastUpdate = Date.init()
+        mPaused = false
+
         loadGame()
 
         linkControllers()
@@ -51,6 +56,9 @@ class GameScene: BaseScene {
         renderController = RenderController(world: world)
         hudController = HudController(camera: cameraController.camera, world: world, screenSize: self.size)
         actionController = ActionController(world: world, cameraController: cameraController, hudController: hudController, inputController: inputController)
+
+        actionController.handlePause = pauseGame
+        actionController.handleUnpause = unpauseGame
     }
 
     private func linkNodes() {
@@ -164,14 +172,36 @@ class GameScene: BaseScene {
         }
     }
 
+    func pauseGame() {
+        mPaused = true
+    }
+
+    func unpauseGame() {
+        mPaused = false
+        mLastUpdate = Date.init()
+    }
+
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
 
-        // one frame at a time
         processControllerInput()
-        inputController.update()
-        world.update()
-        // end of the n ticks
+
+        if mPaused {
+            inputController.update()
+        } else {
+            let deltaTime = DateInterval(start: mLastUpdate, end: Date.init()).duration
+
+            let gameTicksToProcess = min(GameTick(deltaTime * Double(Config.GameTicksPerSecond)), Config.MaxGameTickUpdatesPerCycle)
+            var iter = gameTicksToProcess
+            while iter > 0 && !mPaused {
+                inputController.update()
+                world.update()
+
+                iter -= 1
+            }
+            mLastUpdate.addTimeInterval(TimeInterval(Double(gameTicksToProcess) / Double(Config.GameTicksPerSecond)))
+        }
+
         cameraController.update()
         renderController.update()
         hudController.update()

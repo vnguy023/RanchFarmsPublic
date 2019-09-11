@@ -14,6 +14,7 @@ class World: SKNode {
     var currentDay: Int {
         get { return daysElapsed + 1 }
     }
+    var gameTicksElapsedToday = 0
 
     let teleportStartDay = Teleport(mapPoint: MapPoint(x: 7, y: 1, location: .House),
                                     directionToFace: .SOUTH)
@@ -53,6 +54,7 @@ class World: SKNode {
         player.stateDurationElapsed += 1
         player.previousLocation = player.location
         player.previousPosition = player.position
+        gameTicksElapsedToday += 1
     }
 
     func getCurrentGameArea() -> GameArea {

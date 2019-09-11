@@ -13,7 +13,7 @@ class RenderController {
 
     private func renderPlayer() {
         if let animation = AnimationManager.shared.getAnimation(person: world.player) {
-            var stateAnimationDuration = 1
+            var stateAnimationDuration = GameTick(1)
             switch world.player.state {
             case .Idle: break
             case .Walking:
