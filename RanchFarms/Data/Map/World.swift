@@ -14,7 +14,7 @@ class World: SKNode {
     var currentDay: Int {
         get { return daysElapsed + 1 }
     }
-    var gameTicksElapsedToday = 0
+    var gameTicksElapsedToday = GameTick(0)
 
     let teleportStartDay = Teleport(mapPoint: MapPoint(x: 7, y: 1, location: .House),
                                     directionToFace: .SOUTH)
@@ -246,6 +246,18 @@ class World: SKNode {
                 building.removeFromParent()
             }
         }
+    }
+
+    func getCurrentHour() -> Int {
+        return Int(gameTicksElapsedToday/Config.GameTicksPerGameMinute/60)
+    }
+
+    func getCurrentMinutes() -> Int {
+        return Int(gameTicksElapsedToday/Config.GameTicksPerGameMinute) % 60
+    }
+
+    func getCurrentMeridian() -> String {
+        return "AM"
     }
 
     required init?(coder aDecoder: NSCoder) {

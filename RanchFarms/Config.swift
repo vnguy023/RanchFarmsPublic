@@ -13,7 +13,7 @@ class Config {
     static let itemImageSize = CGSize(width: 72, height: 72)
     static let tileSize = CGSize(width: 32, height: 32)
 
-    static let dayInfoSize = CGSize(width: 150, height: 50)
+    static let dayInfoSize = CGSize(width: 150, height: 70)
 
     static let viewInventoryColumns = CGFloat(10)
     static let viewInventoryRows = CGFloat(3)
@@ -38,6 +38,7 @@ class Config {
 
     static let GameTicksPerSecond = GameTick(60)
     static let MaxGameTickUpdatesPerCycle = GameTick(6)// only allow us to be behind by this much
+    static let GameTicksPerGameMinute = GameTick(42)
 
     private init() {
 
