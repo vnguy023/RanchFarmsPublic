@@ -16,7 +16,7 @@ class SplashScene: BaseScene {
     }
 
     func touchUp(atPoint pos : CGPoint) {
-        vc.loadGameScene()
+        inputController.pressedDown(inputKey: .Primary, value: true)
     }
 
     override func mouseDown(with event: NSEvent) {
@@ -34,7 +34,7 @@ class SplashScene: BaseScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 0x31:
-            vc!.loadGameScene()
+            inputController.pressedDown(inputKey: .Primary, value: true)
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
@@ -42,6 +42,7 @@ class SplashScene: BaseScene {
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        processControllerInput()
         inputController.update()
     }
 
@@ -55,7 +56,12 @@ class SplashScene: BaseScene {
     }
 
     private func actionPrimary() {
-        vc!.loadGameScene()
+
+        // temporary til we figure this out
+        let saveSlot = SaveSlot.Slot1
+        createNewGame(saveSlot: saveSlot)
+
+        vc!.loadGameScene(saveSlot: saveSlot)
     }
 
     func processControllerInput() {
@@ -92,6 +98,14 @@ class SplashScene: BaseScene {
             inputController.pressedDown(inputKey: .DPadLeft, value: gc.extendedGamepad!.dpad.left.isPressed)
             inputController.pressedDown(inputKey: .DPadRight, value: gc.extendedGamepad!.dpad.right.isPressed)
         }
+    }
+
+    private func createNewGame(saveSlot: SaveSlot) {
+        let cmdSaveFile = CmdSaveFile(directory: Config.SaveDirectory,
+                                      fileName: saveSlot.getFileName(),
+                                      fileExtension: Config.SaveFileExtension,
+                                      text: "Hello World, Ranch Farms1243")
+        cmdSaveFile.execute()
     }
 
 }

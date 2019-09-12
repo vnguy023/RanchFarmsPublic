@@ -3,6 +3,8 @@ import GameController
 import GameplayKit
 
 class GameScene: BaseScene {
+    var saveSlot: SaveSlot!
+
     let cameraController = CameraController()
     let inputController = InputController()
 
@@ -24,14 +26,8 @@ class GameScene: BaseScene {
         linkNodes()
 
         // Temporary to test stuff out
-        let cmdSaveFile = CmdSaveFile(directory: Config.SaveDirectory,
-                                      fileName: Config.SaveFileName2,
-                                      fileExtension: Config.SaveFileExtension,
-                                      text: "Hello World, Ranch Farms1243")
-        cmdSaveFile.execute()
-
         let cmdLoadFile = CmdLoadFile(directory: Config.SaveDirectory,
-                                      fileName: Config.SaveFileName2,
+                                      fileName: saveSlot.getFileName(),
                                       fileExtension: Config.SaveFileExtension)
         cmdLoadFile.execute()
         if cmdLoadFile.success {
@@ -41,7 +37,7 @@ class GameScene: BaseScene {
         }
 
         let cmdDeleteFile = CmdDeleteFile(directory: Config.SaveDirectory,
-                                      fileName: Config.SaveFileName2,
+                                      fileName: saveSlot.getFileName(),
                                       fileExtension: Config.SaveFileExtension)
         cmdDeleteFile.execute()
     }

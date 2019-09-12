@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6C0F561B2313BE930017192E /* CmdStartDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0F561A2313BE930017192E /* CmdStartDay.swift */; };
 		6C0F561D2313D56E0017192E /* ViewDayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0F561C2313D56E0017192E /* ViewDayInfo.swift */; };
+		6C1BFE8D232A230C00294BF3 /* CmdCreateNewGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1BFE8C232A230C00294BF3 /* CmdCreateNewGame.swift */; };
+		6C1BFE8F232A2E4C00294BF3 /* SaveSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1BFE8E232A2E4C00294BF3 /* SaveSlot.swift */; };
 		6C2336E42311387700261944 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E32311387700261944 /* ItemType.swift */; };
 		6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E52311390400261944 /* ItemInfoManager.swift */; };
 		6C2336E8231147BA00261944 /* BuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E7231147BA00261944 /* BuildingInfo.swift */; };
@@ -88,6 +90,8 @@
 /* Begin PBXFileReference section */
 		6C0F561A2313BE930017192E /* CmdStartDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdStartDay.swift; sourceTree = "<group>"; };
 		6C0F561C2313D56E0017192E /* ViewDayInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDayInfo.swift; sourceTree = "<group>"; };
+		6C1BFE8C232A230C00294BF3 /* CmdCreateNewGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdCreateNewGame.swift; sourceTree = "<group>"; };
+		6C1BFE8E232A2E4C00294BF3 /* SaveSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveSlot.swift; sourceTree = "<group>"; };
 		6C2336E32311387700261944 /* ItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		6C2336E52311390400261944 /* ItemInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoManager.swift; sourceTree = "<group>"; };
 		6C2336E7231147BA00261944 /* BuildingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingInfo.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				6C2336F4231272ED00261944 /* CmdBase.swift */,
 				6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */,
 				6C2336F62312744D00261944 /* CmdActionUseItem.swift */,
+				6C1BFE8C232A230C00294BF3 /* CmdCreateNewGame.swift */,
 				6C0F561A2313BE930017192E /* CmdStartDay.swift */,
 				6C2336F2231272B300261944 /* CmdEndDay.swift */,
 				6C6D78E22322686500573B25 /* CmdPurchaseItem.swift */,
@@ -339,6 +344,7 @@
 				6C8735552325D68B006020A7 /* Animation.swift */,
 				6C8735532325CB23006020A7 /* AnimationFrame.swift */,
 				6C9D3606230BA83500168A28 /* PlayerIndex.swift */,
+				6C1BFE8E232A2E4C00294BF3 /* SaveSlot.swift */,
 				6C40AA062328EB14001D21BB /* Season.swift */,
 				6C6033E1230BA4F000746309 /* Utils.swift */,
 			);
@@ -485,6 +491,7 @@
 				6C8735562325D68B006020A7 /* Animation.swift in Sources */,
 				6C9E3E02230CFCAE007417E1 /* ViewHotbar.swift in Sources */,
 				6C6033C4230B648100746309 /* Item.swift in Sources */,
+				6C1BFE8F232A2E4C00294BF3 /* SaveSlot.swift in Sources */,
 				6C9E3E0C230E4C08007417E1 /* HudInterfaceData.swift in Sources */,
 				6C6033A3230B60B000746309 /* ViewController.swift in Sources */,
 				6C2336EA231147EA00261944 /* BuildingType.swift in Sources */,
@@ -525,6 +532,7 @@
 				6C97F8D22317808A00940C61 /* ViewInventory.swift in Sources */,
 				6C6033C6230B64B200746309 /* ItemId.swift in Sources */,
 				6C9D3609230BEC3C00168A28 /* ActionController.swift in Sources */,
+				6C1BFE8D232A230C00294BF3 /* CmdCreateNewGame.swift in Sources */,
 				6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */,
 				6C6D78DD2321F8BB00573B25 /* PortraitId.swift in Sources */,
 				6CBC8D19231CC8AB005454E1 /* ActionControllerStateInventory.swift in Sources */,

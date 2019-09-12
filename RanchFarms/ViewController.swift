@@ -11,9 +11,12 @@ class ViewController: NSViewController {
         loadSplashScene()
     }
 
-    func loadGameScene() {
+    func loadGameScene(saveSlot: SaveSlot) {
         if let scene = SKScene(fileNamed: "GameScene") {
-            presentScene(scene: scene)
+            let gameScene = (scene as! GameScene)
+            gameScene.saveSlot = saveSlot
+
+            presentScene(scene: gameScene)
         }
     }
 
