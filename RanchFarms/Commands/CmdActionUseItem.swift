@@ -86,7 +86,7 @@ class CmdActionUseItem: Command {
                 return
             }
 
-            let newCrop = Building(buildingId: itemToUse.itemInfo.buildingId!, mapPoint: tileInFront.mapPoint)
+            let newCrop = Building(player: .PlayerOne, buildingId: itemToUse.itemInfo.buildingId!, mapPoint: tileInFront.mapPoint)
 
             let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
             gameArea.buildings.append(newCrop)

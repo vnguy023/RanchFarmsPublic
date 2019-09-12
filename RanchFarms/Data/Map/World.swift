@@ -118,26 +118,31 @@ class World: SKNode {
         gameArea.location = location
 
         //Buildings
-        let door = Building(buildingId: .Door,
+        let door = Building(player: .Game,
+                            buildingId: .Door,
                             mapPoint: MapPoint(x: 1, y: -2, location: location))
         door.teleport = Teleport(mapPoint: MapPoint(x: 3, y: 5, location: .Farm),
                                  directionToFace: .SOUTH)
         gameArea.buildings.append(door)
 
-        let bed = Building(buildingId: .SingleBed,
+        let bed = Building(player: .Game,
+                           buildingId: .SingleBed,
                            mapPoint: MapPoint(x: 8, y: 0, location: location))
         gameArea.buildings.append(bed)
 
-        let chair = Building(buildingId: .Chair,
-                           mapPoint: MapPoint(x: 2, y: 6, location: location))
+        let chair = Building(player: .PlayerOne,
+                             buildingId: .Chair,
+                             mapPoint: MapPoint(x: 2, y: 6, location: location))
         gameArea.buildings.append(chair)
 
-        let table = Building(buildingId: .Table,
-                           mapPoint: MapPoint(x: 3, y: 5, location: location))
+        let table = Building(player: .PlayerOne,
+                             buildingId: .Table,
+                             mapPoint: MapPoint(x: 3, y: 5, location: location))
         gameArea.buildings.append(table)
 
-        let tv = Building(buildingId: .TV,
-                           mapPoint: MapPoint(x: 0, y: 5, location: location))
+        let tv = Building(player: .PlayerOne,
+                          buildingId: .TV,
+                          mapPoint: MapPoint(x: 0, y: 5, location: location))
         gameArea.buildings.append(tv)
 
         // Tiles
@@ -161,31 +166,37 @@ class World: SKNode {
         gameArea.location = location
 
         //Buildings
-        let houseDoor = Building(buildingId: .Door,
+        let houseDoor = Building(player: .Game,
+                                 buildingId: .Door,
                                  mapPoint: MapPoint(x: 3, y: 6, location: location))
         houseDoor.teleport = Teleport(mapPoint: MapPoint(x: 1, y: 0, location: .House),
                                      directionToFace: .NORTH)
         gameArea.buildings.append(houseDoor)
 
-        let townDoor = Building(buildingId: .Door,
+        let townDoor = Building(player: .Game,
+                                buildingId: .Door,
                                 mapPoint: MapPoint(x: 6, y: 3, location: location))
         townDoor.teleport = Teleport(mapPoint: MapPoint(x: 0, y: 0, location: .Town),
                                      directionToFace: .EAST)
         gameArea.buildings.append(townDoor)
 
-        let farmDeliveryBox = Building(buildingId: .FarmDeliveryBox,
+        let farmDeliveryBox = Building(player: .Game,
+                                       buildingId: .FarmDeliveryBox,
                                        mapPoint: MapPoint(x: 5, y: 6, location: location))
         gameArea.buildings.append(farmDeliveryBox)
 
-        let sign = Building(buildingId: .PlayerHouseSign,
+        let sign = Building(player: .Game,
+                            buildingId: .PlayerHouseSign,
                             mapPoint: MapPoint(x: 4, y: 6, location: location))
         gameArea.buildings.append(sign)
 
-        let vendingMachine = Building(buildingId: .VendingMachine,
+        let vendingMachine = Building(player: .Game,
+                                      buildingId: .VendingMachine,
                                       mapPoint: MapPoint(x: 1, y: 6, location: location))
         gameArea.buildings.append(vendingMachine)
 
-        let garlic = Building(buildingId: .Garlic,
+        let garlic = Building(player: .PlayerOne,
+                              buildingId: .Garlic,
                               mapPoint: MapPoint(x: 3, y: 2, location: location))
         garlic.growthProgress = 8
         gameArea.buildings.append(garlic)
@@ -214,7 +225,8 @@ class World: SKNode {
         gameArea.location = location
 
         //Buildings
-        let door = Building(buildingId: .Door,
+        let door = Building(player: .Game,
+                            buildingId: .Door,
                             mapPoint: MapPoint(x: -1, y: 0, location: location))
         door.teleport = Teleport(mapPoint: MapPoint(x: 5, y: 3, location: .Farm),
                                  directionToFace: .WEST)

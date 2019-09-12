@@ -25,11 +25,11 @@ class Building: GameObject {
         return false
     }
 
-    init(buildingId: BuildingId, mapPoint: MapPoint) {
+    init(player: PlayerIndex, buildingId: BuildingId, mapPoint: MapPoint) {
         self.id = buildingId
         self.buildingInfo = BuildingInfoManager.shared.getBuildingInfo(buildingId: buildingId)
 
-        super.init(mapPoint: mapPoint)
+        super.init(player: .PlayerOne, mapPoint: mapPoint)
 
         self.boundarySize = self.buildingInfo.objSize
         // Anchor everything at the center of (0,0) tile

@@ -21,7 +21,7 @@ class Tile: GameObject {
     }
 
     init(tileType: TileType, mapPoint: MapPoint) {
-        super.init(mapPoint: mapPoint)
+        super.init(player: .Game, mapPoint: mapPoint)
         self.type = tileType
 
         self.zPosition = 0

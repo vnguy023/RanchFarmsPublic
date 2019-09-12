@@ -1,6 +1,8 @@
 import SpriteKit
 
 class GameObject: SKNode {
+    var player: PlayerIndex
+
     override var position: CGPoint {
         get { return super.position }
         set { super.position = newValue
@@ -38,7 +40,8 @@ class GameObject: SKNode {
     var boundarySize = Config.tileSize
     let boundaryTrim = CGFloat(2) // this is to account for imperfect movement
 
-    init (mapPoint: MapPoint) {
+    init (player: PlayerIndex, mapPoint: MapPoint) {
+        self.player = player
         mMapPoint = MapPoint(x: 0, y: 0, location: .House)
         super.init()
         self.mapPoint = mapPoint

@@ -16,7 +16,7 @@ class Person: GameObject {
 
     init(personId: PersonId, mapPoint: MapPoint) {
         self.id = personId
-        super.init(mapPoint: mapPoint)
+        super.init(player: .PlayerOne, mapPoint: mapPoint)
 
         self.zPosition = 500
     }
