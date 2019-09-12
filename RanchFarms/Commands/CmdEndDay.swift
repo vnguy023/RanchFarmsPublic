@@ -16,17 +16,17 @@ class CmdEndDay: Command {
             }
 
             for tile in gameArea.tiles {
-                let building = world.getBuildingAt(position: tile.position, location: tile.location)
+                let buildings = world.getBuildingsAt(position: tile.position, location: tile.location)
 
                 switch tile.type {
                 case .DirtTilled:
-                    if building != nil || Int.random(in: 0...1) % 2 == 0  {
+                    if !buildings.isEmpty || Int.random(in: 0...1) % 2 == 0  {
                         tile.type = .Dirt
                     }
                 case .DirtWatered:
                     tile.type = .Dirt
                 case .DirtTilledWatered:
-                    if building != nil || Int.random(in: 0...1) % 2 == 0  {
+                    if !buildings.isEmpty || Int.random(in: 0...1) % 2 == 0  {
                         tile.type = .Dirt
                     }
                     else {

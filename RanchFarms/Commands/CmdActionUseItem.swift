@@ -3,7 +3,7 @@ class CmdActionUseItem: Command {
 
     private var itemToUse: Item!
     private var tileInFront: Tile!
-    private var buildingInFront: Building!
+    private var buildingsInFront: [Building]
 
     init(world: World) {
         self.world = world
@@ -12,7 +12,7 @@ class CmdActionUseItem: Command {
             itemToUse = world.player.inventory.items[itemIndex]
         }
         tileInFront = world.getTileAt(position: world.player.getPositionInFront(), location: world.currentLocation)
-        buildingInFront = world.getBuildingAt(position: world.player.getPositionInFront(), location: world.currentLocation)
+        buildingsInFront = world.getBuildingsAt(position: world.player.getPositionInFront(), location: world.currentLocation)
     }
 
     func execute() {
@@ -37,12 +37,8 @@ class CmdActionUseItem: Command {
     }
 
     private func processCrop() {
-        if buildingInFront != nil {
-            if buildingInFront.type == .DeliveryBox {
-                sellItem()
-            }
-
-            return
+        if !buildingsInFront.filter({$0.type == .DeliveryBox}).isEmpty {
+            sellItem()
         }
     }
 
@@ -51,7 +47,7 @@ class CmdActionUseItem: Command {
             return
         }
 
-        if buildingInFront != nil {
+        if !buildingsInFront.isEmpty {
             return
         }
 
@@ -65,23 +61,20 @@ class CmdActionUseItem: Command {
             return
         }
 
-        if buildingInFront == nil {
+        if buildingsInFront.isEmpty {
             if tileInFront.type == .DirtTilled || tileInFront.type == .DirtWatered || tileInFront.type == .DirtTilledWatered {
                 tileInFront.type = .Dirt
             }
         } else {
-            if buildingInFront.type == .Crop {
-                world.delete(building: buildingInFront)
+            for crop in buildingsInFront.filter({$0.type == .Crop}) {
+                world.delete(building: crop)
             }
         }
     }
 
     private func processSeed() {
-        if buildingInFront != nil {
-            if buildingInFront.type == .DeliveryBox {
-                sellItem()
-            }
-
+        if !buildingsInFront.filter({$0.type == .DeliveryBox}).isEmpty  {
+            sellItem()
             return
         } else if tileInFront == nil {
             return
@@ -118,7 +111,7 @@ class CmdActionUseItem: Command {
 
     private func sellItem() {
         if itemToUse.itemInfo.canSell {
-            if buildingInFront.id == .FarmDeliveryBox {
+            if !buildingsInFront.filter({$0.id == .FarmDeliveryBox}).isEmpty {
                 world.farmDeliveryBoxItems.append(itemToUse)
                 world.player.inventory.deleteItem(item: itemToUse)
             }
