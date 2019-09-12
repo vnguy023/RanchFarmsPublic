@@ -43,7 +43,7 @@ class GameScene: BaseScene {
     }
 
     private func loadGame() {
-        world = World(saveLocation: "Default")
+        world = World(saveSlot: saveSlot)
         let cmdStartDay = CmdStartDay(world: world)
         cmdStartDay.execute()
     }
