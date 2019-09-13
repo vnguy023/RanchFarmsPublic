@@ -11,6 +11,7 @@ class CmdSaveGame: Command {
         let worldData = world.getWorldData()
 
         let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
 
         do {
             let data = try encoder.encode(worldData)

@@ -1,35 +1,25 @@
 import SpriteKit
 
 class Inventory {
-    var items = [Item?]() // position: Item
-
+    var items = [Int: Item]() // position: Item
     var capacity = Config.viewInventoryColumns * Config.viewInventoryRows
 
     init() {
-        for _ in 0 ..< Int(capacity) {
-            items.append(nil)
-        }
     }
 
     convenience init(data: InventoryData) {
         self.init()
-        for index in 0..<min(items.count, data.items.count) {
-            if let itemData = data.items[index] {
-                items[index] = (Item(data: itemData))
-            }
+        for itemData in data.items.filter({$0.key < Int(capacity)}) {
+            items[itemData.key] = Item(data: itemData.value)
         }
     }
 
     func getInventoryData() -> InventoryData {
-        var itemDatas = [ItemData?]()
+        var itemsData = [Int: ItemData]()
         for item in items {
-            if item == nil {
-                itemDatas.append(nil)
-            } else {
-                itemDatas.append(item!.getItemData())
-            }
+            itemsData[item.key] = item.value.getItemData()
         }
-        return InventoryData(items: itemDatas)
+        return InventoryData(items: itemsData)
     }
 
     // TODO: how to solve this given we have multiple stacks we can fill at once

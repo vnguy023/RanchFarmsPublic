@@ -1,7 +1,7 @@
 class InventoryData: Codable {
-    let items: [ItemData?]
+    let items: [Int:ItemData]
 
-    init(items: [ItemData?]) {
+    init(items: [Int:ItemData]) {
         self.items = items
     }
 }
