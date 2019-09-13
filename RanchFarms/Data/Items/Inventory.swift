@@ -11,17 +11,25 @@ class Inventory {
         }
     }
 
-    func getInventoryData() -> [ItemData?] {
-        var result = [ItemData?]()
-
-        for item in items {
-            if item == nil {
-                result.append(nil)
-            } else {
-                result.append(item!.getItemData())
+    convenience init(data: InventoryData) {
+        self.init()
+        for index in 0..<min(items.count, data.items.count) {
+            if let itemData = data.items[index] {
+                items[index] = (Item(data: itemData))
             }
         }
-        return result
+    }
+
+    func getInventoryData() -> InventoryData {
+        var itemDatas = [ItemData?]()
+        for item in items {
+            if item == nil {
+                itemDatas.append(nil)
+            } else {
+                itemDatas.append(item!.getItemData())
+            }
+        }
+        return InventoryData(items: itemDatas)
     }
 
     // TODO: how to solve this given we have multiple stacks we can fill at once

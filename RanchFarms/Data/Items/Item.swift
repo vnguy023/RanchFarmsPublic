@@ -17,6 +17,10 @@ class Item {
         self.quantity = quantity
     }
 
+    convenience init(data: ItemData) {
+        self.init(itemId: data.itemId, quantity: data.quantity)
+    }
+
     func getItemData() -> ItemData {
         return ItemData(itemId: id, quantity: quantity)
     }

@@ -38,14 +38,17 @@ class World: SKNode {
         let cmdCreateNewGame = CmdCreateNewGame()
         cmdCreateNewGame.execute()
 
-        // this will be the loading stuff
-        self.daysElapsed = cmdCreateNewGame.daysElapsed
-        self.player = cmdCreateNewGame.player
+        loadWorldData(worldData: cmdCreateNewGame.worldData)
 
         // temporary until we migrate this stuff somewhere else
         gameAreas.append(sampleHouse())
         gameAreas.append(sampleFarm())
         gameAreas.append(sampleTown())
+    }
+
+    func loadWorldData(worldData: WorldData) {
+        self.daysElapsed = worldData.daysElapsed
+        self.player = Person(data: worldData.player)
     }
 
     func getWorldData() -> WorldData {

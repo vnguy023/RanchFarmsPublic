@@ -21,6 +21,12 @@ class Person: GameObject {
         self.zPosition = 500
     }
 
+    convenience init(data: PersonData) {
+        self.init(personId: data.id, mapPoint: MapPoint(x: 0, y: 0, location: .House))
+        self.money = data.money
+        self.inventory = Inventory(data: data.inventory)
+    }
+
     func getPersonData() -> PersonData {
         return PersonData(personId: self.id, money: self.money, inventory: inventory.getInventoryData())
     }

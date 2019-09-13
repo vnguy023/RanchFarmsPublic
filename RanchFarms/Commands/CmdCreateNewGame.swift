@@ -6,12 +6,16 @@ class CmdCreateNewGame: Command {
     var buildings = [Building]()
     let player = Person(personId: .Player, mapPoint: MapPoint(x: 0, y: 0, location: .House)) // Doesn't matter where player starts
 
+    var worldData: WorldData!
+
     init() {
     }
 
     func execute() {
         createWorldSettings()
         createPlayer()
+
+        worldData = WorldData(daysElapsed: daysElapsed, player: player.getPersonData())
     }
 
     private func createWorldSettings() {
