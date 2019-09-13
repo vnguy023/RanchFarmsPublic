@@ -11,6 +11,10 @@
 		6C0F561D2313D56E0017192E /* ViewDayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0F561C2313D56E0017192E /* ViewDayInfo.swift */; };
 		6C1BFE8D232A230C00294BF3 /* CmdCreateNewGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1BFE8C232A230C00294BF3 /* CmdCreateNewGame.swift */; };
 		6C1BFE8F232A2E4C00294BF3 /* SaveSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1BFE8E232A2E4C00294BF3 /* SaveSlot.swift */; };
+		6C1BFE91232B887A00294BF3 /* WorldData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1BFE90232B887A00294BF3 /* WorldData.swift */; };
+		6C1BFE93232B892D00294BF3 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1BFE92232B892D00294BF3 /* PersonData.swift */; };
+		6C1BFE95232B8ABD00294BF3 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1BFE94232B8ABD00294BF3 /* ItemData.swift */; };
+		6C1BFE97232B8B9F00294BF3 /* CmdSaveGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1BFE96232B8B9F00294BF3 /* CmdSaveGame.swift */; };
 		6C2336E42311387700261944 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E32311387700261944 /* ItemType.swift */; };
 		6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E52311390400261944 /* ItemInfoManager.swift */; };
 		6C2336E8231147BA00261944 /* BuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336E7231147BA00261944 /* BuildingInfo.swift */; };
@@ -92,6 +96,10 @@
 		6C0F561C2313D56E0017192E /* ViewDayInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDayInfo.swift; sourceTree = "<group>"; };
 		6C1BFE8C232A230C00294BF3 /* CmdCreateNewGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdCreateNewGame.swift; sourceTree = "<group>"; };
 		6C1BFE8E232A2E4C00294BF3 /* SaveSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveSlot.swift; sourceTree = "<group>"; };
+		6C1BFE90232B887A00294BF3 /* WorldData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldData.swift; sourceTree = "<group>"; };
+		6C1BFE92232B892D00294BF3 /* PersonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
+		6C1BFE94232B8ABD00294BF3 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
+		6C1BFE96232B8B9F00294BF3 /* CmdSaveGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdSaveGame.swift; sourceTree = "<group>"; };
 		6C2336E32311387700261944 /* ItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		6C2336E52311390400261944 /* ItemInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoManager.swift; sourceTree = "<group>"; };
 		6C2336E7231147BA00261944 /* BuildingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingInfo.swift; sourceTree = "<group>"; };
@@ -193,9 +201,20 @@
 				6C2336F2231272B300261944 /* CmdEndDay.swift */,
 				6C6D78E22322686500573B25 /* CmdPurchaseItem.swift */,
 				6C6D78E423226E4E00573B25 /* CmdSellItem.swift */,
+				6C1BFE96232B8B9F00294BF3 /* CmdSaveGame.swift */,
 				6CD007B8231DFD66008B9825 /* FileUtils */,
 			);
 			path = Commands;
+			sourceTree = "<group>";
+		};
+		6C47019D232B92260013AD0F /* SaveData */ = {
+			isa = PBXGroup;
+			children = (
+				6C1BFE92232B892D00294BF3 /* PersonData.swift */,
+				6C1BFE94232B8ABD00294BF3 /* ItemData.swift */,
+				6C1BFE90232B887A00294BF3 /* WorldData.swift */,
+			);
+			path = SaveData;
 			sourceTree = "<group>";
 		};
 		6C60338E230B60B000746309 = {
@@ -254,6 +273,7 @@
 				6C6033C2230B646D00746309 /* GameObjects */,
 				6C6033C7230B64EB00746309 /* Items */,
 				6C6033D0230B66B400746309 /* Map */,
+				6C47019D232B92260013AD0F /* SaveData */,
 				6CD007C3231FAD7D008B9825 /* Store */,
 				6C6D78DC2321F8BB00573B25 /* PortraitId.swift */,
 			);
@@ -488,6 +508,7 @@
 				6CBC8D1D231CF5DF005454E1 /* CmdLoadFile.swift in Sources */,
 				6CBC8D12231A5C38005454E1 /* CmdActionHarvest.swift in Sources */,
 				6C6033C9230B651500746309 /* Inventory.swift in Sources */,
+				6C1BFE91232B887A00294BF3 /* WorldData.swift in Sources */,
 				6C8735562325D68B006020A7 /* Animation.swift in Sources */,
 				6C9E3E02230CFCAE007417E1 /* ViewHotbar.swift in Sources */,
 				6C6033C4230B648100746309 /* Item.swift in Sources */,
@@ -496,6 +517,7 @@
 				6C6033A3230B60B000746309 /* ViewController.swift in Sources */,
 				6C2336EA231147EA00261944 /* BuildingType.swift in Sources */,
 				6C0F561B2313BE930017192E /* CmdStartDay.swift in Sources */,
+				6C1BFE93232B892D00294BF3 /* PersonData.swift in Sources */,
 				6CBC8D17231CC833005454E1 /* ActionControllerStateGame.swift in Sources */,
 				6C9E3E0E230E61D2007417E1 /* ViewMoneyInfo.swift in Sources */,
 				6C6033B3230B61BF00746309 /* SplashScene.swift in Sources */,
@@ -504,6 +526,7 @@
 				6CD007BE231F4D53008B9825 /* ActionControllerStateDialog.swift in Sources */,
 				6CD007C2231FAD4F008B9825 /* Store.swift in Sources */,
 				6C6033D2230B6A1500746309 /* ItemInfo.swift in Sources */,
+				6C1BFE95232B8ABD00294BF3 /* ItemData.swift in Sources */,
 				6C9E3E1F230F83C5007417E1 /* PersonTexture.swift in Sources */,
 				6C2336E8231147BA00261944 /* BuildingInfo.swift in Sources */,
 				6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */,
@@ -537,6 +560,7 @@
 				6C6D78DD2321F8BB00573B25 /* PortraitId.swift in Sources */,
 				6CBC8D19231CC8AB005454E1 /* ActionControllerStateInventory.swift in Sources */,
 				6C2336F72312744D00261944 /* CmdActionUseItem.swift in Sources */,
+				6C1BFE97232B8B9F00294BF3 /* CmdSaveGame.swift in Sources */,
 				6C9E3E10230E84F5007417E1 /* Building.swift in Sources */,
 				6C6033CB230B663500746309 /* GameArea.swift in Sources */,
 				6C60339B230B60B000746309 /* AppDelegate.swift in Sources */,

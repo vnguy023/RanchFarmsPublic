@@ -20,6 +20,10 @@ class Person: GameObject {
 
         self.zPosition = 500
     }
+
+    func getPersonData() -> PersonData {
+        return PersonData(personId: self.id, money: self.money, inventory: inventory.getInventoryData())
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -1,6 +1,8 @@
 import SpriteKit
 
 class World: SKNode {
+    let saveSlot: SaveSlot
+
     var player: Person!
 
     var gameAreas = [GameArea]()
@@ -24,10 +26,12 @@ class World: SKNode {
     var hudInterfaceData = HudInterfaceData()
 
     override init() {
+        saveSlot = SaveSlot.Slot1
         super.init()
     }
 
     init(saveSlot: SaveSlot) {
+        self.saveSlot = saveSlot
         super.init()
 
         // how to differentiate from saving/loading -- we may not care
@@ -42,6 +46,10 @@ class World: SKNode {
         gameAreas.append(sampleHouse())
         gameAreas.append(sampleFarm())
         gameAreas.append(sampleTown())
+    }
+
+    func getWorldData() -> WorldData {
+        return WorldData(daysElapsed: self.daysElapsed, player: player.getPersonData())
     }
 
     // advances world by one gameTick

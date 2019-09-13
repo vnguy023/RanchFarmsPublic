@@ -11,6 +11,19 @@ class Inventory {
         }
     }
 
+    func getInventoryData() -> [ItemData?] {
+        var result = [ItemData?]()
+
+        for item in items {
+            if item == nil {
+                result.append(nil)
+            } else {
+                result.append(item!.getItemData())
+            }
+        }
+        return result
+    }
+
     // TODO: how to solve this given we have multiple stacks we can fill at once
     func canAcquire(item: Item) -> Bool {
         for i in 0..<Int(capacity) {
@@ -24,7 +37,7 @@ class Inventory {
 
     func canAcquire(item: Item, slot: Int) -> Bool {
         if let currentItemInSlot = items[slot] {
-            if currentItemInSlot.itemId != item.itemId
+            if currentItemInSlot.id != item.id
                 || currentItemInSlot.quantity + item.quantity > currentItemInSlot.itemInfo.maxStack {
                 return false
             }
@@ -36,7 +49,7 @@ class Inventory {
         // see if we can stack first
         for i in 0..<Int(capacity) {
             if canAcquire(item: item, slot: i)
-                && items[i] != nil && items[i]!.itemId == item.itemId {
+                && items[i] != nil && items[i]!.id == item.id {
                 acquire(item: item, slot: i)
                 return
             }

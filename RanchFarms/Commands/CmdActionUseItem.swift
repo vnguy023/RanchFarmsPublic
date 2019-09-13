@@ -82,7 +82,7 @@ class CmdActionUseItem: Command {
 
         if tileInFront.type == .DirtTilled || tileInFront.type == .DirtTilledWatered {
             if itemToUse.itemInfo.buildingId == nil {
-                print ("[CmdActionUseItem] [Error=trying to plant a seed w/o buildingId assigned] [itemId=\(itemToUse.itemId)]")
+                print ("[CmdActionUseItem] [Error=trying to plant a seed w/o buildingId assigned] [itemId=\(itemToUse.id)]")
                 return
             }
 
