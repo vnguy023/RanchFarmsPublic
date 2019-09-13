@@ -29,7 +29,7 @@ class Building: GameObject {
         self.id = buildingId
         self.buildingInfo = BuildingInfoManager.shared.getBuildingInfo(buildingId: buildingId)
 
-        super.init(player: .PlayerOne, mapPoint: mapPoint)
+        super.init(player: player, mapPoint: mapPoint)
 
         self.boundarySize = self.buildingInfo.objSize
         // Anchor everything at the center of (0,0) tile
@@ -38,6 +38,16 @@ class Building: GameObject {
 
         updateTexture()
         self.zPosition = 100
+    }
+
+    convenience init(data: BuildingData) {
+        self.init(player: data.playerIndex, buildingId: data.id, mapPoint: data.mapPoint)
+        self.inventory = Inventory(data: data.inventory)
+        self.growthProgress = data.growthProgress
+    }
+
+    func getBuildingData() -> BuildingData {
+        return BuildingData(playerIndex: player, buildingId: id, mapPoint: mapPoint, inventory: inventory.getInventoryData(), growthProgress: growthProgress)
     }
 
     private func updateTexture() {

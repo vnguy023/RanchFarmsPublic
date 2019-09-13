@@ -3,8 +3,11 @@ class WorldData: Codable {
 
     let player: PersonData
 
-    init(daysElapsed: Int, player: PersonData) {
+    let buildings: [BuildingData]
+
+    init(daysElapsed: Int, player: PersonData, buildings: [BuildingData]) {
         self.daysElapsed = daysElapsed
         self.player = player
+        self.buildings = buildings
     }
 }

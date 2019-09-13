@@ -15,7 +15,9 @@ class CmdCreateNewGame: Command {
         createWorldSettings()
         createPlayer()
 
-        worldData = WorldData(daysElapsed: daysElapsed, player: player.getPersonData())
+        worldData = WorldData(daysElapsed: daysElapsed,
+                              player: player.getPersonData(),
+                              buildings: buildings.map({return $0.getBuildingData()}))
     }
 
     private func createWorldSettings() {

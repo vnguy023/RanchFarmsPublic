@@ -51,8 +51,20 @@ class World: SKNode {
         self.player = Person(data: worldData.player)
     }
 
+    private func getBuildingsData() -> [BuildingData] {
+        var buildingsData = [BuildingData]()
+
+        for gameArea in gameAreas {
+            for building in gameArea.buildings.filter({$0.player == .PlayerOne}) {
+                buildingsData.append(building.getBuildingData())
+            }
+        }
+
+        return buildingsData
+    }
+
     func getWorldData() -> WorldData {
-        return WorldData(daysElapsed: self.daysElapsed, player: player.getPersonData())
+        return WorldData(daysElapsed: self.daysElapsed, player: player.getPersonData(), buildings: getBuildingsData())
     }
 
     // advances world by one gameTick

@@ -1,4 +1,4 @@
-struct MapPoint: Hashable, CustomDebugStringConvertible{
+struct MapPoint: Codable, Hashable, CustomDebugStringConvertible{
     var x: Int
     var y: Int
     var location: Location
