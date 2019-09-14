@@ -5,6 +5,7 @@ class GameArea {
 
 
     var buildings = [Building]()
+    var terrains = [Terrain]()
     var tiles = [Tile]()
 
     init() {

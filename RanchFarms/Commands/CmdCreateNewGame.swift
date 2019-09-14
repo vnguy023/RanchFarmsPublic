@@ -4,6 +4,7 @@ class CmdCreateNewGame: Command {
     // Output
     var daysElapsed = 0
     var buildings = [Building]()
+    var terrains = [Terrain]()
     let player = Person(personId: .Player, mapPoint: MapPoint(x: 0, y: 0, location: .House)) // Doesn't matter where player starts
 
     var worldData: WorldData!
@@ -17,7 +18,8 @@ class CmdCreateNewGame: Command {
 
         worldData = WorldData(daysElapsed: daysElapsed,
                               player: player.getPersonData(),
-                              buildings: buildings.map({return $0.getBuildingData()}))
+                              buildings: buildings.map({return $0.getBuildingData()}),
+                              terrains: terrains.map({return $0.getTerrainData()}))
     }
 
     private func createWorldSettings() {

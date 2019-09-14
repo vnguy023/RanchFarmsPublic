@@ -22,7 +22,7 @@ class Person: GameObject {
     }
 
     convenience init(data: PersonData) {
-        self.init(personId: data.id, mapPoint: MapPoint(x: 0, y: 0, location: .House))
+        self.init(personId: data.personId, mapPoint: MapPoint(x: 0, y: 0, location: .House))
         self.money = data.money
         self.inventory = Inventory(data: data.inventory)
     }

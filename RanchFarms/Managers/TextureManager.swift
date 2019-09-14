@@ -7,6 +7,7 @@ class TextureManager {
     private var buildingMap = [BuildingId: SKTexture]()
     private var cropMap = [String: SKTexture]()
     private var itemMap = [ItemId: SKTexture]()
+    private var terrainMap = [TerrainType: SKTexture]()
     private var tileMap = [TileType: SKTexture]()
 
     private var personMap = [String: SKTexture]()
@@ -18,6 +19,7 @@ class TextureManager {
         loadBuildings()
         loadCrops()
         loadItems()
+        loadTerrains()
         loadTiles()
 
         loadPeople()
@@ -101,6 +103,14 @@ class TextureManager {
         portraitMap[.VendingMachine] = SKTexture(imageNamed: "personLily")
     }
 
+    private func loadTerrains() {
+        terrainMap[.Tilled] = SKTexture(imageNamed: "tileDirt")
+        terrainMap[.Watered] = SKTexture(imageNamed: "tileDirtWatered")
+        terrainMap[.TilledWatered] = SKTexture(imageNamed: "tileDirtTilledWatered")
+
+        terrainMap[.Wood] = SKTexture(imageNamed: "tileWood")
+    }
+
     private func loadTiles() {
         tileMap[.Dirt] = SKTexture(imageNamed: "tileDirt")
         tileMap[.DirtWatered] = SKTexture(imageNamed: "tileDirtWatered")
@@ -148,6 +158,15 @@ class TextureManager {
         return nil
     }
 
+    func getTexture(terrainType: TerrainType) -> SKTexture? {
+        if terrainMap[terrainType] == nil {
+            print ("[TextureManager] [Desc=No texture] [TerrainType=\(terrainType)]")
+        } else {
+            return terrainMap[terrainType]
+        }
+        return nil
+    }
+
     func getTexture(tileType: TileType) -> SKTexture? {
         if tileMap[tileType] == nil {
             print ("[TextureManager] [Desc=No texture] [TileType=\(tileType)]")
@@ -181,6 +200,7 @@ class TextureManager {
         buildingMap.forEach({$0.value.filteringMode = .nearest})
         cropMap.forEach({$0.value.filteringMode = .nearest})
         itemMap.forEach({$0.value.filteringMode = .nearest})
+        terrainMap.forEach({$0.value.filteringMode = .nearest})
         tileMap.forEach({$0.value.filteringMode = .nearest})
 
         personMap.forEach({$0.value.filteringMode = .nearest})

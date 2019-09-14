@@ -1,6 +1,6 @@
 class BuildingData: Codable {
     let playerIndex: PlayerIndex
-    let id: BuildingId
+    let buildingId: BuildingId
     let mapPoint: MapPoint
     let inventory: InventoryData
 
@@ -8,7 +8,7 @@ class BuildingData: Codable {
 
     init(playerIndex: PlayerIndex, buildingId: BuildingId, mapPoint: MapPoint, inventory: InventoryData, growthProgress: Int) {
         self.playerIndex = playerIndex
-        self.id = buildingId
+        self.buildingId = buildingId
         self.mapPoint = mapPoint
         self.inventory = inventory
 

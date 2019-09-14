@@ -41,7 +41,7 @@ class Building: GameObject {
     }
 
     convenience init(data: BuildingData) {
-        self.init(player: data.playerIndex, buildingId: data.id, mapPoint: data.mapPoint)
+        self.init(player: data.playerIndex, buildingId: data.buildingId, mapPoint: data.mapPoint)
         self.inventory = Inventory(data: data.inventory)
         self.growthProgress = data.growthProgress
     }

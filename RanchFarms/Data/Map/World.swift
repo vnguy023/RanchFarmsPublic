@@ -63,8 +63,20 @@ class World: SKNode {
         return buildingsData
     }
 
+    private func getTerrainsData() -> [TerrainData] {
+        var terrainsData = [TerrainData]()
+
+        for gameArea in gameAreas {
+            for terrain in gameArea.terrains.filter({$0.player == .PlayerOne}) {
+                terrainsData.append(terrain.getTerrainData())
+            }
+        }
+
+        return terrainsData
+    }
+
     func getWorldData() -> WorldData {
-        return WorldData(daysElapsed: self.daysElapsed, player: player.getPersonData(), buildings: getBuildingsData())
+        return WorldData(daysElapsed: self.daysElapsed, player: player.getPersonData(), buildings: getBuildingsData(), terrains: getTerrainsData())
     }
 
     // advances world by one gameTick
@@ -124,6 +136,7 @@ class World: SKNode {
         for gameArea in gameAreas.filter({$0.location == currentLocation}) {
             gameArea.buildings.forEach({self.addChild($0)})
             gameArea.tiles.forEach({self.addChild($0)})
+            gameArea.terrains.forEach({self.addChild($0)})
         }
     }
 
@@ -164,11 +177,14 @@ class World: SKNode {
         // Tiles
         for x in 0...9 {
             for y in 0...6 {
-                let tileType = TileType.Wood
-
-                let tile = Tile.init(tileType: tileType,
-                                     mapPoint: MapPoint(x: x, y: y, location: location))
+                let tile = Tile(tileType: TileType.Dirt,
+                                mapPoint: MapPoint(x: x, y: y, location: location))
                 gameArea.tiles.append(tile)
+
+                let terrain = Terrain(player: PlayerIndex.Game,
+                                      terrainType: TerrainType.Wood,
+                                      mapPoint: MapPoint(x: x, y: y, location: location))
+                gameArea.terrains.append(terrain)
             }
         }
 
