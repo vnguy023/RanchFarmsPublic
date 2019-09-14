@@ -38,17 +38,35 @@ class World: SKNode {
         let cmdCreateNewGame = CmdCreateNewGame()
         cmdCreateNewGame.execute()
 
-        loadWorldData(worldData: cmdCreateNewGame.worldData)
-
         // temporary until we migrate this stuff somewhere else
         gameAreas.append(sampleHouse())
         gameAreas.append(sampleFarm())
         gameAreas.append(sampleTown())
+
+        loadWorldData(worldData: cmdCreateNewGame.worldData)
     }
 
     func loadWorldData(worldData: WorldData) {
         self.daysElapsed = worldData.daysElapsed
         self.player = Person(data: worldData.player)
+
+        for buildingData in worldData.buildings {
+            let building = Building(player: buildingData.playerIndex,
+                                    buildingId: buildingData.buildingId,
+                                    mapPoint: buildingData.mapPoint)
+            building.growthProgress = buildingData.growthProgress
+            building.inventory = Inventory(data: buildingData.inventory)
+
+            add(building: building)
+        }
+
+        for terrainData in worldData.terrains {
+            let terrain = Terrain(player: terrainData.playerIndex,
+                                  terrainType: terrainData.terrainType,
+                                  mapPoint: terrainData.mapPoint)
+
+            add(terrain: terrain)
+        }
     }
 
     private func getBuildingsData() -> [BuildingData] {
@@ -169,21 +187,6 @@ class World: SKNode {
                            mapPoint: MapPoint(x: 8, y: 0, location: location))
         gameArea.buildings.append(bed)
 
-        let chair = Building(player: .PlayerOne,
-                             buildingId: .Chair,
-                             mapPoint: MapPoint(x: 2, y: 6, location: location))
-        gameArea.buildings.append(chair)
-
-        let table = Building(player: .PlayerOne,
-                             buildingId: .Table,
-                             mapPoint: MapPoint(x: 3, y: 5, location: location))
-        gameArea.buildings.append(table)
-
-        let tv = Building(player: .PlayerOne,
-                          buildingId: .TV,
-                          mapPoint: MapPoint(x: 0, y: 5, location: location))
-        gameArea.buildings.append(tv)
-
         // Tiles/Terrains
         for x in 0...9 {
             for y in 0...6 {
@@ -237,12 +240,6 @@ class World: SKNode {
                                       mapPoint: MapPoint(x: 1, y: 6, location: location))
         gameArea.buildings.append(vendingMachine)
 
-        let garlic = Building(player: .PlayerOne,
-                              buildingId: .Garlic,
-                              mapPoint: MapPoint(x: 3, y: 2, location: location))
-        garlic.growthProgress = 8
-        gameArea.buildings.append(garlic)
-
         // Tiles
         for x in -5...5 {
             for y in -5...5 {
@@ -288,11 +285,29 @@ class World: SKNode {
         return gameArea
     }
 
+    func add(building: Building) {
+        if let gameArea = gameAreas.filter({$0.location == building.location}).first {
+            gameArea.buildings.append(building)
+            if currentLocation == building.location {
+                self.addChild(building)
+            }
+        }
+    }
+
     func delete(building: Building) {
         if let gameArea = gameAreas.filter({$0.location == building.location}).first {
             gameArea.buildings = gameArea.buildings.filter({$0 !== building})
             if building.parent != nil {
                 building.removeFromParent()
+            }
+        }
+    }
+
+    func add(terrain: Terrain) {
+        if let gameArea = gameAreas.filter({$0.location == terrain.location}).first {
+            gameArea.terrains.append(terrain)
+            if currentLocation == terrain.location {
+                self.addChild(terrain)
             }
         }
     }

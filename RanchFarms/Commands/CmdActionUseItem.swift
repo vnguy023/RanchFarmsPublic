@@ -55,12 +55,7 @@ class CmdActionUseItem: Command {
 
         if tileInFront.type == .Dirt {
             if terrainInFront == nil {
-                let newTerrain = Terrain(player: .PlayerOne, terrainType: .Tilled, mapPoint: tileInFront.mapPoint)
-
-                // TODO: have world be able to add terrain easily
-                let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
-                gameArea.terrains.append(newTerrain)
-                world.addChild(newTerrain)
+                world.add(terrain: Terrain(player: .PlayerOne, terrainType: .Tilled, mapPoint: tileInFront.mapPoint))
             } else if terrainInFront.isWatered {
                 terrainInFront.type = .Tilled
             }
@@ -99,12 +94,7 @@ class CmdActionUseItem: Command {
                 return
             }
 
-            let newCrop = Building(player: .PlayerOne, buildingId: itemToUse.itemInfo.buildingId!, mapPoint: tileInFront.mapPoint)
-
-            // TODO: have world be able to add buildings easily
-            let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
-            gameArea.buildings.append(newCrop)
-            world.addChild(newCrop)
+            world.add(building: Building(player: .PlayerOne, buildingId: itemToUse.itemInfo.buildingId!, mapPoint: tileInFront.mapPoint))
 
             itemToUse.quantity -= 1
             if itemToUse.quantity <= 0 {
@@ -124,12 +114,7 @@ class CmdActionUseItem: Command {
 
         if tileInFront.type == .Dirt {
             if terrainInFront == nil {
-                let newTerrain = Terrain(player: .PlayerOne, terrainType: .Watered, mapPoint: tileInFront.mapPoint)
-
-                // TODO: have world be able to add terrain easily
-                let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
-                gameArea.terrains.append(newTerrain)
-                world.addChild(newTerrain)
+                world.add(terrain: Terrain(player: .PlayerOne, terrainType: .Watered, mapPoint: tileInFront.mapPoint))
             } else if terrainInFront.type == .Tilled {
                 terrainInFront.type = .TilledWatered
             }

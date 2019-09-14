@@ -15,6 +15,9 @@ class CmdCreateNewGame: Command {
     func execute() {
         createWorldSettings()
         createPlayer()
+        createPlayerHouseItems()
+
+        addTemporaryData()
 
         worldData = WorldData(daysElapsed: daysElapsed,
                               player: player,
@@ -56,5 +59,14 @@ class CmdCreateNewGame: Command {
                                  buildingId: .TV,
                                  mapPoint: MapPoint(x: 0, y: 5, location: .House))
         buildings.append(tv)
+    }
+
+    private func addTemporaryData() {
+        let garlic = BuildingData(playerIndex: .PlayerOne,
+                              buildingId: .Garlic,
+                              mapPoint: MapPoint(x: 3, y: 2, location: .Farm),
+                              inventory: InventoryData(),
+                              growthProgress: 8)
+        buildings.append(garlic)
     }
 }
