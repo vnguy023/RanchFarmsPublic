@@ -3,9 +3,9 @@ class CmdCreateNewGame: Command {
 
     // Output
     var daysElapsed = 0
-    var buildings = [Building]()
-    var terrains = [Terrain]()
-    let player = Person(personId: .Player, mapPoint: MapPoint(x: 0, y: 0, location: .House)) // Doesn't matter where player starts
+    private var buildings = [BuildingData]()
+    private var terrains = [TerrainData]()
+    private var player: PersonData!
 
     var worldData: WorldData!
 
@@ -17,9 +17,9 @@ class CmdCreateNewGame: Command {
         createPlayer()
 
         worldData = WorldData(daysElapsed: daysElapsed,
-                              player: player.getPersonData(),
-                              buildings: buildings.map({return $0.getBuildingData()}),
-                              terrains: terrains.map({return $0.getTerrainData()}))
+                              player: player,
+                              buildings: buildings,
+                              terrains: terrains)
     }
 
     private func createWorldSettings() {
@@ -27,31 +27,34 @@ class CmdCreateNewGame: Command {
     }
 
     private func createPlayer() {
-        player.inventory.items[0] = Item(itemId: .Hoe, quantity: 1)
-        player.inventory.items[1] = Item(itemId: .WaterCan, quantity: 1)
-        player.inventory.items[2] = Item(itemId: .Axe, quantity: 1)
-        player.inventory.items[3] = Item(itemId: .PickAxe, quantity: 1)
+        var playerItems = [Int:ItemData]()
+        playerItems[0] = ItemData(itemId: .Hoe, quantity: 1)
+        playerItems[1] = ItemData(itemId: .WaterCan, quantity: 1)
+        playerItems[2] = ItemData(itemId: .Axe, quantity: 1)
+        playerItems[3] = ItemData(itemId: .PickAxe, quantity: 1)
 
-        player.inventory.items[8] = Item(itemId: .GarlicSeed, quantity: 9)
-        player.inventory.items[9] = Item(itemId: .Garlic, quantity: 5)
-        player.inventory.items[28] = Item(itemId: .Garlic, quantity: 990)
-        player.inventory.items[29] = Item(itemId: .Garlic, quantity: 5)
+        playerItems[8] = ItemData(itemId: .GarlicSeed, quantity: 9)
+        playerItems[9] = ItemData(itemId: .Garlic, quantity: 5)
+        playerItems[28] = ItemData(itemId: .Garlic, quantity: 990)
+        playerItems[29] = ItemData(itemId: .Garlic, quantity: 5)
+
+        player = PersonData(personId: .Player, money: 200, inventory: InventoryData(items: playerItems ))
     }
 
     private func createPlayerHouseItems() {
-        let chair = Building(player: .PlayerOne,
-                             buildingId: .Chair,
-                             mapPoint: MapPoint(x: 2, y: 6, location: .House))
+        let chair = BuildingData(playerIndex: .PlayerOne,
+                     buildingId: .Chair,
+                     mapPoint: MapPoint(x: 2, y: 6, location: .House))
         buildings.append(chair)
 
-        let table = Building(player: .PlayerOne,
-                             buildingId: .Table,
-                             mapPoint: MapPoint(x: 3, y: 5, location: .House))
+        let table = BuildingData(playerIndex: .PlayerOne,
+                                 buildingId: .Table,
+                                 mapPoint: MapPoint(x: 3, y: 5, location: .House))
         buildings.append(table)
 
-        let tv = Building(player: .PlayerOne,
-                          buildingId: .TV,
-                          mapPoint: MapPoint(x: 0, y: 5, location: .House))
+        let tv = BuildingData(playerIndex: .PlayerOne,
+                                 buildingId: .TV,
+                                 mapPoint: MapPoint(x: 0, y: 5, location: .House))
         buildings.append(tv)
     }
 }
