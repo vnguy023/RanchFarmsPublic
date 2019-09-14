@@ -74,6 +74,7 @@ class AnimationManager {
         let stdImgSize = Config.tileSize
 
         buildingAnimations[.Garlic] = Animation()
+        buildingAnimations[.Garlic]!.repeats = false
         buildingAnimations[.Garlic]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(cropName: "garlic1"),
                                                              duration: 1,
                                                              imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height),
@@ -100,6 +101,7 @@ class AnimationManager {
                                                              anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/2.0)))
 
         buildingAnimations[.Turnip] = Animation()
+        buildingAnimations[.Turnip]!.repeats = false
         buildingAnimations[.Turnip]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(cropName: "turnip1"),
                                                              duration: 1,
                                                              imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height),

@@ -104,22 +104,17 @@ class TextureManager {
     }
 
     private func loadTerrains() {
-        terrainMap[.Tilled] = SKTexture(imageNamed: "tileDirt")
-        terrainMap[.Watered] = SKTexture(imageNamed: "tileDirtWatered")
-        terrainMap[.TilledWatered] = SKTexture(imageNamed: "tileDirtTilledWatered")
+        terrainMap[.Tilled] = SKTexture(imageNamed: "terrainTilled")
+        terrainMap[.Watered] = SKTexture(imageNamed: "terrainWatered")
+        terrainMap[.TilledWatered] = SKTexture(imageNamed: "terrainTilledWatered")
 
-        terrainMap[.Wood] = SKTexture(imageNamed: "tileWood")
+        terrainMap[.Wood] = SKTexture(imageNamed: "terrainWood")
     }
 
     private func loadTiles() {
         tileMap[.Dirt] = SKTexture(imageNamed: "tileDirt")
-        tileMap[.DirtWatered] = SKTexture(imageNamed: "tileDirtWatered")
-        tileMap[.DirtTilled] = SKTexture(imageNamed: "tileDirtTilled")
-        tileMap[.DirtTilledWatered] = SKTexture(imageNamed: "tileDirtTilledWatered")
         tileMap[.Grass] = SKTexture(imageNamed: "tileGrass")
         tileMap[.Water] = SKTexture(imageNamed: "tileWater")
-
-        tileMap[.Wood] = SKTexture(imageNamed: "tileWood")
     }
 
     func getTexture(hudImageName: String) -> SKTexture? {

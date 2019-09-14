@@ -14,21 +14,17 @@ class Terrain: GameObject {
         get {
             if type == .TilledWatered || type == .Watered {
                 return true
-            } else {
-                return false
             }
+            return false
         }
-        set {
-            // no way to set terrain from dirt <-> watered this way
-            if newValue == true {
-                if type == .Tilled {
-                    type = .TilledWatered
-                }
-            } else {
-                if type == .TilledWatered {
-                    type = .Tilled
-                }
+    }
+
+    var isTilled: Bool {
+        get {
+            if type == .TilledWatered || type == .Tilled {
+                return true
             }
+            return false
         }
     }
 

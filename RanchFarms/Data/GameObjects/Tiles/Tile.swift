@@ -11,15 +11,6 @@ class Tile: GameObject {
         }
     }
 
-    var isWatered: Bool {
-        get {
-            if type == .DirtWatered || type == .DirtTilledWatered {
-                return true
-            }
-            return false
-        }
-    }
-
     init(tileType: TileType, mapPoint: MapPoint) {
         super.init(player: .Game, mapPoint: mapPoint)
         self.type = tileType
@@ -29,13 +20,5 @@ class Tile: GameObject {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func water() {
-        if type == .Dirt {
-            type = .DirtWatered
-        } else if type == .DirtTilled {
-            type = .DirtTilledWatered
-        }
     }
 }

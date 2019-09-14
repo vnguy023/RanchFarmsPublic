@@ -104,6 +104,16 @@ class World: SKNode {
         return gameAreas.filter({$0.location == currentLocation}).first!
     }
 
+    func getTerrainAt(position: CGPoint, location: Location) -> Terrain? {
+        if let gameArea = gameAreas.filter({$0.location == location}).first {
+            if let chosenTerrain = gameArea.terrains.filter({$0.contains(position)}).first {
+                return chosenTerrain
+            }
+        }
+
+        return nil
+    }
+
     func getTileAt(position: CGPoint, location: Location) -> Tile? {
         if let gameArea = gameAreas.filter({$0.location == location}).first {
             if let chosenTile = gameArea.tiles.filter({$0.contains(position)}).first {
@@ -174,7 +184,7 @@ class World: SKNode {
                           mapPoint: MapPoint(x: 0, y: 5, location: location))
         gameArea.buildings.append(tv)
 
-        // Tiles
+        // Tiles/Terrains
         for x in 0...9 {
             for y in 0...6 {
                 let tile = Tile(tileType: TileType.Dirt,
@@ -283,6 +293,15 @@ class World: SKNode {
             gameArea.buildings = gameArea.buildings.filter({$0 !== building})
             if building.parent != nil {
                 building.removeFromParent()
+            }
+        }
+    }
+
+    func delete(terrain: Terrain) {
+        if let gameArea = gameAreas.filter({$0.location == terrain.location}).first {
+            gameArea.terrains = gameArea.terrains.filter({$0 !== terrain})
+            if terrain.parent != nil {
+                terrain.removeFromParent()
             }
         }
     }

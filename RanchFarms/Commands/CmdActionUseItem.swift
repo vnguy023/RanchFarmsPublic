@@ -2,6 +2,7 @@ class CmdActionUseItem: Command {
     let world: World
 
     private var itemToUse: Item!
+    private var terrainInFront: Terrain!
     private var tileInFront: Tile!
     private var buildingsInFront: [Building]
 
@@ -11,6 +12,7 @@ class CmdActionUseItem: Command {
         if let itemIndex = world.hudInterfaceData.getHotBarItemIndex() {
             itemToUse = world.player.inventory.items[itemIndex]
         }
+        terrainInFront = world.getTerrainAt(position: world.player.getPositionInFront(), location: world.currentLocation)
         tileInFront = world.getTileAt(position: world.player.getPositionInFront(), location: world.currentLocation)
         buildingsInFront = world.getBuildingsAt(position: world.player.getPositionInFront(), location: world.currentLocation)
     }
@@ -51,8 +53,17 @@ class CmdActionUseItem: Command {
             return
         }
 
-        if tileInFront.type == .Dirt || tileInFront.type == .DirtWatered || tileInFront.type == .DirtTilledWatered {
-            tileInFront.type = .DirtTilled
+        if tileInFront.type == .Dirt {
+            if terrainInFront == nil {
+                let newTerrain = Terrain(player: .PlayerOne, terrainType: .Tilled, mapPoint: tileInFront.mapPoint)
+
+                // TODO: have world be able to add terrain easily
+                let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
+                gameArea.terrains.append(newTerrain)
+                world.addChild(newTerrain)
+            } else if terrainInFront.isWatered {
+                terrainInFront.type = .Tilled
+            }
         }
     }
 
@@ -62,8 +73,8 @@ class CmdActionUseItem: Command {
         }
 
         if buildingsInFront.isEmpty {
-            if tileInFront.type == .DirtTilled || tileInFront.type == .DirtWatered || tileInFront.type == .DirtTilledWatered {
-                tileInFront.type = .Dirt
+            if terrainInFront != nil {
+                world.delete(terrain: terrainInFront)
             }
         } else {
             for crop in buildingsInFront.filter({$0.type == .Crop}) {
@@ -78,9 +89,11 @@ class CmdActionUseItem: Command {
             return
         } else if tileInFront == nil {
             return
+        } else if terrainInFront == nil {
+            return
         }
 
-        if tileInFront.type == .DirtTilled || tileInFront.type == .DirtTilledWatered {
+        if terrainInFront.isTilled {
             if itemToUse.itemInfo.buildingId == nil {
                 print ("[CmdActionUseItem] [Error=trying to plant a seed w/o buildingId assigned] [itemId=\(itemToUse.id)]")
                 return
@@ -88,6 +101,7 @@ class CmdActionUseItem: Command {
 
             let newCrop = Building(player: .PlayerOne, buildingId: itemToUse.itemInfo.buildingId!, mapPoint: tileInFront.mapPoint)
 
+            // TODO: have world be able to add buildings easily
             let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
             gameArea.buildings.append(newCrop)
             world.addChild(newCrop)
@@ -104,9 +118,22 @@ class CmdActionUseItem: Command {
     private func processWaterCan() {
         if tileInFront == nil {
             return
+        } else if !buildingsInFront.filter({$0.type != .Crop}).isEmpty {
+            return
         }
 
-        tileInFront.water()
+        if tileInFront.type == .Dirt {
+            if terrainInFront == nil {
+                let newTerrain = Terrain(player: .PlayerOne, terrainType: .Watered, mapPoint: tileInFront.mapPoint)
+
+                // TODO: have world be able to add terrain easily
+                let gameArea = world.gameAreas.filter({$0.location == world.currentLocation}).first!
+                gameArea.terrains.append(newTerrain)
+                world.addChild(newTerrain)
+            } else if terrainInFront.type == .Tilled {
+                terrainInFront.type = .TilledWatered
+            }
+        }
     }
 
     private func sellItem() {

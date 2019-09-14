@@ -8,33 +8,35 @@ class CmdEndDay: Command {
     func execute() {
         for gameArea in world.gameAreas {
             for building in gameArea.buildings {
-                let tile = world.getTileAt(position: building.position, location: building.location)
+                let terrain = world.getTerrainAt(position: building.position, location: building.location)
                 if building.buildingInfo.buildingType == .Crop
-                    && tile != nil && tile!.isWatered {
+                    && terrain != nil && terrain!.isWatered {
                     building.growthProgress += 1
                 }
             }
 
-            for tile in gameArea.tiles {
-                let buildings = world.getBuildingsAt(position: tile.position, location: tile.location)
+            var terrainsToDelete = [Terrain]()
+            for terrain in gameArea.terrains {
+                let buildings = world.getBuildingsAt(position: terrain.position, location: terrain.location)
 
-                switch tile.type {
-                case .DirtTilled:
+                switch terrain.type {
+                case .Tilled:
                     if !buildings.isEmpty || Int.random(in: 0...1) % 2 == 0  {
-                        tile.type = .Dirt
+                        terrainsToDelete.append(terrain)
                     }
-                case .DirtWatered:
-                    tile.type = .Dirt
-                case .DirtTilledWatered:
+                case .Watered:
+                    terrainsToDelete.append(terrain)
+                case .TilledWatered:
                     if !buildings.isEmpty || Int.random(in: 0...1) % 2 == 0  {
-                        tile.type = .Dirt
+                        terrainsToDelete.append(terrain)
                     }
                     else {
-                        tile.type = .DirtTilled
+                        terrain.type = .Tilled
                     }
                 default: break
                 }
             }
+            terrainsToDelete.forEach({world.delete(terrain: $0)})
         }
 
         sellItems()
