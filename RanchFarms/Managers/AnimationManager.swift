@@ -22,11 +22,29 @@ class AnimationManager {
                                                                 imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
                                                                 anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
 
-        buildingAnimations[.Door] = Animation()
-        buildingAnimations[.Door]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .Door),
-                                                           duration: 1,
-                                                           imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
-                                                           anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+        buildingAnimations[.HouseToFarmDoor] = Animation()
+        buildingAnimations[.HouseToFarmDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .HouseToFarmDoor),
+                                                                      duration: 1,
+                                                                      imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
+                                                                      anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+
+        buildingAnimations[.FarmToHouseDoor] = Animation()
+        buildingAnimations[.FarmToHouseDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .FarmToHouseDoor),
+                                                                      duration: 1,
+                                                                      imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
+                                                                      anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+
+        buildingAnimations[.FarmToTownDoor] = Animation()
+        buildingAnimations[.FarmToTownDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .FarmToTownDoor),
+                                                                     duration: 1,
+                                                                     imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
+                                                                     anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+
+        buildingAnimations[.TownToFarmDoor] = Animation()
+        buildingAnimations[.TownToFarmDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .TownToFarmDoor),
+                                                                     duration: 1,
+                                                                     imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
+                                                                     anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
 
         buildingAnimations[.TV] = Animation()
         buildingAnimations[.TV]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .TV),

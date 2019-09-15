@@ -11,11 +11,20 @@ class Tile: GameObject {
         }
     }
 
-    init(tileType: TileType, mapPoint: MapPoint) {
+    init(player: PlayerIndex, tileType: TileType, mapPoint: MapPoint) {
         super.init(player: .Game, mapPoint: mapPoint)
+        self.player = player
         self.type = tileType
 
         self.zPosition = 0
+    }
+
+    func getTileData() -> TileData {
+        return TileData(playerIndex: player, tileType: type, mapPoint: mapPoint)
+    }
+
+    convenience init(data: TileData) {
+        self.init(player: data.playerIndex, tileType: data.tileType, mapPoint: data.mapPoint)
     }
     
     required init?(coder aDecoder: NSCoder) {

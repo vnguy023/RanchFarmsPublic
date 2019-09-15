@@ -2,10 +2,10 @@ class CmdCreateNewGame: Command {
     // Input
 
     // Output
-    var daysElapsed = 0
-    private var buildings = [BuildingData]()
-    private var terrains = [TerrainData]()
+    private var gameAreas = [Location: GameAreaData]()
     private var player: PersonData!
+
+    private var daysElapsed = 0
 
     var worldData: WorldData!
 
@@ -15,14 +15,11 @@ class CmdCreateNewGame: Command {
     func execute() {
         createWorldSettings()
         createPlayer()
-        createPlayerHouseItems()
+        createPlayerHouse()
 
-        addTemporaryData()
-
-        worldData = WorldData(daysElapsed: daysElapsed,
+        worldData = WorldData(gameAreas: gameAreas,
                               player: player,
-                              buildings: buildings,
-                              terrains: terrains)
+                              daysElapsed: daysElapsed)
     }
 
     private func createWorldSettings() {
@@ -44,29 +41,28 @@ class CmdCreateNewGame: Command {
         player = PersonData(personId: .Player, money: 200, inventory: InventoryData(items: playerItems ))
     }
 
-    private func createPlayerHouseItems() {
+    private func createPlayerHouse() {
+        let location = Location.House
+
+        var buildings = [BuildingData]()
+        let terrains = [TerrainData]()
+        let tiles = [TileData]()
+
         let chair = BuildingData(playerIndex: .PlayerOne,
                      buildingId: .Chair,
-                     mapPoint: MapPoint(x: 2, y: 6, location: .House))
+                     mapPoint: MapPoint(x: 2, y: 6, location: location))
         buildings.append(chair)
 
         let table = BuildingData(playerIndex: .PlayerOne,
                                  buildingId: .Table,
-                                 mapPoint: MapPoint(x: 3, y: 5, location: .House))
+                                 mapPoint: MapPoint(x: 3, y: 5, location: location))
         buildings.append(table)
 
         let tv = BuildingData(playerIndex: .PlayerOne,
                                  buildingId: .TV,
-                                 mapPoint: MapPoint(x: 0, y: 5, location: .House))
+                                 mapPoint: MapPoint(x: 0, y: 5, location: location))
         buildings.append(tv)
-    }
 
-    private func addTemporaryData() {
-        let garlic = BuildingData(playerIndex: .PlayerOne,
-                              buildingId: .Garlic,
-                              mapPoint: MapPoint(x: 3, y: 2, location: .Farm),
-                              inventory: InventoryData(),
-                              growthProgress: 8)
-        buildings.append(garlic)
+        gameAreas[location] = GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
     }
 }

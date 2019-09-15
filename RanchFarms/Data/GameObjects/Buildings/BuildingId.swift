@@ -4,7 +4,10 @@ enum BuildingId: UInt, Codable {
     case PlayerHouseSign
     case VendingMachine
 
-    case Door = 100
+    case HouseToFarmDoor = 100
+    case FarmToHouseDoor
+    case FarmToTownDoor
+    case TownToFarmDoor
     case FarmDeliveryBox
 
     case SingleBed = 110

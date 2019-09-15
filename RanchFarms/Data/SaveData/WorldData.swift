@@ -1,15 +1,14 @@
 class WorldData: Codable {
-    let daysElapsed: Int
-
+    let gameAreas: [Location: GameAreaData]
     let player: PersonData
 
-    let buildings: [BuildingData]
-    let terrains: [TerrainData]
+    let daysElapsed: Int
 
-    init(daysElapsed: Int, player: PersonData, buildings: [BuildingData], terrains: [TerrainData]) {
-        self.daysElapsed = daysElapsed
+    init(gameAreas: [Location: GameAreaData],
+         player: PersonData,
+         daysElapsed: Int) {
+        self.gameAreas = gameAreas
         self.player = player
-        self.buildings = buildings
-        self.terrains = terrains
+        self.daysElapsed = daysElapsed
     }
 }

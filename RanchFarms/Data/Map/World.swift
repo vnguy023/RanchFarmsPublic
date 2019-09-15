@@ -3,16 +3,16 @@ import SpriteKit
 class World: SKNode {
     let saveSlot: SaveSlot
 
-    var player: Person!
-
     var gameAreas = [GameArea]()
+
+    var player: Person!
     var npcs = [GameObject]()
+
+    var daysElapsed = Int(0)
 
     var currentLocation: Location {
         get {return player.location}
     }
-
-    var daysElapsed = Int(0)
 
     var gameTicksElapsedToday = GameTick(0)
 
@@ -47,54 +47,38 @@ class World: SKNode {
     }
 
     func loadWorldData(worldData: WorldData) {
-        self.daysElapsed = worldData.daysElapsed
         self.player = Person(data: worldData.player)
+        self.daysElapsed = worldData.daysElapsed
 
-        for buildingData in worldData.buildings {
-            let building = Building(player: buildingData.playerIndex,
-                                    buildingId: buildingData.buildingId,
-                                    mapPoint: buildingData.mapPoint)
-            building.growthProgress = buildingData.growthProgress
-            building.inventory = Inventory(data: buildingData.inventory)
+        for gameArea in worldData.gameAreas {
+            for buildingData in gameArea.value.buildings {
+                let building = Building(player: buildingData.playerIndex,
+                                        buildingId: buildingData.buildingId,
+                                        mapPoint: buildingData.mapPoint)
+                building.growthProgress = buildingData.growthProgress
+                building.inventory = Inventory(data: buildingData.inventory)
 
-            add(building: building)
-        }
+                add(building: building)
+            }
 
-        for terrainData in worldData.terrains {
-            let terrain = Terrain(player: terrainData.playerIndex,
-                                  terrainType: terrainData.terrainType,
-                                  mapPoint: terrainData.mapPoint)
+            for terrainData in gameArea.value.terrains {
+                let terrain = Terrain(player: terrainData.playerIndex,
+                                      terrainType: terrainData.terrainType,
+                                      mapPoint: terrainData.mapPoint)
 
-            add(terrain: terrain)
-        }
-    }
-
-    private func getBuildingsData() -> [BuildingData] {
-        var buildingsData = [BuildingData]()
-
-        for gameArea in gameAreas {
-            for building in gameArea.buildings.filter({$0.player == .PlayerOne}) {
-                buildingsData.append(building.getBuildingData())
+                add(terrain: terrain)
             }
         }
-
-        return buildingsData
     }
 
-    private func getTerrainsData() -> [TerrainData] {
-        var terrainsData = [TerrainData]()
+    // specific to only playerData
+    func getWorldDataSave() -> WorldData {
+        var filteredGameAreaDatas = [Location: GameAreaData]()
+        gameAreas.forEach({ filteredGameAreaDatas[$0.location] = $0.getGameAreasFilter(player: .PlayerOne)})
 
-        for gameArea in gameAreas {
-            for terrain in gameArea.terrains.filter({$0.player == .PlayerOne}) {
-                terrainsData.append(terrain.getTerrainData())
-            }
-        }
-
-        return terrainsData
-    }
-
-    func getWorldData() -> WorldData {
-        return WorldData(daysElapsed: self.daysElapsed, player: player.getPersonData(), buildings: getBuildingsData(), terrains: getTerrainsData())
+        return WorldData(gameAreas: filteredGameAreaDatas,
+                         player: self.player.getPersonData(),
+                         daysElapsed: self.daysElapsed )
     }
 
     // advances world by one gameTick
@@ -168,6 +152,7 @@ class World: SKNode {
         }
     }
 
+    // TODO: migrate to GameData and delete this
     private func sampleHouse() -> GameArea {
         let location = Location.House
 
@@ -176,10 +161,8 @@ class World: SKNode {
 
         //Buildings
         let door = Building(player: .Game,
-                            buildingId: .Door,
+                            buildingId: .HouseToFarmDoor,
                             mapPoint: MapPoint(x: 1, y: -2, location: location))
-        door.teleport = Teleport(mapPoint: MapPoint(x: 3, y: 5, location: .Farm),
-                                 directionToFace: .SOUTH)
         gameArea.buildings.append(door)
 
         let bed = Building(player: .Game,
@@ -190,7 +173,8 @@ class World: SKNode {
         // Tiles/Terrains
         for x in 0...9 {
             for y in 0...6 {
-                let tile = Tile(tileType: TileType.Dirt,
+                let tile = Tile(player: .Game,
+                                tileType: TileType.Dirt,
                                 mapPoint: MapPoint(x: x, y: y, location: location))
                 gameArea.tiles.append(tile)
 
@@ -204,6 +188,7 @@ class World: SKNode {
         return gameArea
     }
 
+    // TODO: migrate to GameData and delete this
     private func sampleFarm() -> GameArea {
         let location = Location.Farm
 
@@ -212,17 +197,13 @@ class World: SKNode {
 
         //Buildings
         let houseDoor = Building(player: .Game,
-                                 buildingId: .Door,
+                                 buildingId: .FarmToHouseDoor,
                                  mapPoint: MapPoint(x: 3, y: 6, location: location))
-        houseDoor.teleport = Teleport(mapPoint: MapPoint(x: 1, y: 0, location: .House),
-                                     directionToFace: .NORTH)
         gameArea.buildings.append(houseDoor)
 
         let townDoor = Building(player: .Game,
-                                buildingId: .Door,
+                                buildingId: .FarmToTownDoor,
                                 mapPoint: MapPoint(x: 6, y: 3, location: location))
-        townDoor.teleport = Teleport(mapPoint: MapPoint(x: 0, y: 0, location: .Town),
-                                     directionToFace: .EAST)
         gameArea.buildings.append(townDoor)
 
         let farmDeliveryBox = Building(player: .Game,
@@ -248,7 +229,8 @@ class World: SKNode {
                     tileType = .Grass
                 }
 
-                let tile = Tile.init(tileType: tileType,
+                let tile = Tile.init(player: .Game,
+                                     tileType: tileType,
                                      mapPoint: MapPoint(x: x, y: y, location: location))
                 gameArea.tiles.append(tile)
             }
@@ -257,6 +239,7 @@ class World: SKNode {
         return gameArea
     }
 
+    // TODO: migrate to GameData and delete this
     private func sampleTown() -> GameArea {
         let location = Location.Town
 
@@ -265,10 +248,8 @@ class World: SKNode {
 
         //Buildings
         let door = Building(player: .Game,
-                            buildingId: .Door,
+                            buildingId: .TownToFarmDoor,
                             mapPoint: MapPoint(x: -1, y: 0, location: location))
-        door.teleport = Teleport(mapPoint: MapPoint(x: 5, y: 3, location: .Farm),
-                                 directionToFace: .WEST)
         gameArea.buildings.append(door)
 
         // Tiles
@@ -276,7 +257,8 @@ class World: SKNode {
             for y in -5...5 {
                 let tileType = TileType.Water
 
-                let tile = Tile.init(tileType: tileType,
+                let tile = Tile.init(player: .Game,
+                                     tileType: tileType,
                                      mapPoint: MapPoint(x: x, y: y, location: location))
                 gameArea.tiles.append(tile)
             }

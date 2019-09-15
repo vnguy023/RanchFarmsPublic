@@ -8,7 +8,7 @@ class CmdSaveGame: Command {
     }
 
     func execute() {
-        let worldData = world.getWorldData()
+        let worldData = world.getWorldDataSave()
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
