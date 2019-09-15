@@ -3,7 +3,7 @@ import SpriteKit
 class World: SKNode {
     let saveSlot: SaveSlot
 
-    var gameAreas = [GameArea]()
+    var gameAreas = [Location: GameArea]()
 
     var player: Person!
     var npcs = [GameObject]()
@@ -38,11 +38,6 @@ class World: SKNode {
         let cmdCreateNewGame = CmdCreateNewGame()
         cmdCreateNewGame.execute()
 
-        // temporary until we migrate this stuff somewhere else
-        gameAreas.append(sampleHouse())
-        gameAreas.append(sampleFarm())
-        gameAreas.append(sampleTown())
-
         loadWorldData(worldData: cmdCreateNewGame.worldData)
     }
 
@@ -50,8 +45,20 @@ class World: SKNode {
         self.player = Person(data: worldData.player)
         self.daysElapsed = worldData.daysElapsed
 
-        for gameArea in worldData.gameAreas {
-            for buildingData in gameArea.value.buildings {
+        var gameAreasDataToLoad = worldData.gameAreas.map({return $0.value})
+
+        gameAreasDataToLoad.append(GameData.BasicHouse())
+        gameAreasDataToLoad.append(GameData.Farm())
+        gameAreasDataToLoad.append(GameData.Town())
+
+        for gameArea in gameAreasDataToLoad {
+            if gameAreas[gameArea.location] == nil {
+                let newGameArea = GameArea()
+                newGameArea.location = gameArea.location
+                gameAreas[gameArea.location] = newGameArea
+            }
+
+            for buildingData in gameArea.buildings {
                 let building = Building(player: buildingData.playerIndex,
                                         buildingId: buildingData.buildingId,
                                         mapPoint: buildingData.mapPoint)
@@ -61,12 +68,20 @@ class World: SKNode {
                 add(building: building)
             }
 
-            for terrainData in gameArea.value.terrains {
+            for terrainData in gameArea.terrains {
                 let terrain = Terrain(player: terrainData.playerIndex,
                                       terrainType: terrainData.terrainType,
                                       mapPoint: terrainData.mapPoint)
 
                 add(terrain: terrain)
+            }
+
+            for tileData in gameArea.tiles {
+                let tile = Tile(player: tileData.playerIndex,
+                                tileType: tileData.tileType,
+                                mapPoint: tileData.mapPoint)
+
+                add(tile: tile)
             }
         }
     }
@@ -74,7 +89,7 @@ class World: SKNode {
     // specific to only playerData
     func getWorldDataSave() -> WorldData {
         var filteredGameAreaDatas = [Location: GameAreaData]()
-        gameAreas.forEach({ filteredGameAreaDatas[$0.location] = $0.getGameAreasFilter(player: .PlayerOne)})
+        gameAreas.forEach({ filteredGameAreaDatas[$0.key] = $0.value.getGameAreasFilter(player: .PlayerOne)})
 
         return WorldData(gameAreas: filteredGameAreaDatas,
                          player: self.player.getPersonData(),
@@ -103,11 +118,11 @@ class World: SKNode {
     }
 
     func getCurrentGameArea() -> GameArea {
-        return gameAreas.filter({$0.location == currentLocation}).first!
+        return gameAreas.filter({$0.key == currentLocation}).first!.value
     }
 
     func getTerrainAt(position: CGPoint, location: Location) -> Terrain? {
-        if let gameArea = gameAreas.filter({$0.location == location}).first {
+        if let gameArea = gameAreas[location] {
             if let chosenTerrain = gameArea.terrains.filter({$0.contains(position)}).first {
                 return chosenTerrain
             }
@@ -117,7 +132,7 @@ class World: SKNode {
     }
 
     func getTileAt(position: CGPoint, location: Location) -> Tile? {
-        if let gameArea = gameAreas.filter({$0.location == location}).first {
+        if let gameArea = gameAreas[location] {
             if let chosenTile = gameArea.tiles.filter({$0.contains(position)}).first {
                 return chosenTile
             }
@@ -127,7 +142,7 @@ class World: SKNode {
     }
 
     func getBuildingsAt(position: CGPoint, location: Location) -> [Building] {
-        if let gameArea = gameAreas.filter({$0.location == location}).first {
+        if let gameArea = gameAreas[location] {
             return gameArea.buildings.filter({$0.contains(position)})
         }
         return [Building]()
@@ -145,130 +160,15 @@ class World: SKNode {
 
         self.addChild(player)
 
-        for gameArea in gameAreas.filter({$0.location == currentLocation}) {
+        if let gameArea = gameAreas[currentLocation] {
             gameArea.buildings.forEach({self.addChild($0)})
             gameArea.tiles.forEach({self.addChild($0)})
             gameArea.terrains.forEach({self.addChild($0)})
         }
     }
 
-    // TODO: migrate to GameData and delete this
-    private func sampleHouse() -> GameArea {
-        let location = Location.House
-
-        let gameArea = GameArea()
-        gameArea.location = location
-
-        //Buildings
-        let door = Building(player: .Game,
-                            buildingId: .HouseToFarmDoor,
-                            mapPoint: MapPoint(x: 1, y: -2, location: location))
-        gameArea.buildings.append(door)
-
-        let bed = Building(player: .Game,
-                           buildingId: .SingleBed,
-                           mapPoint: MapPoint(x: 8, y: 0, location: location))
-        gameArea.buildings.append(bed)
-
-        // Tiles/Terrains
-        for x in 0...9 {
-            for y in 0...6 {
-                let tile = Tile(player: .Game,
-                                tileType: TileType.Dirt,
-                                mapPoint: MapPoint(x: x, y: y, location: location))
-                gameArea.tiles.append(tile)
-
-                let terrain = Terrain(player: PlayerIndex.Game,
-                                      terrainType: TerrainType.Wood,
-                                      mapPoint: MapPoint(x: x, y: y, location: location))
-                gameArea.terrains.append(terrain)
-            }
-        }
-
-        return gameArea
-    }
-
-    // TODO: migrate to GameData and delete this
-    private func sampleFarm() -> GameArea {
-        let location = Location.Farm
-
-        let gameArea = GameArea()
-        gameArea.location = location
-
-        //Buildings
-        let houseDoor = Building(player: .Game,
-                                 buildingId: .FarmToHouseDoor,
-                                 mapPoint: MapPoint(x: 3, y: 6, location: location))
-        gameArea.buildings.append(houseDoor)
-
-        let townDoor = Building(player: .Game,
-                                buildingId: .FarmToTownDoor,
-                                mapPoint: MapPoint(x: 6, y: 3, location: location))
-        gameArea.buildings.append(townDoor)
-
-        let farmDeliveryBox = Building(player: .Game,
-                                       buildingId: .FarmDeliveryBox,
-                                       mapPoint: MapPoint(x: 5, y: 6, location: location))
-        gameArea.buildings.append(farmDeliveryBox)
-
-        let sign = Building(player: .Game,
-                            buildingId: .PlayerHouseSign,
-                            mapPoint: MapPoint(x: 4, y: 6, location: location))
-        gameArea.buildings.append(sign)
-
-        let vendingMachine = Building(player: .Game,
-                                      buildingId: .VendingMachine,
-                                      mapPoint: MapPoint(x: 1, y: 6, location: location))
-        gameArea.buildings.append(vendingMachine)
-
-        // Tiles
-        for x in -5...5 {
-            for y in -5...5 {
-                var tileType = TileType.Dirt
-                if x%2 == 0 {
-                    tileType = .Grass
-                }
-
-                let tile = Tile.init(player: .Game,
-                                     tileType: tileType,
-                                     mapPoint: MapPoint(x: x, y: y, location: location))
-                gameArea.tiles.append(tile)
-            }
-        }
-
-        return gameArea
-    }
-
-    // TODO: migrate to GameData and delete this
-    private func sampleTown() -> GameArea {
-        let location = Location.Town
-
-        let gameArea = GameArea()
-        gameArea.location = location
-
-        //Buildings
-        let door = Building(player: .Game,
-                            buildingId: .TownToFarmDoor,
-                            mapPoint: MapPoint(x: -1, y: 0, location: location))
-        gameArea.buildings.append(door)
-
-        // Tiles
-        for x in 0...10 {
-            for y in -5...5 {
-                let tileType = TileType.Water
-
-                let tile = Tile.init(player: .Game,
-                                     tileType: tileType,
-                                     mapPoint: MapPoint(x: x, y: y, location: location))
-                gameArea.tiles.append(tile)
-            }
-        }
-
-        return gameArea
-    }
-
     func add(building: Building) {
-        if let gameArea = gameAreas.filter({$0.location == building.location}).first {
+        if let gameArea = gameAreas[building.location] {
             gameArea.buildings.append(building)
             if currentLocation == building.location {
                 self.addChild(building)
@@ -277,7 +177,7 @@ class World: SKNode {
     }
 
     func delete(building: Building) {
-        if let gameArea = gameAreas.filter({$0.location == building.location}).first {
+        if let gameArea = gameAreas[building.location] {
             gameArea.buildings = gameArea.buildings.filter({$0 !== building})
             if building.parent != nil {
                 building.removeFromParent()
@@ -286,7 +186,7 @@ class World: SKNode {
     }
 
     func add(terrain: Terrain) {
-        if let gameArea = gameAreas.filter({$0.location == terrain.location}).first {
+        if let gameArea = gameAreas[terrain.location] {
             gameArea.terrains.append(terrain)
             if currentLocation == terrain.location {
                 self.addChild(terrain)
@@ -295,10 +195,19 @@ class World: SKNode {
     }
 
     func delete(terrain: Terrain) {
-        if let gameArea = gameAreas.filter({$0.location == terrain.location}).first {
+        if let gameArea = gameAreas[terrain.location] {
             gameArea.terrains = gameArea.terrains.filter({$0 !== terrain})
             if terrain.parent != nil {
                 terrain.removeFromParent()
+            }
+        }
+    }
+
+    func add(tile: Tile) {
+        if let gameArea = gameAreas[tile.location] {
+            gameArea.tiles.append(tile)
+            if currentLocation == tile.location {
+                self.addChild(tile)
             }
         }
     }

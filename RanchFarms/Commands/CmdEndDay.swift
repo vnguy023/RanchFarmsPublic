@@ -7,7 +7,7 @@ class CmdEndDay: Command {
 
     func execute() {
         for gameArea in world.gameAreas {
-            for building in gameArea.buildings {
+            for building in gameArea.value.buildings {
                 let terrain = world.getTerrainAt(position: building.position, location: building.location)
                 if building.buildingInfo.buildingType == .Crop
                     && terrain != nil && terrain!.isWatered {
@@ -16,7 +16,7 @@ class CmdEndDay: Command {
             }
 
             var terrainsToDelete = [Terrain]()
-            for terrain in gameArea.terrains {
+            for terrain in gameArea.value.terrains {
                 let buildings = world.getBuildingsAt(position: terrain.position, location: terrain.location)
 
                 switch terrain.type {
