@@ -33,4 +33,79 @@ class GameData {
 
         return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
     }
+
+    static func Farm() -> GameAreaData {
+        let location = Location.Farm
+
+        var buildings = [BuildingData]()
+        let terrains = [TerrainData]()
+        var tiles = [TileData]()
+
+        let houseDoor = BuildingData(playerIndex: .Game,
+                                     buildingId: .FarmToHouseDoor,
+                                     mapPoint: MapPoint(x: 3, y: 6, location: location))
+        buildings.append(houseDoor)
+
+        let townDoor = BuildingData(playerIndex: .Game,
+                                    buildingId: .FarmToTownDoor,
+                                    mapPoint: MapPoint(x: 6, y: 3, location: location))
+        buildings.append(townDoor)
+
+        let farmDeliveryBox = BuildingData(playerIndex: .Game,
+                                           buildingId: .FarmDeliveryBox,
+                                           mapPoint: MapPoint(x: 5, y: 6, location: location))
+        buildings.append(farmDeliveryBox)
+
+        let sign = BuildingData(playerIndex: .Game,
+                                buildingId: .PlayerHouseSign,
+                                mapPoint: MapPoint(x: 4, y: 6, location: location))
+        buildings.append(sign)
+
+        let vendingMachine = BuildingData(playerIndex: .Game,
+                                          buildingId: .VendingMachine,
+                                          mapPoint: MapPoint(x: 1, y: 6, location: location))
+        buildings.append(vendingMachine)
+
+        // Tiles/Terrains
+        for x in -5...5 {
+            for y in -5...5 {
+                var tileType = TileType.Dirt
+                if x%2 == 0 {
+                    tileType = .Grass
+                }
+
+                let tile = TileData(playerIndex: .Game,
+                                    tileType: tileType,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles.append(tile)
+            }
+        }
+
+        return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
+    }
+
+    static func Town() -> GameAreaData {
+        let location = Location.Town
+
+        var buildings = [BuildingData]()
+        let terrains = [TerrainData]()
+        var tiles = [TileData]()
+
+        let farmDoor = BuildingData(playerIndex: .Game,
+                                    buildingId: .TownToFarmDoor,
+                                    mapPoint: MapPoint(x: -1, y: 0, location: location))
+        buildings.append(farmDoor)
+
+        // Tiles/Terrains
+        for x in 0...10 {
+            for y in -5...5 {
+                let tile = TileData(playerIndex: .Game,
+                                    tileType: .Water,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles.append(tile)
+            }
+        }
+
+        return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
+    }
 }
