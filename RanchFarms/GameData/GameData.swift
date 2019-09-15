@@ -6,6 +6,7 @@ class GameData {
         var terrains = [TerrainData]()
         var tiles = [TileData]()
 
+        // Buildings
         let door = BuildingData(playerIndex: .Game,
                                 buildingId: .HouseToFarmDoor,
                                 mapPoint: MapPoint(x: 1, y: -2, location: location))
@@ -41,6 +42,7 @@ class GameData {
         let terrains = [TerrainData]()
         var tiles = [TileData]()
 
+        // Buildings
         let houseDoor = BuildingData(playerIndex: .Game,
                                      buildingId: .FarmToHouseDoor,
                                      mapPoint: MapPoint(x: 3, y: 6, location: location))
@@ -91,6 +93,7 @@ class GameData {
         let terrains = [TerrainData]()
         var tiles = [TileData]()
 
+        // Buildings
         let farmDoor = BuildingData(playerIndex: .Game,
                                     buildingId: .TownToFarmDoor,
                                     mapPoint: MapPoint(x: -1, y: 0, location: location))
