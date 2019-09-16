@@ -9,9 +9,9 @@ class BuildingInfo {
     let harvestItemId: ItemId?
     let objSize: CGSize
 
-    let teleport: Teleport?
+    let teleportId: TeleportId?
 
-    init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, name: String, harvestDate: Int, harvestItemId: ItemId?, teleport: Teleport?) {
+    private init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, name: String, harvestDate: Int, harvestItemId: ItemId?, teleportId: TeleportId?) {
         self.id = buildingId
         self.buildingType = buildingType
         self.objSize = objSize
@@ -20,10 +20,19 @@ class BuildingInfo {
         self.harvestDate = harvestDate
         self.harvestItemId = harvestItemId
 
-        self.teleport = teleport
+        self.teleportId = teleportId
     }
 
     convenience init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, name: String) {
-        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, name: name, harvestDate: 0, harvestItemId: nil, teleport: nil)
+        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, name: name, harvestDate: 0, harvestItemId: nil, teleportId: nil)
     }
+
+    convenience init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, name: String, harvestDate: Int, harvestItemId: ItemId) {
+        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, name: name, harvestDate: harvestDate, harvestItemId: harvestItemId, teleportId: nil)
+    }
+
+    convenience init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, name: String, teleportId: TeleportId) {
+        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, name: name, harvestDate: 0, harvestItemId: nil, teleportId: teleportId)
+    }
+
 }

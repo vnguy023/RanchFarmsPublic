@@ -8,10 +8,6 @@ class Building: GameObject {
 
     let buildingInfo: BuildingInfo!
 
-    var teleport: Teleport? {
-        get {return buildingInfo.teleport}
-    }
-
     // Mainly Crops
     private var mGrowthProgress = Int(0) // goes form 0-100
     var growthProgress: Int {

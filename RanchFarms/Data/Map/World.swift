@@ -11,13 +11,18 @@ class World: SKNode {
     var daysElapsed = Int(0)
 
     var currentLocation: Location {
-        get {return player.location}
+        get {
+            if player != nil {
+                return player.location
+            }
+            return .House
+        }
     }
 
     var gameTicksElapsedToday = GameTick(0)
 
-    let teleportStartDay = Teleport(mapPoint: MapPoint(x: 7, y: 1, location: .House),
-                                    directionToFace: .SOUTH)
+    var teleportStartDay = TeleportId.House_Bed
+
     // Items to sell
     var farmDeliveryBoxItems = [Item]()
 
@@ -42,9 +47,6 @@ class World: SKNode {
     }
 
     func loadWorldData(worldData: WorldData) {
-        self.player = Person(data: worldData.player)
-        self.daysElapsed = worldData.daysElapsed
-
         var gameAreasDataToLoad = worldData.gameAreas.map({return $0.value})
 
         gameAreasDataToLoad.append(GameData.BasicHouse())
@@ -84,6 +86,11 @@ class World: SKNode {
                 add(tile: tile)
             }
         }
+
+        self.player = Person(data: worldData.player)
+        self.daysElapsed = worldData.daysElapsed
+
+        self.teleportStartDay = worldData.teleportStartDay
     }
 
     // specific to only playerData
@@ -93,7 +100,8 @@ class World: SKNode {
 
         return WorldData(gameAreas: filteredGameAreaDatas,
                          player: self.player.getPersonData(),
-                         daysElapsed: self.daysElapsed )
+                         daysElapsed: self.daysElapsed,
+                         teleportStartDay: GameData.GetTeleportStartDay())
     }
 
     // advances world by one gameTick
@@ -148,11 +156,15 @@ class World: SKNode {
         return [Building]()
     }
 
-    func teleport(to teleport: Teleport) {
-        player.mapPoint = teleport.mapPoint
-        player.faceDirection = teleport.directionToFace
+    func teleport(to teleportId: TeleportId) {
+        if let teleport = TeleportManager.shared.getTeleport(teleportId: teleportId) {
+            player.mapPoint = teleport.mapPoint
+            player.faceDirection = teleport.directionToFace
 
-        reloadGameObjects()
+            reloadGameObjects()
+        } else {
+            print("[Desc=World.Teleport()] [Error=Unable to Teleport, Data doesn't exist]")
+        }
     }
 
     func reloadGameObjects() {

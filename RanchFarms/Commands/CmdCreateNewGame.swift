@@ -19,7 +19,8 @@ class CmdCreateNewGame: Command {
 
         worldData = WorldData(gameAreas: gameAreas,
                               player: player,
-                              daysElapsed: daysElapsed)
+                              daysElapsed: daysElapsed,
+                              teleportStartDay: TeleportId.House_Bed)
     }
 
     private func createWorldSettings() {

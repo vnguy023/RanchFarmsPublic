@@ -17,7 +17,7 @@ extension ActionController {
         if let buildingInFront = buildings.first {
             switch buildingInFront.type {
             case .Teleport:
-                world.teleport(to: buildingInFront.teleport!)
+                world.teleport(to: buildingInFront.buildingInfo.teleportId!)
                 cameraController.fadeScreen()
             case .Bed:
                 let cmdEndDay  = CmdEndDay(world: world)

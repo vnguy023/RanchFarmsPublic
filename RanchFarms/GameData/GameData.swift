@@ -1,4 +1,9 @@
 class GameData {
+
+    static func GetTeleportStartDay() -> TeleportId {
+        return .House_Bed
+    }
+
     static func BasicHouse() -> GameAreaData {
         let location = Location.House
 
