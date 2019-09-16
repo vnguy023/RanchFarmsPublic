@@ -32,9 +32,9 @@ extension ActionController {
                     cmdHarvest.execute()
                 }
             case .Sign:
-                changeGameState(to: .Dialog)
+                changeState(to: .Dialog)
             case .VendingMachine:
-                changeGameState(to: .Store)
+                changeState(to: .Store)
             default:
                 print ("[Desc=Primary Action not handled for this building] [BuildingType=\(buildingInFront.type)]")
             }
@@ -42,7 +42,7 @@ extension ActionController {
     }
 
     func actionMenuGameStateGame() {
-        changeGameState(to: .Inventory)
+        changeState(to: .Inventory)
     }
 
     func actionUseGameStateGame() {

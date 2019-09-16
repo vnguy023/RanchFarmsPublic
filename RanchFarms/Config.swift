@@ -28,11 +28,14 @@ class Config {
 
     static var viewDialogSize = CGSize(width: Config.screenSize.width, height: 300)
 
+    static var viewSaveSlotSize = CGSize(width: 600, height: 120)
+
     static let SaveDirectory = "savefiles/"
     static let SaveFileName1 = "save1"
     static let SaveFileName2 = "save2"
     static let SaveFileName3 = "save3"
     static let SaveFileExtension = "json"
+    static let SaveSlotCount = 3
 
     static let animationWalkGameTickDuration = GameTick(30)
 

@@ -37,8 +37,8 @@ class GameScene: BaseScene {
         }
 
         let cmdDeleteFile = CmdDeleteFile(directory: Config.SaveDirectory,
-                                      fileName: saveSlot.getFileName(),
-                                      fileExtension: Config.SaveFileExtension)
+                                          fileName: saveSlot.getFileName(),
+                                          fileExtension: Config.SaveFileExtension)
         cmdDeleteFile.execute()
     }
 
@@ -64,9 +64,7 @@ class GameScene: BaseScene {
         self.camera = cameraController.camera
         cameraController.gameObjectToFollow = world.player
         self.addChild(cameraController.camera)
-
     }
-    
     
     func touchDown(atPoint pos : CGPoint) { }
     

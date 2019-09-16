@@ -3,7 +3,7 @@ import SpriteKit
 class ViewHotbar: SKSpriteNode {
     let world: World
 
-    var hudInterfaceData: HudInterfaceData {
+    var hudInterfaceData: HudInterfaceDataGame {
         get {return world.hudInterfaceData}
     }
 

@@ -29,7 +29,7 @@ extension ActionController {
         if world.hudInterfaceData.selectedItemInventoryIndex != nil {
             world.hudInterfaceData.selectedItemInventoryIndex = nil
         } else {
-            changeGameState(to: .Game)
+            changeState(to: .Game)
         }
     }
 

@@ -3,20 +3,38 @@ import GameplayKit
 import GameController
 
 class SplashScene: BaseScene {
+    var actionControllerSplash: ActionControllerSplashScene! = nil
+    var hudInterfaceDataSplash = HudInterfaceDataSplash()
+
+    var hudController: HudControllerSplash! = nil
     var inputController = InputController()
 
-    override func didMove(to view: SKView) {
-        assignActions()
+    // unique because this scene isn't presented like the others~
+    override func sceneDidLoad() {
+        linkControllers()
+        linkNodes()
+    }
+
+    private func linkControllers() {
+        hudController = HudControllerSplash(hudInterfaceDataSplash: hudInterfaceDataSplash, screenSize: self.size)
+        actionControllerSplash = ActionControllerSplashScene(scene: self,
+                                                             hudInterfaceDataSplash: hudInterfaceDataSplash,
+                                                             inputController: inputController)
+    }
+
+    private func linkNodes() {
+        self.addChild(hudController.node)
     }
 
     func touchDown(atPoint pos : CGPoint) {
+        inputController.pressedDown(inputKey: .Primary, value: true)
     }
 
     func touchMoved(toPoint pos : CGPoint) {
     }
 
     func touchUp(atPoint pos : CGPoint) {
-        inputController.pressedDown(inputKey: .Primary, value: true)
+        inputController.pressedDown(inputKey: .Primary, value: false)
     }
 
     override func mouseDown(with event: NSEvent) {
@@ -33,10 +51,83 @@ class SplashScene: BaseScene {
 
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
-        case 0x31:
+        case 13:    // w
+            inputController.pressedDown(inputKey: .MoveUp, value: true)
+        case 0:     // a
+            inputController.pressedDown(inputKey: .MoveLeft, value: true)
+        case 1:     // s
+            inputController.pressedDown(inputKey: .MoveDown, value: true)
+        case 2:     // d
+            inputController.pressedDown(inputKey: .MoveRight, value: true)
+
+        case 36:    // enter
             inputController.pressedDown(inputKey: .Primary, value: true)
+        case 11:    // b
+            inputController.pressedDown(inputKey: .Cancel, value: true)
+        case 34:    // i
+            inputController.pressedDown(inputKey: .Menu, value: true)
+        case 0x31:  // spaceBar
+            inputController.pressedDown(inputKey: .Use, value: true)
+
+        case 12:    // q
+            inputController.pressedDown(inputKey: .SwitchLeft, value: true)
+        case 14:    // e
+            inputController.pressedDown(inputKey: .SwitchRight, value: true)
+
+        case 126:   // ArrowUp
+            inputController.pressedDown(inputKey: .DPadUp, value: true)
+        case 125:   // ArrowDown
+            inputController.pressedDown(inputKey: .DPadDown, value: true)
+        case 123:   // ArrowLeft
+            inputController.pressedDown(inputKey: .DPadLeft, value: true)
+        case 124:   // ArrowRight
+            inputController.pressedDown(inputKey: .DPadRight, value: true)
+
+        case 42:    // \
+            inputController.pressedDown(inputKey: .TOGGLE_KEYBOARD_MODE, value: true)
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
+        }
+    }
+
+    override func keyUp(with event: NSEvent) {
+        switch event.keyCode {
+        case 13:    // w
+            inputController.pressedDown(inputKey: .MoveUp, value: false)
+        case 0:     // a
+            inputController.pressedDown(inputKey: .MoveLeft, value: false)
+        case 1:     // s
+            inputController.pressedDown(inputKey: .MoveDown, value: false)
+        case 2:     // d
+            inputController.pressedDown(inputKey: .MoveRight, value: false)
+
+        case 36:    // enter
+            inputController.pressedDown(inputKey: .Primary, value: false)
+        case 11:    // b
+            inputController.pressedDown(inputKey: .Cancel, value: false)
+        case 34:    // i
+            inputController.pressedDown(inputKey: .Menu, value: false)
+        case 0x31:  // spaceBar
+            inputController.pressedDown(inputKey: .Use, value: false)
+
+        case 12:    // q
+            inputController.pressedDown(inputKey: .SwitchLeft, value: false)
+        case 14:    // e
+            inputController.pressedDown(inputKey: .SwitchRight, value: false)
+
+        case 126:   // ArrowUp
+            inputController.pressedDown(inputKey: .DPadUp, value: false)
+        case 125:   // ArrowDown
+            inputController.pressedDown(inputKey: .DPadDown, value: false)
+        case 123:   // ArrowLeft
+            inputController.pressedDown(inputKey: .DPadLeft, value: false)
+        case 124:   // ArrowRight
+            inputController.pressedDown(inputKey: .DPadRight, value: false)
+
+        case 42:    // \
+            inputController.pressedDown(inputKey: .TOGGLE_KEYBOARD_MODE, value: false)
+        default:
+            print("keyUp: \(event.characters!) keyCode: \(event.keyCode)")
         }
     }
 
@@ -44,24 +135,8 @@ class SplashScene: BaseScene {
         // Called before each frame is rendered
         processControllerInput()
         inputController.update()
-    }
 
-    private func assignActions() {
-        inputController.clearHandles()
-
-        //inputController.handleMove = actionMove
-        inputController.handlePrimary[.ClickDown] = actionPrimary
-        //inputController.handleMenu[.ClickDown] = actionMenu
-        //inputController.handleUse[.ClickDown] = actionUse
-    }
-
-    private func actionPrimary() {
-
-        // temporary til we figure this out
-        let saveSlot = SaveSlot.Slot1
-        createNewGame(saveSlot: saveSlot)
-
-        vc!.loadGameScene(saveSlot: saveSlot)
+        hudController.update()
     }
 
     func processControllerInput() {
@@ -99,13 +174,4 @@ class SplashScene: BaseScene {
             inputController.pressedDown(inputKey: .DPadRight, value: gc.extendedGamepad!.dpad.right.isPressed)
         }
     }
-
-    private func createNewGame(saveSlot: SaveSlot) {
-        let cmdSaveFile = CmdSaveFile(directory: Config.SaveDirectory,
-                                      fileName: saveSlot.getFileName(),
-                                      fileExtension: Config.SaveFileExtension,
-                                      text: "Hello World, Ranch Farms1243")
-        cmdSaveFile.execute()
-    }
-
 }

@@ -34,6 +34,14 @@
 		6C4701AF232DD9C20013AD0F /* TileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701AE232DD9C20013AD0F /* TileData.swift */; };
 		6C4701B2232ECFDA0013AD0F /* TeleportId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701B1232ECFDA0013AD0F /* TeleportId.swift */; };
 		6C4701B4232ED0630013AD0F /* TeleportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701B3232ED0630013AD0F /* TeleportManager.swift */; };
+		6C4701B6232F2E730013AD0F /* ViewSaveSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701B5232F2E730013AD0F /* ViewSaveSlot.swift */; };
+		6C4701B8232F2F6A0013AD0F /* ViewSaveFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701B7232F2F6A0013AD0F /* ViewSaveFiles.swift */; };
+		6C4701BA232F7BFB0013AD0F /* HudInterfaceDataSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701B9232F7BFB0013AD0F /* HudInterfaceDataSplash.swift */; };
+		6C4701BD23301EB70013AD0F /* ActionControllerSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701BC23301EB70013AD0F /* ActionControllerSplash.swift */; };
+		6C4701C02330204F0013AD0F /* ActionControllerSplashSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701BF2330204F0013AD0F /* ActionControllerSplashSplash.swift */; };
+		6C4701C22330213C0013AD0F /* ActionControllerSplashSelectSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701C12330213C0013AD0F /* ActionControllerSplashSelectSave.swift */; };
+		6C4701C6233024C50013AD0F /* HudControllerSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701C5233024C50013AD0F /* HudControllerSplash.swift */; };
+		6C4701C9233026E00013AD0F /* ViewSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701C8233026E00013AD0F /* ViewSplash.swift */; };
 		6C60339B230B60B000746309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60339A230B60B000746309 /* AppDelegate.swift */; };
 		6C60339D230B60B000746309 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C60339C230B60B000746309 /* GameScene.sks */; };
 		6C6033A1230B60B000746309 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033A0230B60B000746309 /* GameScene.swift */; };
@@ -72,7 +80,7 @@
 		6C9E3E00230CE31B007417E1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3DFF230CE31B007417E1 /* Config.swift */; };
 		6C9E3E02230CFCAE007417E1 /* ViewHotbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E01230CFCAE007417E1 /* ViewHotbar.swift */; };
 		6C9E3E04230D43D3007417E1 /* HudController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E03230D43D3007417E1 /* HudController.swift */; };
-		6C9E3E0C230E4C08007417E1 /* HudInterfaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E0B230E4C08007417E1 /* HudInterfaceData.swift */; };
+		6C9E3E0C230E4C08007417E1 /* HudInterfaceDataGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E0B230E4C08007417E1 /* HudInterfaceDataGame.swift */; };
 		6C9E3E0E230E61D2007417E1 /* ViewMoneyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E0D230E61D2007417E1 /* ViewMoneyInfo.swift */; };
 		6C9E3E10230E84F5007417E1 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E0F230E84F5007417E1 /* Building.swift */; };
 		6C9E3E12230E8500007417E1 /* BuildingId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E11230E8500007417E1 /* BuildingId.swift */; };
@@ -129,6 +137,14 @@
 		6C4701AE232DD9C20013AD0F /* TileData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileData.swift; sourceTree = "<group>"; };
 		6C4701B1232ECFDA0013AD0F /* TeleportId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleportId.swift; sourceTree = "<group>"; };
 		6C4701B3232ED0630013AD0F /* TeleportManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleportManager.swift; sourceTree = "<group>"; };
+		6C4701B5232F2E730013AD0F /* ViewSaveSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSaveSlot.swift; sourceTree = "<group>"; };
+		6C4701B7232F2F6A0013AD0F /* ViewSaveFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSaveFiles.swift; sourceTree = "<group>"; };
+		6C4701B9232F7BFB0013AD0F /* HudInterfaceDataSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudInterfaceDataSplash.swift; sourceTree = "<group>"; };
+		6C4701BC23301EB70013AD0F /* ActionControllerSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerSplash.swift; sourceTree = "<group>"; };
+		6C4701BF2330204F0013AD0F /* ActionControllerSplashSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerSplashSplash.swift; sourceTree = "<group>"; };
+		6C4701C12330213C0013AD0F /* ActionControllerSplashSelectSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerSplashSelectSave.swift; sourceTree = "<group>"; };
+		6C4701C5233024C50013AD0F /* HudControllerSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudControllerSplash.swift; sourceTree = "<group>"; };
+		6C4701C8233026E00013AD0F /* ViewSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSplash.swift; sourceTree = "<group>"; };
 		6C603397230B60B000746309 /* RanchFarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchFarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C60339A230B60B000746309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C60339C230B60B000746309 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -170,7 +186,7 @@
 		6C9E3DFF230CE31B007417E1 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6C9E3E01230CFCAE007417E1 /* ViewHotbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHotbar.swift; sourceTree = "<group>"; };
 		6C9E3E03230D43D3007417E1 /* HudController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudController.swift; sourceTree = "<group>"; };
-		6C9E3E0B230E4C08007417E1 /* HudInterfaceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudInterfaceData.swift; sourceTree = "<group>"; };
+		6C9E3E0B230E4C08007417E1 /* HudInterfaceDataGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudInterfaceDataGame.swift; sourceTree = "<group>"; };
 		6C9E3E0D230E61D2007417E1 /* ViewMoneyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMoneyInfo.swift; sourceTree = "<group>"; };
 		6C9E3E0F230E84F5007417E1 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		6C9E3E11230E8500007417E1 /* BuildingId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingId.swift; sourceTree = "<group>"; };
@@ -268,6 +284,53 @@
 			path = Teleport;
 			sourceTree = "<group>";
 		};
+		6C4701BB23301EA40013AD0F /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				6C9D3608230BEC3C00168A28 /* ActionController.swift */,
+				6CD007BD231F4D53008B9825 /* ActionControllerStateDialog.swift */,
+				6CBC8D16231CC833005454E1 /* ActionControllerStateGame.swift */,
+				6CBC8D18231CC8AB005454E1 /* ActionControllerStateInventory.swift */,
+				6CD007BF231F4DB1008B9825 /* ActionControllerStateStore.swift */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		6C4701BE23301EC00013AD0F /* SplashScene */ = {
+			isa = PBXGroup;
+			children = (
+				6C4701BC23301EB70013AD0F /* ActionControllerSplash.swift */,
+				6C4701BF2330204F0013AD0F /* ActionControllerSplashSplash.swift */,
+				6C4701C12330213C0013AD0F /* ActionControllerSplashSelectSave.swift */,
+			);
+			path = SplashScene;
+			sourceTree = "<group>";
+		};
+		6C4701C3233024B20013AD0F /* HudController */ = {
+			isa = PBXGroup;
+			children = (
+				6C4701C7233024CA0013AD0F /* SplashScene */,
+				6C4701C4233024B90013AD0F /* GameScene */,
+			);
+			path = HudController;
+			sourceTree = "<group>";
+		};
+		6C4701C4233024B90013AD0F /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				6C9E3E03230D43D3007417E1 /* HudController.swift */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		6C4701C7233024CA0013AD0F /* SplashScene */ = {
+			isa = PBXGroup;
+			children = (
+				6C4701C5233024C50013AD0F /* HudControllerSplash.swift */,
+			);
+			path = SplashScene;
+			sourceTree = "<group>";
+		};
 		6C60338E230B60B000746309 = {
 			isa = PBXGroup;
 			children = (
@@ -321,7 +384,8 @@
 		6C6033B9230B633A00746309 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				6C9E3E0B230E4C08007417E1 /* HudInterfaceData.swift */,
+				6C9E3E0B230E4C08007417E1 /* HudInterfaceDataGame.swift */,
+				6C4701B9232F7BFB0013AD0F /* HudInterfaceDataSplash.swift */,
 				6C6033C2230B646D00746309 /* GameObjects */,
 				6C6033C7230B64EB00746309 /* Items */,
 				6C6033D0230B66B400746309 /* Map */,
@@ -395,7 +459,7 @@
 			children = (
 				6CBC8D15231CC819005454E1 /* ActionController */,
 				6C6033DB230B833200746309 /* CameraController.swift */,
-				6C9E3E03230D43D3007417E1 /* HudController.swift */,
+				6C4701C3233024B20013AD0F /* HudController */,
 				6C9D3603230BA7C000168A28 /* InputController.swift */,
 				6C9E3E1A230F7905007417E1 /* RenderController.swift */,
 			);
@@ -435,7 +499,10 @@
 				6C97F8D12317808A00940C61 /* ViewInventory.swift */,
 				6C9E3DFC230CE2D6007417E1 /* ViewItemButton.swift */,
 				6C9E3E0D230E61D2007417E1 /* ViewMoneyInfo.swift */,
+				6C4701B7232F2F6A0013AD0F /* ViewSaveFiles.swift */,
+				6C4701B5232F2E730013AD0F /* ViewSaveSlot.swift */,
 				6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */,
+				6C4701C8233026E00013AD0F /* ViewSplash.swift */,
 				6CD007B9231F3C15008B9825 /* ViewStore.swift */,
 			);
 			path = Views;
@@ -455,11 +522,8 @@
 		6CBC8D15231CC819005454E1 /* ActionController */ = {
 			isa = PBXGroup;
 			children = (
-				6C9D3608230BEC3C00168A28 /* ActionController.swift */,
-				6CD007BD231F4D53008B9825 /* ActionControllerStateDialog.swift */,
-				6CBC8D16231CC833005454E1 /* ActionControllerStateGame.swift */,
-				6CBC8D18231CC8AB005454E1 /* ActionControllerStateInventory.swift */,
-				6CD007BF231F4DB1008B9825 /* ActionControllerStateStore.swift */,
+				6C4701BE23301EC00013AD0F /* SplashScene */,
+				6C4701BB23301EA40013AD0F /* GameScene */,
 			);
 			path = ActionController;
 			sourceTree = "<group>";
@@ -564,10 +628,12 @@
 				6C6033C9230B651500746309 /* Inventory.swift in Sources */,
 				6C1BFE91232B887A00294BF3 /* WorldData.swift in Sources */,
 				6C8735562325D68B006020A7 /* Animation.swift in Sources */,
+				6C4701C22330213C0013AD0F /* ActionControllerSplashSelectSave.swift in Sources */,
 				6C9E3E02230CFCAE007417E1 /* ViewHotbar.swift in Sources */,
 				6C6033C4230B648100746309 /* Item.swift in Sources */,
 				6C1BFE8F232A2E4C00294BF3 /* SaveSlot.swift in Sources */,
-				6C9E3E0C230E4C08007417E1 /* HudInterfaceData.swift in Sources */,
+				6C4701BD23301EB70013AD0F /* ActionControllerSplash.swift in Sources */,
+				6C9E3E0C230E4C08007417E1 /* HudInterfaceDataGame.swift in Sources */,
 				6C6033A3230B60B000746309 /* ViewController.swift in Sources */,
 				6C4701B4232ED0630013AD0F /* TeleportManager.swift in Sources */,
 				6C2336EA231147EA00261944 /* BuildingType.swift in Sources */,
@@ -585,6 +651,7 @@
 				6C4701A8232C68400013AD0F /* TerrainData.swift in Sources */,
 				6C6033D2230B6A1500746309 /* ItemInfo.swift in Sources */,
 				6C47019F232B97EB0013AD0F /* InventoryData.swift in Sources */,
+				6C4701BA232F7BFB0013AD0F /* HudInterfaceDataSplash.swift in Sources */,
 				6C1BFE95232B8ABD00294BF3 /* ItemData.swift in Sources */,
 				6C9E3E1F230F83C5007417E1 /* PersonTexture.swift in Sources */,
 				6C4701AA232DB85B0013AD0F /* GameData.swift in Sources */,
@@ -592,6 +659,7 @@
 				6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */,
 				6C0F561D2313D56E0017192E /* ViewDayInfo.swift in Sources */,
 				6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */,
+				6C4701B6232F2E730013AD0F /* ViewSaveSlot.swift in Sources */,
 				6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */,
 				6CD007C72320875F008B9825 /* StoreFrontId.swift in Sources */,
 				6C2336F3231272B300261944 /* CmdEndDay.swift in Sources */,
@@ -604,6 +672,7 @@
 				6C2336E42311387700261944 /* ItemType.swift in Sources */,
 				6C6033DF230B850C00746309 /* Person.swift in Sources */,
 				6C6033A1230B60B000746309 /* GameScene.swift in Sources */,
+				6C4701C9233026E00013AD0F /* ViewSplash.swift in Sources */,
 				6C9E3E19230EAB8A007417E1 /* AnimationManager.swift in Sources */,
 				6C6D78E32322686500573B25 /* CmdPurchaseItem.swift in Sources */,
 				6C4701AF232DD9C20013AD0F /* TileData.swift in Sources */,
@@ -627,6 +696,7 @@
 				6C1BFE97232B8B9F00294BF3 /* CmdSaveGame.swift in Sources */,
 				6C9E3E10230E84F5007417E1 /* Building.swift in Sources */,
 				6C6033CB230B663500746309 /* GameArea.swift in Sources */,
+				6C4701B8232F2F6A0013AD0F /* ViewSaveFiles.swift in Sources */,
 				6C60339B230B60B000746309 /* AppDelegate.swift in Sources */,
 				6C6033D9230B7E5600746309 /* TextureManager.swift in Sources */,
 				6C9E3DFD230CE2D6007417E1 /* ViewItemButton.swift in Sources */,
@@ -644,6 +714,8 @@
 				6C9E3E15230E8FFE007417E1 /* Teleport.swift in Sources */,
 				6CD007BC231F3C5D008B9825 /* ViewDialog.swift in Sources */,
 				6C8735542325CB23006020A7 /* AnimationFrame.swift in Sources */,
+				6C4701C6233024C50013AD0F /* HudControllerSplash.swift in Sources */,
+				6C4701C02330204F0013AD0F /* ActionControllerSplashSplash.swift in Sources */,
 				6C9E3E04230D43D3007417E1 /* HudController.swift in Sources */,
 				6C6033E2230BA4F000746309 /* Utils.swift in Sources */,
 				6C6033B5230B624700746309 /* BaseScene.swift in Sources */,

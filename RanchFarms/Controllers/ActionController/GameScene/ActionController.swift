@@ -17,17 +17,17 @@ class ActionController {
         self.hudController = hudController
         self.inputController = inputController
 
-        changeGameState(to: .Game)
+        changeState(to: .Game)
     }
 
-    func changeGameState(to gameState: HudInterfaceData.GameState) {
-        if world.hudInterfaceData.gameState == gameState {
+    func changeState(to state: HudInterfaceDataGame.State) {
+        if world.hudInterfaceData.state == state {
             return
         }
 
-        world.hudInterfaceData.gameState = gameState
+        world.hudInterfaceData.state = state
 
-        switch gameState {
+        switch state {
         case .Dialog:
             assignActionsGameStateDialog()
             if handlePause != nil { handlePause() }
@@ -42,7 +42,7 @@ class ActionController {
             assignActionsGameStateStore()
             if handlePause != nil { handlePause() }
         default:
-            print ("[Desc=newActions not assigned] [GameState=\(gameState)]")
+            print ("[ActionControllerGameScene] [Desc=new actions not assigned] [State=\(state)]")
         }
     }
 

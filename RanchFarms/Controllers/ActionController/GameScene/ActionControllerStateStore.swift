@@ -33,7 +33,7 @@ extension ActionController {
     }
 
     func actionCancelGameStateStore() {
-        changeGameState(to: .Game)
+        changeState(to: .Game)
     }
 
     func actionDPadUpGameStateStore() {

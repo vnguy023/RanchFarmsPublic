@@ -4,7 +4,7 @@ extension ActionController {
     func actionPrimaryGameStateDialog() { }
 
     func actionCancelGameStateDialog() {
-        changeGameState(to: .Game)
+        changeState(to: .Game)
     }
 
     func actionDPadUpGameStateDialog() { }

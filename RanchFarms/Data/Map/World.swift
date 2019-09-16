@@ -28,7 +28,7 @@ class World: SKNode {
 
     // Hud Data
     // This should be temporary data for now. Think about throwing this into global
-    var hudInterfaceData = HudInterfaceData()
+    var hudInterfaceData = HudInterfaceDataGame()
 
     override init() {
         saveSlot = SaveSlot.Slot1

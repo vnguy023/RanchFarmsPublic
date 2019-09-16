@@ -1,9 +1,9 @@
 import SpriteKit
 
 // meant to store temporary data for our views
-class HudInterfaceData {
+class HudInterfaceDataGame {
 
-    enum GameState {
+    enum State {
         case Unknown
         case Dialog
         case Game
@@ -11,7 +11,7 @@ class HudInterfaceData {
         case Store
     }
 
-    var gameState = GameState.Unknown
+    var state = State.Unknown
 
     var hotbarCursor = Int(0)
 
