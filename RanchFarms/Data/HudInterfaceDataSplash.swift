@@ -15,4 +15,10 @@ class HudInterfaceDataSplash {
     
     init() {
     }
+
+    func getSaveSlotSelected() -> SaveSlot? {
+        return SaveSlot.Slot1
+
+        //return nil
+    }
 }

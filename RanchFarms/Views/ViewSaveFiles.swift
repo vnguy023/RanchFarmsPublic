@@ -1,14 +1,21 @@
 import SpriteKit
 
 class ViewSaveFiles: SKNode {
-    var saveSlots = [ViewSaveSlot]()
+    let hudInterfaceData: HudInterfaceDataSplash
 
-    override init() {
+    var saveSlot1 = ViewSaveSlot(saveSlot: .Slot1)
+    var saveSlot2 = ViewSaveSlot(saveSlot: .Slot2)
+    var saveSlot3 = ViewSaveSlot(saveSlot: .Slot3)
+
+    init(hudInterfaceDataSplash: HudInterfaceDataSplash) {
+        self.hudInterfaceData = hudInterfaceDataSplash
+
         super.init()
 
-        saveSlots.append(ViewSaveSlot(saveSlot: .Slot1))
-        saveSlots.append(ViewSaveSlot(saveSlot: .Slot2))
-        saveSlots.append(ViewSaveSlot(saveSlot: .Slot3))
+        var saveSlots = [ViewSaveSlot]()
+        saveSlots.append(saveSlot1)
+        saveSlots.append(saveSlot2)
+        saveSlots.append(saveSlot3)
 
         var index = CGFloat(0)
         let saveSlotStartPosition = CGPoint(x: 0, y: CGFloat(saveSlots.count) * Config.viewSaveSlotSize.height / 2)
@@ -19,15 +26,26 @@ class ViewSaveFiles: SKNode {
             saveSlot.zPosition = 500
             self.addChild(saveSlot)
 
-            if index == 0 {
-                saveSlot.setState(.Highlight)
-            }
-
             index += 1
         }
     }
 
-    func update() {}
+    func update() {
+        saveSlot1.state = .None
+        saveSlot2.state = .None
+        saveSlot3.state = .None
+
+        if let saveSlotSelected = hudInterfaceData.getSaveSlotSelected() {
+            switch saveSlotSelected {
+            case .Slot1:
+                saveSlot1.state = .Highlight
+            case .Slot2:
+                saveSlot2.state = .Highlight
+            case .Slot3:
+                saveSlot3.state = .Highlight
+            }
+        }
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -10,6 +10,19 @@ class ViewSaveSlot: SKSpriteNode {
         case Highlight
     }
 
+    private var mState = State.None
+    var state: State {
+        get {return mState}
+        set {
+            switch newValue {
+            case .None:
+                texture = TextureManager.shared.getTexture(hudImageName: "hudItemBorder")
+            case .Highlight:
+                texture = TextureManager.shared.getTexture(hudImageName: "hudItemBorderHighlight")
+            }
+        }
+    }
+
     init(saveSlot: SaveSlot) {
         self.saveSlot = saveSlot
         super.init(texture: nil, color: .brown, size: Config.viewSaveSlotSize)
@@ -20,19 +33,10 @@ class ViewSaveSlot: SKSpriteNode {
         saveName.zPosition = 1000
         self.addChild(saveName)
 
-        setState(State.None)
+        state = .None
     }
 
     func update() {}
-
-    func setState(_ state: State) {
-        switch state {
-        case .None:
-            texture = TextureManager.shared.getTexture(hudImageName: "hudItemBorder")
-        case .Highlight:
-            texture = TextureManager.shared.getTexture(hudImageName: "hudItemBorderHighlight")
-        }
-    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

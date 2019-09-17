@@ -12,11 +12,13 @@ class HudControllerSplash{
     let viewSplash = ViewSplash()
 
     // -- SelectSave Views
-    let viewSaveFiles = ViewSaveFiles()
+    let viewSaveFiles: ViewSaveFiles
 
     init(hudInterfaceDataSplash: HudInterfaceDataSplash, screenSize: CGSize) {
         self.hudInterfaceData = hudInterfaceDataSplash
         self.screenSize = screenSize
+
+        viewSaveFiles = ViewSaveFiles(hudInterfaceDataSplash: hudInterfaceDataSplash)
 
         self.node.addChild(viewSplash)
 
