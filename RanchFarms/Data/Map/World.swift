@@ -106,7 +106,6 @@ class World: SKNode {
 
         return WorldData(gameAreas: filteredGameAreaDatas,
                          player: self.player.getPersonData(),
-                         money: self.money,
                          daysElapsed: self.daysElapsed,
                          teleportStartDay: GameData.GetTeleportStartDay())
     }
