@@ -140,6 +140,10 @@ class SplashScene: BaseScene {
     }
 
     func processControllerInput() {
+        if inputController.keyBoardEnabled {
+            return
+        }
+
         // TODO: Figure out how to do this properly for multiple people/controllers
         for gc in GCController.controllers() {
             if gc.playerIndex == .indexUnset {
