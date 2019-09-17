@@ -43,6 +43,8 @@
 		6C4701C6233024C50013AD0F /* HudControllerSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701C5233024C50013AD0F /* HudControllerSplash.swift */; };
 		6C4701C9233026E00013AD0F /* ViewSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701C8233026E00013AD0F /* ViewSplash.swift */; };
 		6C4701CB23309EE50013AD0F /* CmdLoadGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701CA23309EE50013AD0F /* CmdLoadGame.swift */; };
+		6C4701CD2330C9580013AD0F /* SaveDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701CC2330C9580013AD0F /* SaveDataInfo.swift */; };
+		6C4701CF2330CA140013AD0F /* CmdGetSaveDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701CE2330CA140013AD0F /* CmdGetSaveDataInfo.swift */; };
 		6C60339B230B60B000746309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60339A230B60B000746309 /* AppDelegate.swift */; };
 		6C60339D230B60B000746309 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C60339C230B60B000746309 /* GameScene.sks */; };
 		6C6033A1230B60B000746309 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033A0230B60B000746309 /* GameScene.swift */; };
@@ -147,6 +149,8 @@
 		6C4701C5233024C50013AD0F /* HudControllerSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudControllerSplash.swift; sourceTree = "<group>"; };
 		6C4701C8233026E00013AD0F /* ViewSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSplash.swift; sourceTree = "<group>"; };
 		6C4701CA23309EE50013AD0F /* CmdLoadGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdLoadGame.swift; sourceTree = "<group>"; };
+		6C4701CC2330C9580013AD0F /* SaveDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveDataInfo.swift; sourceTree = "<group>"; };
+		6C4701CE2330CA140013AD0F /* CmdGetSaveDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdGetSaveDataInfo.swift; sourceTree = "<group>"; };
 		6C603397230B60B000746309 /* RanchFarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchFarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C60339A230B60B000746309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C60339C230B60B000746309 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 				6C1BFE8C232A230C00294BF3 /* CmdCreateNewGame.swift */,
 				6C4701CA23309EE50013AD0F /* CmdLoadGame.swift */,
 				6C1BFE96232B8B9F00294BF3 /* CmdSaveGame.swift */,
+				6C4701CE2330CA140013AD0F /* CmdGetSaveDataInfo.swift */,
 				6CD007B8231DFD66008B9825 /* FileUtils */,
 			);
 			path = Commands;
@@ -257,6 +262,7 @@
 				6C4701A7232C68400013AD0F /* TerrainData.swift */,
 				6C4701AE232DD9C20013AD0F /* TileData.swift */,
 				6C1BFE90232B887A00294BF3 /* WorldData.swift */,
+				6C4701CC2330C9580013AD0F /* SaveDataInfo.swift */,
 			);
 			path = SaveData;
 			sourceTree = "<group>";
@@ -668,6 +674,7 @@
 				6C2336F3231272B300261944 /* CmdEndDay.swift in Sources */,
 				6C4701A5232C630A0013AD0F /* Terrain.swift in Sources */,
 				6C9E3E00230CE31B007417E1 /* Config.swift in Sources */,
+				6C4701CF2330CA140013AD0F /* CmdGetSaveDataInfo.swift in Sources */,
 				6C9E3E1B230F7905007417E1 /* RenderController.swift in Sources */,
 				6CD007CB232087EA008B9825 /* StoreCatalog.swift in Sources */,
 				6C6033BB230B636B00746309 /* GameObject.swift in Sources */,
@@ -692,6 +699,7 @@
 				6C9D3609230BEC3C00168A28 /* ActionControllerGame.swift in Sources */,
 				6C1BFE8D232A230C00294BF3 /* CmdCreateNewGame.swift in Sources */,
 				6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */,
+				6C4701CD2330C9580013AD0F /* SaveDataInfo.swift in Sources */,
 				6C4701A1232C53130013AD0F /* BuildingData.swift in Sources */,
 				6C6D78DD2321F8BB00573B25 /* PortraitId.swift in Sources */,
 				6C4701A3232C62FD0013AD0F /* TerrainType.swift in Sources */,
