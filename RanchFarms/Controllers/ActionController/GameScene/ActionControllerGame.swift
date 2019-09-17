@@ -1,16 +1,16 @@
 import SpriteKit
 
-class ActionController {
+class ActionControllerGame {
     let world: World!
 
     let cameraController: CameraController!
     let inputController: InputController!
-    let hudController: HudController!
+    let hudController: HudControllerGame!
 
     var handlePause: (()->())!
     var handleUnpause: (()->())!
 
-    init(world: World, cameraController: CameraController, hudController: HudController, inputController: InputController) {
+    init(world: World, cameraController: CameraController, hudController: HudControllerGame, inputController: InputController) {
         self.world = world
 
         self.cameraController = cameraController

@@ -8,9 +8,9 @@ class GameScene: BaseScene {
     let cameraController = CameraController()
     let inputController = InputController()
 
-    var actionController: ActionController!
+    var actionController: ActionControllerGame!
     var renderController: RenderController!
-    var hudController: HudController!
+    var hudController: HudControllerGame!
 
     private var mLastUpdate = Date.init()
     private var mPaused = false
@@ -50,8 +50,8 @@ class GameScene: BaseScene {
 
     private func linkControllers() {
         renderController = RenderController(world: world)
-        hudController = HudController(camera: cameraController.camera, world: world, screenSize: self.size)
-        actionController = ActionController(world: world, cameraController: cameraController, hudController: hudController, inputController: inputController)
+        hudController = HudControllerGame(camera: cameraController.camera, world: world, screenSize: self.size)
+        actionController = ActionControllerGame(world: world, cameraController: cameraController, hudController: hudController, inputController: inputController)
 
         actionController.handlePause = pauseGame
         actionController.handleUnpause = unpauseGame

@@ -1,6 +1,6 @@
 import SpriteKit
 
-class HudController{
+class HudControllerGame{
     let screenSize: CGSize
 
     let world: World!

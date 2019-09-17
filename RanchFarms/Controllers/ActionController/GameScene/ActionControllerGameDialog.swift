@@ -1,6 +1,6 @@
 import SpriteKit
 
-extension ActionController {
+extension ActionControllerGame {
     func actionPrimaryGameStateDialog() { }
 
     func actionCancelGameStateDialog() {

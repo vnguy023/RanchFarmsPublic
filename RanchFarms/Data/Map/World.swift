@@ -8,6 +8,7 @@ class World: SKNode {
     var player: Person!
     var npcs = [GameObject]()
 
+    var money = Int(0)
     var daysElapsed = Int(0)
 
     var currentLocation: Location {
@@ -88,6 +89,7 @@ class World: SKNode {
         }
 
         self.player = Person(data: worldData.player)
+        self.money = worldData.money
         self.daysElapsed = worldData.daysElapsed
 
         self.teleportStartDay = worldData.teleportStartDay
@@ -100,6 +102,7 @@ class World: SKNode {
 
         return WorldData(gameAreas: filteredGameAreaDatas,
                          player: self.player.getPersonData(),
+                         money: self.money,
                          daysElapsed: self.daysElapsed,
                          teleportStartDay: GameData.GetTeleportStartDay())
     }

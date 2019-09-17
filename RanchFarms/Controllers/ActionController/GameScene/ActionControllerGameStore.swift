@@ -1,6 +1,6 @@
 import SpriteKit
 
-extension ActionController {
+extension ActionControllerGame {
     func actionPrimaryGameStateStore() {
         actionGameStateStoreBuySellItems(quantity: 1, stack: false)
     }

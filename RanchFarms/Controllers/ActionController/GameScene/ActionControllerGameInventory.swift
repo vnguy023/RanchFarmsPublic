@@ -1,6 +1,6 @@
 import SpriteKit
 
-extension ActionController {
+extension ActionControllerGame {
     func actionPrimaryGameStateInventory() {
         if world.hudInterfaceData.selectedItemInventoryIndex == nil {
             if world.player.inventory.items[world.hudInterfaceData.highlightedItemInventoryIndex] != nil {

@@ -1,6 +1,6 @@
 import SpriteKit
 
-extension ActionController {
+extension ActionControllerGame {
     func actionMoveGameStateGame(moveVector: CGVector) {
         if world.player.state == .Idle || world.player.state == .Walking {
             if !moveVector.isZeroVector {

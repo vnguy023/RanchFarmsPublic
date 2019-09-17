@@ -5,6 +5,7 @@ class CmdCreateNewGame: Command {
     private var gameAreas = [Location: GameAreaData]()
     private var player: PersonData!
 
+    private var money = 0
     private var daysElapsed = 0
 
     var worldData: WorldData!
@@ -19,11 +20,13 @@ class CmdCreateNewGame: Command {
 
         worldData = WorldData(gameAreas: gameAreas,
                               player: player,
+                              money: money,
                               daysElapsed: daysElapsed,
                               teleportStartDay: TeleportId.House_Bed)
     }
 
     private func createWorldSettings() {
+        money = 200
         daysElapsed = 0
     }
 
