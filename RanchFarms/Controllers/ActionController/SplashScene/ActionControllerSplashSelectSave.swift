@@ -18,6 +18,13 @@ extension ActionControllerSplashScene {
                 print ("[ActionController] [SplashScene] [Loading SaveFile] [Error=Loading File] [Result\(cmdLoadGame.result)]")
             }
         }
+
+        if let trashSaveSlot = hudInterfaceData.getTrashSlotSelected() {
+            deleteGame(saveSlot: trashSaveSlot)
+
+            hudInterfaceData.reloadHud = true
+            print ("[ActionController] [SplashScene] [Deleted SaveFile] [saveSlot=\(trashSaveSlot)]]")
+        }
     }
 
     func actionUseSelectSave() {
@@ -50,5 +57,10 @@ extension ActionControllerSplashScene {
 
         let cmdSaveGame = CmdSaveGame(worldData: cmdCreateNewGame.worldData, saveSlot: saveSlot)
         cmdSaveGame.execute()
+    }
+
+    private func deleteGame(saveSlot: SaveSlot) {
+        let cmd = CmdDeleteFile(directory: Config.SaveDirectory, fileName: saveSlot.getFileName(), fileExtension: Config.SaveFileExtension)
+        cmd.execute()
     }
 }

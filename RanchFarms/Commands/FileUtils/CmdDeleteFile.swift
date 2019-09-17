@@ -31,11 +31,11 @@ class CmdDeleteFile: Command {
 
             if fileManager.fileExists(atPath: saveFileUrl.path) {
                 try fileManager.removeItem(atPath: saveFileUrl.path)
-                print("[CmdDelete] [Desc=Successfully Deleted File] [path=\(saveFileUrl.absoluteString)]")
+                //print("[CmdDelete] [Desc=Successfully Deleted File] [path=\(saveFileUrl.absoluteString)]")
             }
         } catch {
-            print("[CmdDelete] [Desc=Failed to delete file] [BaseDirectory=\(directory)] [FileName=\(fileName).\(fileExtension)]")
-            print(error)
+            //print("[CmdDelete] [Desc=Failed to delete file] [BaseDirectory=\(directory)] [FileName=\(fileName).\(fileExtension)]")
+            //print(error)
         }
     }
 }

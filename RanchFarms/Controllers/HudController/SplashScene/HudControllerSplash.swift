@@ -28,6 +28,12 @@ class HudControllerSplash{
     }
 
     func update() {
+        if hudInterfaceData.reloadHud {
+            viewSaveFiles.reload()
+        }
+
+        hudInterfaceData.reloadHud = false
+
         if hudInterfaceData.state == .Splash {
             viewSplash.isHidden = false
             viewSplash.update()

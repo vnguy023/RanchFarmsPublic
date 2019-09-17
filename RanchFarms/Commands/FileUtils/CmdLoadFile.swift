@@ -32,11 +32,11 @@ class CmdLoadFile: Command {
 
             text = try String(contentsOfFile: saveFileUrl.path, encoding: .utf8)
 
-            print("[CmdLoad] [Desc=Sucessfully loaded file] [Path=\(saveFileUrl.absoluteString)]")
+            //print("[CmdLoad] [Desc=Sucessfully loaded file] [Path=\(saveFileUrl.absoluteString)]")
             success = true
         } catch {
-            print("[CmdLoad] [Desc=Failed to Load File] [BaseDirectory=\(directory)] [FileName=\(fileName).\(fileExtension)]")
-            print(error)
+            //print("[CmdLoad] [Desc=Failed to Load File] [BaseDirectory=\(directory)] [FileName=\(fileName).\(fileExtension)]")
+            //print(error)
         }
     }
 }

@@ -45,6 +45,10 @@ class ViewSaveFiles: SKNode {
         saveSlot2.state = .None
         saveSlot3.state = .None
 
+        trashSlot1.state = .None
+        trashSlot2.state = .None
+        trashSlot3.state = .None
+
         if let saveSlotSelected = hudInterfaceData.getSaveSlotSelected() {
             switch saveSlotSelected {
             case .Slot1:
@@ -55,6 +59,23 @@ class ViewSaveFiles: SKNode {
                 saveSlot3.state = .Highlight
             }
         }
+
+        if let trashSlotSelected = hudInterfaceData.getTrashSlotSelected() {
+            switch trashSlotSelected {
+            case .Slot1:
+                trashSlot1.state = .Highlight
+            case .Slot2:
+                trashSlot2.state = .Highlight
+            case .Slot3:
+                trashSlot3.state = .Highlight
+            }
+        }
+    }
+
+    func reload() {
+        saveSlot1.reload()
+        saveSlot2.reload()
+        saveSlot3.reload()
     }
 
     required init?(coder aDecoder: NSCoder) {

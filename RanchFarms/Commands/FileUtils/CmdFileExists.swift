@@ -33,8 +33,8 @@ class CmdFileExists: Command {
                 fileExists = true
             }
         } catch {
-            print("[CmdFileExists] [Desc=Failed check if file exists] [BaseDirectory=\(directory)] [FileName=\(fileName).\(fileExtension)]")
-            print(error)
+            //print("[CmdFileExists] [Desc=Failed check if file exists] [BaseDirectory=\(directory)] [FileName=\(fileName).\(fileExtension)]")
+            //print(error)
         }
     }
 }
