@@ -1,15 +1,15 @@
 import Foundation
 
 class CmdSaveGame: Command {
-    let world: World
+    let worldData: WorldData
+    let saveSlot: SaveSlot
 
-    init(world: World) {
-        self.world = world
+    init(worldData: WorldData, saveSlot: SaveSlot) {
+        self.worldData = worldData
+        self.saveSlot = saveSlot
     }
 
     func execute() {
-        let worldData = world.getWorldDataSave()
-
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
 
@@ -23,7 +23,7 @@ class CmdSaveGame: Command {
     }
 
     private func save(text: String) {
-        let cmdSaveFile = CmdSaveFile(directory: Config.SaveDirectory, fileName: world.saveSlot.getFileName(), fileExtension: Config.SaveFileExtension, text: text)
+        let cmdSaveFile = CmdSaveFile(directory: Config.SaveDirectory, fileName: saveSlot.getFileName(), fileExtension: Config.SaveFileExtension, text: text)
         cmdSaveFile.execute()
     }
 }

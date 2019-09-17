@@ -22,24 +22,7 @@ class GameScene: BaseScene {
         loadGame()
 
         linkControllers()
-
         linkNodes()
-
-        // Temporary to test stuff out
-        let cmdLoadFile = CmdLoadFile(directory: Config.SaveDirectory,
-                                      fileName: saveSlot.getFileName(),
-                                      fileExtension: Config.SaveFileExtension)
-        cmdLoadFile.execute()
-        if cmdLoadFile.success {
-            print ("[LoadFileResult] [SUCCESS] \(cmdLoadFile.text)")
-        } else {
-            print ("[LoadFileResult] [Failure]")
-        }
-
-        let cmdDeleteFile = CmdDeleteFile(directory: Config.SaveDirectory,
-                                          fileName: saveSlot.getFileName(),
-                                          fileExtension: Config.SaveFileExtension)
-        cmdDeleteFile.execute()
     }
 
     private func loadGame() {

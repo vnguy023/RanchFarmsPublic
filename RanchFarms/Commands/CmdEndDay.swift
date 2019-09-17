@@ -54,7 +54,7 @@ class CmdEndDay: Command {
     }
 
     private func saveGame() {
-        let cmdSaveGame = CmdSaveGame(world: world)
+        let cmdSaveGame = CmdSaveGame(worldData: world.getWorldDataSave(), saveSlot: world.saveSlot)
         cmdSaveGame.execute()
     }
 }

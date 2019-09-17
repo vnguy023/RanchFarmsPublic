@@ -3,8 +3,20 @@ import SpriteKit
 extension ActionControllerSplashScene {
     func actionPrimarySelectSave() {
         if let saveSlot = hudInterfaceData.getSaveSlotSelected() {
-            createSave(saveSlot: saveSlot)
-            scene.vc.loadGameScene(saveSlot: saveSlot)
+            let cmdLoadGame = CmdLoadGame(saveSlot: saveSlot)
+            cmdLoadGame.execute()
+
+            switch cmdLoadGame.result {
+            case .Success:
+                scene.vc.loadGameScene(saveSlot: saveSlot)
+            case .NoSaveFile:
+                createNewGame(saveSlot: saveSlot)
+
+                // temporary until we change scene to creating
+                scene.vc.loadGameScene(saveSlot: saveSlot)
+            default:
+                print ("[ActionController] [SplashScene] [Loading SaveFile] [Error=Loading File] [Result\(cmdLoadGame.result)]")
+            }
         }
     }
 
@@ -32,11 +44,11 @@ extension ActionControllerSplashScene {
         hudInterfaceData.changeSelectSaveCursor(CGVector(dx: 1, dy: 0))
     }
 
-    private func createSave(saveSlot: SaveSlot) {
-        let cmdSaveFile = CmdSaveFile(directory: Config.SaveDirectory,
-                                      fileName: saveSlot.getFileName(),
-                                      fileExtension: Config.SaveFileExtension,
-                                      text: "Hello World, Ranch Farms1243")
-        cmdSaveFile.execute()
+    private func createNewGame(saveSlot: SaveSlot) {
+        let cmdCreateNewGame = CmdCreateNewGame()
+        cmdCreateNewGame.execute()
+
+        let cmdSaveGame = CmdSaveGame(worldData: cmdCreateNewGame.worldData, saveSlot: saveSlot)
+        cmdSaveGame.execute()
     }
 }

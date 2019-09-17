@@ -40,11 +40,15 @@ class World: SKNode {
         self.saveSlot = saveSlot
         super.init()
 
-        // how to differentiate from saving/loading -- we may not care
-        let cmdCreateNewGame = CmdCreateNewGame()
-        cmdCreateNewGame.execute()
+        let cmdLoadGame = CmdLoadGame(saveSlot: saveSlot)
+        cmdLoadGame.execute()
 
-        loadWorldData(worldData: cmdCreateNewGame.worldData)
+        switch cmdLoadGame.result {
+        case .Success:
+            loadWorldData(worldData: cmdLoadGame.worldData)
+        default:
+            print ("[World] [Loading SaveFile] [Error=Loading File] [Result\(cmdLoadGame.result)]")
+        }
     }
 
     func loadWorldData(worldData: WorldData) {

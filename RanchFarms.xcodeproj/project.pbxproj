@@ -42,6 +42,7 @@
 		6C4701C22330213C0013AD0F /* ActionControllerSplashSelectSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701C12330213C0013AD0F /* ActionControllerSplashSelectSave.swift */; };
 		6C4701C6233024C50013AD0F /* HudControllerSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701C5233024C50013AD0F /* HudControllerSplash.swift */; };
 		6C4701C9233026E00013AD0F /* ViewSplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701C8233026E00013AD0F /* ViewSplash.swift */; };
+		6C4701CB23309EE50013AD0F /* CmdLoadGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701CA23309EE50013AD0F /* CmdLoadGame.swift */; };
 		6C60339B230B60B000746309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60339A230B60B000746309 /* AppDelegate.swift */; };
 		6C60339D230B60B000746309 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C60339C230B60B000746309 /* GameScene.sks */; };
 		6C6033A1230B60B000746309 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033A0230B60B000746309 /* GameScene.swift */; };
@@ -145,6 +146,7 @@
 		6C4701C12330213C0013AD0F /* ActionControllerSplashSelectSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerSplashSelectSave.swift; sourceTree = "<group>"; };
 		6C4701C5233024C50013AD0F /* HudControllerSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudControllerSplash.swift; sourceTree = "<group>"; };
 		6C4701C8233026E00013AD0F /* ViewSplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSplash.swift; sourceTree = "<group>"; };
+		6C4701CA23309EE50013AD0F /* CmdLoadGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdLoadGame.swift; sourceTree = "<group>"; };
 		6C603397230B60B000746309 /* RanchFarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchFarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C60339A230B60B000746309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C60339C230B60B000746309 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				6C2336F2231272B300261944 /* CmdEndDay.swift */,
 				6C6D78E22322686500573B25 /* CmdPurchaseItem.swift */,
 				6C6D78E423226E4E00573B25 /* CmdSellItem.swift */,
+				6C4701CA23309EE50013AD0F /* CmdLoadGame.swift */,
 				6C1BFE96232B8B9F00294BF3 /* CmdSaveGame.swift */,
 				6CD007B8231DFD66008B9825 /* FileUtils */,
 			);
@@ -685,6 +688,7 @@
 				6C6033CF230B66A600746309 /* Location.swift in Sources */,
 				6C97F8D22317808A00940C61 /* ViewInventory.swift in Sources */,
 				6C6033C6230B64B200746309 /* ItemId.swift in Sources */,
+				6C4701CB23309EE50013AD0F /* CmdLoadGame.swift in Sources */,
 				6C9D3609230BEC3C00168A28 /* ActionControllerGame.swift in Sources */,
 				6C1BFE8D232A230C00294BF3 /* CmdCreateNewGame.swift in Sources */,
 				6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */,
