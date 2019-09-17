@@ -7,6 +7,10 @@ class ViewSaveFiles: SKNode {
     var saveSlot2 = ViewSaveSlot(saveSlot: .Slot2)
     var saveSlot3 = ViewSaveSlot(saveSlot: .Slot3)
 
+    var trashSlot1 = ViewSaveDelete()
+    var trashSlot2 = ViewSaveDelete()
+    var trashSlot3 = ViewSaveDelete()
+
     init(hudInterfaceDataSplash: HudInterfaceDataSplash) {
         self.hudInterfaceData = hudInterfaceDataSplash
 
@@ -17,16 +21,22 @@ class ViewSaveFiles: SKNode {
         saveSlots.append(saveSlot2)
         saveSlots.append(saveSlot3)
 
-        var index = CGFloat(0)
+        var trashSlots = [ViewSaveDelete]()
+        trashSlots.append(trashSlot1)
+        trashSlots.append(trashSlot2)
+        trashSlots.append(trashSlot3)
+
         let saveSlotStartPosition = CGPoint(x: 0, y: CGFloat(saveSlots.count) * Config.viewSaveSlotSize.height / 2)
-        for saveSlot in saveSlots {
-            saveSlot.position.x = saveSlotStartPosition.x
-            saveSlot.position.y = saveSlotStartPosition.y - index * Config.viewSaveSlotSize.height
+        for index in 0...2 {
+            saveSlots[index].position.x = saveSlotStartPosition.x
+            saveSlots[index].position.y = saveSlotStartPosition.y - CGFloat(index) * Config.viewSaveSlotSize.height
+            saveSlots[index].zPosition = 500
+            self.addChild(saveSlots[index])
 
-            saveSlot.zPosition = 500
-            self.addChild(saveSlot)
-
-            index += 1
+            trashSlots[index].position.x = saveSlotStartPosition.x + Config.viewSaveSlotSize.width/2 + trashSlots[index].size.width/2
+            trashSlots[index].position.y = saveSlots[index].position.y
+            trashSlots[index].zPosition = 500
+            self.addChild(trashSlots[index])
         }
     }
 
