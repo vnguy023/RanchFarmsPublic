@@ -13,9 +13,9 @@ class HudInterfaceDataGame {
 
     var state = State.Unknown
 
-    var hotbarCursor = Int(0)
+    var hotbarCursor = CGPoint()
 
-    var storeCursor = CGPoint() // (0,0) is bottom left most option
+    var storeCursor = CGPoint(x: 0, y: 2) // (0,0) is bottom left most option
 
     var inventoryCursor = CGPoint(x: 0, y: 2) // (0,0) is bottom left most option
     var selectedInventoryCursor: CGPoint? = nil
@@ -26,14 +26,16 @@ class HudInterfaceDataGame {
         store = Store(storeFrontId: .VendingMachine, storeCatalogId: .VendingMachine)
     }
 
-    func changeHotBarCursorPosition(_ value: Int) {
+    func changeHotBarCursorPosition(_ value: CGVector) {
         hotbarCursor = hotbarCursor + value
-        hotbarCursor = max(0, hotbarCursor)
-        hotbarCursor = min(hotbarCursor, Int(Config.viewInventoryColumns) - 1)
+        hotbarCursor.x = max(0, hotbarCursor.x)
+        hotbarCursor.x = min(hotbarCursor.x, Config.viewInventoryColumns - 1)
+
+        hotbarCursor.y = 0
     }
 
     func getHotBarItemIndex() -> Int? {
-        return hotbarCursor
+        return Int(hotbarCursor.x)
     }
 
     func changeInventoryCursorPosition(_ value: CGVector) {

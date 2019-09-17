@@ -51,10 +51,10 @@ extension ActionControllerGame {
     }
 
     func actionSwitchLeftGameStateGame() {
-        world.hudInterfaceData.changeHotBarCursorPosition(-1)
+        world.hudInterfaceData.changeHotBarCursorPosition(CGVector(dx: -1, dy: 0))
     }
 
     func actionSwitchRightGameStateGame() {
-        world.hudInterfaceData.changeHotBarCursorPosition(1)
+        world.hudInterfaceData.changeHotBarCursorPosition(CGVector(dx: 1, dy: 0))
     }
 }
