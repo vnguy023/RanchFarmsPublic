@@ -12,13 +12,14 @@ extension ActionControllerGame {
     func actionPrimaryGameStateGame() {
         let currentGameArea = world.getCurrentGameArea()
 
-        let buildings = currentGameArea.buildings.filter({$0.boundaryContains(point: world.player.getPositionInFront())})
+        let buildingsInFront = currentGameArea.buildings.filter({$0.boundaryContains(point: world.player.getPositionInFront())})
 
-        if let buildingInFront = buildings.first {
+        for buildingInFront in buildingsInFront {
             switch buildingInFront.type {
             case .Teleport:
                 world.teleport(to: buildingInFront.buildingInfo.teleportId!)
                 cameraController.fadeScreen()
+                return
             case .Bed:
                 let cmdEndDay  = CmdEndDay(world: world)
                 cmdEndDay.execute()
@@ -26,15 +27,19 @@ extension ActionControllerGame {
                 let cmdStartDay = CmdStartDay(world: world)
                 cmdStartDay.execute()
                 cameraController.fadeScreen()
+                return
             case .Crop:
                 if buildingInFront.canHarvest {
                     let cmdHarvest = CmdActionHarvest(world: world, crop: buildingInFront)
                     cmdHarvest.execute()
                 }
+                return
             case .Sign:
                 changeState(to: .Dialog)
+                return
             case .VendingMachine:
                 changeState(to: .Store)
+                return
             default:
                 print ("[Desc=Primary Action not handled for this building] [BuildingType=\(buildingInFront.type)]")
             }

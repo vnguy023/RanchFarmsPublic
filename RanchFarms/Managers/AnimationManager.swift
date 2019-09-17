@@ -80,6 +80,12 @@ class AnimationManager {
                                                             duration: 1,
                                                             imageSize: CGSize(width: stdImgSize.width*2, height: stdImgSize.height*2),
                                                             anchorPoint: CGPoint(x:1.0/4.0, y: 1.0/4.0)))
+        buildingAnimations[.FarmHouse] = Animation()
+        buildingAnimations[.FarmHouse]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .FarmHouse),
+                                                                duration: 1,
+                                                                imageSize: CGSize(width: stdImgSize.width*5, height:    stdImgSize.height*5),
+                                                                anchorPoint: CGPoint(x:1.0/10.0, y: 1.0/10.0)))
+
 
         buildingAnimations[.PlayerHouseSign] = Animation()
         buildingAnimations[.PlayerHouseSign]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .PlayerHouseSign),

@@ -51,6 +51,12 @@ class BuildingInfoManager {
                                                      objSize: CGSize(width: Config.tileSize.width * 2,
                                                                      height: Config.tileSize.height * 2),
                                                      name: "TV")
+        buildingIdToBuildingInfo[.FarmHouse] = BuildingInfo(buildingId: .FarmHouse,
+                                                            buildingType: .Unknown,
+                                                            objSize: CGSize(width: Config.tileSize.width * 5,
+                                                                         height: Config.tileSize.height * 5),
+                                                            name: "Farm House")
+
 
         // Crops
         buildingIdToBuildingInfo[.Garlic] = BuildingInfo(buildingId: .Garlic,

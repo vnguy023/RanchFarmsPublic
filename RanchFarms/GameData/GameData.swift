@@ -48,6 +48,11 @@ class GameData {
         var tiles = [TileData]()
 
         // Buildings
+        let farmHouse = BuildingData(playerIndex: .Game,
+                                     buildingId: .FarmHouse,
+                                     mapPoint: MapPoint(x: 1, y: 6, location: location))
+        buildings.append(farmHouse)
+
         let houseDoor = BuildingData(playerIndex: .Game,
                                      buildingId: .FarmToHouseDoor,
                                      mapPoint: MapPoint(x: 3, y: 6, location: location))
