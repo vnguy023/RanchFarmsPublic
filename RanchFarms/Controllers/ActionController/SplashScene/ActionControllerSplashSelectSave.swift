@@ -2,11 +2,10 @@ import SpriteKit
 
 extension ActionControllerSplashScene {
     func actionPrimarySelectSave() {
-        let saveSlot = SaveSlot.Slot1
-
-        createSave(saveSlot: saveSlot)
-
-        scene.vc.loadGameScene(saveSlot: .Slot1)
+        if let saveSlot = hudInterfaceData.getSaveSlotSelected() {
+            createSave(saveSlot: saveSlot)
+            scene.vc.loadGameScene(saveSlot: saveSlot)
+        }
     }
 
     func actionUseSelectSave() {
@@ -17,13 +16,21 @@ extension ActionControllerSplashScene {
         changeState(to: .Splash)
     }
 
-    func actionDPadUpSelectSave() { }
+    func actionDPadUpSelectSave() {
+        hudInterfaceData.changeSelectSaveCursor(CGVector(dx: 0, dy: 1))
+    }
 
-    func actionDPadDownSelectSave() { }
+    func actionDPadDownSelectSave() {
+        hudInterfaceData.changeSelectSaveCursor(CGVector(dx: 0, dy: -1))
+    }
 
-    func actionDPadLeftSelectSave() { }
+    func actionDPadLeftSelectSave() {
+        hudInterfaceData.changeSelectSaveCursor(CGVector(dx: -1, dy: 0))
+    }
 
-    func actionDPadRightSelectSave() { }
+    func actionDPadRightSelectSave() {
+        hudInterfaceData.changeSelectSaveCursor(CGVector(dx: 1, dy: 0))
+    }
 
     private func createSave(saveSlot: SaveSlot) {
         let cmdSaveFile = CmdSaveFile(directory: Config.SaveDirectory,
