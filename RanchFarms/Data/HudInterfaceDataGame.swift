@@ -15,10 +15,10 @@ class HudInterfaceDataGame {
 
     var hotbarCursor = Int(0)
 
-    var selectedItemInventoryIndex = Int?(nil)
-    var highlightedItemInventoryIndex = 0
-
     var storeCursor = CGPoint() // (0,0) is bottom left most option
+
+    var inventoryCursor = CGPoint(x: 0, y: 2) // (0,0) is bottom left most option
+    var selectedInventoryCursor: CGPoint? = nil
 
     var store: Store?
     
@@ -36,36 +36,13 @@ class HudInterfaceDataGame {
         return hotbarCursor
     }
 
-    func changeInventoryIndexUp() {
-        if highlightedItemInventoryIndex >= Int(Config.viewInventoryColumns) {
-            highlightedItemInventoryIndex -= Int(Config.viewInventoryColumns)
-        }
-    }
+    func changeInventoryCursorPosition(_ value: CGVector) {
+        inventoryCursor = inventoryCursor + value
+        inventoryCursor.x = max(0, inventoryCursor.x)
+        inventoryCursor.x = min(inventoryCursor.x, CGFloat(Config.viewInventoryColumns - 1))
 
-    func changeInventoryIndexDown() {
-        if highlightedItemInventoryIndex < Int(Config.viewInventoryColumns * (Config.viewInventoryRows - 1)) {
-            highlightedItemInventoryIndex += Int(Config.viewInventoryColumns)
-        }
-    }
-
-    func changeInventoryIndexLeft() {
-        if (highlightedItemInventoryIndex % Int(Config.viewInventoryColumns)) > 0 {
-            highlightedItemInventoryIndex -= 1
-        }
-    }
-
-    func changeInventoryIndexRight() {
-        if (highlightedItemInventoryIndex % Int(Config.viewInventoryColumns)) < Int(Config.viewInventoryColumns) - 1 {
-            highlightedItemInventoryIndex += 1
-        }
-    }
-
-    func getInventorySelectedItemIndex() -> Int? {
-        return selectedItemInventoryIndex
-    }
-
-    func getInventoryHighlightedItemIndex() -> Int? {
-        return highlightedItemInventoryIndex
+        inventoryCursor.y = max(0, inventoryCursor.y)
+        inventoryCursor.y = min(inventoryCursor.y, CGFloat(Config.viewInventoryRows - 1))
     }
 
     func changeStoreCursorPosition(_ value: CGVector) {
@@ -75,6 +52,34 @@ class HudInterfaceDataGame {
 
         storeCursor.y = max(0, storeCursor.y)
         storeCursor.y = min(storeCursor.y, CGFloat(Config.viewStoreItemRows) * 2 - 1)
+    }
+
+    func getInventoryHighlightedItemIndex() -> Int? {
+        if Int(inventoryCursor.y) == 0 && inventoryCursor.x < Config.viewInventoryColumns {
+            return Int(inventoryCursor.x) + Int(Config.viewInventoryColumns * 2)
+        } else if Int(inventoryCursor.y) == 1 && inventoryCursor.x < Config.viewInventoryColumns {
+            return Int(inventoryCursor.x) + Int(Config.viewInventoryColumns * 1)
+        } else if Int(inventoryCursor.y) == 2 && inventoryCursor.x < Config.viewInventoryColumns {
+            return Int(inventoryCursor.x) + Int(Config.viewInventoryColumns * 0)
+        }
+
+        return nil
+    }
+
+    func getInventorySelectedItemIndex() -> Int? {
+        if selectedInventoryCursor == nil {
+            return nil
+        }
+
+        if Int(selectedInventoryCursor!.y) == 0 && selectedInventoryCursor!.x < Config.viewInventoryColumns {
+            return Int(selectedInventoryCursor!.x) + Int(Config.viewInventoryColumns * 2)
+        } else if Int(selectedInventoryCursor!.y) == 1 && selectedInventoryCursor!.x < Config.viewInventoryColumns {
+            return Int(selectedInventoryCursor!.x) + Int(Config.viewInventoryColumns * 1)
+        } else if Int(selectedInventoryCursor!.y) == 2 && selectedInventoryCursor!.x < Config.viewInventoryColumns {
+            return Int(selectedInventoryCursor!.x) + Int(Config.viewInventoryColumns * 0)
+        }
+
+        return nil
     }
 
     func getStorePlayerItemIndex() -> Int? {

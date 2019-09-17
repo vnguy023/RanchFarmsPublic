@@ -43,11 +43,13 @@ class ViewInventory: SKSpriteNode {
                 itemButton.position.y = self.size.height / 2 - (CGFloat(y) * Config.itemImageSize.height) - Config.itemImageSize.height/2
                 self.addChild(itemButton)
 
-                if index == hudInterfaceData.selectedItemInventoryIndex {
+                if let selectedItemIndex = hudInterfaceData.getInventorySelectedItemIndex()
+                    , index == selectedItemIndex {
                     itemButton.state = .Select
                 }
 
-                if index == hudInterfaceData.highlightedItemInventoryIndex {
+                if let highlightedItemIndex = hudInterfaceData.getInventoryHighlightedItemIndex()
+                    , index == highlightedItemIndex {
                     itemButton.state = .Highlight
                 }
 
