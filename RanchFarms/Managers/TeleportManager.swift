@@ -11,7 +11,7 @@ class TeleportManager {
 
     private func loadTeleports() {
         teleportMap[TeleportId.House_Bed] = Teleport(mapPoint: MapPoint(x: 7, y: 1, location: .House), directionToFace: .SOUTH)
-        teleportMap[TeleportId.House_Farm] = Teleport(mapPoint: MapPoint(x: 3, y: 5, location: .Farm), directionToFace: .SOUTH)
+        teleportMap[TeleportId.House_Farm] = Teleport(mapPoint: MapPoint(x: 3, y: 6, location: .Farm), directionToFace: .SOUTH)
 
         teleportMap[TeleportId.Farm_House] = Teleport(mapPoint: MapPoint(x: 1, y: 0, location: .House), directionToFace: .NORTH)
         teleportMap[TeleportId.Farm_Town] = Teleport(mapPoint: MapPoint(x: 0, y: 0, location: .Town), directionToFace: .EAST)

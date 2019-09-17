@@ -50,12 +50,12 @@ class GameData {
         // Buildings
         let farmHouse = BuildingData(playerIndex: .Game,
                                      buildingId: .FarmHouse,
-                                     mapPoint: MapPoint(x: 1, y: 6, location: location))
+                                     mapPoint: MapPoint(x: 1, y: 7, location: location))
         buildings.append(farmHouse)
 
         let houseDoor = BuildingData(playerIndex: .Game,
                                      buildingId: .FarmToHouseDoor,
-                                     mapPoint: MapPoint(x: 3, y: 6, location: location))
+                                     mapPoint: MapPoint(x: 3, y: 7, location: location))
         buildings.append(houseDoor)
 
         let townDoor = BuildingData(playerIndex: .Game,
@@ -80,7 +80,7 @@ class GameData {
 
         // Tiles/Terrains
         for x in -5...5 {
-            for y in -5...5 {
+            for y in -5...6 {
                 var tileType = TileType.Dirt
                 if x%2 == 0 {
                     tileType = .Grass
