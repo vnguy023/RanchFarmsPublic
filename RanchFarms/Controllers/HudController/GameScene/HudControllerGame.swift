@@ -66,6 +66,8 @@ class HudControllerGame{
         viewStore.position = CGPoint(x: 0, y: 0)
         viewStore.zPosition = 1000
         camera.addChild(viewStore)
+
+        update()
     }
 
     func update() {
@@ -94,7 +96,5 @@ class HudControllerGame{
         } else {
             viewStore.isHidden = true
         }
-
-
     }
 }

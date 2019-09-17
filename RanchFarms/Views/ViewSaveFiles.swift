@@ -19,6 +19,10 @@ class ViewSaveFiles: SKNode {
             saveSlot.zPosition = 500
             self.addChild(saveSlot)
 
+            if index == 0 {
+                saveSlot.setState(.Highlight)
+            }
+
             index += 1
         }
     }

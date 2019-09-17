@@ -21,6 +21,8 @@ class HudControllerSplash{
         self.node.addChild(viewSplash)
 
         self.node.addChild(viewSaveFiles)
+
+        update()
     }
 
     func update() {
