@@ -28,12 +28,12 @@ class Terrain: GameObject {
         }
     }
 
+    override var zOffset: CGFloat { return 1000 }
+
     init(player: PlayerIndex, terrainType: TerrainType, mapPoint: MapPoint) {
         super.init(player: player, mapPoint: mapPoint)
 
         self.type = terrainType
-
-        self.zPosition = 50
     }
 
     convenience init(data: TerrainData) {

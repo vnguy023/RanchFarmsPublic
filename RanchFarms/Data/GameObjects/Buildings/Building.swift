@@ -23,6 +23,8 @@ class Building: GameObject {
         return false
     }
 
+    override var zOffset: CGFloat { return 2000 }
+
     init(player: PlayerIndex, buildingId: BuildingId, mapPoint: MapPoint) {
         self.id = buildingId
         self.buildingInfo = BuildingInfoManager.shared.getBuildingInfo(buildingId: buildingId)
@@ -35,7 +37,6 @@ class Building: GameObject {
                                            y: 0.5 / self.buildingInfo.objSize.height * Config.tileSize.height)
 
         updateTexture()
-        self.zPosition = 100
     }
 
     convenience init(data: BuildingData) {

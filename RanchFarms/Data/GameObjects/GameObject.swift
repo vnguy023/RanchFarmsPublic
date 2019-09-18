@@ -40,6 +40,8 @@ class GameObject: SKNode {
     var boundarySize = Config.tileSize
     let boundaryTrim = CGFloat(2) // this is to account for imperfect movement
 
+    var zOffset: CGFloat { return 0 }
+
     init (player: PlayerIndex, mapPoint: MapPoint) {
         self.player = player
         mMapPoint = MapPoint(x: 0, y: 0, location: .House)

@@ -14,11 +14,11 @@ class Person: GameObject {
     var previousLocation = Location.House
     var previousPosition = CGPoint()
 
+    override var zOffset: CGFloat { return 2000 }
+
     init(personId: PersonId, mapPoint: MapPoint) {
         self.id = personId
         super.init(player: .PlayerOne, mapPoint: mapPoint)
-
-        self.zPosition = 500
     }
 
     convenience init(data: PersonData) {
