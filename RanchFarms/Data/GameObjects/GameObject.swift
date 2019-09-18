@@ -64,6 +64,17 @@ class GameObject: SKNode {
         return false
     }
 
+    func getBoundary(newPosition: CGPoint) -> CGRect {
+        return CGRect(x: newPosition.x - boundarySize.width * boundaryAnchorPoint.x,
+                      y: newPosition.y - boundarySize.height * boundaryAnchorPoint.y,
+                      width: boundarySize.width,
+                      height: boundarySize.height)
+    }
+
+    func getBoundary() -> CGRect {
+        return getBoundary(newPosition: position)
+    }
+
     func getPositionInFront() -> CGPoint {
         return self.position + faceDirection.scale(Config.tileSize.width)
     }

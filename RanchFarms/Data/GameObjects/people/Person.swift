@@ -37,6 +37,10 @@ class Person: GameObject {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func getNewPosition() -> CGPoint {
+        return position + velocity
+    }
+
     func actionMove() {
         if !velocity.isZeroVector {
             if state == .Idle {
@@ -45,7 +49,7 @@ class Person: GameObject {
             }
 
             let initPosition = position
-            position = position + velocity
+            position = getNewPosition()
 
             faceDirection = CGVector.getDirection4(start: initPosition, end: position)
             velocity = CGVector()

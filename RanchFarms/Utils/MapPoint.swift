@@ -9,6 +9,10 @@ struct MapPoint: Codable, Hashable, CustomDebugStringConvertible{
         self.location = location
     }
 
+    init() {
+        self.init(x: 0, y: 0, location: Location.House)
+    }
+
     public func hash(into hasher: inout Hasher) {
         hasher.combine(x)
         hasher.combine(y)

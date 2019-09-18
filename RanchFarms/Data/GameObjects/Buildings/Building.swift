@@ -23,7 +23,8 @@ class Building: GameObject {
         return false
     }
 
-    override var zOffset: CGFloat { return 2000 }
+    // slightly off from person to to make movement left <-> right consistent
+    override var zOffset: CGFloat { return 1999 }
 
     init(player: PlayerIndex, buildingId: BuildingId, mapPoint: MapPoint) {
         self.id = buildingId
