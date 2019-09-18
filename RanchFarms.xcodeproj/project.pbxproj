@@ -46,6 +46,7 @@
 		6C4701CD2330C9580013AD0F /* SaveDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701CC2330C9580013AD0F /* SaveDataInfo.swift */; };
 		6C4701CF2330CA140013AD0F /* CmdGetSaveDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701CE2330CA140013AD0F /* CmdGetSaveDataInfo.swift */; };
 		6C4701D12330D1EA0013AD0F /* ViewSaveDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701D02330D1EA0013AD0F /* ViewSaveDelete.swift */; };
+		6C4701D32331D8930013AD0F /* PhysicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701D22331D8930013AD0F /* PhysicsController.swift */; };
 		6C60339B230B60B000746309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60339A230B60B000746309 /* AppDelegate.swift */; };
 		6C60339D230B60B000746309 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C60339C230B60B000746309 /* GameScene.sks */; };
 		6C6033A1230B60B000746309 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033A0230B60B000746309 /* GameScene.swift */; };
@@ -153,6 +154,7 @@
 		6C4701CC2330C9580013AD0F /* SaveDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveDataInfo.swift; sourceTree = "<group>"; };
 		6C4701CE2330CA140013AD0F /* CmdGetSaveDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdGetSaveDataInfo.swift; sourceTree = "<group>"; };
 		6C4701D02330D1EA0013AD0F /* ViewSaveDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSaveDelete.swift; sourceTree = "<group>"; };
+		6C4701D22331D8930013AD0F /* PhysicsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsController.swift; sourceTree = "<group>"; };
 		6C603397230B60B000746309 /* RanchFarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchFarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C60339A230B60B000746309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C60339C230B60B000746309 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -469,9 +471,10 @@
 			isa = PBXGroup;
 			children = (
 				6CBC8D15231CC819005454E1 /* ActionController */,
-				6C6033DB230B833200746309 /* CameraController.swift */,
 				6C4701C3233024B20013AD0F /* HudController */,
+				6C6033DB230B833200746309 /* CameraController.swift */,
 				6C9D3603230BA7C000168A28 /* InputController.swift */,
+				6C4701D22331D8930013AD0F /* PhysicsController.swift */,
 				6C9E3E1A230F7905007417E1 /* RenderController.swift */,
 			);
 			path = Controllers;
@@ -650,6 +653,7 @@
 				6C4701D12330D1EA0013AD0F /* ViewSaveDelete.swift in Sources */,
 				6C4701B4232ED0630013AD0F /* TeleportManager.swift in Sources */,
 				6C2336EA231147EA00261944 /* BuildingType.swift in Sources */,
+				6C4701D32331D8930013AD0F /* PhysicsController.swift in Sources */,
 				6C0F561B2313BE930017192E /* CmdStartDay.swift in Sources */,
 				6C1BFE93232B892D00294BF3 /* PersonData.swift in Sources */,
 				6CBC8D17231CC833005454E1 /* ActionControllerGameGame.swift in Sources */,

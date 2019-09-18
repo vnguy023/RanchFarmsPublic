@@ -14,6 +14,8 @@ class Person: GameObject {
     var previousLocation = Location.House
     var previousPosition = CGPoint()
 
+    var velocity = CGVector()
+
     override var zOffset: CGFloat { return 2000 }
 
     init(personId: PersonId, mapPoint: MapPoint) {
@@ -35,15 +37,18 @@ class Person: GameObject {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func move(direction: CGVector) {
-        if state == .Idle {
-            state = .Walking
-            stateDurationElapsed = 0
-        }
+    func actionMove() {
+        if !velocity.isZeroVector {
+            if state == .Idle {
+                state = .Walking
+                stateDurationElapsed = 0
+            }
 
-        let initPosition = position
-        position = position + direction.scale(moveSpeed)
-        
-        faceDirection = CGVector.getDirection4(start: initPosition, end: position)
+            let initPosition = position
+            position = position + velocity
+
+            faceDirection = CGVector.getDirection4(start: initPosition, end: position)
+            velocity = CGVector()
+        }
     }
 }

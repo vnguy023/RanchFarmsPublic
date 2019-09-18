@@ -29,7 +29,6 @@ class GameObject: SKNode {
     }
 
     var faceDirection = CGVector.SOUTH
-
     var moveSpeed = Config.tileSize.width * 4 / 60
 
     var inventory = Inventory()

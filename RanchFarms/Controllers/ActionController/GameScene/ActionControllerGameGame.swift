@@ -4,7 +4,7 @@ extension ActionControllerGame {
     func actionMoveGameStateGame(moveVector: CGVector) {
         if world.player.state == .Idle || world.player.state == .Walking {
             if !moveVector.isZeroVector {
-                world.player.move(direction: moveVector)
+                world.player.velocity = moveVector.scale(world.player.moveSpeed)
             }
         }
     }
