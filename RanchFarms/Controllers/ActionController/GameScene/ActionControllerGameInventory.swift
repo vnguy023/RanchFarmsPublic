@@ -8,25 +8,29 @@ extension ActionControllerGame {
                 world.hudInterfaceData.selectedInventoryCursor = world.hudInterfaceData.inventoryCursor
             }
         } else {
-            if let selectedItemIndex = world.hudInterfaceData.getInventorySelectedItemIndex()
-                , let highlightedItemIndex = world.hudInterfaceData.getInventoryHighlightedItemIndex() {
-
+            if let selectedItemIndex = world.hudInterfaceData.getInventorySelectedItemIndex() {
                 let selectedItem = world.player.inventory.items[selectedItemIndex]
-                let highlightedItem = world.player.inventory.items[highlightedItemIndex]
-
                 if selectedItem == nil {return}
 
-                if world.player.inventory.canAcquire(item: selectedItem!, slot: highlightedItemIndex) {
-                    world.player.inventory.acquire(item: selectedItem!, slot: highlightedItemIndex)
+                if let highlightedItemIndex = world.hudInterfaceData.getInventoryHighlightedItemIndex() { // moving items
+                    // moving items
+                    let highlightedItem = world.player.inventory.items[highlightedItemIndex]
+
+                    if world.player.inventory.canAcquire(item: selectedItem!, slot: highlightedItemIndex) {
+                        world.player.inventory.acquire(item: selectedItem!, slot: highlightedItemIndex)
+                        world.player.inventory.items[selectedItemIndex] = nil
+                        world.hudInterfaceData.selectedInventoryCursor = nil
+                    } else {
+                        if highlightedItem != nil && highlightedItem!.type == selectedItem!.type && highlightedItem!.quantity < highlightedItem!.itemInfo.maxStack{
+                            let total = selectedItem!.quantity + highlightedItem!.quantity
+                            highlightedItem!.quantity = highlightedItem!.itemInfo.maxStack
+                            selectedItem!.quantity = total - highlightedItem!.quantity
+                            world.hudInterfaceData.selectedInventoryCursor = nil
+                        }
+                    }
+                } else if world.hudInterfaceData.isInventoryTrashCanHighlighted() {
                     world.player.inventory.items[selectedItemIndex] = nil
                     world.hudInterfaceData.selectedInventoryCursor = nil
-                } else {
-                    if highlightedItem != nil && highlightedItem!.type == selectedItem!.type && highlightedItem!.quantity < highlightedItem!.itemInfo.maxStack{
-                        let total = selectedItem!.quantity + highlightedItem!.quantity
-                        highlightedItem!.quantity = highlightedItem!.itemInfo.maxStack
-                        selectedItem!.quantity = total - highlightedItem!.quantity
-                        world.hudInterfaceData.selectedInventoryCursor = nil
-                    }
                 }
             }
         }

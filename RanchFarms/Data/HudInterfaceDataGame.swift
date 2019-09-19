@@ -41,7 +41,7 @@ class HudInterfaceDataGame {
     func changeInventoryCursorPosition(_ value: CGVector) {
         inventoryCursor = inventoryCursor + value
         inventoryCursor.x = max(0, inventoryCursor.x)
-        inventoryCursor.x = min(inventoryCursor.x, CGFloat(Config.viewInventoryColumns - 1))
+        inventoryCursor.x = min(inventoryCursor.x, CGFloat(Config.viewInventoryColumns - 1) + 1)
 
         inventoryCursor.y = max(0, inventoryCursor.y)
         inventoryCursor.y = min(inventoryCursor.y, CGFloat(Config.viewInventoryRows - 1))
@@ -57,12 +57,14 @@ class HudInterfaceDataGame {
     }
 
     func getInventoryHighlightedItemIndex() -> Int? {
-        if Int(inventoryCursor.y) == 0 && inventoryCursor.x < Config.viewInventoryColumns {
-            return Int(inventoryCursor.x) + Int(Config.viewInventoryColumns * 2)
-        } else if Int(inventoryCursor.y) == 1 && inventoryCursor.x < Config.viewInventoryColumns {
-            return Int(inventoryCursor.x) + Int(Config.viewInventoryColumns * 1)
-        } else if Int(inventoryCursor.y) == 2 && inventoryCursor.x < Config.viewInventoryColumns {
-            return Int(inventoryCursor.x) + Int(Config.viewInventoryColumns * 0)
+        if inventoryCursor.x < Config.viewInventoryColumns {
+            if Int(inventoryCursor.y) == 0 && inventoryCursor.x < Config.viewInventoryColumns {
+                return Int(inventoryCursor.x) + Int(Config.viewInventoryColumns * 2)
+            } else if Int(inventoryCursor.y) == 1 && inventoryCursor.x < Config.viewInventoryColumns {
+                return Int(inventoryCursor.x) + Int(Config.viewInventoryColumns * 1)
+            } else if Int(inventoryCursor.y) == 2 && inventoryCursor.x < Config.viewInventoryColumns {
+                return Int(inventoryCursor.x) + Int(Config.viewInventoryColumns * 0)
+            }
         }
 
         return nil
@@ -73,15 +75,24 @@ class HudInterfaceDataGame {
             return nil
         }
 
-        if Int(selectedInventoryCursor!.y) == 0 && selectedInventoryCursor!.x < Config.viewInventoryColumns {
-            return Int(selectedInventoryCursor!.x) + Int(Config.viewInventoryColumns * 2)
-        } else if Int(selectedInventoryCursor!.y) == 1 && selectedInventoryCursor!.x < Config.viewInventoryColumns {
-            return Int(selectedInventoryCursor!.x) + Int(Config.viewInventoryColumns * 1)
-        } else if Int(selectedInventoryCursor!.y) == 2 && selectedInventoryCursor!.x < Config.viewInventoryColumns {
-            return Int(selectedInventoryCursor!.x) + Int(Config.viewInventoryColumns * 0)
+        if selectedInventoryCursor!.x < Config.viewInventoryColumns {
+            if Int(selectedInventoryCursor!.y) == 0 && selectedInventoryCursor!.x < Config.viewInventoryColumns {
+                return Int(selectedInventoryCursor!.x) + Int(Config.viewInventoryColumns * 2)
+            } else if Int(selectedInventoryCursor!.y) == 1 && selectedInventoryCursor!.x < Config.viewInventoryColumns {
+                return Int(selectedInventoryCursor!.x) + Int(Config.viewInventoryColumns * 1)
+            } else if Int(selectedInventoryCursor!.y) == 2 && selectedInventoryCursor!.x < Config.viewInventoryColumns {
+                return Int(selectedInventoryCursor!.x) + Int(Config.viewInventoryColumns * 0)
+            }
         }
 
         return nil
+    }
+
+    func isInventoryTrashCanHighlighted() -> Bool {
+        if inventoryCursor.x < Config.viewInventoryColumns {
+            return false
+        }
+        return true
     }
 
     func getStorePlayerItemIndex() -> Int? {
