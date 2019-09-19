@@ -63,6 +63,12 @@ class BuildingInfoManager {
                                                                             height: Config.tileSize.height * 5),
                                                             isBlocking: true,
                                                             name: "Farm House")
+        buildingIdToBuildingInfo[.Wall] = BuildingInfo(buildingId: .Wall,
+                                                        buildingType: .Unknown,
+                                                        objSize: CGSize(width: Config.tileSize.width * 1,
+                                                                        height: Config.tileSize.height * 1),
+                                                        isBlocking: true,
+                                                        name: "Wall")
 
 
         // Crops

@@ -22,6 +22,36 @@ class GameData {
                                mapPoint: MapPoint(x: 8, y: 0, location: location))
         buildings.append(bed)
 
+        for x in -1...10 {
+            if x != -2 {
+                let wall = BuildingData(playerIndex: .Game,
+                                        buildingId: .Wall,
+                                        mapPoint: MapPoint(x: x, y: -1, location: location))
+                buildings.append(wall)
+            }
+        }
+
+        for x in -1...10 {
+            let wall = BuildingData(playerIndex: .Game,
+                                    buildingId: .Wall,
+                                    mapPoint: MapPoint(x: x, y: 7, location: location))
+            buildings.append(wall)
+        }
+
+        for y in 0...6 {
+            let wall = BuildingData(playerIndex: .Game,
+                                    buildingId: .Wall,
+                                    mapPoint: MapPoint(x: -1, y: y, location: location))
+            buildings.append(wall)
+        }
+
+        for y in 0...6 {
+            let wall = BuildingData(playerIndex: .Game,
+                                    buildingId: .Wall,
+                                    mapPoint: MapPoint(x: 10, y: y, location: location))
+            buildings.append(wall)
+        }
+
         // Tiles/Terrains
         for x in 0...9 {
             for y in 0...6 {

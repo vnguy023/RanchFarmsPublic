@@ -13,6 +13,7 @@ enum BuildingId: UInt, Codable {
     case SingleBed = 110
 
     case FarmHouse = 150
+    case Wall
 
     case Chair = 500
     case Table
