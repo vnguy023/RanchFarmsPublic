@@ -50,7 +50,7 @@ class PhysicsController {
 
         var result = [GameObject]()
 
-        for object in objectsToTest.filter({$0 !== gameObject}) {
+        for object in objectsToTest.filter({$0 !== gameObject && $0.isBlocking}) {
             if getCollisionBoundary(boundary: object.getBoundary()).intersects(collisonBoundary) {
                 result.append(object)
             }

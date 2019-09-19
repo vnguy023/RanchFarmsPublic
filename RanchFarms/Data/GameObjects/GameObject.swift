@@ -38,6 +38,7 @@ class GameObject: SKNode {
     var boundaryAnchorPoint = CGPoint(x: 0.5, y: 0.5)
     var boundarySize = Config.tileSize
     let boundaryTrim = CGFloat(2) // this is to account for imperfect movement
+    var isBlocking = false
 
     var zOffset: CGFloat { return 0 }
 
