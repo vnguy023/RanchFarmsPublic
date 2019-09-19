@@ -1,7 +1,7 @@
 import SpriteKit
 
 class Animation {
-    var frames = [AnimationFrame]() // direction
+    var frames = [AnimationFrame]()
     var repeats = true
 
     private var totalDuration: Int {

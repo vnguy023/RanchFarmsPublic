@@ -125,7 +125,19 @@ class World: SKNode {
     }
 
     private func postUpdate() {
-        player.stateDurationElapsed += 1
+        // Animation/SFX Stuff
+        var gameObjects = [GameObject]()
+        gameObjects.append(player)
+        if let gameArea = gameAreas[currentLocation] {
+            gameArea.buildings.forEach({gameObjects.append($0)})
+            gameArea.terrains.forEach({gameObjects.append($0)})
+            gameArea.tiles.forEach({gameObjects.append($0)})
+        }
+        gameObjects.forEach ({
+            $0.stateDurationElapsed += 1
+            $0.sfxDurationElapsed += 1
+        })
+
         player.previousLocation = player.location
         player.previousPosition = player.position
         gameTicksElapsedToday += 1
@@ -183,6 +195,19 @@ class World: SKNode {
             gameArea.tiles.forEach({self.addChild($0)})
             gameArea.terrains.forEach({self.addChild($0)})
         }
+
+        // Animation/sfx stuff
+        var gameObjects = [GameObject]()
+        gameObjects.append(player)
+        if let gameArea = gameAreas[currentLocation] {
+            gameArea.buildings.forEach({gameObjects.append($0)})
+            gameArea.terrains.forEach({gameObjects.append($0)})
+            gameArea.tiles.forEach({gameObjects.append($0)})
+        }
+        gameObjects.forEach ({
+            $0.stateDurationElapsed = 0
+            $0.sfxApplied = nil
+        })
     }
 
     func add(building: Building) {

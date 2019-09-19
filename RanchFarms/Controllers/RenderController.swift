@@ -9,6 +9,7 @@ class RenderController {
 
     func update() {
         renderPlayer()
+        updateSFXs()
         updateZOffsets()
     }
 
@@ -23,6 +24,34 @@ class RenderController {
 
             let progressPercentage = CGFloat(world.player.stateDurationElapsed)/CGFloat(stateAnimationDuration)
             world.player.applyAnimationFrame(animation.getFrame(animationProgress: progressPercentage))
+        }
+    }
+
+    private func updateSFXs() {
+        var gameObjects = [GameObject]()
+        gameObjects.append(world.player)
+        if let gameArea = world.gameAreas[world.currentLocation] {
+            gameArea.buildings.forEach({gameObjects.append($0)})
+            // not sure if we need these yet
+            //gameArea.terrains.forEach({gameObjects.append($0)})
+            //gameArea.tiles.forEach({gameObjects.append($0)})
+        }
+
+        for object in gameObjects.filter({$0.sfxApplied != nil}) {
+            if let sfx = SFXManager.shared.getSFX(sfxId: object.sfxApplied!) {
+                // TODO: figure out a structure for this
+                let duration = Config.GameTicksPerSecond
+                
+                let progressPercentage = CGFloat(object.sfxDurationElapsed)/CGFloat(duration)
+                object.applySFXFrame(sfx.getFrame(progress: progressPercentage))
+
+                if progressPercentage > 1 {
+                    object.sfxApplied = nil
+                }
+
+            } else {
+                print ("[RenderController] [updateSFX] [Error=Unable to get sfx] [SFXId=\(object.sfxApplied!)]")
+            }
         }
     }
 

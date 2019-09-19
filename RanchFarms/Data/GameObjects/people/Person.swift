@@ -9,7 +9,6 @@ class Person: GameObject {
     }
 
     var state = State.Idle
-    var stateDurationElapsed = Int(0) // GameTicks since we stateChanged
 
     var previousLocation = Location.House
     var previousPosition = CGPoint()

@@ -42,6 +42,22 @@ class GameObject: SKNode {
 
     var zOffset: CGFloat { return 0 }
 
+    // Animations/SFX
+    var stateDurationElapsed = Int(0) // GameTicks since we stateChanged
+
+    private var mSfxApplied: SFXId? = nil
+    var sfxApplied: SFXId? {
+        get {return mSfxApplied}
+        set {
+            mSfxApplied = newValue
+            sfxDurationElapsed = 0
+            if newValue == nil {
+                resetSFX()
+            }
+        }
+    }
+    var sfxDurationElapsed = Int(0) // GameTicks since we applied sfxDuration
+
     init (player: PlayerIndex, mapPoint: MapPoint) {
         self.player = player
         mMapPoint = MapPoint(x: 0, y: 0, location: .House)
@@ -84,6 +100,16 @@ class GameObject: SKNode {
         self.sprite.texture = frame.texture
         self.sprite.size = frame.imageSize
         self.sprite.anchorPoint = frame.anchorPoint
+    }
+
+    func applySFXFrame(_ frame: SFXFrame) {
+        self.sprite.position = frame.translation
+        self.sprite.zRotation = frame.rotation
+    }
+
+    func resetSFX() {
+        self.sprite.position = CGPoint()
+        self.sprite.zRotation = 0
     }
 
     func applyTexture(_ texture: SKTexture?) {

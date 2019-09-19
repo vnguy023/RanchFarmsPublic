@@ -32,8 +32,12 @@ extension ActionControllerGame {
                 if buildingInFront.canHarvest {
                     let cmdHarvest = CmdActionHarvest(world: world, crop: buildingInFront)
                     cmdHarvest.execute()
+                    return
+                } else {
+                    if buildingInFront.sfxApplied == nil {
+                        buildingInFront.sfxApplied = .Spin
+                    }
                 }
-                return
             case .Sign:
                 changeState(to: .Dialog)
                 return
