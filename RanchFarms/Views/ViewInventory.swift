@@ -8,6 +8,7 @@ class ViewInventory: SKSpriteNode {
     }
 
     private var itemButtons = [ViewItemButton]()
+    private var trashCan = ViewSaveDelete() // reusing this for now
 
     private var inventory: Inventory {
         get {return world.player.inventory}
@@ -26,6 +27,11 @@ class ViewInventory: SKSpriteNode {
         blackScreen.zPosition = -10
         self.addChild(blackScreen)
 
+        trashCan.position.x = self.size.width/2 + trashCan.size.width/2
+        trashCan.position.y = self.size.height / -2
+        trashCan.zPosition = 500
+        self.addChild(trashCan)
+
         update()
     }
 
@@ -33,8 +39,13 @@ class ViewInventory: SKSpriteNode {
         itemButtons.forEach({$0.removeFromParent()})
         itemButtons.removeAll()
 
-        var index = 0
+        if hudInterfaceData.isInventoryTrashCanHighlighted() {
+            trashCan.state = .Highlight
+        } else {
+            trashCan.state = .None
+        }
 
+        var index = 0
         for y in 0 ..< Int(Config.viewInventoryRows) {
             for x in 0 ..< Int(Config.viewInventoryColumns) {
                 let itemButton = ViewItemButton(item: inventory.items[index])
