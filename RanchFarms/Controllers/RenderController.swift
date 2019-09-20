@@ -55,7 +55,6 @@ class RenderController {
                 if progressPercentage > 1 {
                     object.sfxApplied = nil
                 }
-
             } else {
                 print ("[RenderController] [updateSFX] [Error=Unable to get sfx] [SFXId=\(object.sfxApplied!)]")
             }

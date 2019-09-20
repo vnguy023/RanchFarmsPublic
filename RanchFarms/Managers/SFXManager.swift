@@ -19,10 +19,24 @@ class SFXManager {
         let sfx = SFX()
         sfx.repeats = false
 
-        let frame = SFXFrame(translation: CGPoint(),
-                             rotation: 0,
-                             duration: 1)
-        sfx.addFrame(frame)
+        for i in 0..<4 {
+            let frame = SFXFrame(translation: CGPoint(),
+                                 rotation: (CGFloat.pi*2/16)*(CGFloat(i)/16),
+                                 duration: 1)
+            sfx.addFrame(frame)
+        }
+        for i in 0..<8 {
+            let frame = SFXFrame(translation: CGPoint(),
+                                 rotation: (CGFloat.pi*2/16)*(CGFloat(i) / -16) + (CGFloat.pi*2/16) * 0.25,
+                                 duration: 1)
+            sfx.addFrame(frame)
+        }
+        for i in 0..<4 {
+            let frame = SFXFrame(translation: CGPoint(),
+                                 rotation: (CGFloat.pi*2/16)*(CGFloat(i)/16) - (CGFloat.pi*2/16) * 0.25,
+                                 duration: 1)
+            sfx.addFrame(frame)
+        }
 
         sfxMap[.Shake] = sfx
     }

@@ -51,7 +51,12 @@ class CmdActionUseItem: Command {
 
         world.player.setNewState(state: .Hoeing)
         
-        if tileInFront == nil || !buildingsInFront.isEmpty {
+        if tileInFront == nil {
+            return
+        }
+
+        for crop in buildingsInFront.filter({$0.type == .Crop}) {
+            crop.sfxApplied = .Shake
             return
         }
 
