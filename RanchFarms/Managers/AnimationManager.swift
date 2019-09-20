@@ -262,6 +262,54 @@ class AnimationManager {
                                                            anchorPoint: anchorPoint))
 
         playerAnimations[Person.State.Walking] = walkingAnimations
+
+        ////////////////////////////////
+        // Use Tool(Up/Down) Animations
+        var useToolUpDownAnimations = [CGVector: Animation]()
+        useToolUpDownAnimations[.NORTH] = Animation()
+        useToolUpDownAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownNorth1"),
+                                                                 duration: 8,
+                                                                 imageSize: imageSize,
+                                                                 anchorPoint: anchorPoint))
+        useToolUpDownAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownNorth2"),
+                                                                 duration: 6,
+                                                                 imageSize: imageSize,
+                                                                 anchorPoint: anchorPoint))
+
+        useToolUpDownAnimations[.SOUTH] = Animation()
+        useToolUpDownAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownSouth1"),
+                                                                 duration: 8,
+                                                                 imageSize: imageSize,
+                                                                 anchorPoint: anchorPoint))
+        useToolUpDownAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownSouth2"),
+                                                                 duration: 6,
+                                                                 imageSize: imageSize,
+                                                                 anchorPoint: anchorPoint))
+
+        useToolUpDownAnimations[.WEST] = Animation()
+        useToolUpDownAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownWest1"),
+                                                                duration: 8,
+                                                                imageSize: imageSize,
+                                                                anchorPoint: anchorPoint))
+        useToolUpDownAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownWest2"),
+                                                                duration: 6,
+                                                                imageSize: imageSize,
+                                                                anchorPoint: anchorPoint))
+
+        useToolUpDownAnimations[.EAST] = Animation()
+        useToolUpDownAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownEast1"),
+                                                                duration: 8,
+                                                                imageSize: imageSize,
+                                                                anchorPoint: anchorPoint))
+        useToolUpDownAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownEast2"),
+                                                                duration: 6,
+                                                                imageSize: imageSize,
+                                                                anchorPoint: anchorPoint))
+
+        playerAnimations[Person.State.Axeing] = useToolUpDownAnimations
+        playerAnimations[Person.State.Hoeing] = useToolUpDownAnimations
+        playerAnimations[Person.State.Mining] = useToolUpDownAnimations
+        playerAnimations[Person.State.Watering] = useToolUpDownAnimations
     }
 
     func getAnimation(person: Person) -> Animation? {

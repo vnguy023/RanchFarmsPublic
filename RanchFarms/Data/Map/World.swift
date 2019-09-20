@@ -119,6 +119,14 @@ class World: SKNode {
                 player.state = .Idle
                 player.stateDurationElapsed = 0
             }
+        case .Axeing: fallthrough
+        case .Hoeing: fallthrough
+        case .Mining: fallthrough
+        case .Watering:
+            if player.stateDurationElapsed == Config.animationHoeingGameTickDuration {
+                player.state = .Idle
+                player.stateDurationElapsed = 0
+            }
         }
 
         postUpdate()

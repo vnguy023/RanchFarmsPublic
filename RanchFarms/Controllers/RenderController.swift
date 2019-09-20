@@ -20,6 +20,13 @@ class RenderController {
             case .Idle: break
             case .Walking:
                 stateAnimationDuration = Config.animationWalkGameTickDuration
+
+            // Tool related states
+            case .Axeing: fallthrough
+            case .Hoeing: fallthrough
+            case .Mining: fallthrough
+            case .Watering:
+                stateAnimationDuration = Config.animationHoeingGameTickDuration
             }
 
             let progressPercentage = CGFloat(world.player.stateDurationElapsed)/CGFloat(stateAnimationDuration)

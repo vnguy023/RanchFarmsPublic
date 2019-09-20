@@ -6,6 +6,12 @@ class Person: GameObject {
     enum State {
         case Idle
         case Walking
+
+        // Use Tools
+        case Axeing
+        case Hoeing
+        case Mining
+        case Watering
     }
 
     var state = State.Idle
@@ -43,8 +49,7 @@ class Person: GameObject {
     func actionMove() {
         if !velocity.isZeroVector {
             if state == .Idle {
-                state = .Walking
-                stateDurationElapsed = 0
+                setNewState(state: .Walking)
             }
 
             let initPosition = position
@@ -53,5 +58,18 @@ class Person: GameObject {
             faceDirection = CGVector.getDirection4(start: initPosition, end: position)
             velocity = CGVector()
         }
+    }
+
+    func setNewState(state: State) {
+        self.state = state
+        stateDurationElapsed = 0
+    }
+
+    func canUseTool() -> Bool {
+        if state == .Idle || state == .Walking {
+            return true
+        }
+
+        return false
     }
 }

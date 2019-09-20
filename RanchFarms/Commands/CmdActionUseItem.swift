@@ -45,11 +45,13 @@ class CmdActionUseItem: Command {
     }
 
     private func processHoe() {
-        if tileInFront == nil {
+        if !world.player.canUseTool() {
             return
         }
 
-        if !buildingsInFront.isEmpty {
+        world.player.setNewState(state: .Hoeing)
+        
+        if tileInFront == nil || !buildingsInFront.isEmpty {
             return
         }
 
@@ -63,6 +65,12 @@ class CmdActionUseItem: Command {
     }
 
     private func processPickAxe() {
+        if !world.player.canUseTool() {
+            return
+        }
+
+        world.player.setNewState(state: .Mining)
+
         if tileInFront == nil {
             return
         }
@@ -106,6 +114,12 @@ class CmdActionUseItem: Command {
     }
 
     private func processWaterCan() {
+        if !world.player.canUseTool() {
+            return
+        }
+
+        world.player.setNewState(state: .Watering)
+
         if tileInFront == nil {
             return
         } else if !buildingsInFront.filter({$0.type != .Crop}).isEmpty {
