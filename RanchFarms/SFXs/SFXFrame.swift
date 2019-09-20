@@ -1,7 +1,7 @@
 import SpriteKit
 
 class SFXFrame{
-    let translation: CGPoint
+    let translation: CGPoint // Need to scale to tileSize
     let rotation: CGFloat
     let duration: Int // used for determing how long it takes effect
 

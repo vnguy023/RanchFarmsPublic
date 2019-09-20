@@ -103,7 +103,8 @@ class GameObject: SKNode {
     }
 
     func applySFXFrame(_ frame: SFXFrame) {
-        self.sprite.position = frame.translation
+        self.sprite.position = CGPoint(x: frame.translation.x * Config.tileSize.width,
+                                       y: frame.translation.y * Config.tileSize.height)
         self.sprite.zRotation = frame.rotation
     }
 
