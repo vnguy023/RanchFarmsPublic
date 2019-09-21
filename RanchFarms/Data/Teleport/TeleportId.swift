@@ -8,4 +8,7 @@ enum TeleportId: UInt, Codable {
     case Farm_Town
 
     case Town_Farm
+    case Town_GeneralStore
+
+    case GeneralStore_Town
 }

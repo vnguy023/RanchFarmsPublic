@@ -45,6 +45,16 @@ class AnimationManager {
                                                                      duration: 1,
                                                                      imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
                                                                      anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+        buildingAnimations[.TownToGeneralStoreDoor] = Animation()
+        buildingAnimations[.TownToGeneralStoreDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .TownToGeneralStoreDoor),
+                                                                             duration: 1,
+                                                                             imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
+                                                                             anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+        buildingAnimations[.GeneralStoreToTownDoor] = Animation()
+        buildingAnimations[.GeneralStoreToTownDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .GeneralStoreToTownDoor),
+                                                                     duration: 1,
+                                                                     imageSize: CGSize(width: stdImgSize.width, height: stdImgSize.height*2),
+                                                                     anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
 
         buildingAnimations[.TV] = Animation()
         buildingAnimations[.TV]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .TV),

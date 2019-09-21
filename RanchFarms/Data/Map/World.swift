@@ -57,6 +57,7 @@ class World: SKNode {
         gameAreasDataToLoad.append(GameData.BasicHouse())
         gameAreasDataToLoad.append(GameData.Farm())
         gameAreasDataToLoad.append(GameData.Town())
+        gameAreasDataToLoad.append(GameData.GeneralStore())
 
         for gameArea in gameAreasDataToLoad {
             if gameAreas[gameArea.location] == nil {

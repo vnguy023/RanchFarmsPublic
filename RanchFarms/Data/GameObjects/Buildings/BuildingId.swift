@@ -9,6 +9,8 @@ enum BuildingId: UInt, Codable {
     case FarmToTownDoor
     case TownToFarmDoor
     case FarmDeliveryBox
+    case GeneralStoreToTownDoor
+    case TownToGeneralStoreDoor
 
     case SingleBed = 110
 

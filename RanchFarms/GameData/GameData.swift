@@ -103,11 +103,6 @@ class GameData {
                                 mapPoint: MapPoint(x: 4, y: 6, location: location))
         buildings.append(sign)
 
-        let vendingMachine = BuildingData(playerIndex: .Game,
-                                          buildingId: .VendingMachine,
-                                          mapPoint: MapPoint(x: 1, y: 6, location: location))
-        buildings.append(vendingMachine)
-
         // Tiles/Terrains
         for x in -5...5 {
             for y in -5...6 {
@@ -139,6 +134,12 @@ class GameData {
                                     mapPoint: MapPoint(x: -1, y: 0, location: location))
         buildings.append(farmDoor)
 
+        // Buildings
+        let generalStoreDoor = BuildingData(playerIndex: .Game,
+                                            buildingId: .TownToGeneralStoreDoor,
+                                            mapPoint: MapPoint(x: 2, y: 6, location: location))
+        buildings.append(generalStoreDoor)
+
         // Tiles/Terrains
         for x in 0...10 {
             for y in -5...5 {
@@ -146,6 +147,72 @@ class GameData {
                                     tileType: .Water,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
+            }
+        }
+
+        return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
+    }
+
+    static func GeneralStore() -> GameAreaData {
+        let location = Location.GeneralStore
+
+        var buildings = [BuildingData]()
+        var terrains = [TerrainData]()
+        var tiles = [TileData]()
+
+        // Buildings
+        let townDoor = BuildingData(playerIndex: .Game,
+                                buildingId: .GeneralStoreToTownDoor,
+                                mapPoint: MapPoint(x: 1, y: -2, location: location))
+        buildings.append(townDoor)
+
+        let vendingMachine = BuildingData(playerIndex: .Game,
+                                          buildingId: .VendingMachine,
+                                          mapPoint: MapPoint(x: 1, y: 4, location: location))
+        buildings.append(vendingMachine)
+
+        for x in -1...5 {
+            if x != -1 {
+                let wall = BuildingData(playerIndex: .Game,
+                                        buildingId: .Wall,
+                                        mapPoint: MapPoint(x: x, y: -1, location: location))
+                buildings.append(wall)
+            }
+        }
+
+        for x in -1...5 {
+            let wall = BuildingData(playerIndex: .Game,
+                                    buildingId: .Wall,
+                                    mapPoint: MapPoint(x: x, y: 5, location: location))
+            buildings.append(wall)
+        }
+
+        for y in 0...4 {
+            let wall = BuildingData(playerIndex: .Game,
+                                    buildingId: .Wall,
+                                    mapPoint: MapPoint(x: -1, y: y, location: location))
+            buildings.append(wall)
+        }
+
+        for y in 0...4 {
+            let wall = BuildingData(playerIndex: .Game,
+                                    buildingId: .Wall,
+                                    mapPoint: MapPoint(x: 5, y: y, location: location))
+            buildings.append(wall)
+        }
+
+        // Tiles/Terrains
+        for x in 0...4 {
+            for y in 0...4 {
+                let tile = TileData(playerIndex: .Game,
+                                    tileType: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles.append(tile)
+
+                let terrain = TerrainData(playerIndex: .Game,
+                                          terrainType: .Wood,
+                                          mapPoint: MapPoint(x: x, y: y, location: location))
+                terrains.append(terrain)
             }
         }
 
