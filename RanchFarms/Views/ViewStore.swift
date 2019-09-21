@@ -24,6 +24,7 @@ class ViewStore: SKSpriteNode {
                                                    size: CGSize(width: Config.viewInventoryColumns * Config.itemImageSize.width - Config.viewStoreItemInfoPortraitSize.width,
                                                                 height: Config.viewStoreItemInfoPortraitSize.height))
     private let itemInfoDescriptionText = SKLabelNode(fontNamed: "ChalkDuster")
+    private let itemInfoBuySellPrice = SKLabelNode(fontNamed: "ChalkDuster")
 
     private let topLeftPlayerItemPosition = CGPoint(x: Config.viewInventoryColumns * Config.itemImageSize.width / -2 + 50,
                                                     y: -200)
@@ -76,6 +77,15 @@ class ViewStore: SKSpriteNode {
         itemInfoDescriptionText.zPosition = 100
         itemInfoDescription.addChild(itemInfoDescriptionText)
 
+        itemInfoBuySellPrice.horizontalAlignmentMode = .right
+        itemInfoBuySellPrice.verticalAlignmentMode = .top
+        itemInfoBuySellPrice.fontSize = 20
+        itemInfoBuySellPrice.fontColor = .black
+        itemInfoBuySellPrice.zPosition = 100
+        itemInfoBuySellPrice.position = CGPoint(x: itemInfoDescription.position.x + itemInfoDescription.size.width/2 - 10,
+                                                y: itemInfoDescription.position.y + itemInfoDescription.size.height/2 - 10)
+        self.addChild(itemInfoBuySellPrice)
+
         update()
     }
 
@@ -95,13 +105,20 @@ class ViewStore: SKSpriteNode {
             , let item = world.player.inventory.items[playerItemIndex] {
             itemInfoPortrait.setItem(item: item)
             itemInfoDescriptionText.text = item.itemInfo.name
+            if item.itemInfo.canSell {
+                itemInfoBuySellPrice.text = "Sell: \(item.itemInfo.sellPrice * item.quantity)(\(item.itemInfo.sellPrice) each)"
+            } else {
+                itemInfoBuySellPrice.text = "Can't Sell"
+            }
         } else if let storeItemIndex = world.hudInterfaceData.getStoreStoreItemIndex()
             , let item = store.items[storeItemIndex] {
             itemInfoPortrait.setItem(item: item)
             itemInfoDescriptionText.text = item.itemInfo.name
+            itemInfoBuySellPrice.text = "Buy: \(item.itemInfo.purchasePrice)"
         } else {
             itemInfoPortrait.setItem(item: nil)
             itemInfoDescriptionText.text = ""
+            itemInfoBuySellPrice.text = ""
         }
     }
 
