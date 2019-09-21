@@ -108,9 +108,9 @@ class TextureManager {
         personMap["playerWalkRight2"] = SKTexture.init(imageNamed: "personPlayerWalkRight2")
 
         // TODO: Finish animations for this
-        personMap["playerUseToolUpDownNorth1"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth1")
-        personMap["playerUseToolUpDownNorth2"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth2")
-        personMap["playerUseToolUpDownNorth3"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth3")
+        personMap["playerUseToolUpDownNorth1"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownNorth1")
+        personMap["playerUseToolUpDownNorth2"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownNorth2")
+        personMap["playerUseToolUpDownNorth3"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownNorth3")
 
         personMap["playerUseToolUpDownSouth1"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth1")
         personMap["playerUseToolUpDownSouth2"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth2")
