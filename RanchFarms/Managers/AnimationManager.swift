@@ -280,6 +280,11 @@ class AnimationManager {
                                                                  duration: 6,
                                                                  imageSize: CGSize(width: 1, height: 1.5),
                                                                  anchorPoint: anchorPoint))
+        useToolUpDownAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownNorth3"),
+                                                                 duration: 6,
+                                                                 imageSize: CGSize(width: 1, height: 1.5),
+                                                                 anchorPoint: anchorPoint))
+        
 
         useToolUpDownAnimations[.SOUTH] = Animation()
         useToolUpDownAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownSouth1"),
@@ -287,6 +292,10 @@ class AnimationManager {
                                                                  imageSize: CGSize(width: 1, height: 1.5),
                                                                  anchorPoint: anchorPoint))
         useToolUpDownAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownSouth2"),
+                                                                 duration: 6,
+                                                                 imageSize: CGSize(width: 1, height: 1.5),
+                                                                 anchorPoint: anchorPoint))
+        useToolUpDownAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownSouth3"),
                                                                  duration: 6,
                                                                  imageSize: CGSize(width: 1, height: 1.5),
                                                                  anchorPoint: anchorPoint))
@@ -300,6 +309,10 @@ class AnimationManager {
                                                                 duration: 6,
                                                                 imageSize: CGSize(width: 1, height: 1.5),
                                                                 anchorPoint: anchorPoint))
+        useToolUpDownAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownWest3"),
+                                                                duration: 6,
+                                                                imageSize: CGSize(width: 1, height: 1.5),
+                                                                anchorPoint: anchorPoint))
 
         useToolUpDownAnimations[.EAST] = Animation()
         useToolUpDownAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownEast1"),
@@ -307,6 +320,10 @@ class AnimationManager {
                                                                 imageSize: CGSize(width: 1, height: 1.5),
                                                                 anchorPoint: anchorPoint))
         useToolUpDownAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownEast2"),
+                                                                duration: 6,
+                                                                imageSize: CGSize(width: 1, height: 1.5),
+                                                                anchorPoint: anchorPoint))
+        useToolUpDownAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerUseToolUpDownEast3"),
                                                                 duration: 6,
                                                                 imageSize: CGSize(width: 1, height: 1.5),
                                                                 anchorPoint: anchorPoint))

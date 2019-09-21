@@ -38,7 +38,7 @@ class Config {
     static let SaveSlotCount = 3
 
     static let animationWalkGameTickDuration = GameTick(30)
-    static let animationHoeingGameTickDuration = GameTick(20)
+    static let animationHoeingGameTickDuration = GameTick(40)
 
     static let GameTicksPerSecond = GameTick(60)
     static let MaxGameTickUpdatesPerCycle = GameTick(6)// only allow us to be behind by this much

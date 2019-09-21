@@ -125,6 +125,7 @@ class World: SKNode {
         case .Mining: fallthrough
         case .Watering:
             if player.stateDurationElapsed == Config.animationHoeingGameTickDuration {
+                // TODO: Move the logic to change the world animation/state here
                 player.state = .Idle
                 player.stateDurationElapsed = 0
             }
