@@ -98,7 +98,8 @@ class GameObject: SKNode {
 
     func applyAnimationFrame(_ frame: AnimationFrame) {
         self.sprite.texture = frame.texture
-        self.sprite.size = frame.imageSize
+        self.sprite.size = CGSize(width: frame.imageSize.width * Config.tileSize.width,
+                                  height: frame.imageSize.height * Config.tileSize.height)
         self.sprite.anchorPoint = frame.anchorPoint
     }
 
