@@ -116,13 +116,13 @@ class TextureManager {
         personMap["playerUseToolUpDownSouth2"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth2")
         personMap["playerUseToolUpDownSouth3"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth3")
 
-        personMap["playerUseToolUpDownWest1"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth1")
-        personMap["playerUseToolUpDownWest2"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth2")
-        personMap["playerUseToolUpDownWest3"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth3")
+        personMap["playerUseToolUpDownWest1"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownWest1")
+        personMap["playerUseToolUpDownWest2"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownWest2")
+        personMap["playerUseToolUpDownWest3"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownWest3")
 
-        personMap["playerUseToolUpDownEast1"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth1")
-        personMap["playerUseToolUpDownEast2"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth2")
-        personMap["playerUseToolUpDownEast3"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownSouth3")
+        personMap["playerUseToolUpDownEast1"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownEast1")
+        personMap["playerUseToolUpDownEast2"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownEast2")
+        personMap["playerUseToolUpDownEast3"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownEast3")
 
     }
 
