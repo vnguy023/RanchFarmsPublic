@@ -88,7 +88,6 @@ class World: SKNode {
 
             for tileData in gameArea.tiles {
                 let tile = Tile(tileId: tileData.tileId,
-                                tileType: tileData.tileType,
                                 mapPoint: tileData.mapPoint)
 
                 add(tile: tile)
@@ -159,20 +158,20 @@ class World: SKNode {
         return gameAreas.filter({$0.key == currentLocation}).first!.value
     }
 
-    func getTerrainAt(position: CGPoint, location: Location) -> Terrain? {
+    func getTileAt(position: CGPoint, location: Location) -> Tile? {
         if let gameArea = gameAreas[location] {
-            if let chosenTerrain = gameArea.terrains.filter({$0.contains(position)}).first {
-                return chosenTerrain
+            if let chosenTile = gameArea.tiles.filter({$0.contains(position)}).first {
+                return chosenTile
             }
         }
 
         return nil
     }
 
-    func getTileAt(position: CGPoint, location: Location) -> Tile? {
+    func getTerrainAt(position: CGPoint, location: Location) -> Terrain? {
         if let gameArea = gameAreas[location] {
-            if let chosenTile = gameArea.tiles.filter({$0.contains(position)}).first {
-                return chosenTile
+            if let chosenTerrain = gameArea.terrains.filter({$0.contains(position)}).first {
+                return chosenTerrain
             }
         }
 

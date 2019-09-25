@@ -71,6 +71,8 @@
 		6C6033DC230B833200746309 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033DB230B833200746309 /* CameraController.swift */; };
 		6C6033DF230B850C00746309 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033DE230B850C00746309 /* Person.swift */; };
 		6C6033E2230BA4F000746309 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6033E1230BA4F000746309 /* Utils.swift */; };
+		6C696444233AFDC20033D9EE /* TileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C696443233AFDC20033D9EE /* TileInfo.swift */; };
+		6C696446233AFE2F0033D9EE /* TileInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C696445233AFE2F0033D9EE /* TileInfoManager.swift */; };
 		6C6D78DD2321F8BB00573B25 /* PortraitId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6D78DC2321F8BB00573B25 /* PortraitId.swift */; };
 		6C6D78DF232217B900573B25 /* StoreFrontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6D78DE232217B900573B25 /* StoreFrontManager.swift */; };
 		6C6D78E123221DAC00573B25 /* StoreCatalogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6D78E023221DAC00573B25 /* StoreCatalogManager.swift */; };
@@ -187,6 +189,8 @@
 		6C6033DB230B833200746309 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		6C6033DE230B850C00746309 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		6C6033E1230BA4F000746309 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6C696443233AFDC20033D9EE /* TileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileInfo.swift; sourceTree = "<group>"; };
+		6C696445233AFE2F0033D9EE /* TileInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileInfoManager.swift; sourceTree = "<group>"; };
 		6C6D78DC2321F8BB00573B25 /* PortraitId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortraitId.swift; sourceTree = "<group>"; };
 		6C6D78DE232217B900573B25 /* StoreFrontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreFrontManager.swift; sourceTree = "<group>"; };
 		6C6D78E023221DAC00573B25 /* StoreCatalogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCatalogManager.swift; sourceTree = "<group>"; };
@@ -469,6 +473,7 @@
 			children = (
 				6C6033D6230B731A00746309 /* Tile.swift */,
 				6CC32315233AFAD700DE694C /* TileId.swift */,
+				6C696443233AFDC20033D9EE /* TileInfo.swift */,
 				6C6033D4230B72E800746309 /* TileType.swift */,
 			);
 			path = Tiles;
@@ -485,6 +490,7 @@
 				6C6D78DE232217B900573B25 /* StoreFrontManager.swift */,
 				6C6033D8230B7E5600746309 /* TextureManager.swift */,
 				6C4701B3232ED0630013AD0F /* TeleportManager.swift */,
+				6C696445233AFE2F0033D9EE /* TileInfoManager.swift */,
 				6C9E3E1E230F83C5007417E1 /* PersonTexture.swift */,
 			);
 			path = Managers;
@@ -687,6 +693,7 @@
 				6C2336EA231147EA00261944 /* BuildingType.swift in Sources */,
 				6C4701D32331D8930013AD0F /* PhysicsController.swift in Sources */,
 				6C0F561B2313BE930017192E /* CmdStartDay.swift in Sources */,
+				6C696444233AFDC20033D9EE /* TileInfo.swift in Sources */,
 				6C1BFE93232B892D00294BF3 /* PersonData.swift in Sources */,
 				6CBC8D17231CC833005454E1 /* ActionControllerGameGame.swift in Sources */,
 				6C9E3E0E230E61D2007417E1 /* ViewMoneyInfo.swift in Sources */,
@@ -773,6 +780,7 @@
 				6C4701C02330204F0013AD0F /* ActionControllerSplashSplash.swift in Sources */,
 				6C9E3E04230D43D3007417E1 /* HudControllerGame.swift in Sources */,
 				6C6033E2230BA4F000746309 /* Utils.swift in Sources */,
+				6C696446233AFE2F0033D9EE /* TileInfoManager.swift in Sources */,
 				6C6033B5230B624700746309 /* BaseScene.swift in Sources */,
 				6C4701D523342CCD0013AD0F /* SFXManager.swift in Sources */,
 			);

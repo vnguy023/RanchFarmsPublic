@@ -22,20 +22,77 @@ class PhysicsController {
 
             let oldVelocity = person.velocity
 
+            // TODO: Fix this hack because we should be testing against each MapPoint for building,terrain,tile
+            //       Currently don't have ability to pull allObjects on a mapPoint yet, due to adjustable boundaryObjectSize
+
             // do x first
             person.velocity = CGVector(dx: oldVelocity.dx, dy: 0)
-            let collisionBoundaryX = getCollisionBoundary(boundary: person.getBoundary(newPosition: person.getNewPosition()))
-            if objectsIntersect(gameObject: person, collisonBoundary: collisionBoundaryX).isEmpty {
+            var collisionBoundary = getCollisionBoundary(boundary: person.getBoundary(newPosition: person.getNewPosition()))
+            var objectsIntersecting = objectsIntersect(gameObject: person, collisonBoundary: collisionBoundary)
+            var mapPointsToTest = objectsIntersecting.compactMap({ return $0.mapPoint })
+
+            var canMove = true
+            if !objectsIntersecting.filter({($0 is Building) && $0.isBlocking}).isEmpty {
+                canMove = false
+            }
+
+            for mapPoint in mapPointsToTest {
+                let terrains = objectsIntersecting.filter({($0 is Terrain) && $0.mapPoint == mapPoint})
+                let tiles = objectsIntersecting.filter({($0 is Tile) && $0.mapPoint == mapPoint})
+
+                if !terrains.filter({$0.isBlocking}).isEmpty {
+                    canMove = false
+                    break
+                } else if !terrains.filter({!$0.isBlocking}).isEmpty {
+                    // TODO: Think about splitting into different logic to test for is walkable
+                    continue
+                }
+
+                if !tiles.filter({$0.isBlocking}).isEmpty {
+                    canMove = false
+                    break
+                }
+            }
+            if canMove {
                 person.actionMove()
             }
 
             // do y
             person.velocity = CGVector(dx: 0, dy: oldVelocity.dy)
-            let collisionBoundaryY = getCollisionBoundary(boundary: person.getBoundary(newPosition: person.getNewPosition()))
-            if objectsIntersect(gameObject: person, collisonBoundary: collisionBoundaryY).isEmpty {
+            collisionBoundary = getCollisionBoundary(boundary: person.getBoundary(newPosition: person.getNewPosition()))
+            objectsIntersecting = objectsIntersect(gameObject: person, collisonBoundary: collisionBoundary)
+            mapPointsToTest = objectsIntersecting.compactMap({ return $0.mapPoint })
+
+            canMove = true
+            if !objectsIntersecting.filter({($0 is Building) && $0.isBlocking}).isEmpty {
+                canMove = false
+            }
+
+            for mapPoint in mapPointsToTest {
+                let terrains = objectsIntersecting.filter({($0 is Terrain) && $0.mapPoint == mapPoint})
+                let tiles = objectsIntersecting.filter({($0 is Tile) && $0.mapPoint == mapPoint})
+
+                if !terrains.filter({$0.isBlocking}).isEmpty {
+                    canMove = false
+                    break
+                } else if !terrains.filter({!$0.isBlocking}).isEmpty {
+                    // TODO: Think about splitting into different logic to test for is walkable
+                    continue
+                }
+
+                if !tiles.filter({$0.isBlocking}).isEmpty {
+                    canMove = false
+                    break
+                }
+            }
+            if canMove {
                 person.actionMove()
             }
         }
+    }
+
+    private func canMoveBy(velocity: CGVector) {
+
     }
 
     private func objectsIntersect(gameObject: GameObject, collisonBoundary: CGRect) -> [GameObject] {
@@ -43,14 +100,14 @@ class PhysicsController {
         objectsToTest.append(world.player)
 
         if let gameArea = world.gameAreas[gameObject.location] {
-            //gameArea.tiles.forEach({objectsToTest.append($0)})
-            //gameArea.terrains.forEach({objectsToTest.append($0)})
+            gameArea.tiles.forEach({objectsToTest.append($0)})
+            gameArea.terrains.forEach({objectsToTest.append($0)})
             gameArea.buildings.forEach({objectsToTest.append($0)})
         }
 
         var result = [GameObject]()
 
-        for object in objectsToTest.filter({$0 !== gameObject && $0.isBlocking}) {
+        for object in objectsToTest.filter({$0 !== gameObject}) {
             if getCollisionBoundary(boundary: object.getBoundary()).intersects(collisonBoundary) {
                 result.append(object)
             }

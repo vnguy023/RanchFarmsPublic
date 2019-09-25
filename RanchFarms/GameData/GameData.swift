@@ -56,7 +56,6 @@ class GameData {
         for x in 0...9 {
             for y in 0...6 {
                 let tile = TileData(tileId: .Dirt,
-                                    tileType: .Dirt,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
 
@@ -107,14 +106,11 @@ class GameData {
         for x in -5...5 {
             for y in -5...6 {
                 var tileId = TileId.Dirt
-                var tileType = TileType.Dirt
                 if x%2 == 0 {
                     tileId = .Grass
-                    tileType = .Grass
                 }
 
                 let tile = TileData(tileId: tileId,
-                                    tileType: tileType,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
             }
@@ -140,14 +136,12 @@ class GameData {
         for x in 0...15 {
             for y in (-4)...(0) {
                 let tile = TileData(tileId: .Dirt,
-                                    tileType: .Dirt,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
             }
 
             for y in (-10)...(-5) {
                 let tile = TileData(tileId: .Water,
-                                    tileType: .Water,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
             }
@@ -194,7 +188,6 @@ class GameData {
         for x in 0...10 {
             for y in -5...5 {
                 let tile = TileData(tileId: .Grass,
-                                    tileType: .Grass,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
             }
@@ -255,7 +248,6 @@ class GameData {
         for x in 0...4 {
             for y in 0...4 {
                 let tile = TileData(tileId: .Dirt,
-                                    tileType: .Dirt,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
 

@@ -12,7 +12,7 @@ class BuildingInfo {
 
     let teleportId: TeleportId?
 
-    private init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, isBlocking: Bool, name: String, harvestDate: Int, harvestItemId: ItemId?, teleportId: TeleportId?) {
+    init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, isBlocking: Bool, name: String, harvestDate: Int, harvestItemId: ItemId?, teleportId: TeleportId?) {
         self.id = buildingId
         self.buildingType = buildingType
         self.objSize = objSize

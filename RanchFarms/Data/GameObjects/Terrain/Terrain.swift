@@ -33,6 +33,11 @@ class Terrain: GameObject {
     init(player: PlayerIndex, terrainType: TerrainType, mapPoint: MapPoint) {
         super.init(player: player, mapPoint: mapPoint)
 
+        self.boundarySize = Config.tileSize
+        // Anchor everything at the center of (0,0) tile
+        self.boundaryAnchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.isBlocking = false
+
         self.type = terrainType
     }
 

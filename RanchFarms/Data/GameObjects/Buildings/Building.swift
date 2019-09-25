@@ -33,7 +33,6 @@ class Building: GameObject {
         super.init(player: player, mapPoint: mapPoint)
 
         self.boundarySize = self.buildingInfo.objSize
-        // Anchor everything at the center of (0,0) tile
         self.boundaryAnchorPoint = CGPoint(x: 0.5 / self.buildingInfo.objSize.width * Config.tileSize.width,
                                            y: 0.5 / self.buildingInfo.objSize.height * Config.tileSize.height)
         self.isBlocking = buildingInfo.isBlocking
