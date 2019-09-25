@@ -52,10 +52,7 @@ class Person: GameObject {
                 setNewState(state: .Walking)
             }
 
-            let initPosition = position
             position = getNewPosition()
-
-            faceDirection = CGVector.getDirection4(start: initPosition, end: position)
             velocity = CGVector()
         }
     }

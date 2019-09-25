@@ -32,9 +32,10 @@ class Building: GameObject {
 
         super.init(player: player, mapPoint: mapPoint)
 
-        self.boundarySize = self.buildingInfo.objSize
-        self.boundaryAnchorPoint = CGPoint(x: 0.5 / self.buildingInfo.objSize.width * Config.tileSize.width,
-                                           y: 0.5 / self.buildingInfo.objSize.height * Config.tileSize.height)
+        self.boundarySize = CGSize(width: self.buildingInfo.objSize.width * Config.tileSize.width,
+                                   height: self.buildingInfo.objSize.height * Config.tileSize.height)
+        self.boundaryAnchorPoint = CGPoint(x: 0.5 / self.buildingInfo.objSize.width,
+                                           y: 0.5 / self.buildingInfo.objSize.height)
         self.isBlocking = buildingInfo.isBlocking
 
         updateTexture()

@@ -88,6 +88,8 @@ class PhysicsController {
             if canMove {
                 person.actionMove()
             }
+
+            person.faceDirection = CGVector.getDirection4(start: CGPoint(), end: CGPoint()+oldVelocity)
         }
     }
 

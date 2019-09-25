@@ -23,7 +23,7 @@ class GameData {
         buildings.append(bed)
 
         for x in -1...10 {
-            if x != -2 {
+            if x != 1 {
                 let wall = BuildingData(playerIndex: .Game,
                                         buildingId: .Wall,
                                         mapPoint: MapPoint(x: x, y: -1, location: location))

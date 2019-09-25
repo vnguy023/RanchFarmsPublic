@@ -45,7 +45,7 @@ extension ActionControllerGame {
                 changeState(to: .Store)
                 return
             default:
-                print ("[Desc=Primary Action not handled for this building] [BuildingType=\(buildingInFront.type)]")
+                print ("[Desc=Primary Action not handled for this building] [BuildingId=\(buildingInFront.id)] [BuildingType=\(buildingInFront.type)]")
             }
         }
     }

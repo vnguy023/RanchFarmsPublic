@@ -120,13 +120,13 @@ extension CGVector: Hashable {
 
         let angleRad = vector.angleRadians()
 
-        if angleRad < CGFloat.pi * 0.25 || angleRad > CGFloat.pi * 1.75 {
+        if angleRad <= CGFloat.pi * 0.25 || angleRad > CGFloat.pi * 1.75 {
             return .EAST
-        } else if angleRad < CGFloat.pi * 0.75 || angleRad < CGFloat.pi * 0.25 {
+        } else if angleRad <= CGFloat.pi * 0.75 || angleRad < CGFloat.pi * 0.25 {
             return .NORTH
-        } else if angleRad < CGFloat.pi * 1.25 || angleRad < CGFloat.pi * 0.75 {
+        } else if angleRad <= CGFloat.pi * 1.25 || angleRad < CGFloat.pi * 0.75 {
             return .WEST
-        } else if angleRad < CGFloat.pi * 1.75 || angleRad < CGFloat.pi * 1.25 {
+        } else if angleRad <= CGFloat.pi * 1.75 || angleRad < CGFloat.pi * 1.25 {
             return .SOUTH
         }
 
@@ -139,21 +139,21 @@ extension CGVector: Hashable {
 
         let angleRad = vector.angleRadians()
 
-        if angleRad < CGFloat.pi * 0.125 || angleRad > CGFloat.pi * 1.875 {
+        if angleRad < CGFloat.pi * 0.125 || angleRad >= CGFloat.pi * 1.875 {
             return .EAST
-        } else if CGFloat.pi * 0.125 < angleRad && angleRad < CGFloat.pi * 0.375{
+        } else if CGFloat.pi * 0.125 <= angleRad && angleRad < CGFloat.pi * 0.375{
             return .NORTHEAST
-        } else if CGFloat.pi * 0.375 < angleRad && angleRad < CGFloat.pi * 0.625{
+        } else if CGFloat.pi * 0.375 <= angleRad && angleRad < CGFloat.pi * 0.625{
             return .NORTH
-        } else if CGFloat.pi * 0.625 < angleRad && angleRad < CGFloat.pi * 0.875{
+        } else if CGFloat.pi * 0.625 <= angleRad && angleRad < CGFloat.pi * 0.875{
             return .NORTHWEST
-        } else if CGFloat.pi * 0.875 < angleRad && angleRad < CGFloat.pi * 1.125{
+        } else if CGFloat.pi * 0.875 <= angleRad && angleRad < CGFloat.pi * 1.125{
             return .WEST
-        } else if CGFloat.pi * 1.125 < angleRad && angleRad < CGFloat.pi * 1.375{
+        } else if CGFloat.pi * 1.125 <= angleRad && angleRad < CGFloat.pi * 1.375{
             return .SOUTHWEST
-        } else if CGFloat.pi * 1.375 < angleRad && angleRad < CGFloat.pi * 1.625{
+        } else if CGFloat.pi * 1.375 <= angleRad && angleRad < CGFloat.pi * 1.625{
             return .SOUTH
-        } else if CGFloat.pi * 1.625 < angleRad && angleRad < CGFloat.pi * 1.875{
+        } else if CGFloat.pi * 1.625 <= angleRad && angleRad < CGFloat.pi * 1.875{
             return .SOUTHEAST
         }
 
