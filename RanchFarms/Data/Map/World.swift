@@ -87,8 +87,7 @@ class World: SKNode {
             }
 
             for tileData in gameArea.tiles {
-                let tile = Tile(player: tileData.playerIndex,
-                                tileType: tileData.tileType,
+                let tile = Tile(tileType: tileData.tileType,
                                 mapPoint: tileData.mapPoint)
 
                 add(tile: tile)

@@ -1,22 +1,21 @@
 import SpriteKit
 
 class Tile: GameObject {
-    private var mType = TileType.Dirt
-    var type: TileType {
-        get {return mType}
-        set {
-            mType = newValue
+    let type: TileType
 
-            applyTexture(TextureManager.shared.getTexture(tileType: newValue))
-        }
-    }
-
-    init(player: PlayerIndex, tileType: TileType, mapPoint: MapPoint) {
-        super.init(player: .Game, mapPoint: mapPoint)
-        self.player = player
+    init(tileType: TileType, mapPoint: MapPoint) {
         self.type = tileType
 
+        super.init(player: .Game, mapPoint: mapPoint)
+        self.player = player
+
         self.zPosition = 0
+
+        updateTexture()
+    }
+
+    private func updateTexture() {
+        applyTexture(TextureManager.shared.getTexture(tileType: type))
     }
 
     func getTileData() -> TileData {
@@ -24,7 +23,7 @@ class Tile: GameObject {
     }
 
     convenience init(data: TileData) {
-        self.init(player: data.playerIndex, tileType: data.tileType, mapPoint: data.mapPoint)
+        self.init(tileType: data.tileType, mapPoint: data.mapPoint)
     }
     
     required init?(coder aDecoder: NSCoder) {
