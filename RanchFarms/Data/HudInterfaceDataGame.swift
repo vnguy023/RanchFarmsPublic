@@ -22,9 +22,7 @@ class HudInterfaceDataGame {
 
     var store: Store?
     
-    init() {
-        store = Store(storeFrontId: .VendingMachine, storeCatalogId: .VendingMachine)
-    }
+    init() { }
 
     func changeHotBarCursorPosition(_ value: CGVector) {
         hotbarCursor = hotbarCursor + value

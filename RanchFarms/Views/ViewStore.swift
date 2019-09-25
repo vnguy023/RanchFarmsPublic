@@ -85,8 +85,6 @@ class ViewStore: SKSpriteNode {
         itemInfoBuySellPrice.position = CGPoint(x: itemInfoDescription.position.x + itemInfoDescription.size.width/2 - 10,
                                                 y: itemInfoDescription.position.y + itemInfoDescription.size.height/2 - 10)
         self.addChild(itemInfoBuySellPrice)
-
-        update()
     }
 
     func update() {

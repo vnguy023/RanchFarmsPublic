@@ -42,6 +42,7 @@ extension ActionControllerGame {
                 changeState(to: .Dialog)
                 return
             case .VendingMachine:
+                world.hudInterfaceData.store = Store(storeFrontId: .VendingMachine, storeCatalogId: .VendingMachine)
                 changeState(to: .Store)
                 return
             default:

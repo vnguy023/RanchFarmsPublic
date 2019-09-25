@@ -33,6 +33,7 @@ extension ActionControllerGame {
     }
 
     func actionCancelGameStateStore() {
+        world.hudInterfaceData.store = nil
         changeState(to: .Game)
     }
 
