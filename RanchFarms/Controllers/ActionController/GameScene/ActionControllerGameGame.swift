@@ -15,11 +15,25 @@ extension ActionControllerGame {
         let buildingsInFront = currentGameArea.buildings.filter({$0.boundaryContains(point: world.player.getPositionInFront())})
 
         for buildingInFront in buildingsInFront {
+            if let gameEventId = buildingInFront.buildingInfo.gameEventId,
+                let gameEvent = GameEventManager.shared.getGameEvent(gameEventId: gameEventId) {
+                switch gameEvent.type {
+                case .Dialog:
+                    changeState(to: .Dialog)
+                    return
+                case .Store:
+                    world.hudInterfaceData.store = Store(storeFrontId: gameEvent.storeFrontId,
+                                                         storeCatalogId: gameEvent.storeCatalogId)
+                    changeState(to: .Store)
+                    return
+                case .Teleport:
+                    world.teleport(to: gameEvent.teleportId!)
+                    cameraController.fadeScreen()
+                    return
+                }
+            }
+
             switch buildingInFront.type {
-            case .Teleport:
-                world.teleport(to: buildingInFront.buildingInfo.teleportId!)
-                cameraController.fadeScreen()
-                return
             case .Bed:
                 let cmdEndDay  = CmdEndDay(world: world)
                 cmdEndDay.execute()
@@ -38,13 +52,6 @@ extension ActionControllerGame {
                         buildingInFront.sfxApplied = .Spin
                     }
                 }
-            case .Sign:
-                changeState(to: .Dialog)
-                return
-            case .VendingMachine:
-                world.hudInterfaceData.store = Store(storeFrontId: .VendingMachine, storeCatalogId: .VendingMachine)
-                changeState(to: .Store)
-                return
             default:
                 print ("[Desc=Primary Action not handled for this building] [BuildingId=\(buildingInFront.id)] [BuildingType=\(buildingInFront.type)]")
             }

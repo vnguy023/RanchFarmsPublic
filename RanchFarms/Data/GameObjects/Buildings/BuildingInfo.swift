@@ -10,9 +10,9 @@ class BuildingInfo {
     let objSize: CGSize
     let isBlocking: Bool
 
-    let teleportId: TeleportId?
+    let gameEventId: GameEventId?
 
-    init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, isBlocking: Bool, name: String, harvestDate: Int, harvestItemId: ItemId?, teleportId: TeleportId?) {
+    init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, isBlocking: Bool, name: String, harvestDate: Int, harvestItemId: ItemId?, gameEventId: GameEventId?) {
         self.id = buildingId
         self.buildingType = buildingType
         self.objSize = objSize
@@ -22,19 +22,23 @@ class BuildingInfo {
         self.harvestDate = harvestDate
         self.harvestItemId = harvestItemId
 
-        self.teleportId = teleportId
+        self.gameEventId = gameEventId
     }
 
     convenience init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, isBlocking: Bool, name: String) {
-        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking, name: name, harvestDate: 0, harvestItemId: nil, teleportId: nil)
+        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking, name: name, harvestDate: 0, harvestItemId: nil, gameEventId: nil)
     }
 
     convenience init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, isBlocking: Bool, name: String, harvestDate: Int, harvestItemId: ItemId) {
-        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking, name: name, harvestDate: harvestDate, harvestItemId: harvestItemId, teleportId: nil)
+        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking, name: name, harvestDate: harvestDate, harvestItemId: harvestItemId, gameEventId: nil)
     }
 
     convenience init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, isBlocking: Bool, name: String, teleportId: TeleportId) {
-        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking, name: name, harvestDate: 0, harvestItemId: nil, teleportId: teleportId)
+        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking, name: name, harvestDate: 0, harvestItemId: nil, gameEventId: nil)
+    }
+
+    convenience init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, isBlocking: Bool, name: String, gameEventId: GameEventId) {
+        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking, name: name, harvestDate: 0, harvestItemId: nil, gameEventId: gameEventId)
     }
 
 }
