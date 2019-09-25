@@ -1,10 +1,10 @@
 class TileData: Codable {
-    let playerIndex: PlayerIndex
+    let tileId: TileId
     let tileType: TileType
     let mapPoint: MapPoint
 
-    init(playerIndex: PlayerIndex, tileType: TileType, mapPoint: MapPoint) {
-        self.playerIndex = playerIndex
+    init(tileId: TileId, tileType: TileType, mapPoint: MapPoint) {
+        self.tileId = tileId
         self.tileType = tileType
         self.mapPoint = mapPoint
     }

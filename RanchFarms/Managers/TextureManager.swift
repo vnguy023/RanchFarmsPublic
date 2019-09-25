@@ -8,7 +8,7 @@ class TextureManager {
     private var cropMap = [String: SKTexture]()
     private var itemMap = [ItemId: SKTexture]()
     private var terrainMap = [TerrainType: SKTexture]()
-    private var tileMap = [TileType: SKTexture]()
+    private var tileMap = [TileId: SKTexture]()
 
     private var personMap = [String: SKTexture]()
     private var portraitMap = [PortraitId: SKTexture]()
@@ -191,11 +191,11 @@ class TextureManager {
         return nil
     }
 
-    func getTexture(tileType: TileType) -> SKTexture? {
-        if tileMap[tileType] == nil {
-            print ("[TextureManager] [Desc=No texture] [TileType=\(tileType)]")
+    func getTexture(tileId: TileId) -> SKTexture? {
+        if tileMap[tileId] == nil {
+            print ("[TextureManager] [Desc=No texture] [TileId=\(tileId)]")
         } else {
-            return tileMap[tileType]
+            return tileMap[tileId]
         }
         return nil
     }

@@ -1,9 +1,11 @@
 import SpriteKit
 
 class Tile: GameObject {
+    let id: TileId
     let type: TileType
 
-    init(tileType: TileType, mapPoint: MapPoint) {
+    init(tileId: TileId, tileType: TileType, mapPoint: MapPoint) {
+        self.id = tileId
         self.type = tileType
 
         super.init(player: .Game, mapPoint: mapPoint)
@@ -15,15 +17,15 @@ class Tile: GameObject {
     }
 
     private func updateTexture() {
-        applyTexture(TextureManager.shared.getTexture(tileType: type))
+        applyTexture(TextureManager.shared.getTexture(tileId: id))
     }
 
     func getTileData() -> TileData {
-        return TileData(playerIndex: player, tileType: type, mapPoint: mapPoint)
+        return TileData(tileId: id, tileType: type, mapPoint: mapPoint)
     }
 
     convenience init(data: TileData) {
-        self.init(tileType: data.tileType, mapPoint: data.mapPoint)
+        self.init(tileId: data.tileId, tileType: data.tileType, mapPoint: data.mapPoint)
     }
     
     required init?(coder aDecoder: NSCoder) {
