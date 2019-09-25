@@ -135,7 +135,7 @@ class GameData {
         // Tiles/Terrains
         for x in 0...15 {
             for y in (-4)...(0) {
-                let tile = TileData(tileId: .Dirt,
+                let tile = TileData(tileId: .Sand,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
             }

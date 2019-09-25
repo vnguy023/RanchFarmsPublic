@@ -21,6 +21,7 @@ class TileInfoManager {
     private func loadTileInfo() {
         tileMap[.Dirt] = TileInfo(tileId: .Dirt, tileType: .Dirt, isBlocking: false, name: "Dirt")
         tileMap[.Grass] = TileInfo(tileId: .Grass, tileType: .Grass, isBlocking: false, name: "Grass")
+        tileMap[.Sand] = TileInfo(tileId: .Sand, tileType: .Sand, isBlocking: false, name: "Sand")
         tileMap[.Water] = TileInfo(tileId: .Water, tileType: .Water, isBlocking: true, name: "Water")
     }
 }
