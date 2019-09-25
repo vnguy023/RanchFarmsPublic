@@ -40,17 +40,16 @@ class PhysicsController {
                 let terrains = objectsIntersecting.filter({($0 is Terrain) && $0.mapPoint == mapPoint})
                 let tiles = objectsIntersecting.filter({($0 is Tile) && $0.mapPoint == mapPoint})
 
-                if !terrains.filter({$0.isBlocking}).isEmpty {
-                    canMove = false
-                    break
-                } else if !terrains.filter({!$0.isBlocking}).isEmpty {
-                    // TODO: Think about splitting into different logic to test for is walkable
-                    continue
-                }
-
-                if !tiles.filter({$0.isBlocking}).isEmpty {
-                    canMove = false
-                    break
+                if !terrains.isEmpty {
+                    if !terrains.filter({$0.isBlocking}).isEmpty {
+                        canMove = false
+                        break
+                    }
+                } else {
+                    if !tiles.filter({$0.isBlocking}).isEmpty {
+                        canMove = false
+                        break
+                    }
                 }
             }
             if canMove {
@@ -72,17 +71,16 @@ class PhysicsController {
                 let terrains = objectsIntersecting.filter({($0 is Terrain) && $0.mapPoint == mapPoint})
                 let tiles = objectsIntersecting.filter({($0 is Tile) && $0.mapPoint == mapPoint})
 
-                if !terrains.filter({$0.isBlocking}).isEmpty {
-                    canMove = false
-                    break
-                } else if !terrains.filter({!$0.isBlocking}).isEmpty {
-                    // TODO: Think about splitting into different logic to test for is walkable
-                    continue
-                }
-
-                if !tiles.filter({$0.isBlocking}).isEmpty {
-                    canMove = false
-                    break
+                if !terrains.isEmpty {
+                    if !terrains.filter({$0.isBlocking}).isEmpty {
+                        canMove = false
+                        break
+                    }
+                } else {
+                    if !tiles.filter({$0.isBlocking}).isEmpty {
+                        canMove = false
+                        break
+                    }
                 }
             }
             if canMove {
