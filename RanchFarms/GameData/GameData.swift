@@ -121,6 +121,49 @@ class GameData {
         return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
     }
 
+    static func SouthBeach() -> GameAreaData {
+        let location = Location.SouthBeach
+
+        var buildings = [BuildingData]()
+        var terrains = [TerrainData]()
+        var tiles = [TileData]()
+
+        // Buildings
+        let townDoor = BuildingData(playerIndex: .Game,
+                                buildingId: .SouthBeachToTownDoor,
+                                mapPoint: MapPoint(x: 4, y: 1, location: location))
+        buildings.append(townDoor)
+
+        // Tiles/Terrains
+        for x in 0...15 {
+            for y in (-4)...(0) {
+                let tile = TileData(playerIndex: .Game,
+                                    tileType: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles.append(tile)
+            }
+
+            for y in (-10)...(-5) {
+                let tile = TileData(playerIndex: .Game,
+                                    tileType: .Water,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles.append(tile)
+            }
+        }
+
+        for x in 2...3 {
+            for y in (-8)...(-4) {
+                let terrain = TerrainData(playerIndex: .Game,
+                                          terrainType: .Wood,
+                                          mapPoint: MapPoint(x: x, y: y, location: location))
+                terrains.append(terrain)
+            }
+        }
+
+        return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
+    }
+
+
     static func Town() -> GameAreaData {
         let location = Location.Town
 
@@ -140,11 +183,16 @@ class GameData {
                                             mapPoint: MapPoint(x: 2, y: 6, location: location))
         buildings.append(generalStoreDoor)
 
+        let southBeachDoor = BuildingData(playerIndex: .Game,
+                                          buildingId: .TownToSouthBeachDoor,
+                                          mapPoint: MapPoint(x: 4, y: -7, location: location))
+        buildings.append(southBeachDoor)
+
         // Tiles/Terrains
         for x in 0...10 {
             for y in -5...5 {
                 let tile = TileData(playerIndex: .Game,
-                                    tileType: .Water,
+                                    tileType: .Grass,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
             }

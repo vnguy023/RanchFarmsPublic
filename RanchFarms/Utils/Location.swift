@@ -5,4 +5,5 @@ enum Location: UInt, Codable {
     case Farm
     case Town
     case GeneralStore
+    case SouthBeach
 }

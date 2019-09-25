@@ -131,6 +131,22 @@ class BuildingInfoManager {
                                                                   name: "Farm To Town Door",
                                                                   teleportId: .Farm_Town)
 
+        buildingIdToBuildingInfo[.GeneralStoreToTownDoor] = BuildingInfo(buildingId: .GeneralStoreToTownDoor,
+                                                                         buildingType: .Teleport,
+                                                                         objSize: CGSize(width: Config.tileSize.width * 1,
+                                                                                         height: Config.tileSize.height * 2),
+                                                                         isBlocking: true,
+                                                                         name: "GeneralStore to Town",
+                                                                         teleportId: .GeneralStore_Town)
+
+        buildingIdToBuildingInfo[.SouthBeachToTownDoor] = BuildingInfo(buildingId: .SouthBeachToTownDoor,
+                                                                       buildingType: .Teleport,
+                                                                       objSize: CGSize(width: Config.tileSize.width * 1,
+                                                                                       height: Config.tileSize.height * 2),
+                                                                       isBlocking: true,
+                                                                       name: "SouthBeach to Town",
+                                                                       teleportId: .SouthBeach_Town)
+
         buildingIdToBuildingInfo[.TownToFarmDoor] = BuildingInfo(buildingId: .TownToFarmDoor,
                                                                  buildingType: .Teleport,
                                                                  objSize: CGSize(width: Config.tileSize.width * 1,
@@ -147,12 +163,12 @@ class BuildingInfoManager {
                                                                          name: "Town to GeneralStore",
                                                                          teleportId: .Town_GeneralStore)
 
-        buildingIdToBuildingInfo[.GeneralStoreToTownDoor] = BuildingInfo(buildingId: .GeneralStoreToTownDoor,
-                                                                         buildingType: .Teleport,
-                                                                         objSize: CGSize(width: Config.tileSize.width * 1,
-                                                                                         height: Config.tileSize.height * 2),
-                                                                         isBlocking: true,
-                                                                         name: "GeneralStore to Town",
-                                                                         teleportId: .GeneralStore_Town)
+        buildingIdToBuildingInfo[.TownToSouthBeachDoor] = BuildingInfo(buildingId: .TownToSouthBeachDoor,
+                                                                       buildingType: .Teleport,
+                                                                       objSize: CGSize(width: Config.tileSize.width * 1,
+                                                                                       height: Config.tileSize.height * 2),
+                                                                       isBlocking: true,
+                                                                       name: "Town to GeneralStore",
+                                                                       teleportId: .Town_SouthBeach)
     }
 }

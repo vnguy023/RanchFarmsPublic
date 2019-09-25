@@ -38,6 +38,18 @@ class AnimationManager {
                                                                      imageSize: CGSize(width: 1, height: 2),
                                                                      anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
 
+        buildingAnimations[.GeneralStoreToTownDoor] = Animation()
+        buildingAnimations[.GeneralStoreToTownDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .GeneralStoreToTownDoor),
+                                                                     duration: 1,
+                                                                     imageSize: CGSize(width: 1, height: 2),
+                                                                     anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+
+        buildingAnimations[.SouthBeachToTownDoor] = Animation()
+        buildingAnimations[.SouthBeachToTownDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .SouthBeachToTownDoor),
+                                                                           duration: 1,
+                                                                           imageSize: CGSize(width: 1, height: 2),
+                                                                           anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+
         buildingAnimations[.TownToFarmDoor] = Animation()
         buildingAnimations[.TownToFarmDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .TownToFarmDoor),
                                                                      duration: 1,
@@ -48,11 +60,11 @@ class AnimationManager {
                                                                              duration: 1,
                                                                              imageSize: CGSize(width: 1, height: 2),
                                                                              anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
-        buildingAnimations[.GeneralStoreToTownDoor] = Animation()
-        buildingAnimations[.GeneralStoreToTownDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .GeneralStoreToTownDoor),
-                                                                     duration: 1,
-                                                                     imageSize: CGSize(width: 1, height: 2),
-                                                                     anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+        buildingAnimations[.TownToSouthBeachDoor] = Animation()
+        buildingAnimations[.TownToSouthBeachDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .TownToSouthBeachDoor),
+                                                                           duration: 1,
+                                                                           imageSize: CGSize(width: 1, height: 2),
+                                                                           anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
 
         buildingAnimations[.TV] = Animation()
         buildingAnimations[.TV]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .TV),

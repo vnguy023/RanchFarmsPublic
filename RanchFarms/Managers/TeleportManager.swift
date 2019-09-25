@@ -16,10 +16,13 @@ class TeleportManager {
         teleportMap[.Farm_House] = Teleport(mapPoint: MapPoint(x: 1, y: 0, location: .House), directionToFace: .NORTH)
         teleportMap[.Farm_Town] = Teleport(mapPoint: MapPoint(x: 0, y: 0, location: .Town), directionToFace: .EAST)
 
+        teleportMap[.GeneralStore_Town] = Teleport(mapPoint: MapPoint(x: 2, y: 5, location: .Town), directionToFace: .SOUTH)
+
+        teleportMap[.SouthBeach_Town] = Teleport(mapPoint: MapPoint(x: 4, y: -5, location: .Town), directionToFace: .NORTH)
+
         teleportMap[.Town_Farm] = Teleport(mapPoint: MapPoint(x: 5, y: 3, location: .Farm), directionToFace: .WEST)
         teleportMap[.Town_GeneralStore] = Teleport(mapPoint: MapPoint(x: 1, y: 0, location: .GeneralStore), directionToFace: .NORTH)
-
-        teleportMap[.GeneralStore_Town] = Teleport(mapPoint: MapPoint(x: 2, y: 5, location: .Town), directionToFace: .SOUTH)
+        teleportMap[.Town_SouthBeach] = Teleport(mapPoint: MapPoint(x: 4, y: 0, location: .SouthBeach), directionToFace: .SOUTH)
     }
 
     func getTeleport(teleportId: TeleportId) -> Teleport? {
