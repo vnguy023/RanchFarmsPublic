@@ -11,6 +11,6 @@ class CmdStartDay: Command {
         world.player.location = world.player.location
         world.player.previousPosition = world.player.position
 
-        world.gameTicksElapsedToday = Config.GameTicksPerGameMinute * 60 * 6 // Start at 6AM
+        world.gameTicksElapsedToday = Config.GameTicksPerGameHour * 6 // Start at 6AM
     }
 }

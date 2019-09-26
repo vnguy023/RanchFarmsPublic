@@ -43,6 +43,9 @@ class Config {
     static let GameTicksPerSecond = GameTick(60)
     static let MaxGameTickUpdatesPerCycle = GameTick(6)// only allow us to be behind by this much
     static let GameTicksPerGameMinute = GameTick(42)
+    static var GameTicksPerGameHour : GameTick {
+        get {return GameTicksPerGameMinute * 60}
+    }
     static let GameDaysPerMonth = 28
 
     private init() {
