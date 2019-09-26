@@ -15,8 +15,9 @@ extension ActionControllerGame {
         let buildingsInFront = currentGameArea.buildings.filter({$0.boundaryContains(point: world.player.getPositionInFront())})
 
         for buildingInFront in buildingsInFront {
-            if let gameEventId = buildingInFront.buildingInfo.gameEventId,
-                let gameEvent = GameEventManager.shared.getGameEvent(gameEventId: gameEventId) {
+            let gameEvents = GameEventManager.shared.getGameEventsTriggered(buildingId: buildingInFront.id, actionType: .Interact)
+            for gameEvent in gameEvents{
+                // TODO: validate the gameEvent requirements
                 switch gameEvent.type {
                 case .Dialog:
                     changeState(to: .Dialog)

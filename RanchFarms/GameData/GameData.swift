@@ -215,7 +215,7 @@ class GameData {
         buildings.append(vendingMachine)
 
         for x in -1...5 {
-            if x != -1 {
+            if x != 1 {
                 let wall = BuildingData(playerIndex: .Game,
                                         buildingId: .Wall,
                                         mapPoint: MapPoint(x: x, y: -1, location: location))

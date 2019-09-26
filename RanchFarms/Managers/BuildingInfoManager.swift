@@ -85,14 +85,12 @@ class BuildingInfoManager {
                                                                   buildingType: .Unknown,
                                                                   objSize: CGSize(width: 1, height: 1),
                                                                   isBlocking: true,
-                                                                  name: "Player House Sign",
-                                                                  gameEventId: .Dialog_Sign)
+                                                                  name: "Player House Sign")
         buildingIdToBuildingInfo[.VendingMachine] = BuildingInfo(buildingId: .VendingMachine,
                                                                  buildingType: .Unknown,
                                                                  objSize: CGSize(width: 2, height: 1),
                                                                  isBlocking: true,
-                                                                 name: "Vending Machine",
-                                                                 gameEventId: .Store_VendingMachine)
+                                                                 name: "Vending Machine")
     }
 
     private func loadBuildingInfoDoors() {
@@ -101,56 +99,48 @@ class BuildingInfoManager {
                                                                   buildingType: .Unknown,
                                                                   objSize: CGSize(width: 1, height: 2),
                                                                   isBlocking: true,
-                                                                  name: "House To Farm Door",
-                                                                  gameEventId: .Teleport_House_Farm)
+                                                                  name: "House To Farm Door")
 
         buildingIdToBuildingInfo[.FarmToHouseDoor] = BuildingInfo(buildingId: .FarmToHouseDoor,
                                                                   buildingType: .Unknown,
                                                                   objSize: CGSize(width: 1, height: 2),
                                                                   isBlocking: true,
-                                                                  name: "Farm To House Door",
-                                                                  gameEventId: .Teleport_Farm_House)
+                                                                  name: "Farm To House Door")
 
         buildingIdToBuildingInfo[.FarmToTownDoor] = BuildingInfo(buildingId: .FarmToTownDoor,
                                                                   buildingType: .Unknown,
                                                                   objSize: CGSize(width: 1, height: 2),
                                                                   isBlocking: true,
-                                                                  name: "Farm To Town Door",
-                                                                  gameEventId: .Teleport_Farm_Town)
+                                                                  name: "Farm To Town Door")
 
         buildingIdToBuildingInfo[.GeneralStoreToTownDoor] = BuildingInfo(buildingId: .GeneralStoreToTownDoor,
                                                                          buildingType: .Unknown,
                                                                          objSize: CGSize(width: 1, height: 2),
                                                                          isBlocking: true,
-                                                                         name: "GeneralStore to Town",
-                                                                         gameEventId: .Teleport_GeneralStore_Town)
+                                                                         name: "GeneralStore to Town")
 
         buildingIdToBuildingInfo[.SouthBeachToTownDoor] = BuildingInfo(buildingId: .SouthBeachToTownDoor,
                                                                        buildingType: .Unknown,
                                                                        objSize: CGSize(width: 1, height: 2),
                                                                        isBlocking: true,
-                                                                       name: "SouthBeach to Town",
-                                                                       gameEventId: .Teleport_SouthBeach_Town)
+                                                                       name: "SouthBeach to Town")
 
         buildingIdToBuildingInfo[.TownToFarmDoor] = BuildingInfo(buildingId: .TownToFarmDoor,
                                                                  buildingType: .Unknown,
                                                                  objSize: CGSize(width: 1, height: 2),
                                                                  isBlocking: true,
-                                                                 name: "Town To Farm Door",
-                                                                 gameEventId: .Teleport_Town_Farm)
+                                                                 name: "Town To Farm Door")
 
         buildingIdToBuildingInfo[.TownToGeneralStoreDoor] = BuildingInfo(buildingId: .TownToGeneralStoreDoor,
                                                                          buildingType: .Unknown,
                                                                          objSize: CGSize(width: 1, height: 2),
                                                                          isBlocking: true,
-                                                                         name: "Town to GeneralStore",
-                                                                         gameEventId: .Teleport_Town_GeneralStore)
+                                                                         name: "Town to GeneralStore")
 
         buildingIdToBuildingInfo[.TownToSouthBeachDoor] = BuildingInfo(buildingId: .TownToSouthBeachDoor,
                                                                        buildingType: .Unknown,
                                                                        objSize: CGSize(width: 1, height: 2),
                                                                        isBlocking: true,
-                                                                       name: "Town to SouthBeach",
-                                                                       gameEventId: .Teleport_Town_SouthBeach)
+                                                                       name: "Town to SouthBeach")
     }
 }
