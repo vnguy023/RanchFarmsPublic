@@ -474,6 +474,7 @@
 				6CD007C3231FAD7D008B9825 /* Store */,
 				6C6D78DC2321F8BB00573B25 /* PortraitId.swift */,
 				6C4701B0232ECFC40013AD0F /* Teleport */,
+				6C84E2A7233C9B4A00FB12AC /* Trigger */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -576,9 +577,6 @@
 			children = (
 				6C696452233C25550033D9EE /* Requirement.swift */,
 				6C696455233C25930033D9EE /* RequirementType.swift */,
-				6C69645B233C4BC80033D9EE /* Trigger.swift */,
-				6C696459233C4BAF0033D9EE /* TriggerType.swift */,
-				6C69645D233C5AED0033D9EE /* ActionType.swift */,
 			);
 			path = Requirement;
 			sourceTree = "<group>";
@@ -601,6 +599,15 @@
 			path = Systems;
 			sourceTree = "<group>";
 		};
+		6C84E2A7233C9B4A00FB12AC /* Trigger */ = {
+			isa = PBXGroup;
+			children = (
+				6C69645B233C4BC80033D9EE /* Trigger.swift */,
+				6C696459233C4BAF0033D9EE /* TriggerType.swift */,
+			);
+			path = Trigger;
+			sourceTree = "<group>";
+		};
 		6C8D2BDF23342DF70077AE9D /* SFXs */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +621,7 @@
 		6C9D3605230BA82A00168A28 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6C69645D233C5AED0033D9EE /* ActionType.swift */,
 				6C6033CE230B66A600746309 /* Location.swift */,
 				6CBC8D13231B425D005454E1 /* MapPoint.swift */,
 				6C9D3606230BA83500168A28 /* PlayerIndex.swift */,

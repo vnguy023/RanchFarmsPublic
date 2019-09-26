@@ -5,6 +5,7 @@ extension GameData {
 
         data.append(GameEvent(gameEventId: .Store_VendingMachine, priority: 100,
                               trigger: Trigger(buildingId: .VendingMachine, actionType: .Interact),
+                              requirements: [Requirement](),
                               storeFrontId: .VendingMachine,
                               storeCatalogId: .VendingMachine))
 

@@ -1,12 +1,18 @@
 class Requirement {
     let type: RequirementType
 
-    private init(requirementType: RequirementType, priority: Int) {
+    let startTime: GameTick!
+    let endTime: GameTick!
+
+    private init(requirementType: RequirementType, startTime: GameTick?, endTime: GameTick?) {
         self.type = requirementType
+
+        self.startTime = startTime
+        self.endTime = endTime
     }
 
-    convenience init(priority: Int) {
-        self.init(requirementType: .Time, priority: priority)
+    convenience init(startTime: GameTick, endTime: GameTick) {
+        self.init(requirementType: .Time, startTime: startTime, endTime: endTime)
     }
 }
 

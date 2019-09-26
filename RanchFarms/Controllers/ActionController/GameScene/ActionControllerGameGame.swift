@@ -17,8 +17,14 @@ extension ActionControllerGame {
         for buildingInFront in buildingsInFront {
             let gameEvents = GameEventManager.shared.getGameEventsTriggered(buildingId: buildingInFront.id, actionType: .Interact)
             for gameEvent in gameEvents{
-                executeGameEvent(gameEvent)
-                return
+                let cmd = CmdValidateRequirements(requirements: gameEvent.requirements,
+                                                  currentTime: world.gameTicksElapsedToday)
+                cmd.execute()
+
+                if cmd.success {
+                    executeGameEvent(gameEvent)
+                    return
+                }
             }
 
             switch buildingInFront.type {

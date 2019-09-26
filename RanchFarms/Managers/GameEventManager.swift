@@ -28,7 +28,7 @@ class GameEventManager {
                 result.append(gameEvent.value)
             }
         }
-        return result.sorted(by: {return $0.priority < $1.priority})
+        return result.sorted(by: {return $0.priority > $1.priority})
     }
 
     func getGameEventsTriggered(buildingId: BuildingId, actionType: ActionType) -> [GameEvent] {
@@ -38,7 +38,7 @@ class GameEventManager {
                 result.append(gameEvent.value)
             }
         }
-        return result.sorted(by: {return $0.priority < $1.priority})
+        return result.sorted(by: {return $0.priority > $1.priority})
     }
 
     func getGameEventsTriggered(boundary: CGRect, location: Location) -> [GameEvent] {
@@ -54,6 +54,6 @@ class GameEventManager {
                 }
             }
         }
-        return result.sorted(by: {return $0.priority < $1.priority})
+        return result.sorted(by: {return $0.priority > $1.priority})
     }
 }
