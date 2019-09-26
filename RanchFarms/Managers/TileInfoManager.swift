@@ -6,7 +6,7 @@ class TileInfoManager {
     private var tileMap = [TileId: TileInfo]()
 
     private init() {
-        loadTileInfo()
+        GameData.getTileInfos().forEach({tileMap[$0.id] = $0})
     }
 
     func getTileInfo(tileId: TileId) -> TileInfo? {
@@ -16,12 +16,5 @@ class TileInfoManager {
 
         print ("[TileInfoManager] [Desc=Info not found] [TileId=\(tileId)]")
         return nil
-    }
-
-    private func loadTileInfo() {
-        tileMap[.Dirt] = TileInfo(tileId: .Dirt, tileType: .Dirt, isBlocking: false, name: "Dirt")
-        tileMap[.Grass] = TileInfo(tileId: .Grass, tileType: .Grass, isBlocking: false, name: "Grass")
-        tileMap[.Sand] = TileInfo(tileId: .Sand, tileType: .Sand, isBlocking: false, name: "Sand")
-        tileMap[.Water] = TileInfo(tileId: .Water, tileType: .Water, isBlocking: true, name: "Water")
     }
 }
