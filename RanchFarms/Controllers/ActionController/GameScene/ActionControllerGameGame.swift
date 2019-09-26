@@ -17,21 +17,8 @@ extension ActionControllerGame {
         for buildingInFront in buildingsInFront {
             let gameEvents = GameEventManager.shared.getGameEventsTriggered(buildingId: buildingInFront.id, actionType: .Interact)
             for gameEvent in gameEvents{
-                // TODO: validate the gameEvent requirements
-                switch gameEvent.type {
-                case .Dialog:
-                    changeState(to: .Dialog)
-                    return
-                case .Store:
-                    world.hudInterfaceData.store = Store(storeFrontId: gameEvent.storeFrontId,
-                                                         storeCatalogId: gameEvent.storeCatalogId)
-                    changeState(to: .Store)
-                    return
-                case .Teleport:
-                    world.teleport(to: gameEvent.teleportId!)
-                    cameraController.fadeScreen()
-                    return
-                }
+                executeGameEvent(gameEvent)
+                return
             }
 
             switch buildingInFront.type {

@@ -46,6 +46,20 @@ class ActionControllerGame {
         }
     }
 
+    func executeGameEvent(_ gameEvent: GameEvent) {
+        switch gameEvent.type {
+        case .Dialog:
+            changeState(to: .Dialog)
+        case .Store:
+            world.hudInterfaceData.store = Store(storeFrontId: gameEvent.storeFrontId,
+                                                 storeCatalogId: gameEvent.storeCatalogId)
+            changeState(to: .Store)
+        case .Teleport:
+            world.teleport(to: gameEvent.teleportId!)
+            cameraController.fadeScreen()
+        }
+    }
+
     private func assignActionsGameStateDialog() {
         inputController.clearHandles()
 
