@@ -6,23 +6,7 @@ class TeleportManager {
     private var teleportMap = [TeleportId: Teleport]()
 
     private init() {
-        loadTeleports()
-    }
-
-    private func loadTeleports() {
-        teleportMap[.House_Bed] = Teleport(mapPoint: MapPoint(x: 7, y: 1, location: .House), directionToFace: .SOUTH)
-        teleportMap[.House_Farm] = Teleport(mapPoint: MapPoint(x: 3, y: 6, location: .Farm), directionToFace: .SOUTH)
-
-        teleportMap[.Farm_House] = Teleport(mapPoint: MapPoint(x: 1, y: 0, location: .House), directionToFace: .NORTH)
-        teleportMap[.Farm_Town] = Teleport(mapPoint: MapPoint(x: 0, y: 0, location: .Town), directionToFace: .EAST)
-
-        teleportMap[.GeneralStore_Town] = Teleport(mapPoint: MapPoint(x: 2, y: 5, location: .Town), directionToFace: .SOUTH)
-
-        teleportMap[.SouthBeach_Town] = Teleport(mapPoint: MapPoint(x: 4, y: -5, location: .Town), directionToFace: .NORTH)
-
-        teleportMap[.Town_Farm] = Teleport(mapPoint: MapPoint(x: 5, y: 3, location: .Farm), directionToFace: .WEST)
-        teleportMap[.Town_GeneralStore] = Teleport(mapPoint: MapPoint(x: 1, y: 0, location: .GeneralStore), directionToFace: .NORTH)
-        teleportMap[.Town_SouthBeach] = Teleport(mapPoint: MapPoint(x: 4, y: 0, location: .SouthBeach), directionToFace: .SOUTH)
+        GameData.getTeleports().forEach({teleportMap[$0.id] = $0})
     }
 
     func getTeleport(teleportId: TeleportId) -> Teleport? {
