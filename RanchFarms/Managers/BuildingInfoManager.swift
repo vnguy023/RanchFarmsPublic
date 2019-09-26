@@ -3,14 +3,14 @@ import SpriteKit
 class BuildingInfoManager {
     static let shared = BuildingInfoManager()
 
-    private var buildingIdToBuildingInfo = [BuildingId: BuildingInfo]()
+    private var buildingInfoMap = [BuildingId: BuildingInfo]()
 
     private init() {
-        GameData.getBuildingInfos().forEach({buildingIdToBuildingInfo[$0.id] = $0})
+        GameData.getBuildingInfos().forEach({buildingInfoMap[$0.id] = $0})
     }
 
     func getBuildingInfo(buildingId: BuildingId) -> BuildingInfo? {
-        if let buildingInfo = buildingIdToBuildingInfo[buildingId] {
+        if let buildingInfo = buildingInfoMap[buildingId] {
             return buildingInfo
         }
 
