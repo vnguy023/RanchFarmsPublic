@@ -55,7 +55,7 @@ class ActionControllerGame {
                                                  storeCatalogId: gameEvent.storeCatalogId)
             changeState(to: .Store)
         case .Teleport:
-            world.teleport(to: gameEvent.teleportId!)
+            world.teleport(to: gameEvent.teleportId)
             cameraController.fadeScreen()
         }
     }

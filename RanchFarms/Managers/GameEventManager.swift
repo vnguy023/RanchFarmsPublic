@@ -41,15 +41,14 @@ class GameEventManager {
         return result.sorted(by: {return $0.priority < $1.priority})
     }
 
-    // TODO: still need to verify this
     func getGameEventsTriggered(boundary: CGRect, location: Location) -> [GameEvent] {
         var result = [GameEvent]()
         for gameEvent in gameEventMap.filter({$0.value.trigger.type == .Presence}) {
             if gameEvent.value.trigger.botLeftMapPoint.location == location {
-                let triggerBoundary = CGRect(x: CGFloat(gameEvent.value.trigger.botLeftMapPoint.x) * Config.tileSize.width,
-                                             y: CGFloat(gameEvent.value.trigger.botLeftMapPoint.x) * Config.tileSize.height,
-                                             width: CGFloat(gameEvent.value.trigger.topRightMapPoint.x - gameEvent.value.trigger.topRightMapPoint.x) * Config.tileSize.height,
-                                             height: CGFloat(gameEvent.value.trigger.topRightMapPoint.y - gameEvent.value.trigger.topRightMapPoint.y) * Config.tileSize.height)
+                let triggerBoundary = CGRect(x: CGFloat(gameEvent.value.trigger.botLeftMapPoint.x) * Config.tileSize.width - Config.tileSize.width/2,
+                                             y: CGFloat(gameEvent.value.trigger.botLeftMapPoint.y) * Config.tileSize.height - Config.tileSize.height/2,
+                                             width: CGFloat(gameEvent.value.trigger.topRightMapPoint.x - gameEvent.value.trigger.botLeftMapPoint.x + 1) * Config.tileSize.width,
+                                             height: CGFloat(gameEvent.value.trigger.topRightMapPoint.y - gameEvent.value.trigger.botLeftMapPoint.y + 1) * Config.tileSize.height)
                 if boundary.intersects(triggerBoundary) {
                     result.append(gameEvent.value)
                 }

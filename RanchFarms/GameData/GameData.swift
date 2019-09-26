@@ -12,11 +12,6 @@ class GameData {
         var tiles = [TileData]()
 
         // Buildings
-        let door = BuildingData(playerIndex: .Game,
-                                buildingId: .HouseToFarmDoor,
-                                mapPoint: MapPoint(x: 1, y: -2, location: location))
-        buildings.append(door)
-
         let bed = BuildingData(playerIndex: .Game,
                                buildingId: .SingleBed,
                                mapPoint: MapPoint(x: 8, y: 0, location: location))
@@ -66,6 +61,18 @@ class GameData {
             }
         }
 
+        for x in 1...1 {
+            for y in (-2)...(-1) {
+                let tile = TileData(tileId: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles.append(tile)
+
+                let terrain = TerrainData(playerIndex: .Game,
+                                          terrainType: .Wood,
+                                          mapPoint: MapPoint(x: x, y: y, location: location))
+                terrains.append(terrain)
+            }
+        }
         return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
     }
 
@@ -122,15 +129,11 @@ class GameData {
     static func SouthBeach() -> GameAreaData {
         let location = Location.SouthBeach
 
-        var buildings = [BuildingData]()
+        let buildings = [BuildingData]()
         var terrains = [TerrainData]()
         var tiles = [TileData]()
 
         // Buildings
-        let townDoor = BuildingData(playerIndex: .Game,
-                                    buildingId: .SouthBeachToTownDoor,
-                                    mapPoint: MapPoint(x: 4, y: 1, location: location))
-        buildings.append(townDoor)
 
         // Tiles/Terrains
         for x in 0...15 {
@@ -147,6 +150,16 @@ class GameData {
             }
         }
 
+        // SouthBeachTownDoor
+        for x in 4...4 {
+            for y in (1)...(2) {
+                let tile = TileData(tileId: .Grass,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles.append(tile)
+            }
+        }
+
+
         for x in 2...3 {
             for y in (-8)...(-4) {
                 let terrain = TerrainData(playerIndex: .Game,
@@ -158,7 +171,6 @@ class GameData {
 
         return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
     }
-
 
     static func Town() -> GameAreaData {
         let location = Location.Town
@@ -179,15 +191,18 @@ class GameData {
                                             mapPoint: MapPoint(x: 2, y: 6, location: location))
         buildings.append(generalStoreDoor)
 
-        let southBeachDoor = BuildingData(playerIndex: .Game,
-                                          buildingId: .TownToSouthBeachDoor,
-                                          mapPoint: MapPoint(x: 4, y: -7, location: location))
-        buildings.append(southBeachDoor)
-
         // Tiles/Terrains
         for x in 0...10 {
             for y in -5...5 {
                 let tile = TileData(tileId: .Grass,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles.append(tile)
+            }
+        }
+
+        for x in 4...4 {
+            for y in (-7)...(-6) {
+                let tile = TileData(tileId: .Sand,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
             }
@@ -204,11 +219,6 @@ class GameData {
         var tiles = [TileData]()
 
         // Buildings
-        let townDoor = BuildingData(playerIndex: .Game,
-                                buildingId: .GeneralStoreToTownDoor,
-                                mapPoint: MapPoint(x: 1, y: -2, location: location))
-        buildings.append(townDoor)
-
         let vendingMachine = BuildingData(playerIndex: .Game,
                                           buildingId: .VendingMachine,
                                           mapPoint: MapPoint(x: 1, y: 4, location: location))
@@ -247,6 +257,19 @@ class GameData {
         // Tiles/Terrains
         for x in 0...4 {
             for y in 0...4 {
+                let tile = TileData(tileId: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles.append(tile)
+
+                let terrain = TerrainData(playerIndex: .Game,
+                                          terrainType: .Wood,
+                                          mapPoint: MapPoint(x: x, y: y, location: location))
+                terrains.append(terrain)
+            }
+        }
+
+        for x in 1...1 {
+            for y in (-2)...(-1) {
                 let tile = TileData(tileId: .Dirt,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)

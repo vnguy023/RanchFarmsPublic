@@ -11,6 +11,7 @@ class GameScene: BaseScene {
     var actionController: ActionControllerGame!
     var renderController: RenderController!
     var physicsController: PhysicsController!
+    var teleportSystem: TeleportSystem!
     var hudController: HudControllerGame!
 
     private var mLastUpdate = Date.init()
@@ -35,6 +36,7 @@ class GameScene: BaseScene {
     private func linkControllers() {
         renderController = RenderController(world: world)
         physicsController = PhysicsController(world: world)
+        teleportSystem = TeleportSystem(world: world, cameraController: cameraController)
         hudController = HudControllerGame(camera: cameraController.camera, world: world, screenSize: self.size)
         actionController = ActionControllerGame(world: world, cameraController: cameraController, hudController: hudController, inputController: inputController)
 
@@ -182,6 +184,7 @@ class GameScene: BaseScene {
         }
 
         physicsController.update()
+        teleportSystem.update()
         renderController.update()
         cameraController.update()
         hudController.update()

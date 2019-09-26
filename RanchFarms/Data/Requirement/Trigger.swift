@@ -41,13 +41,16 @@ class Trigger {
     }
 
     // Presence
-    convenience init(botLeftMapPoint: MapPoint, topRightMapPoint: MapPoint) {
+    convenience init(start: MapPoint, end: MapPoint) {
+        let botLeft = MapPoint(x: min(start.x, end.x), y: min(start.y, end.y), location: start.location)
+        let topRight = MapPoint(x: max(start.x, end.x), y: max(start.y, end.y), location: start.location)
+
         self.init(triggerType: .Presence,
                   actionType: nil,
                   buildingId: nil,
                   personId: nil,
-                  botLeftMapPoint: botLeftMapPoint,
-                  topRightMapPoint: topRightMapPoint)
+                  botLeftMapPoint: botLeft,
+                  topRightMapPoint: topRight)
     }
 }
 

@@ -5,14 +5,10 @@ enum BuildingId: UInt, Codable {
     case VendingMachine
     case FarmDeliveryBox
 
-    case HouseToFarmDoor = 10000
-    case FarmToHouseDoor
+    case FarmToHouseDoor = 10000
     case FarmToTownDoor
-    case GeneralStoreToTownDoor
-    case SouthBeachToTownDoor
     case TownToFarmDoor
     case TownToGeneralStoreDoor
-    case TownToSouthBeachDoor
 
     case SingleBed = 110
 

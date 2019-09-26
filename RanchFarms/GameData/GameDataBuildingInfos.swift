@@ -75,11 +75,6 @@ extension GameData {
                                  name: "Vending Machine"))
 
         // Doors
-        data.append(BuildingInfo(buildingId: .HouseToFarmDoor,
-                                 buildingType: .Unknown,
-                                 objSize: CGSize(width: 1, height: 2),
-                                 isBlocking: true,
-                                 name: "House To Farm Door"))
         data.append(BuildingInfo(buildingId: .FarmToHouseDoor,
                                  buildingType: .Unknown,
                                  objSize: CGSize(width: 1, height: 2),
@@ -90,16 +85,6 @@ extension GameData {
                                  objSize: CGSize(width: 1, height: 2),
                                  isBlocking: true,
                                  name: "Farm To Town Door"))
-        data.append(BuildingInfo(buildingId: .GeneralStoreToTownDoor,
-                                 buildingType: .Unknown,
-                                 objSize: CGSize(width: 1, height: 2),
-                                 isBlocking: true,
-                                 name: "GeneralStore to Town"))
-        data.append(BuildingInfo(buildingId: .SouthBeachToTownDoor,
-                                 buildingType: .Unknown,
-                                 objSize: CGSize(width: 1, height: 2),
-                                 isBlocking: true,
-                                 name: "SouthBeach to Town"))
         data.append(BuildingInfo(buildingId: .TownToFarmDoor,
                                  buildingType: .Unknown,
                                  objSize: CGSize(width: 1, height: 2),
@@ -110,11 +95,6 @@ extension GameData {
                                  objSize: CGSize(width: 1, height: 2),
                                  isBlocking: true,
                                  name: "Town to GeneralStore"))
-        data.append(BuildingInfo(buildingId: .TownToSouthBeachDoor,
-                                 buildingType: .Unknown,
-                                 objSize: CGSize(width: 1, height: 2),
-                                 isBlocking: true,
-                                 name: "Town to SouthBeach"))
 
         return data
     }
