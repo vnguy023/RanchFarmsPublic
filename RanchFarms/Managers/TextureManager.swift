@@ -88,22 +88,23 @@ class TextureManager {
     }
 
     func loadPeople() {
-        personMap["playerIdleUp"] = SKTexture.init(imageNamed: "personPlayerIdleUp")
-        personMap["playerIdleDown"] = SKTexture.init(imageNamed: "personPlayerIdleDown")
-        personMap["playerIdleLeft"] = SKTexture.init(imageNamed: "personPlayerIdleLeft")
-        personMap["playerIdleRight"] = SKTexture.init(imageNamed: "personPlayerIdleRight")
+        // Player
+        personMap["playerIdleNorth"] = SKTexture.init(imageNamed: "personPlayerIdleNorth")
+        personMap["playerIdleSouth"] = SKTexture.init(imageNamed: "personPlayerIdleSouth")
+        personMap["playerIdleWest"] = SKTexture.init(imageNamed: "personPlayerIdleWest")
+        personMap["playerIdleEast"] = SKTexture.init(imageNamed: "personPlayerIdleEast")
 
-        personMap["playerWalkUp1"] = SKTexture.init(imageNamed: "personPlayerWalkUp1")
-        personMap["playerWalkUp2"] = SKTexture.init(imageNamed: "personPlayerWalkUp2")
+        personMap["playerWalkNorth1"] = SKTexture.init(imageNamed: "personPlayerWalkNorth1")
+        personMap["playerWalkNorth2"] = SKTexture.init(imageNamed: "personPlayerWalkNorth2")
 
-        personMap["playerWalkDown1"] = SKTexture.init(imageNamed: "personPlayerWalkDown1")
-        personMap["playerWalkDown2"] = SKTexture.init(imageNamed: "personPlayerWalkDown2")
+        personMap["playerWalkSouth1"] = SKTexture.init(imageNamed: "personPlayerWalkSouth1")
+        personMap["playerWalkSouth2"] = SKTexture.init(imageNamed: "personPlayerWalkSouth2")
 
-        personMap["playerWalkLeft1"] = SKTexture.init(imageNamed: "personPlayerWalkLeft1")
-        personMap["playerWalkLeft2"] = SKTexture.init(imageNamed: "personPlayerWalkLeft2")
+        personMap["playerWalkWest1"] = SKTexture.init(imageNamed: "personPlayerWalkWest1")
+        personMap["playerWalkWest2"] = SKTexture.init(imageNamed: "personPlayerWalkWest2")
 
-        personMap["playerWalkRight1"] = SKTexture.init(imageNamed: "personPlayerWalkRight1")
-        personMap["playerWalkRight2"] = SKTexture.init(imageNamed: "personPlayerWalkRight2")
+        personMap["playerWalkEast1"] = SKTexture.init(imageNamed: "personPlayerWalkEast1")
+        personMap["playerWalkEast2"] = SKTexture.init(imageNamed: "personPlayerWalkEast2")
 
         // TODO: Finish animations for this
         personMap["playerUseToolUpDownNorth1"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownNorth1")
@@ -122,6 +123,11 @@ class TextureManager {
         personMap["playerUseToolUpDownEast2"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownEast2")
         personMap["playerUseToolUpDownEast3"] = SKTexture.init(imageNamed: "personPlayerUseToolUpDownEast3")
 
+        // Lily
+        personMap["lilyIdleNorth"] = SKTexture.init(imageNamed: "personLilyIdleSouth")
+        personMap["lilyIdleSouth"] = SKTexture.init(imageNamed: "personLilyIdleSouth")
+        personMap["lilyIdleWest"] = SKTexture.init(imageNamed: "personLilyIdleSouth")
+        personMap["lilyIdleEast"] = SKTexture.init(imageNamed: "personLilyIdleSouth")
     }
 
     private func loadPortraits() {

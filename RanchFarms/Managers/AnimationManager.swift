@@ -4,6 +4,7 @@ class AnimationManager {
     static let shared = AnimationManager()
 
     private var playerAnimations = [Person.State: [CGVector: Animation]]()
+    private var lilyAnimations = [Person.State: [CGVector: Animation]]()
 
     private var buildingAnimations = [BuildingId: Animation]()
 
@@ -11,6 +12,7 @@ class AnimationManager {
         loadBuildingAnimations()
         loadCropAnimations()
         loadPlayerAnimations()
+        loadLilyAnimations()
     }
 
     private func loadBuildingAnimations() {
@@ -155,25 +157,25 @@ class AnimationManager {
         // Idle Animations
         var idleAnimations = [CGVector: Animation]()
         idleAnimations[.NORTH] = Animation()
-        idleAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleUp"),
+        idleAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleNorth"),
                                                         duration: 1,
                                                         imageSize: CGSize(width: 1, height: 1.5),
                                                         anchorPoint: anchorPoint))
 
         idleAnimations[.SOUTH] = Animation()
-        idleAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleDown"),
+        idleAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleSouth"),
                                                         duration: 1,
                                                         imageSize: CGSize(width: 1, height: 1.5),
                                                         anchorPoint: anchorPoint))
 
         idleAnimations[.WEST] = Animation()
-        idleAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleLeft"),
+        idleAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleWest"),
                                                         duration: 1,
                                                         imageSize: CGSize(width: 1, height: 1.5),
                                                         anchorPoint: anchorPoint))
 
         idleAnimations[.EAST] = Animation()
-        idleAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleRight"),
+        idleAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleEast"),
                                                         duration: 1,
                                                         imageSize: CGSize(width: 1, height: 1.5),
                                                         anchorPoint: anchorPoint))
@@ -184,73 +186,73 @@ class AnimationManager {
         // Walking Animations
         var walkingAnimations = [CGVector: Animation]()
         walkingAnimations[.NORTH] = Animation()
-        walkingAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkUp1"),
+        walkingAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkNorth1"),
                                                         duration: 8,
                                                         imageSize: CGSize(width: 1, height: 1.5),
                                                         anchorPoint: anchorPoint))
-        walkingAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleUp"),
+        walkingAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleNorth"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkUp2"),
+        walkingAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkNorth2"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleUp"),
+        walkingAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleNorth"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
 
         walkingAnimations[.SOUTH] = Animation()
-        walkingAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkDown1"),
+        walkingAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkSouth1"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleDown"),
+        walkingAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleSouth"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkDown2"),
+        walkingAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkSouth2"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleDown"),
+        walkingAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleSouth"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
 
         walkingAnimations[.WEST] = Animation()
-        walkingAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkLeft1"),
+        walkingAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkWest1"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleLeft"),
+        walkingAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleWest"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkLeft2"),
+        walkingAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkWest2"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleLeft"),
+        walkingAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleWest"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
 
         walkingAnimations[.EAST] = Animation()
-        walkingAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkRight1"),
+        walkingAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkEast1"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleRight"),
+        walkingAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleEast"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkRight2"),
+        walkingAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerWalkEast2"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
-        walkingAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleRight"),
+        walkingAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleEast"),
                                                            duration: 8,
                                                            imageSize: CGSize(width: 1, height: 1.5),
                                                            anchorPoint: anchorPoint))
@@ -323,8 +325,50 @@ class AnimationManager {
         playerAnimations[Person.State.Watering] = useToolUpDownAnimations
     }
 
+    private func loadLilyAnimations() {
+        let anchorPoint = CGPoint(x: 0.5, y: 1.0/3.0)
+
+        ////////////////////////////////
+        // Idle Animations
+        var idleAnimations = [CGVector: Animation]()
+        idleAnimations[.NORTH] = Animation()
+        idleAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "lilyIdleNorth"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 1.5),
+                                                        anchorPoint: anchorPoint))
+
+        idleAnimations[.SOUTH] = Animation()
+        idleAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "lilyIdleSouth"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 1.5),
+                                                        anchorPoint: anchorPoint))
+
+        idleAnimations[.WEST] = Animation()
+        idleAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "lilyIdleWest"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 1.5),
+                                                        anchorPoint: anchorPoint))
+
+        idleAnimations[.EAST] = Animation()
+        idleAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "lilyIdleEast"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 1.5),
+                                                        anchorPoint: anchorPoint))
+
+        lilyAnimations[Person.State.Idle] = idleAnimations
+    }
+
     func getAnimation(person: Person) -> Animation? {
-        if let stateAnimations = playerAnimations[person.state] {
+        var animations = playerAnimations
+        switch person.id {
+        case .Player:
+            animations = playerAnimations
+        case .Lily:
+            animations = lilyAnimations
+        default: break
+        }
+
+        if let stateAnimations = animations[person.state] {
             if let result = stateAnimations[person.faceDirection] {
                 return result
             } else {
