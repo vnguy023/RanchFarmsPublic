@@ -23,7 +23,7 @@ class GameEvent {
         self.teleportId = teleportId
     }
 
-    // Temporary until we figure out a datasturecture to represent this
+    // Temporary until we figure out a data structure to represent this
     convenience init(gameEventId: GameEventId, priority: Int, trigger: Trigger, dialogId: Int) {
         self.init(gameEventId: gameEventId, gameEventType: .Dialog, priority: priority, trigger: trigger, storeFrontId: nil, storeCatalogId: nil, teleportId: nil)
     }

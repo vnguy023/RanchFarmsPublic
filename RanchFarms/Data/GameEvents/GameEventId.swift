@@ -10,6 +10,7 @@ enum GameEventId: UInt, Codable {
     case Teleport_House_Farm = 1000
     case Teleport_Farm_House
     case Teleport_Farm_Town
+    case Dialog_GeneralStoreClosed
     case Teleport_GeneralStore_Town
     case Teleport_SouthBeach_Town
     case Teleport_Town_Farm
