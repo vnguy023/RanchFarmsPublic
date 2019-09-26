@@ -116,7 +116,6 @@
 		6C9E3E19230EAB8A007417E1 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E18230EAB8A007417E1 /* AnimationManager.swift */; };
 		6C9E3E1B230F7905007417E1 /* RenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1A230F7905007417E1 /* RenderController.swift */; };
 		6C9E3E1D230F79FF007417E1 /* PersonId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1C230F79FF007417E1 /* PersonId.swift */; };
-		6C9E3E1F230F83C5007417E1 /* PersonTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1E230F83C5007417E1 /* PersonTexture.swift */; };
 		6C9E3E212310D7A8007417E1 /* ViewSelectedGameTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */; };
 		6CBC8D12231A5C38005454E1 /* CmdActionHarvest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */; };
 		6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D13231B425D005454E1 /* MapPoint.swift */; };
@@ -251,7 +250,6 @@
 		6C9E3E18230EAB8A007417E1 /* AnimationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		6C9E3E1A230F7905007417E1 /* RenderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
 		6C9E3E1C230F79FF007417E1 /* PersonId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonId.swift; sourceTree = "<group>"; };
-		6C9E3E1E230F83C5007417E1 /* PersonTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTexture.swift; sourceTree = "<group>"; };
 		6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSelectedGameTile.swift; sourceTree = "<group>"; };
 		6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdActionHarvest.swift; sourceTree = "<group>"; };
 		6CBC8D13231B425D005454E1 /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
@@ -534,7 +532,6 @@
 				6C6033D8230B7E5600746309 /* TextureManager.swift */,
 				6C4701B3232ED0630013AD0F /* TeleportManager.swift */,
 				6C696445233AFE2F0033D9EE /* TileInfoManager.swift */,
-				6C9E3E1E230F83C5007417E1 /* PersonTexture.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -787,7 +784,6 @@
 				6C4701BA232F7BFB0013AD0F /* HudInterfaceDataSplash.swift in Sources */,
 				6C696458233C475E0033D9EE /* CmdValidateRequirements.swift in Sources */,
 				6C1BFE95232B8ABD00294BF3 /* ItemData.swift in Sources */,
-				6C9E3E1F230F83C5007417E1 /* PersonTexture.swift in Sources */,
 				6C4701AA232DB85B0013AD0F /* GameData.swift in Sources */,
 				6C2336E8231147BA00261944 /* BuildingInfo.swift in Sources */,
 				6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */,
