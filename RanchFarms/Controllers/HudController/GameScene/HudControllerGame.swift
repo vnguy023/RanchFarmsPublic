@@ -57,7 +57,7 @@ class HudControllerGame{
         viewInventory.zPosition = 1000
         camera.addChild(viewInventory)
 
-        viewDialog = ViewDialog()
+        viewDialog = ViewDialog(world: world)
         viewDialog.position = CGPoint(x: 0, y: screenSize.height / -2 + viewDialog.size.height/2)
         viewDialog.zPosition = 1000
         camera.addChild(viewDialog)

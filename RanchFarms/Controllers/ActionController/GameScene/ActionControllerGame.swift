@@ -49,7 +49,11 @@ class ActionControllerGame {
     func executeGameEvent(_ gameEvent: GameEvent) {
         switch gameEvent.type {
         case .Dialog:
-            changeState(to: .Dialog)
+            if let dialog = DialogManager.shared.getDialog(dialogId: gameEvent.dialogId) {
+                world.hudInterfaceData.dialog = dialog
+                changeState(to: .Dialog)
+            }
+
         case .Store:
             world.hudInterfaceData.store = Store(storeFrontId: gameEvent.storeFrontId,
                                                  storeCatalogId: gameEvent.storeCatalogId)

@@ -10,7 +10,7 @@ extension GameData {
         data.append(GameEvent(gameEventId: .Lily_Talk, priority: 100,
                               trigger: Trigger(personId: personId, actionType: .Interact),
                               requirements: [Requirement](),
-                              dialogId: 0))
+                              dialogId: .Lily_Talk))
 
         return data
     }

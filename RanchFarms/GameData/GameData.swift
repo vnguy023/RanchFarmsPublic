@@ -284,6 +284,15 @@ class GameData {
         return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
     }
 
+    static func getDialogs() -> [Dialog] {
+        var data = [Dialog]()
+
+        data.append(contentsOf: getDialogTemp())
+        data.append(contentsOf: getDialogLily())
+
+        return data
+    }
+
     static func GetGameEvents() -> [GameEvent] {
         var data = [GameEvent]()
 

@@ -121,6 +121,10 @@
 		6CB381B4233DB33D0051D632 /* NPCScheduleSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */; };
 		6CB381B6233DB3520051D632 /* BaseSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B5233DB3520051D632 /* BaseSystem.swift */; };
 		6CB381B8233DC5FC0051D632 /* GameDataGameEventLily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B7233DC5FC0051D632 /* GameDataGameEventLily.swift */; };
+		6CB381BB233DE79E0051D632 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381BA233DE79E0051D632 /* Dialog.swift */; };
+		6CB381C0233DE8130051D632 /* DialogId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381BF233DE8130051D632 /* DialogId.swift */; };
+		6CB381C2233EBD180051D632 /* DialogManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381C1233EBD180051D632 /* DialogManger.swift */; };
+		6CB381C4233EBD7F0051D632 /* GameDataDialogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381C3233EBD7F0051D632 /* GameDataDialogs.swift */; };
 		6CBC8D12231A5C38005454E1 /* CmdActionHarvest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */; };
 		6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D13231B425D005454E1 /* MapPoint.swift */; };
 		6CBC8D17231CC833005454E1 /* ActionControllerGameGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */; };
@@ -259,6 +263,10 @@
 		6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPCScheduleSystem.swift; sourceTree = "<group>"; };
 		6CB381B5233DB3520051D632 /* BaseSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSystem.swift; sourceTree = "<group>"; };
 		6CB381B7233DC5FC0051D632 /* GameDataGameEventLily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventLily.swift; sourceTree = "<group>"; };
+		6CB381BA233DE79E0051D632 /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		6CB381BF233DE8130051D632 /* DialogId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogId.swift; sourceTree = "<group>"; };
+		6CB381C1233EBD180051D632 /* DialogManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogManger.swift; sourceTree = "<group>"; };
+		6CB381C3233EBD7F0051D632 /* GameDataDialogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataDialogs.swift; sourceTree = "<group>"; };
 		6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdActionHarvest.swift; sourceTree = "<group>"; };
 		6CBC8D13231B425D005454E1 /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
 		6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerGameGame.swift; sourceTree = "<group>"; };
@@ -340,6 +348,7 @@
 			children = (
 				6C4701A9232DB85B0013AD0F /* GameData.swift */,
 				6C696466233C74310033D9EE /* GameDataBuildingInfos.swift */,
+				6CB381C3233EBD7F0051D632 /* GameDataDialogs.swift */,
 				6C69646C233C833A0033D9EE /* GameDataItemInfos.swift */,
 				6C696468233C77640033D9EE /* GameDataTileInfos.swift */,
 				6C69646A233C78E00033D9EE /* GameDataTeleports.swift */,
@@ -471,6 +480,7 @@
 			children = (
 				6C9E3E0B230E4C08007417E1 /* HudInterfaceDataGame.swift */,
 				6C4701B9232F7BFB0013AD0F /* HudInterfaceDataSplash.swift */,
+				6CB381BC233DE7B60051D632 /* Dialog */,
 				6C6033C2230B646D00746309 /* GameObjects */,
 				6C69644B233B4D310033D9EE /* GameEvents */,
 				6C6033C7230B64EB00746309 /* Items */,
@@ -534,6 +544,7 @@
 			children = (
 				6C9E3E18230EAB8A007417E1 /* AnimationManager.swift */,
 				6C2336EB2311484C00261944 /* BuildingInfoManager.swift */,
+				6CB381C1233EBD180051D632 /* DialogManger.swift */,
 				6C696450233B542F0033D9EE /* GameEventManager.swift */,
 				6C2336E52311390400261944 /* ItemInfoManager.swift */,
 				6C4701D423342CCD0013AD0F /* SFXManager.swift */,
@@ -679,6 +690,15 @@
 			path = People;
 			sourceTree = "<group>";
 		};
+		6CB381BC233DE7B60051D632 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				6CB381BA233DE79E0051D632 /* Dialog.swift */,
+				6CB381BF233DE8130051D632 /* DialogId.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		6CBC8D15231CC819005454E1 /* ActionController */ = {
 			isa = PBXGroup;
 			children = (
@@ -786,6 +806,7 @@
 				6CB381B8233DC5FC0051D632 /* GameDataGameEventLily.swift in Sources */,
 				6CBC8D1D231CF5DF005454E1 /* CmdLoadFile.swift in Sources */,
 				6CBC8D12231A5C38005454E1 /* CmdActionHarvest.swift in Sources */,
+				6CB381C2233EBD180051D632 /* DialogManger.swift in Sources */,
 				6C6033C9230B651500746309 /* Inventory.swift in Sources */,
 				6C1BFE91232B887A00294BF3 /* WorldData.swift in Sources */,
 				6C8735562325D68B006020A7 /* Animation.swift in Sources */,
@@ -797,6 +818,7 @@
 				6C1BFE8F232A2E4C00294BF3 /* SaveSlot.swift in Sources */,
 				6C4701BD23301EB70013AD0F /* ActionControllerSplash.swift in Sources */,
 				6C9E3E0C230E4C08007417E1 /* HudInterfaceDataGame.swift in Sources */,
+				6CB381C0233DE8130051D632 /* DialogId.swift in Sources */,
 				6C6033A3230B60B000746309 /* ViewController.swift in Sources */,
 				6C4701D12330D1EA0013AD0F /* ViewSaveDelete.swift in Sources */,
 				6C696467233C74310033D9EE /* GameDataBuildingInfos.swift in Sources */,
@@ -843,6 +865,7 @@
 				6C69646B233C78E00033D9EE /* GameDataTeleports.swift in Sources */,
 				6C696456233C25930033D9EE /* RequirementType.swift in Sources */,
 				6C6033DF230B850C00746309 /* Person.swift in Sources */,
+				6CB381BB233DE79E0051D632 /* Dialog.swift in Sources */,
 				6C6033A1230B60B000746309 /* GameScene.swift in Sources */,
 				6C4701C9233026E00013AD0F /* ViewSplash.swift in Sources */,
 				6C9E3E19230EAB8A007417E1 /* AnimationManager.swift in Sources */,
@@ -903,6 +926,7 @@
 				6C696464233C70F30033D9EE /* GameDataGameEventStores.swift in Sources */,
 				6C8735542325CB23006020A7 /* AnimationFrame.swift in Sources */,
 				6C696451233B542F0033D9EE /* GameEventManager.swift in Sources */,
+				6CB381C4233EBD7F0051D632 /* GameDataDialogs.swift in Sources */,
 				6C4701C6233024C50013AD0F /* HudControllerSplash.swift in Sources */,
 				6C4701C02330204F0013AD0F /* ActionControllerSplashSplash.swift in Sources */,
 				6C69645A233C4BAF0033D9EE /* TriggerType.swift in Sources */,

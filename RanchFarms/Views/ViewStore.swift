@@ -89,7 +89,7 @@ class ViewStore: SKSpriteNode {
 
     func update() {
         if store == nil {
-            print ("[Desc=ViewStore] [attempting to update the store without a valid store object being set]")
+            print ("[ViewStore] [Desc=attempting to update without valid object]")
             return
         }
 

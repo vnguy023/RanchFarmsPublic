@@ -13,14 +13,15 @@ class HudInterfaceDataGame {
 
     var state = State.Unknown
 
-    var hotbarCursor = CGPoint()
+    var dialog: Dialog? = nil
 
-    var storeCursor = CGPoint(x: 0, y: 2) // (0,0) is bottom left most option
+    var hotbarCursor = CGPoint()
 
     var inventoryCursor = CGPoint(x: 0, y: 2) // (0,0) is bottom left most option
     var selectedInventoryCursor: CGPoint? = nil
 
-    var store: Store?
+    var store: Store? = nil
+    var storeCursor = CGPoint(x: 0, y: 2) // (0,0) is bottom left most option
     
     init() { }
 

@@ -4,6 +4,7 @@ extension ActionControllerGame {
     func actionPrimaryGameStateDialog() { }
 
     func actionCancelGameStateDialog() {
+        world.hudInterfaceData.dialog = nil
         changeState(to: .Game)
     }
 

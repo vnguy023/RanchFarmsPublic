@@ -131,7 +131,10 @@ class TextureManager {
     }
 
     private func loadPortraits() {
-        portraitMap[.VendingMachine] = SKTexture(imageNamed: "personLily")
+        portraitMap[.Dummy] = SKTexture(imageNamed: "portraitDummy")
+        portraitMap[.VendingMachine] = SKTexture(imageNamed: "portraitDummy")
+        
+        portraitMap[.Lily] = SKTexture(imageNamed: "portraitLily")
     }
 
     private func loadTerrains() {

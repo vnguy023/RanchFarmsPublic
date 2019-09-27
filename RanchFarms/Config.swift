@@ -15,6 +15,9 @@ class Config {
 
     static let dayInfoSize = CGSize(width: 150, height: 105)
 
+    static var viewDialogSize = CGSize(width: Config.screenSize.width, height: 300)
+    static var viewDialogPortraitSize = CGSize(width: 300, height: 300)
+
     static let viewInventoryColumns = CGFloat(10)
     static let viewInventoryRows = CGFloat(3)
 
@@ -25,8 +28,6 @@ class Config {
 
     static let viewStoreItemColumns = CGFloat(10)
     static let viewStoreItemRows = CGFloat(3)
-
-    static var viewDialogSize = CGSize(width: Config.screenSize.width, height: 300)
 
     static var viewSaveSlotSize = CGSize(width: 600, height: 120)
 
