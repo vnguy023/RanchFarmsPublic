@@ -4,6 +4,7 @@ class CmdCreateNewGame: Command {
     // Output
     private var gameAreas = [Location: GameAreaData]()
     private var player: PersonData!
+    private var npcs = [PersonData]()
 
     private var daysElapsed = 0
 
@@ -16,9 +17,11 @@ class CmdCreateNewGame: Command {
         createWorldSettings()
         createPlayer()
         createPlayerHouse()
+        createNpcs()
 
         worldData = WorldData(gameAreas: gameAreas,
                               player: player,
+                              npcs: npcs,
                               daysElapsed: daysElapsed,
                               teleportStartDay: TeleportId.House_Bed)
     }
@@ -65,5 +68,9 @@ class CmdCreateNewGame: Command {
         buildings.append(tv)
 
         gameAreas[location] = GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
+    }
+
+    private func createNpcs() {
+        npcs.append(PersonData(personId: .Lily, money: 0, inventory: InventoryData()))
     }
 }

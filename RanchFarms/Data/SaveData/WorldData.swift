@@ -1,6 +1,7 @@
 class WorldData: Codable {
     let gameAreas: [Location: GameAreaData]
     let player: PersonData
+    let npcs: [PersonData]
 
     let money: Int // Should be readOnly and is derivd from player.money
     let daysElapsed: Int
@@ -9,10 +10,12 @@ class WorldData: Codable {
 
     init(gameAreas: [Location: GameAreaData],
          player: PersonData,
+         npcs: [PersonData],
          daysElapsed: Int,
          teleportStartDay: TeleportId) {
         self.gameAreas = gameAreas
         self.player = player
+        self.npcs = npcs
         self.money = player.money
         self.daysElapsed = daysElapsed
         self.teleportStartDay = teleportStartDay

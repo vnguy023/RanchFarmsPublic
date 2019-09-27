@@ -43,10 +43,11 @@ class Config {
     static let GameTicksPerSecond = GameTick(60)
     static let MaxGameTickUpdatesPerCycle = GameTick(6)// only allow us to be behind by this much
     static let GameTicksPerGameMinute = GameTick(42)
-    static var GameTicksPerGameHour : GameTick {
-        get {return GameTicksPerGameMinute * 60}
-    }
+    static var GameTicksPerGameHour: GameTick { get {return GameTicksPerGameMinute * 60} }
     static let GameDaysPerMonth = 28
+
+    static var teleportSystemUpdateInterval: GameTick { get {return GameTicksPerSecond / 4} }
+    static var npcScheduleSystemUpdateInterval: GameTick { get {return GameTicksPerGameMinute * 5} }
 
     private init() {
 

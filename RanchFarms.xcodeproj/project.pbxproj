@@ -118,6 +118,8 @@
 		6C9E3E1B230F7905007417E1 /* RenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1A230F7905007417E1 /* RenderController.swift */; };
 		6C9E3E1D230F79FF007417E1 /* PersonId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1C230F79FF007417E1 /* PersonId.swift */; };
 		6C9E3E212310D7A8007417E1 /* ViewSelectedGameTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */; };
+		6CB381B4233DB33D0051D632 /* NPCScheduleSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */; };
+		6CB381B6233DB3520051D632 /* BaseSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B5233DB3520051D632 /* BaseSystem.swift */; };
 		6CBC8D12231A5C38005454E1 /* CmdActionHarvest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */; };
 		6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D13231B425D005454E1 /* MapPoint.swift */; };
 		6CBC8D17231CC833005454E1 /* ActionControllerGameGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */; };
@@ -253,6 +255,8 @@
 		6C9E3E1A230F7905007417E1 /* RenderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
 		6C9E3E1C230F79FF007417E1 /* PersonId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonId.swift; sourceTree = "<group>"; };
 		6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSelectedGameTile.swift; sourceTree = "<group>"; };
+		6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPCScheduleSystem.swift; sourceTree = "<group>"; };
+		6CB381B5233DB3520051D632 /* BaseSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSystem.swift; sourceTree = "<group>"; };
 		6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdActionHarvest.swift; sourceTree = "<group>"; };
 		6CBC8D13231B425D005454E1 /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
 		6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerGameGame.swift; sourceTree = "<group>"; };
@@ -594,6 +598,8 @@
 		6C696470233C87F00033D9EE /* Systems */ = {
 			isa = PBXGroup;
 			children = (
+				6CB381B5233DB3520051D632 /* BaseSystem.swift */,
+				6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */,
 				6C69646E233C87E70033D9EE /* TeleportSystem.swift */,
 			);
 			path = Systems;
@@ -819,6 +825,7 @@
 				6C9E3E1B230F7905007417E1 /* RenderController.swift in Sources */,
 				6CD007CB232087EA008B9825 /* StoreCatalog.swift in Sources */,
 				6C6033BB230B636B00746309 /* GameObject.swift in Sources */,
+				6CB381B6233DB3520051D632 /* BaseSystem.swift in Sources */,
 				6C6D78E123221DAC00573B25 /* StoreCatalogManager.swift in Sources */,
 				6C2336E42311387700261944 /* ItemType.swift in Sources */,
 				6C69646B233C78E00033D9EE /* GameDataTeleports.swift in Sources */,
@@ -873,6 +880,7 @@
 				6C2336EC2311484C00261944 /* BuildingInfoManager.swift in Sources */,
 				6C9E3E12230E8500007417E1 /* BuildingId.swift in Sources */,
 				6C69645E233C5AED0033D9EE /* ActionType.swift in Sources */,
+				6CB381B4233DB33D0051D632 /* NPCScheduleSystem.swift in Sources */,
 				6C9D3607230BA83500168A28 /* PlayerIndex.swift in Sources */,
 				6CBC8D1B231CF5D4005454E1 /* CmdSaveFile.swift in Sources */,
 				6C40AA072328EB14001D21BB /* Season.swift in Sources */,

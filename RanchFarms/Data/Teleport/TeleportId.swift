@@ -1,8 +1,11 @@
 enum TeleportId: UInt, Codable {
     case Unknown = 0
-    
-    case House_Farm
+
+    // Player
     case House_Bed
+
+    // Scene Transitions
+    case House_Farm
 
     case Farm_House
     case Farm_Town
@@ -14,4 +17,7 @@ enum TeleportId: UInt, Codable {
     case Town_Farm
     case Town_GeneralStore
     case Town_SouthBeach
+
+    // Lily Specific
+    case Lily_Spawn = 1000
 }

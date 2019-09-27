@@ -5,6 +5,15 @@ extension GameData {
     static func getTeleports() -> [Teleport] {
         var data = [Teleport]()
 
+        data.append(contentsOf: getTeleportsSceneTransitions())
+        data.append(contentsOf: getTeleportsLily())
+
+        return data
+    }
+
+    static private func getTeleportsSceneTransitions() -> [Teleport] {
+        var data = [Teleport]()
+
         data.append(Teleport(teleportId: .House_Bed,
                              mapPoint: MapPoint(x: 7, y: 1, location: .House),
                              directionToFace: .SOUTH))
@@ -31,6 +40,16 @@ extension GameData {
                              directionToFace: .NORTH))
         data.append(Teleport(teleportId: .Town_SouthBeach,
                              mapPoint: MapPoint(x: 4, y: 0, location: .SouthBeach),
+                             directionToFace: .SOUTH))
+
+        return data
+    }
+
+    static private func getTeleportsLily() -> [Teleport] {
+        var data = [Teleport]()
+
+        data.append(Teleport(teleportId: .Lily_Spawn,
+                             mapPoint: MapPoint(x: 3, y: 3, location: .Town),
                              directionToFace: .SOUTH))
 
         return data

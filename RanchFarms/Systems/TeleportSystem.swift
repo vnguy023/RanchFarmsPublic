@@ -1,17 +1,17 @@
 import SpriteKit
 
-class TeleportSystem {
+class TeleportSystem: BaseSystem {
     let world: World!
     let cameraController: CameraController!
-
-    // TODO: put in a limiter - Controls how often we update this
 
     init(world: World, cameraController: CameraController) {
         self.world = world
         self.cameraController = cameraController
+
+        super.init(updateTickInterval: Config.teleportSystemUpdateInterval)
     }
 
-    func update() {
+    override func process() {
         var people = [Person]() // only do player for now
         people.append(world.player)
         for person in people {

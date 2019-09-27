@@ -11,8 +11,10 @@ class GameScene: BaseScene {
     var actionController: ActionControllerGame!
     var renderController: RenderController!
     var physicsController: PhysicsController!
-    var teleportSystem: TeleportSystem!
     var hudController: HudControllerGame!
+
+    var npcScheduleSystem: NPCScheduleSystem!
+    var teleportSystem: TeleportSystem!
 
     private var mLastUpdate = Date.init()
     private var mPaused = false
@@ -36,9 +38,11 @@ class GameScene: BaseScene {
     private func linkControllers() {
         renderController = RenderController(world: world)
         physicsController = PhysicsController(world: world)
-        teleportSystem = TeleportSystem(world: world, cameraController: cameraController)
         hudController = HudControllerGame(camera: cameraController.camera, world: world, screenSize: self.size)
         actionController = ActionControllerGame(world: world, cameraController: cameraController, hudController: hudController, inputController: inputController)
+
+        npcScheduleSystem = NPCScheduleSystem(world: world)
+        teleportSystem = TeleportSystem(world: world, cameraController: cameraController)
 
         actionController.handlePause = pauseGame
         actionController.handleUnpause = unpauseGame
@@ -176,15 +180,17 @@ class GameScene: BaseScene {
             var iter = gameTicksToProcess
             while iter > 0 && !mPaused {
                 inputController.update()
+
+                npcScheduleSystem.update()
+                physicsController.update()
+                teleportSystem.update()
+
                 world.update()
 
                 iter -= 1
             }
             mLastUpdate.addTimeInterval(TimeInterval(Double(gameTicksToProcess) / Double(Config.GameTicksPerSecond)))
         }
-
-        physicsController.update()
-        teleportSystem.update()
         renderController.update()
         cameraController.update()
         hudController.update()

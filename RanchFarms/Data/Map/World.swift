@@ -6,7 +6,7 @@ class World: SKNode {
     var gameAreas = [Location: GameArea]()
 
     var player: Person!
-    var npcs = [GameObject]()
+    var npcs = [Person]()
 
     var money = Int(0)
     var daysElapsed = Int(0)
@@ -95,6 +95,8 @@ class World: SKNode {
         }
 
         self.player = Person(data: worldData.player)
+        self.npcs = worldData.npcs.map({return Person(data: $0)})
+
         self.money = worldData.money
         self.daysElapsed = worldData.daysElapsed
 
@@ -108,6 +110,7 @@ class World: SKNode {
 
         return WorldData(gameAreas: filteredGameAreaDatas,
                          player: self.player.getPersonData(),
+                         npcs: self.npcs.map({return $0.getPersonData()}),
                          daysElapsed: self.daysElapsed,
                          teleportStartDay: GameData.GetTeleportStartDay())
     }
@@ -187,9 +190,7 @@ class World: SKNode {
 
     func teleport(to teleportId: TeleportId) {
         if let teleport = TeleportManager.shared.getTeleport(teleportId: teleportId) {
-            player.mapPoint = teleport.mapPoint
-            player.faceDirection = teleport.directionToFace
-
+            player.teleport(to: teleport)
             reloadGameObjects()
         } else {
             print("[Desc=World.Teleport()] [Error=Unable to Teleport, Data doesn't exist]")

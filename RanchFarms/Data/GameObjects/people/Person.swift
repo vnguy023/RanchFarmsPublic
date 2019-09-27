@@ -69,4 +69,9 @@ class Person: GameObject {
 
         return false
     }
+
+    func teleport(to teleport: Teleport) {
+        self.mapPoint = teleport.mapPoint
+        self.faceDirection = teleport.directionToFace
+    }
 }
