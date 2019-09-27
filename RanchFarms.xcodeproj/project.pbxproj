@@ -46,7 +46,7 @@
 		6C4701CD2330C9580013AD0F /* SaveDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701CC2330C9580013AD0F /* SaveDataInfo.swift */; };
 		6C4701CF2330CA140013AD0F /* CmdGetSaveDataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701CE2330CA140013AD0F /* CmdGetSaveDataInfo.swift */; };
 		6C4701D12330D1EA0013AD0F /* ViewSaveDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701D02330D1EA0013AD0F /* ViewSaveDelete.swift */; };
-		6C4701D32331D8930013AD0F /* PhysicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701D22331D8930013AD0F /* PhysicsController.swift */; };
+		6C4701D32331D8930013AD0F /* PhysicsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701D22331D8930013AD0F /* PhysicsSystem.swift */; };
 		6C4701D523342CCD0013AD0F /* SFXManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701D423342CCD0013AD0F /* SFXManager.swift */; };
 		6C60339B230B60B000746309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60339A230B60B000746309 /* AppDelegate.swift */; };
 		6C60339D230B60B000746309 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C60339C230B60B000746309 /* GameScene.sks */; };
@@ -115,7 +115,7 @@
 		6C9E3E12230E8500007417E1 /* BuildingId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E11230E8500007417E1 /* BuildingId.swift */; };
 		6C9E3E15230E8FFE007417E1 /* Teleport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E14230E8FFE007417E1 /* Teleport.swift */; };
 		6C9E3E19230EAB8A007417E1 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E18230EAB8A007417E1 /* AnimationManager.swift */; };
-		6C9E3E1B230F7905007417E1 /* RenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1A230F7905007417E1 /* RenderController.swift */; };
+		6C9E3E1B230F7905007417E1 /* RenderSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1A230F7905007417E1 /* RenderSystem.swift */; };
 		6C9E3E1D230F79FF007417E1 /* PersonId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1C230F79FF007417E1 /* PersonId.swift */; };
 		6C9E3E212310D7A8007417E1 /* ViewSelectedGameTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */; };
 		6CB381B4233DB33D0051D632 /* NPCScheduleSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */; };
@@ -180,7 +180,7 @@
 		6C4701CC2330C9580013AD0F /* SaveDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveDataInfo.swift; sourceTree = "<group>"; };
 		6C4701CE2330CA140013AD0F /* CmdGetSaveDataInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdGetSaveDataInfo.swift; sourceTree = "<group>"; };
 		6C4701D02330D1EA0013AD0F /* ViewSaveDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSaveDelete.swift; sourceTree = "<group>"; };
-		6C4701D22331D8930013AD0F /* PhysicsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsController.swift; sourceTree = "<group>"; };
+		6C4701D22331D8930013AD0F /* PhysicsSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsSystem.swift; sourceTree = "<group>"; };
 		6C4701D423342CCD0013AD0F /* SFXManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFXManager.swift; sourceTree = "<group>"; };
 		6C603397230B60B000746309 /* RanchFarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RanchFarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C60339A230B60B000746309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 		6C9E3E11230E8500007417E1 /* BuildingId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingId.swift; sourceTree = "<group>"; };
 		6C9E3E14230E8FFE007417E1 /* Teleport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teleport.swift; sourceTree = "<group>"; };
 		6C9E3E18230EAB8A007417E1 /* AnimationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
-		6C9E3E1A230F7905007417E1 /* RenderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
+		6C9E3E1A230F7905007417E1 /* RenderSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderSystem.swift; sourceTree = "<group>"; };
 		6C9E3E1C230F79FF007417E1 /* PersonId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonId.swift; sourceTree = "<group>"; };
 		6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSelectedGameTile.swift; sourceTree = "<group>"; };
 		6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPCScheduleSystem.swift; sourceTree = "<group>"; };
@@ -551,8 +551,6 @@
 				6C4701C3233024B20013AD0F /* HudController */,
 				6C6033DB230B833200746309 /* CameraController.swift */,
 				6C9D3603230BA7C000168A28 /* InputController.swift */,
-				6C4701D22331D8930013AD0F /* PhysicsController.swift */,
-				6C9E3E1A230F7905007417E1 /* RenderController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -600,6 +598,8 @@
 			children = (
 				6CB381B5233DB3520051D632 /* BaseSystem.swift */,
 				6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */,
+				6C4701D22331D8930013AD0F /* PhysicsSystem.swift */,
+				6C9E3E1A230F7905007417E1 /* RenderSystem.swift */,
 				6C69646E233C87E70033D9EE /* TeleportSystem.swift */,
 			);
 			path = Systems;
@@ -790,7 +790,7 @@
 				6C696467233C74310033D9EE /* GameDataBuildingInfos.swift in Sources */,
 				6C4701B4232ED0630013AD0F /* TeleportManager.swift in Sources */,
 				6C2336EA231147EA00261944 /* BuildingType.swift in Sources */,
-				6C4701D32331D8930013AD0F /* PhysicsController.swift in Sources */,
+				6C4701D32331D8930013AD0F /* PhysicsSystem.swift in Sources */,
 				6C0F561B2313BE930017192E /* CmdStartDay.swift in Sources */,
 				6C696444233AFDC20033D9EE /* TileInfo.swift in Sources */,
 				6C1BFE93232B892D00294BF3 /* PersonData.swift in Sources */,
@@ -822,7 +822,7 @@
 				6CC32316233AFAD700DE694C /* TileId.swift in Sources */,
 				6C9E3E00230CE31B007417E1 /* Config.swift in Sources */,
 				6C4701CF2330CA140013AD0F /* CmdGetSaveDataInfo.swift in Sources */,
-				6C9E3E1B230F7905007417E1 /* RenderController.swift in Sources */,
+				6C9E3E1B230F7905007417E1 /* RenderSystem.swift in Sources */,
 				6CD007CB232087EA008B9825 /* StoreCatalog.swift in Sources */,
 				6C6033BB230B636B00746309 /* GameObject.swift in Sources */,
 				6CB381B6233DB3520051D632 /* BaseSystem.swift in Sources */,

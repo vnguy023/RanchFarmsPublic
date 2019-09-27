@@ -1,13 +1,15 @@
 import SpriteKit
 
-class PhysicsController {
+class PhysicsSystems: BaseSystem{
     let world: World!
 
     init(world: World) {
         self.world = world
+
+        super.init(updateTickInterval: 1)
     }
 
-    func update() {
+    override func process() {
         updateMovement()
     }
 
