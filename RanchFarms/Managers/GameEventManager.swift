@@ -18,7 +18,6 @@ class GameEventManager {
         return nil
     }
 
-    // TODO: need to verify this
     func getGameEventsTriggered(personId: PersonId, actionType: ActionType) -> [GameEvent] {
         var result = [GameEvent]()
         for gameEvent in gameEventMap.filter({$0.value.trigger.type == .PersonId}) {
