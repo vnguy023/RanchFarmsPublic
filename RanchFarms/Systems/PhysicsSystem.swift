@@ -99,7 +99,6 @@ class PhysicsSystems: BaseSystem{
 
     private func objectsIntersect(gameObject: GameObject, collisonBoundary: CGRect) -> [GameObject] {
         var objectsToTest = [GameObject]()
-        objectsToTest.append(world.player)
 
         if let gameArea = world.gameAreas[gameObject.location] {
             gameArea.tiles.forEach({objectsToTest.append($0)})
