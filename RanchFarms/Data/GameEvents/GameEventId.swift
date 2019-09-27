@@ -17,4 +17,6 @@ enum GameEventId: UInt, Codable {
     case Teleport_Town_GeneralStore
     case Teleport_Town_SouthBeach
 
+    // Lily
+    case Lily_Talk = 10000
 }

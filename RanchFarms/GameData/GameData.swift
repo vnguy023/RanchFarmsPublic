@@ -283,4 +283,16 @@ class GameData {
 
         return GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
     }
+
+    static func GetGameEvents() -> [GameEvent] {
+        var data = [GameEvent]()
+
+        data.append(contentsOf: getGameEventStores())
+        data.append(contentsOf: getGameEventTeleports())
+        data.append(contentsOf: getGameEventDialogs())
+
+        data.append(contentsOf: getGameEventLily())
+
+        return data
+    }
 }

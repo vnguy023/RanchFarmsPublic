@@ -6,9 +6,7 @@ class GameEventManager {
     private var gameEventMap = [GameEventId: GameEvent]()
 
     private init() {
-        GameData.getGameEventDialogs().forEach({gameEventMap[$0.id] = $0})
-        GameData.getGameEventStores().forEach({gameEventMap[$0.id] = $0})
-        GameData.getGameEventTeleports().forEach({gameEventMap[$0.id] = $0})
+        GameData.GetGameEvents().forEach({gameEventMap[$0.id] = $0})
     }
 
     func getGameEvent(gameEventId: GameEventId) -> GameEvent? {

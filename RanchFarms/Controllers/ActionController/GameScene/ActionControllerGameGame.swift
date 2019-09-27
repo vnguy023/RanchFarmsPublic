@@ -13,6 +13,21 @@ extension ActionControllerGame {
         let currentGameArea = world.getCurrentGameArea()
 
         let buildingsInFront = currentGameArea.buildings.filter({$0.boundaryContains(point: world.player.getPositionInFront())})
+        let npcsInFront = world.npcs.filter({$0.boundaryContains(point: world.player.getPositionInFront())})
+
+        for npc in npcsInFront{
+            let gameEvents = GameEventManager.shared.getGameEventsTriggered(personId: npc.id, actionType: .Interact)
+            for gameEvent in gameEvents{
+                let cmd = CmdValidateRequirements(requirements: gameEvent.requirements,
+                                                  currentTime: world.gameTicksElapsedToday)
+                cmd.execute()
+
+                if cmd.success {
+                    executeGameEvent(gameEvent)
+                    return
+                }
+            }
+        }
 
         for buildingInFront in buildingsInFront {
             let gameEvents = GameEventManager.shared.getGameEventsTriggered(buildingId: buildingInFront.id, actionType: .Interact)
