@@ -8,6 +8,12 @@ extension GameData {
         data.append(Dialog(dialogId: .Dummy, portraitId: portraitId,
                            text: "TODO: Fill in actual text"))
 
+        data.append(Dialog(dialogId: .Door_IsLocked, portraitId: portraitId,
+                           text: "Door is locked. Come back Later"))
+
+        data.append(Dialog(dialogId: .Store_IsClosed, portraitId: portraitId,
+                           text: "Store is closed. Come back Later"))
+
         return data
     }
 

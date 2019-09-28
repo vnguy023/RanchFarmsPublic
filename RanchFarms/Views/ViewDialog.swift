@@ -29,8 +29,6 @@ class ViewDialog: SKSpriteNode {
                                     y: 0)
         portrait.zPosition = 100
         self.addChild(portrait)
-
-        update()
     }
 
     func update() {

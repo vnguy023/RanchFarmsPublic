@@ -45,7 +45,7 @@ extension GameData {
         data.append(GameEvent(gameEventId: .Dialog_GeneralStoreClosed, priority: 0,
                               trigger: Trigger(buildingId: .TownToGeneralStoreDoor, actionType: .Interact),
                               requirements: [Requirement](),
-                              dialogId: .Dummy))
+                              dialogId: .Door_IsLocked))
         requirements.removeAll()
         requirements.append(Requirement(startTime: Config.GameTicksPerGameHour * 8, endTime: Config.GameTicksPerGameHour * 16))
         data.append(GameEvent(gameEventId: .Teleport_Town_GeneralStore, priority: 100,
