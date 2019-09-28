@@ -18,11 +18,13 @@ class ViewDialog: SKSpriteNode {
 
         //texture = TextureManager.shared.getTexture(hudImageName: "hudTileCursor")
 
-        textLabel.horizontalAlignmentMode = .center
-        textLabel.verticalAlignmentMode = .center
+        textLabel.horizontalAlignmentMode = .left
+        textLabel.verticalAlignmentMode = .top
         textLabel.fontSize = 24
         textLabel.fontColor = .white
         textLabel.zPosition = 100
+        textLabel.position = CGPoint(x: self.size.width / -2 + 10,
+                                     y: self.size.height / 2 - 10)
         self.addChild(textLabel)
 
         portrait.position = CGPoint(x: self.size.width / 2 - portrait.size.width/2,
