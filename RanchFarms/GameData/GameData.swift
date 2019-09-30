@@ -194,7 +194,14 @@ class GameData {
         // Tiles/Terrains
         for x in 0...10 {
             for y in -5...5 {
-                let tile = TileData(tileId: .Grass,
+                var tileType = TileId.Grass
+                if ((x == 2 || x == 3) && y >= 0)
+                    || ((y == 0 || y == 1) && x < 6)
+                    || ((x == 4 || x == 5) && y <= 1) {
+                    tileType = .StonePath
+                }
+
+                let tile = TileData(tileId: tileType,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles.append(tile)
             }

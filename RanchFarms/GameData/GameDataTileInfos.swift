@@ -17,6 +17,10 @@ extension GameData {
                              tileType: .Sand,
                              isBlocking: false,
                              name: "Sand"))
+        data.append(TileInfo(tileId: .StonePath,
+                             tileType: .Grass,
+                             isBlocking: false,
+                             name: "StonePath"))
         data.append(TileInfo(tileId: .Water,
                              tileType: .Water,
                              isBlocking: true,
