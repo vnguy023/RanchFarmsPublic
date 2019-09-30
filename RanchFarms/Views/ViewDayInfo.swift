@@ -52,18 +52,7 @@ class ViewDayInfo: SKSpriteNode {
         currentSeasonLabel.text = "\(world.getCurrentSeason().toString())"
         currentDayLabel.text = "\(world.getCurrentDay())"
 
-        var weekdayText = ""
-        switch world.getCurrentWeekDay() {
-            case 0: weekdayText = "SUN"
-            case 1: weekdayText = "MON"
-            case 2: weekdayText = "TUE"
-            case 3: weekdayText = "WED"
-            case 4: weekdayText = "THU"
-            case 5: weekdayText = "FRI"
-            case 6: weekdayText = "SAT"
-            default: print("[ViewDayInfo] [CurrentWeekday switch is not exhaustive]")
-        }
-        currentWeekDayLabel.text = "\(weekdayText)"
+        currentWeekDayLabel.text = world.getCurrentWeekDay().getString()
 
         var hoursText = "\(world.getCurrentHour())"
         if world.getCurrentHour() == 0 { hoursText = "12" }

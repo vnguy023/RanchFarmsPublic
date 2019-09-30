@@ -304,4 +304,13 @@ class GameData {
 
         return data
     }
+
+    static func GetSchedules() -> [Schedule] {
+        var data = [Schedule]()
+
+        data.append(contentsOf: getSchedules())
+
+        return data
+    }
+
 }

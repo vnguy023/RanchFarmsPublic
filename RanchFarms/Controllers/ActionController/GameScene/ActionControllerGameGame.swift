@@ -18,8 +18,7 @@ extension ActionControllerGame {
         for npc in npcsInFront{
             let gameEvents = GameEventManager.shared.getGameEventsTriggered(personId: npc.id, actionType: .Interact)
             for gameEvent in gameEvents{
-                let cmd = CmdValidateRequirements(requirements: gameEvent.requirements,
-                                                  currentTime: world.gameTicksElapsedToday)
+                let cmd = CmdValidateRequirements(requirements: gameEvent.requirements, world: world, person: npc)
                 cmd.execute()
 
                 if cmd.success {
@@ -32,8 +31,7 @@ extension ActionControllerGame {
         for buildingInFront in buildingsInFront {
             let gameEvents = GameEventManager.shared.getGameEventsTriggered(buildingId: buildingInFront.id, actionType: .Interact)
             for gameEvent in gameEvents{
-                let cmd = CmdValidateRequirements(requirements: gameEvent.requirements,
-                                                  currentTime: world.gameTicksElapsedToday)
+                let cmd = CmdValidateRequirements(requirements: gameEvent.requirements, world: world, person: nil)
                 cmd.execute()
 
                 if cmd.success {

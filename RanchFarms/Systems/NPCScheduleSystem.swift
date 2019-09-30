@@ -11,17 +11,25 @@ class NPCScheduleSystem: BaseSystem {
 
     override func process() {
         for npc in world.npcs {
-            var spawnPoint: Teleport? = nil
+            if let currentEvent = npc.schedule?.getCurrentEvent(currentTime: world.gameTicksElapsedToday) {
+                if npc.mapPoint != currentEvent.destination
+                    || npc.faceDirection != currentEvent.faceDirection
+                    || npc.state != currentEvent.stateAtDestination {
+                    if currentEvent.teleport || true {
+                        npc.mapPoint = currentEvent.destination
+                        npc.faceDirection = currentEvent.faceDirection
+                        npc.state = currentEvent.stateAtDestination
+                    } else {
+                        // TODO: implement pathfinding and have npc move their automatically
+                    }
+                }
 
-            switch npc.id {
-            case .Lily:
-                spawnPoint = TeleportManager.shared.getTeleport(teleportId: .Lily_Spawn)
-            default:
-                print ("[NPCScheduleSystem] [Desc=SpawnTeleport not handled] [id=\(npc.id)] ")
-            }
-
-            if spawnPoint != nil {
-                npc.teleport(to: spawnPoint!)
+            } else {
+                if npc.schedule == nil {
+                    print ("[NPCScheduleSystem] [Desc=No schedule assigned] [npcId=\(npc.id)] ")
+                } else {
+                    print ("[NPCScheduleSystem] [Desc=No scheduleEvents for this schedule] [npcId=\(npc.id)] [scheduleId: \(npc.schedule!.id)]")
+                }
             }
         }
     }

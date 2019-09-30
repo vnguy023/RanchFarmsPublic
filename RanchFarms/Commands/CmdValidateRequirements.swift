@@ -1,15 +1,21 @@
 class CmdValidateRequirements: Command {
     // Input
     let requirements: [Requirement]
-    let currentTime: GameTick
+    let world: World
+    let person: Person!
 
     // Output
     var success = false
 
-    init(requirements: [Requirement], currentTime: GameTick) {
+    // Helpers
+    var currentTime: GameTick{ get {return world.gameTicksElapsedToday}}
+    var currentWeekDay: DayId{ get {return world.getCurrentWeekDay()}}
+
+    init(requirements: [Requirement], world: World, person: Person?) {
         self.requirements = requirements
 
-        self.currentTime = currentTime
+        self.world = world
+        self.person = person
     }
 
     func execute() {
@@ -25,6 +31,14 @@ class CmdValidateRequirements: Command {
         switch requirement.type {
         case .Time:
             if requirement.startTime <= currentTime && currentTime <= requirement.endTime {
+                return true
+            }
+        case .Day:
+            if requirement.dayId == currentWeekDay {
+                return true
+            }
+        case .NPC:
+            if requirement.personId == person.id {
                 return true
             }
         }

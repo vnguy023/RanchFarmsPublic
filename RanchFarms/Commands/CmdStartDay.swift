@@ -11,5 +11,9 @@ class CmdStartDay: Command {
         world.player.previousPosition = world.player.position
 
         world.gameTicksElapsedToday = Config.GameTicksPerGameHour * 6 // Start at 6AM
+
+        for npc in world.npcs {
+            npc.schedule = ScheduleManager.shared.getScheduleFor(npc: npc, world: world)
+        }
     }
 }

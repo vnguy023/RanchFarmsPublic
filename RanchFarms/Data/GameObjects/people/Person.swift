@@ -14,6 +14,8 @@ class Person: GameObject {
         case Watering
     }
 
+    var schedule: Schedule? = nil
+
     var state = State.Idle
 
     var previousLocation = Location.House
