@@ -9,4 +9,8 @@ enum DialogId: UInt, Codable {
 
     // Lily
     case Lily_Talk
+
+    // James
+    case James_Talk
+
 }

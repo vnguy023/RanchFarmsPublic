@@ -282,6 +282,7 @@ class GameData {
 
         data.append(contentsOf: getDialogTemp())
         data.append(contentsOf: getDialogLily())
+        data.append(contentsOf: getDialogJames())
 
         return data
     }
@@ -294,6 +295,7 @@ class GameData {
         data.append(contentsOf: getGameEventDialogs())
 
         data.append(contentsOf: getGameEventLily())
+        data.append(contentsOf: getGameEventJames())
 
         return data
     }
@@ -306,7 +308,7 @@ class GameData {
         return data
     }
 
-    static func GenerateWalls(tiles: [MapPoint: TileData], wallType: BuildingId) -> [BuildingData] {
+    static private func GenerateWalls(tiles: [MapPoint: TileData], wallType: BuildingId) -> [BuildingData] {
 
         var wallLocations = [MapPoint: Bool]()
 

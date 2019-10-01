@@ -5,4 +5,5 @@ enum PortraitId: UInt, Codable {
     case VendingMachine
 
     case Lily
+    case James
 }

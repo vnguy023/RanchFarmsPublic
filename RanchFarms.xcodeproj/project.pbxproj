@@ -131,6 +131,7 @@
 		6CB381CD233F2CC30051D632 /* GameDataSchedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381CC233F2CC30051D632 /* GameDataSchedules.swift */; };
 		6CB381CF233F63660051D632 /* ScheduleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381CE233F63660051D632 /* ScheduleEvent.swift */; };
 		6CB381D12340356C0051D632 /* DayId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381D02340356C0051D632 /* DayId.swift */; };
+		6CB381D323433D020051D632 /* GameDataGameEventJames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381D223433D020051D632 /* GameDataGameEventJames.swift */; };
 		6CBC8D12231A5C38005454E1 /* CmdActionHarvest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */; };
 		6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D13231B425D005454E1 /* MapPoint.swift */; };
 		6CBC8D17231CC833005454E1 /* ActionControllerGameGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */; };
@@ -279,6 +280,7 @@
 		6CB381CC233F2CC30051D632 /* GameDataSchedules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataSchedules.swift; sourceTree = "<group>"; };
 		6CB381CE233F63660051D632 /* ScheduleEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleEvent.swift; sourceTree = "<group>"; };
 		6CB381D02340356C0051D632 /* DayId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayId.swift; sourceTree = "<group>"; };
+		6CB381D223433D020051D632 /* GameDataGameEventJames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventJames.swift; sourceTree = "<group>"; };
 		6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdActionHarvest.swift; sourceTree = "<group>"; };
 		6CBC8D13231B425D005454E1 /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
 		6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerGameGame.swift; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 			isa = PBXGroup;
 			children = (
 				6CB381B7233DC5FC0051D632 /* GameDataGameEventLily.swift */,
+				6CB381D223433D020051D632 /* GameDataGameEventJames.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				6C1BFE93232B892D00294BF3 /* PersonData.swift in Sources */,
 				6CBC8D17231CC833005454E1 /* ActionControllerGameGame.swift in Sources */,
 				6C9E3E0E230E61D2007417E1 /* ViewMoneyInfo.swift in Sources */,
+				6CB381D323433D020051D632 /* GameDataGameEventJames.swift in Sources */,
 				6C4701B2232ECFDA0013AD0F /* TeleportId.swift in Sources */,
 				6C6033B3230B61BF00746309 /* SplashScene.swift in Sources */,
 				6C2336F5231272ED00261944 /* CmdBase.swift in Sources */,

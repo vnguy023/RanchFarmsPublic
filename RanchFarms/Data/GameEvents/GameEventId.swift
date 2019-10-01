@@ -19,4 +19,5 @@ enum GameEventId: UInt, Codable {
 
     // Lily
     case Lily_Talk = 10000
+    case James_Talk
 }

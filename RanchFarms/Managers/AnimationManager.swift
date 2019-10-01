@@ -5,14 +5,17 @@ class AnimationManager {
 
     private var playerAnimations = [Person.State: [CGVector: Animation]]()
     private var lilyAnimations = [Person.State: [CGVector: Animation]]()
+    private var jamesAnimations = [Person.State: [CGVector: Animation]]()
 
     private var buildingAnimations = [BuildingId: Animation]()
 
     private init() {
         loadBuildingAnimations()
         loadCropAnimations()
+
         loadPlayerAnimations()
         loadLilyAnimations()
+        loadJamesAnimations()
     }
 
     private func loadBuildingAnimations() {
@@ -358,6 +361,39 @@ class AnimationManager {
         lilyAnimations[Person.State.Idle] = idleAnimations
     }
 
+    private func loadJamesAnimations() {
+        let anchorPoint = CGPoint(x: 0.5, y: 1.0/4.0)
+
+        ////////////////////////////////
+        // Idle Animations
+        var idleAnimations = [CGVector: Animation]()
+        idleAnimations[.NORTH] = Animation()
+        idleAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "jamesIdleNorth"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 2),
+                                                        anchorPoint: anchorPoint))
+
+        idleAnimations[.SOUTH] = Animation()
+        idleAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "jamesIdleSouth"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 2),
+                                                        anchorPoint: anchorPoint))
+
+        idleAnimations[.WEST] = Animation()
+        idleAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "jamesIdleWest"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 2),
+                                                        anchorPoint: anchorPoint))
+
+        idleAnimations[.EAST] = Animation()
+        idleAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "jamesIdleEast"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 2),
+                                                        anchorPoint: anchorPoint))
+
+        jamesAnimations[Person.State.Idle] = idleAnimations
+    }
+
     func getAnimation(person: Person) -> Animation? {
         var animations = playerAnimations
         switch person.id {
@@ -365,6 +401,8 @@ class AnimationManager {
             animations = playerAnimations
         case .Lily:
             animations = lilyAnimations
+        case .James:
+            animations = jamesAnimations
         default: break
         }
 

@@ -27,5 +27,16 @@ extension GameData {
 
         return data
     }
+
+    static func getDialogJames() -> [Dialog] {
+        let portraitId = PortraitId.James
+
+        var data = [Dialog]()
+
+        data.append(Dialog(dialogId: .James_Talk, portraitId: portraitId,
+                           text: "Hey there, Check out my store for some seeds."))
+
+        return data
+    }
 }
 

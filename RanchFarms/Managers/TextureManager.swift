@@ -128,6 +128,12 @@ class TextureManager {
         personMap["lilyIdleSouth"] = SKTexture.init(imageNamed: "personLilyIdleSouth")
         personMap["lilyIdleWest"] = SKTexture.init(imageNamed: "personLilyIdleSouth")
         personMap["lilyIdleEast"] = SKTexture.init(imageNamed: "personLilyIdleSouth")
+
+        // James
+        personMap["jamesIdleNorth"] = SKTexture.init(imageNamed: "personJamesIdleSouth")
+        personMap["jamesIdleSouth"] = SKTexture.init(imageNamed: "personJamesIdleSouth")
+        personMap["jamesIdleWest"] = SKTexture.init(imageNamed: "personJamesIdleSouth")
+        personMap["jamesIdleEast"] = SKTexture.init(imageNamed: "personJamesIdleSouth")
     }
 
     private func loadPortraits() {
@@ -135,6 +141,7 @@ class TextureManager {
         portraitMap[.VendingMachine] = SKTexture(imageNamed: "portraitDummy")
         
         portraitMap[.Lily] = SKTexture(imageNamed: "portraitLily")
+        portraitMap[.James] = SKTexture(imageNamed: "portraitDummy")
     }
 
     private func loadTerrains() {

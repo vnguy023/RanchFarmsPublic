@@ -72,5 +72,6 @@ class CmdCreateNewGame: Command {
 
     private func createNpcs() {
         npcs.append(PersonData(personId: .Lily, money: 0, inventory: InventoryData()))
+        npcs.append(PersonData(personId: .James, money: 0, inventory: InventoryData()))
     }
 }
