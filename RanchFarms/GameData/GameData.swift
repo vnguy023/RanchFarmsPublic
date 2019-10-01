@@ -11,63 +11,41 @@ class GameData {
         var terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
 
+        // MainRoom
+        for x in 0...9 {
+            for y in 0...6 {
+                let tile = TileData(tileId: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles[tile.mapPoint] = tile
+            }
+        }
+
+        // FrontDoor <-> MainRoom
+        for x in 1...1 {
+            for y in (-2)...(-1) {
+                let tile = TileData(tileId: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles[tile.mapPoint] = tile
+            }
+        }
+
+        // replace floor with wood
+        for tile in tiles {
+            terrains[tile.key] = TerrainData(playerIndex: .Game,
+                                                  terrainType: .Wood,
+                                                  mapPoint: tile.key)
+        }
+
+        for wall in GenerateWalls(tiles: tiles, wallType: .Wall) {
+            buildings[wall.mapPoint] = wall
+        }
+
         // Buildings
         let bed = BuildingData(playerIndex: .Game,
                                buildingId: .SingleBed,
                                mapPoint: MapPoint(x: 8, y: 0, location: location))
         buildings[bed.mapPoint] = bed
 
-        for x in -1...10 {
-            if x != 1 {
-                let southWall = BuildingData(playerIndex: .Game,
-                                        buildingId: .Wall,
-                                        mapPoint: MapPoint(x: x, y: -1, location: location))
-                buildings[southWall.mapPoint] = southWall
-            }
-            let northWall = BuildingData(playerIndex: .Game,
-                                    buildingId: .Wall,
-                                    mapPoint: MapPoint(x: x, y: 7, location: location))
-            buildings[northWall.mapPoint] = northWall
-        }
-
-        for y in 0...6 {
-            let westWall = BuildingData(playerIndex: .Game,
-                                    buildingId: .Wall,
-                                    mapPoint: MapPoint(x: -1, y: y, location: location))
-            buildings[westWall.mapPoint] = westWall
-
-            let eastWall = BuildingData(playerIndex: .Game,
-                                    buildingId: .Wall,
-                                    mapPoint: MapPoint(x: 10, y: y, location: location))
-            buildings[eastWall.mapPoint] = eastWall
-        }
-
-        // Tiles/Terrains
-        for x in 0...9 {
-            for y in 0...6 {
-                let tile = TileData(tileId: .Dirt,
-                                    mapPoint: MapPoint(x: x, y: y, location: location))
-                tiles[tile.mapPoint] = tile
-
-                let terrain = TerrainData(playerIndex: .Game,
-                                          terrainType: .Wood,
-                                          mapPoint: MapPoint(x: x, y: y, location: location))
-                terrains[terrain.mapPoint] = terrain
-            }
-        }
-
-        for x in 1...1 {
-            for y in (-2)...(-1) {
-                let tile = TileData(tileId: .Dirt,
-                                    mapPoint: MapPoint(x: x, y: y, location: location))
-                tiles[tile.mapPoint] = tile
-
-                let terrain = TerrainData(playerIndex: .Game,
-                                          terrainType: .Wood,
-                                          mapPoint: MapPoint(x: x, y: y, location: location))
-                terrains[terrain.mapPoint] = terrain
-            }
-        }
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
                             terrains: terrains.compactMap({return $0.value}),
@@ -244,63 +222,54 @@ class GameData {
         var terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
 
-        // Buildings
-        let vendingMachine = BuildingData(playerIndex: .Game,
-                                          buildingId: .VendingMachine,
-                                          mapPoint: MapPoint(x: 1, y: 4, location: location))
-        buildings[vendingMachine.mapPoint] = vendingMachine
-
-        for x in -1...5 {
-            if x != 1 {
-                let southWall = BuildingData(playerIndex: .Game,
-                                             buildingId: .Wall,
-                                             mapPoint: MapPoint(x: x, y: -1, location: location))
-                buildings[southWall.mapPoint] = southWall
-            }
-            let northWall = BuildingData(playerIndex: .Game,
-                                         buildingId: .Wall,
-                                         mapPoint: MapPoint(x: x, y: 5, location: location))
-            buildings[northWall.mapPoint] = northWall
-        }
-
-        for y in 0...4 {
-            let westWall = BuildingData(playerIndex: .Game,
-                                        buildingId: .Wall,
-                                        mapPoint: MapPoint(x: -1, y: y, location: location))
-            buildings[westWall.mapPoint] = westWall
-
-            let eastWall = BuildingData(playerIndex: .Game,
-                                        buildingId: .Wall,
-                                        mapPoint: MapPoint(x: 5, y: y, location: location))
-            buildings[eastWall.mapPoint] = eastWall
-        }
-
-        // Tiles/Terrains
+        // Main store area
         for x in 0...4 {
             for y in 0...4 {
                 let tile = TileData(tileId: .Dirt,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles[tile.mapPoint] = tile
-
-                let terrain = TerrainData(playerIndex: .Game,
-                                          terrainType: .Wood,
-                                          mapPoint: MapPoint(x: x, y: y, location: location))
-                terrains[terrain.mapPoint] = terrain
             }
         }
 
+        // Front door entrrance
         for x in 1...1 {
             for y in (-2)...(-1) {
                 let tile = TileData(tileId: .Dirt,
                                     mapPoint: MapPoint(x: x, y: y, location: location))
                 tiles[tile.mapPoint] = tile
-
-                let terrain = TerrainData(playerIndex: .Game,
-                                          terrainType: .Wood,
-                                          mapPoint: MapPoint(x: x, y: y, location: location))
-                terrains[terrain.mapPoint] = terrain
             }
         }
+
+        // Bedroom
+        for x in -2...4 {
+            for y in 10...15 {
+                let tile = TileData(tileId: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles[tile.mapPoint] = tile
+            }
+        }
+        for y in 5...9 {// Bedroom <-> FrontDoor Hallway
+            let tile = TileData(tileId: .Dirt,
+                                mapPoint: MapPoint(x: 4, y: y, location: location))
+            tiles[tile.mapPoint] = tile
+        }
+
+        // replace floor with wood
+        for tile in tiles {
+            terrains[tile.key] = TerrainData(playerIndex: .Game,
+                                                  terrainType: .Wood,
+                                                  mapPoint: tile.key)
+        }
+
+        for wall in GenerateWalls(tiles: tiles, wallType: .Wall) {
+            buildings[wall.mapPoint] = wall
+        }
+
+        // Buildings
+        let vendingMachine = BuildingData(playerIndex: .Game,
+                                          buildingId: .VendingMachine,
+                                          mapPoint: MapPoint(x: 2, y: 4, location: location))
+        buildings[vendingMachine.mapPoint] = vendingMachine
 
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
@@ -337,4 +306,36 @@ class GameData {
         return data
     }
 
+    static func GenerateWalls(tiles: [MapPoint: TileData], wallType: BuildingId) -> [BuildingData] {
+
+        var wallLocations = [MapPoint: Bool]()
+
+        for tile in tiles {
+            // Top Row
+            wallLocations[MapPoint(x: tile.key.x-1, y: tile.key.y+1, location: tile.key.location)] = true
+            wallLocations[MapPoint(x: tile.key.x+0, y: tile.key.y+1, location: tile.key.location)] = true
+            wallLocations[MapPoint(x: tile.key.x+1, y: tile.key.y+1, location: tile.key.location)] = true
+
+            // Mid Row
+            wallLocations[MapPoint(x: tile.key.x-1, y: tile.key.y, location: tile.key.location)] = true
+            wallLocations[MapPoint(x: tile.key.x+0, y: tile.key.y, location: tile.key.location)] = true
+            wallLocations[MapPoint(x: tile.key.x+1, y: tile.key.y, location: tile.key.location)] = true
+
+            // Bot Row
+            wallLocations[MapPoint(x: tile.key.x-1, y: tile.key.y-1, location: tile.key.location)] = true
+            wallLocations[MapPoint(x: tile.key.x+0, y: tile.key.y-1, location: tile.key.location)] = true
+            wallLocations[MapPoint(x: tile.key.x+1, y: tile.key.y-1, location: tile.key.location)] = true
+        }
+
+        for tile in tiles {
+            wallLocations[tile.key] = nil
+        }
+
+        var walls = [BuildingData]()
+        for mapPoint in wallLocations {
+            walls.append(BuildingData(playerIndex: .Game, buildingId: wallType, mapPoint: mapPoint.key))
+        }
+
+        return walls
+    }
 }
