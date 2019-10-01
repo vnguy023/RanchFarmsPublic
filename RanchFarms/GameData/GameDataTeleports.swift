@@ -28,6 +28,9 @@ extension GameData {
         data.append(Teleport(teleportId: .GeneralStore_Town,
                              mapPoint: MapPoint(x: 2, y: 5, location: .Town),
                              directionToFace: .SOUTH))
+        data.append(Teleport(teleportId: .JamesHouse_Town,
+                             mapPoint: MapPoint(x: 8, y: 5, location: .Town),
+                             directionToFace: .SOUTH))
         data.append(Teleport(teleportId: .SouthBeach_Town,
                              mapPoint: MapPoint(x: 4, y: -5, location: .Town),
                              directionToFace: .NORTH))
@@ -36,6 +39,9 @@ extension GameData {
                              directionToFace: .WEST))
         data.append(Teleport(teleportId: .Town_GeneralStore,
                              mapPoint: MapPoint(x: 1, y: 0, location: .GeneralStore),
+                             directionToFace: .NORTH))
+        data.append(Teleport(teleportId: .Town_JamesHouse,
+                             mapPoint: MapPoint(x: 1, y: 0, location: .JamesHouse),
                              directionToFace: .NORTH))
         data.append(Teleport(teleportId: .Town_SouthBeach,
                              mapPoint: MapPoint(x: 4, y: 0, location: .SouthBeach),

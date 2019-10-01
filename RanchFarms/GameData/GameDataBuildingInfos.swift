@@ -40,6 +40,11 @@ extension GameData {
                                  objSize: CGSize(width: 5, height: 5),
                                  isBlocking: true,
                                  name: "Farm House"))
+        data.append(BuildingInfo(buildingId: .JamesHouse,
+                                 buildingType: .Unknown,
+                                 objSize: CGSize(width: 5, height: 5),
+                                 isBlocking: true,
+                                 name: "James House"))
         data.append(BuildingInfo(buildingId: .Wall,
                                  buildingType: .Unknown,
                                  objSize: CGSize(width: 1, height: 1),
@@ -95,6 +100,11 @@ extension GameData {
                                  objSize: CGSize(width: 1, height: 2),
                                  isBlocking: true,
                                  name: "Town to GeneralStore"))
+        data.append(BuildingInfo(buildingId: .TownToJamesHouseDoor,
+                                 buildingType: .Unknown,
+                                 objSize: CGSize(width: 1, height: 2),
+                                 isBlocking: true,
+                                 name: "Town to JamesHouse"))
 
         return data
     }

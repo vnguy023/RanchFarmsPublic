@@ -42,8 +42,10 @@ class TextureManager {
         buildingMap[.FarmToTownDoor] = SKTexture(imageNamed: "buildingDoor")
         buildingMap[.TownToFarmDoor] = SKTexture(imageNamed: "buildingDoor")
         buildingMap[.TownToGeneralStoreDoor] = SKTexture(imageNamed: "buildingDoor")
+        buildingMap[.TownToJamesHouseDoor] = SKTexture(imageNamed: "buildingDoor")
 
         buildingMap[.FarmHouse] = SKTexture(imageNamed: "buildingFarmHouse")
+        buildingMap[.JamesHouse] = SKTexture(imageNamed: "buildingJamesHouse")
         buildingMap[.Wall] = SKTexture(imageNamed: "buildingWall")
 
         buildingMap[.SingleBed] = SKTexture(imageNamed: "buildingSingleBed")

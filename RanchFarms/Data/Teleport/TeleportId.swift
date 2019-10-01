@@ -12,10 +12,13 @@ enum TeleportId: UInt, Codable {
 
     case GeneralStore_Town
 
+    case JamesHouse_Town
+
     case SouthBeach_Town
 
     case Town_Farm
     case Town_GeneralStore
+    case Town_JamesHouse
     case Town_SouthBeach
 
     // Lily Specific

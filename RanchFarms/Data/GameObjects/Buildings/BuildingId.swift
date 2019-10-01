@@ -9,10 +9,12 @@ enum BuildingId: UInt, Codable {
     case FarmToTownDoor
     case TownToFarmDoor
     case TownToGeneralStoreDoor
+    case TownToJamesHouseDoor
 
     case SingleBed = 110
 
     case FarmHouse = 150
+    case JamesHouse
     case Wall
 
     case Chair = 500

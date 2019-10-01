@@ -29,6 +29,13 @@ extension GameData {
                               requirements: [Requirement](),
                               teleportId: .GeneralStore_Town))
 
+        // JamesHouse
+        data.append(GameEvent(gameEventId: .Teleport_JamesHouse_Town, priority: 100,
+                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .JamesHouse),
+                                               end: MapPoint(x: 1, y: -2, location: .JamesHouse)),
+                              requirements: [Requirement](),
+                              teleportId: .JamesHouse_Town))
+
         // SouthBeach
         data.append(GameEvent(gameEventId: .Teleport_SouthBeach_Town, priority: 100,
                               trigger: Trigger(start: MapPoint(x: 4, y: 2, location: .SouthBeach),
@@ -53,11 +60,10 @@ extension GameData {
                               requirements: requirements,
                               teleportId: .Town_GeneralStore))
 
-        data.append(GameEvent(gameEventId: .Teleport_Town_SouthBeach, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 4, y: -7, location: .Town),
-                                               end: MapPoint(x: 4, y: -7, location: .Town)),
+        data.append(GameEvent(gameEventId: .Teleport_Town_JamesHouse, priority: 100,
+                              trigger: Trigger(buildingId: .TownToJamesHouseDoor, actionType: .Interact),
                               requirements: [Requirement](),
-                              teleportId: .Town_SouthBeach))
+                              teleportId: .Town_JamesHouse))
         return data
     }
 }

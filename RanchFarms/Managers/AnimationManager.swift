@@ -47,6 +47,11 @@ class AnimationManager {
                                                                              duration: 1,
                                                                              imageSize: CGSize(width: 1, height: 2),
                                                                              anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+        buildingAnimations[.TownToJamesHouseDoor] = Animation()
+        buildingAnimations[.TownToJamesHouseDoor]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .TownToJamesHouseDoor),
+                                                                             duration: 1,
+                                                                             imageSize: CGSize(width: 1, height: 2),
+                                                                             anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
 
         buildingAnimations[.TV] = Animation()
         buildingAnimations[.TV]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .TV),
@@ -84,6 +89,11 @@ class AnimationManager {
                                                             anchorPoint: CGPoint(x:1.0/4.0, y: 1.0/4.0)))
         buildingAnimations[.FarmHouse] = Animation()
         buildingAnimations[.FarmHouse]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .FarmHouse),
+                                                                duration: 1,
+                                                                imageSize: CGSize(width: 5, height: 5),
+                                                                anchorPoint: CGPoint(x:1.0/10.0, y: 1.0/10.0)))
+        buildingAnimations[.JamesHouse] = Animation()
+        buildingAnimations[.JamesHouse]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .JamesHouse),
                                                                 duration: 1,
                                                                 imageSize: CGSize(width: 5, height: 5),
                                                                 anchorPoint: CGPoint(x:1.0/10.0, y: 1.0/10.0)))

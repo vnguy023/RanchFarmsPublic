@@ -57,6 +57,7 @@ class World: SKNode {
         gameAreasDataToLoad.append(GameData.BasicHouse())
         gameAreasDataToLoad.append(GameData.Farm())
         gameAreasDataToLoad.append(GameData.GeneralStore())
+        gameAreasDataToLoad.append(GameData.JamesHouse())
         gameAreasDataToLoad.append(GameData.Town())
         gameAreasDataToLoad.append(GameData.SouthBeach())
 

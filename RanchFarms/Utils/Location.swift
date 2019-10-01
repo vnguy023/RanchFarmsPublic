@@ -3,7 +3,8 @@ import SpriteKit
 enum Location: UInt, Codable {
     case House = 10
     case Farm
-    case Town
     case GeneralStore
+    case JamesHouse
     case SouthBeach
+    case Town
 }
