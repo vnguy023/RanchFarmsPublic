@@ -12,7 +12,7 @@ class Terrain: GameObject {
 
     var isWatered: Bool {
         get {
-            if type == .TilledWatered || type == .Watered {
+            if type == .Watered {
                 return true
             }
             return false
@@ -21,7 +21,7 @@ class Terrain: GameObject {
 
     var isTilled: Bool {
         get {
-            if type == .TilledWatered || type == .Tilled {
+            if type == .Watered || type == .Tilled {
                 return true
             }
             return false

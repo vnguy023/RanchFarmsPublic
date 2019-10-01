@@ -132,10 +132,8 @@ class CmdActionUseItem: Command {
         }
 
         if tileInFront.type == .Dirt {
-            if terrainInFront == nil {
-                world.add(terrain: Terrain(player: .PlayerOne, terrainType: .Watered, mapPoint: tileInFront.mapPoint))
-            } else if terrainInFront.type == .Tilled {
-                terrainInFront.type = .TilledWatered
+            if terrainInFront != nil && terrainInFront.type == .Tilled {
+                terrainInFront.type = .Watered
             }
         }
     }

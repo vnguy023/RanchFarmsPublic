@@ -7,30 +7,24 @@ class CmdEndDay: Command {
 
     func execute() {
         for gameArea in world.gameAreas {
+            var terrainsToDelete = [Terrain]()
             for building in gameArea.value.buildings {
-                let terrain = world.getTerrainAt(position: building.position, location: building.location)
-                if building.buildingInfo.buildingType == .Crop
-                    && terrain != nil && terrain!.isWatered {
-                    building.growthProgress += 1
+                if building.buildingInfo.buildingType == .Crop {
+                    if let terrain = world.getTerrainAt(position: building.position, location: building.location), terrain.isWatered {
+                        building.growthProgress += 1
+                    }
                 }
             }
 
-            var terrainsToDelete = [Terrain]()
             for terrain in gameArea.value.terrains {
                 let buildings = world.getBuildingsAt(position: terrain.position, location: terrain.location)
 
                 switch terrain.type {
-                case .Tilled:
-                    if !buildings.isEmpty || Int.random(in: 0...1) % 2 == 0  {
-                        terrainsToDelete.append(terrain)
-                    }
+                case .Tilled: fallthrough
                 case .Watered:
-                    terrainsToDelete.append(terrain)
-                case .TilledWatered:
-                    if !buildings.isEmpty || Int.random(in: 0...1) % 2 == 0  {
+                    if !buildings.isEmpty || Int.random(in: 0...1) % 2 == 0{
                         terrainsToDelete.append(terrain)
-                    }
-                    else {
+                    } else {
                         terrain.type = .Tilled
                     }
                 default: break

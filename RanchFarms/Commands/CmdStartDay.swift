@@ -15,5 +15,11 @@ class CmdStartDay: Command {
         for npc in world.npcs {
             npc.schedule = ScheduleManager.shared.getScheduleFor(npc: npc, world: world)
         }
+
+        for gameArea in world.gameAreas {
+            for crop in gameArea.value.buildings.filter({$0.type == .Crop}) {
+                world.add(terrain: Terrain(player: crop.player, terrainType: .Tilled, mapPoint: crop.mapPoint))
+            }
+        }
     }
 }
