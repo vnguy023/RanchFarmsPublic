@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dirtWatered.png",
+      "filename" : "tileDirtWatered.png",
       "scale" : "1x"
     },
     {

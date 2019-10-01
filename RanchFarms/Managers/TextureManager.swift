@@ -147,7 +147,7 @@ class TextureManager {
 
     private func loadTiles() {
         tileMap[.Dirt] = SKTexture(imageNamed: "tileDirt")
-        tileMap[.Grass] = SKTexture(imageNamed: "tileGrass")
+        tileMap[.Grass] = SKTexture(imageNamed: "tileGrass3")
         tileMap[.Sand] = SKTexture(imageNamed: "tileSand")
         tileMap[.StonePath] = SKTexture(imageNamed: "tileStonePath")
         tileMap[.Water] = SKTexture(imageNamed: "tileWater")
