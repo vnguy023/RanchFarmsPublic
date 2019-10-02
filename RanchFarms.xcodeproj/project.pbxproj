@@ -132,6 +132,11 @@
 		6CB381CF233F63660051D632 /* ScheduleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381CE233F63660051D632 /* ScheduleEvent.swift */; };
 		6CB381D12340356C0051D632 /* DayId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381D02340356C0051D632 /* DayId.swift */; };
 		6CB381D323433D020051D632 /* GameDataGameEventJames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381D223433D020051D632 /* GameDataGameEventJames.swift */; };
+		6CB381D523447CD20051D632 /* EndDayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381D423447CD20051D632 /* EndDayScene.swift */; };
+		6CB381D723447CDE0051D632 /* EndDayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6CB381D623447CDE0051D632 /* EndDayScene.sks */; };
+		6CB381D9234487650051D632 /* GameDataGameEventGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381D8234487650051D632 /* GameDataGameEventGeneric.swift */; };
+		6CB381DB23448BFE0051D632 /* ActionControllerEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381DA23448BFE0051D632 /* ActionControllerEndDay.swift */; };
+		6CB381DE23448C8B0051D632 /* ActionControllerEndDayMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381DD23448C8B0051D632 /* ActionControllerEndDayMain.swift */; };
 		6CBC8D12231A5C38005454E1 /* CmdActionHarvest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */; };
 		6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D13231B425D005454E1 /* MapPoint.swift */; };
 		6CBC8D17231CC833005454E1 /* ActionControllerGameGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */; };
@@ -281,6 +286,11 @@
 		6CB381CE233F63660051D632 /* ScheduleEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleEvent.swift; sourceTree = "<group>"; };
 		6CB381D02340356C0051D632 /* DayId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayId.swift; sourceTree = "<group>"; };
 		6CB381D223433D020051D632 /* GameDataGameEventJames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventJames.swift; sourceTree = "<group>"; };
+		6CB381D423447CD20051D632 /* EndDayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndDayScene.swift; sourceTree = "<group>"; };
+		6CB381D623447CDE0051D632 /* EndDayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndDayScene.sks; sourceTree = "<group>"; };
+		6CB381D8234487650051D632 /* GameDataGameEventGeneric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventGeneric.swift; sourceTree = "<group>"; };
+		6CB381DA23448BFE0051D632 /* ActionControllerEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerEndDay.swift; sourceTree = "<group>"; };
+		6CB381DD23448C8B0051D632 /* ActionControllerEndDayMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerEndDayMain.swift; sourceTree = "<group>"; };
 		6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdActionHarvest.swift; sourceTree = "<group>"; };
 		6CBC8D13231B425D005454E1 /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
 		6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerGameGame.swift; sourceTree = "<group>"; };
@@ -459,12 +469,12 @@
 				6C60339A230B60B000746309 /* AppDelegate.swift */,
 				6C9E3DFF230CE31B007417E1 /* Config.swift */,
 				6C6033B6230B631A00746309 /* scenes */,
+				6C6033A2230B60B000746309 /* ViewController.swift */,
 				6C6033B9230B633A00746309 /* Data */,
 				6C4701AB232DB8690013AD0F /* GameData */,
 				6C4701D623342D720013AD0F /* Animations */,
 				6C8D2BDF23342DF70077AE9D /* SFXs */,
 				6C6033DD230B833900746309 /* Controllers */,
-				6C6033A2230B60B000746309 /* ViewController.swift */,
 				6C6033DA230B7E5E00746309 /* Managers */,
 				6C696470233C87F00033D9EE /* Systems */,
 				6C2336F12312728B00261944 /* Commands */,
@@ -482,6 +492,8 @@
 			isa = PBXGroup;
 			children = (
 				6C6033B4230B624700746309 /* BaseScene.swift */,
+				6CB381D623447CDE0051D632 /* EndDayScene.sks */,
+				6CB381D423447CD20051D632 /* EndDayScene.swift */,
 				6C60339C230B60B000746309 /* GameScene.sks */,
 				6C6033A0230B60B000746309 /* GameScene.swift */,
 				6C6033B0230B61B600746309 /* SplashScene.sks */,
@@ -616,6 +628,7 @@
 		6C696465233C70FB0033D9EE /* GameEvents */ = {
 			isa = PBXGroup;
 			children = (
+				6CB381D8234487650051D632 /* GameDataGameEventGeneric.swift */,
 				6C696461233C70EC0033D9EE /* GameDataGameEventDialogs.swift */,
 				6C696463233C70F30033D9EE /* GameDataGameEventStores.swift */,
 				6C69645F233C6F580033D9EE /* GameDataGameEventTeleports.swift */,
@@ -728,9 +741,19 @@
 			path = Schedule;
 			sourceTree = "<group>";
 		};
+		6CB381DC23448C070051D632 /* EndDayScene */ = {
+			isa = PBXGroup;
+			children = (
+				6CB381DA23448BFE0051D632 /* ActionControllerEndDay.swift */,
+				6CB381DD23448C8B0051D632 /* ActionControllerEndDayMain.swift */,
+			);
+			path = EndDayScene;
+			sourceTree = "<group>";
+		};
 		6CBC8D15231CC819005454E1 /* ActionController */ = {
 			isa = PBXGroup;
 			children = (
+				6CB381DC23448C070051D632 /* EndDayScene */,
 				6C4701BE23301EC00013AD0F /* SplashScene */,
 				6C4701BB23301EA40013AD0F /* GameScene */,
 			);
@@ -821,6 +844,7 @@
 				6C60339D230B60B000746309 /* GameScene.sks in Resources */,
 				6C6033A5230B60B300746309 /* Assets.xcassets in Resources */,
 				6C6033A8230B60B300746309 /* Main.storyboard in Resources */,
+				6CB381D723447CDE0051D632 /* EndDayScene.sks in Resources */,
 				6C6033B1230B61B600746309 /* SplashScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -879,6 +903,8 @@
 				6C0F561D2313D56E0017192E /* ViewDayInfo.swift in Sources */,
 				6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */,
 				6C4701B6232F2E730013AD0F /* ViewSaveSlot.swift in Sources */,
+				6CB381D523447CD20051D632 /* EndDayScene.swift in Sources */,
+				6CB381D9234487650051D632 /* GameDataGameEventGeneric.swift in Sources */,
 				6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */,
 				6CD007C72320875F008B9825 /* StoreFrontId.swift in Sources */,
 				6C2336F3231272B300261944 /* CmdEndDay.swift in Sources */,
@@ -888,6 +914,7 @@
 				6C4701CF2330CA140013AD0F /* CmdGetSaveDataInfo.swift in Sources */,
 				6CB381C9233F2B710051D632 /* ScheduleId.swift in Sources */,
 				6C9E3E1B230F7905007417E1 /* RenderSystem.swift in Sources */,
+				6CB381DB23448BFE0051D632 /* ActionControllerEndDay.swift in Sources */,
 				6CB381C6233F2B3A0051D632 /* Schedule.swift in Sources */,
 				6CD007CB232087EA008B9825 /* StoreCatalog.swift in Sources */,
 				6C6033BB230B636B00746309 /* GameObject.swift in Sources */,
@@ -903,6 +930,7 @@
 				6C9E3E19230EAB8A007417E1 /* AnimationManager.swift in Sources */,
 				6C6D78E32322686500573B25 /* CmdPurchaseItem.swift in Sources */,
 				6C4701AF232DD9C20013AD0F /* TileData.swift in Sources */,
+				6CB381DE23448C8B0051D632 /* ActionControllerEndDayMain.swift in Sources */,
 				6C9E3E1D230F79FF007417E1 /* PersonId.swift in Sources */,
 				6C9D3604230BA7C000168A28 /* InputController.swift in Sources */,
 				6C6D78DF232217B900573B25 /* StoreFrontManager.swift in Sources */,

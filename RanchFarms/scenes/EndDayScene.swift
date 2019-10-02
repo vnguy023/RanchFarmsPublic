@@ -2,59 +2,25 @@ import SpriteKit
 import GameController
 import GameplayKit
 
-class GameScene: BaseScene {
-    var saveSlot: SaveSlot!
-
-    let cameraController = CameraController()
+class EndDayScene: BaseScene {    
     let inputController = InputController()
 
-    var actionController: ActionControllerGame!
-    var hudController: HudControllerGame!
-
-    var npcScheduleSystem: NPCScheduleSystem!
-    var physicsSystem: PhysicsSystems!
-    var renderSystem: RenderSystem!
-    var teleportSystem: TeleportSystem!
-
-    private var mLastUpdate = Date.init()
-    private var mPaused = false
+    var actionController: ActionControllerEndDay!
 
     override func didMove(to view: SKView) {
-        mLastUpdate = Date.init()
-        mPaused = false
+        let endDayLabel = SKLabelNode(fontNamed: "ChalkDuster")
 
-        loadGame()
+        endDayLabel.fontColor = .white
+        endDayLabel.fontSize = 32
+        endDayLabel.text = "End Day: Press Primary Action to continue"
+
+        self.addChild(endDayLabel)
 
         linkControllers()
-        linkNodes()
-    }
-
-    private func loadGame() {
-        world = World(saveSlot: saveSlot)
-        let cmdStartDay = CmdStartDay(world: world)
-        cmdStartDay.execute()
     }
 
     private func linkControllers() {
-        hudController = HudControllerGame(camera: cameraController.camera, world: world, screenSize: self.size)
-        actionController = ActionControllerGame(scene: self, world: world, cameraController: cameraController, hudController: hudController, inputController: inputController)
-
-        npcScheduleSystem = NPCScheduleSystem(world: world)
-        physicsSystem = PhysicsSystems(world: world)
-        renderSystem = RenderSystem(world: world)
-        teleportSystem = TeleportSystem(world: world, cameraController: cameraController)
-
-        actionController.handlePause = pauseGame
-        actionController.handleUnpause = unpauseGame
-    }
-
-    private func linkNodes() {
-        self.addChild(world)
-        self.addChild(hudController.worldHudNode)
-
-        self.camera = cameraController.camera
-        cameraController.gameObjectToFollow = world.player
-        self.addChild(cameraController.camera)
+        actionController = ActionControllerEndDay(scene: self, inputController: inputController, world: world)
     }
     
     func touchDown(atPoint pos : CGPoint) { }
@@ -157,43 +123,11 @@ class GameScene: BaseScene {
         }
     }
 
-    func pauseGame() {
-        mPaused = true
-    }
-
-    func unpauseGame() {
-        mPaused = false
-        mLastUpdate = Date.init()
-    }
-
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-
         processControllerInput()
 
-        if mPaused {
-            inputController.update()
-        } else {
-            let deltaTime = DateInterval(start: mLastUpdate, end: Date.init()).duration
-
-            let gameTicksToProcess = min(GameTick(deltaTime * Double(Config.GameTicksPerSecond)), Config.MaxGameTickUpdatesPerCycle)
-            var iter = gameTicksToProcess
-            while iter > 0 && !mPaused {
-                inputController.update()
-
-                npcScheduleSystem.update()
-                physicsSystem.update()
-                teleportSystem.update()
-
-                world.update()
-
-                iter -= 1
-            }
-            mLastUpdate.addTimeInterval(TimeInterval(Double(gameTicksToProcess) / Double(Config.GameTicksPerSecond)))
-        }
-        renderSystem.update()
-        cameraController.update()
-        hudController.update()
+        inputController.update()
     }
 
     func processControllerInput() {

@@ -1,7 +1,8 @@
 import SpriteKit
 
 class ActionControllerGame {
-    let world: World!
+    let scene: GameScene
+    let world: World
 
     let cameraController: CameraController!
     let inputController: InputController!
@@ -10,7 +11,8 @@ class ActionControllerGame {
     var handlePause: (()->())!
     var handleUnpause: (()->())!
 
-    init(world: World, cameraController: CameraController, hudController: HudControllerGame, inputController: InputController) {
+    init(scene: GameScene, world: World, cameraController: CameraController, hudController: HudControllerGame, inputController: InputController) {
+        self.scene = scene
         self.world = world
 
         self.cameraController = cameraController
@@ -53,11 +55,13 @@ class ActionControllerGame {
                 world.hudInterfaceData.dialog = dialog
                 changeState(to: .Dialog)
             }
-
         case .Store:
             world.hudInterfaceData.store = Store(storeFrontId: gameEvent.storeFrontId,
                                                  storeCatalogId: gameEvent.storeCatalogId)
             changeState(to: .Store)
+        case .Sleep:
+            scene.vc.loadEndDayScene(world: world)
+            return
         case .Teleport:
             world.teleport(to: gameEvent.teleportId)
             cameraController.fadeScreen()

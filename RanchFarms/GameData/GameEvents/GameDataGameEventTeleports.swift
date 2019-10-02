@@ -53,6 +53,7 @@ extension GameData {
                               trigger: Trigger(buildingId: .TownToGeneralStoreDoor, actionType: .Interact),
                               requirements: [Requirement](),
                               dialogId: .Door_IsLocked))
+
         requirements.removeAll()
         requirements.append(Requirement(startTime: Config.GameTicksPerGameHour * 8, endTime: Config.GameTicksPerGameHour * 16))
         data.append(GameEvent(gameEventId: .Teleport_Town_GeneralStore, priority: 100,
@@ -64,6 +65,12 @@ extension GameData {
                               trigger: Trigger(buildingId: .TownToJamesHouseDoor, actionType: .Interact),
                               requirements: [Requirement](),
                               teleportId: .Town_JamesHouse))
+
+        data.append(GameEvent(gameEventId: .Teleport_Town_SouthBeach, priority: 100,
+                              trigger: Trigger(start: MapPoint(x: 4, y: -7, location: .Town),
+                                               end: MapPoint(x: 4, y: -7, location: .Town)),
+                              requirements: [Requirement](),
+                              teleportId: .Town_SouthBeach))
         return data
     }
 }

@@ -47,4 +47,10 @@ class GameEvent {
                   trigger: trigger, requirements: requirements,
                   dialogId: nil, storeFrontId: nil, storeCatalogId: nil, teleportId: teleportId)
     }
+
+    convenience init(gameEventId: GameEventId, priority: Int, trigger: Trigger, requirements: [Requirement], bedBuildingId: BuildingId) {
+        self.init(gameEventId: gameEventId, gameEventType: .Sleep, priority: priority,
+                  trigger: trigger, requirements: requirements,
+                  dialogId: nil, storeFrontId: nil, storeCatalogId: nil, teleportId: nil)
+    }
 }

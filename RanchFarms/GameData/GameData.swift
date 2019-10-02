@@ -220,6 +220,7 @@ class GameData {
             }
         }
 
+        // Path to SouthBeach
         for x in 4...4 {
             for y in (-7)...(-6) {
                 let tile = TileData(tileId: .Sand,
@@ -366,6 +367,8 @@ class GameData {
 
     static func GetGameEvents() -> [GameEvent] {
         var data = [GameEvent]()
+
+        data.append(contentsOf: getGameEventGeneric())
 
         data.append(contentsOf: getGameEventStores())
         data.append(contentsOf: getGameEventTeleports())

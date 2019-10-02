@@ -41,14 +41,6 @@ extension ActionControllerGame {
             }
 
             switch buildingInFront.type {
-            case .Bed:
-                let cmdEndDay  = CmdEndDay(world: world)
-                cmdEndDay.execute()
-
-                let cmdStartDay = CmdStartDay(world: world)
-                cmdStartDay.execute()
-                cameraController.fadeScreen()
-                return
             case .Crop:
                 if buildingInFront.canHarvest {
                     let cmdHarvest = CmdActionHarvest(world: world, crop: buildingInFront)

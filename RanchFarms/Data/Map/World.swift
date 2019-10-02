@@ -31,10 +31,12 @@ class World: SKNode {
     // This should be temporary data for now. Think about throwing this into global
     var hudInterfaceData = HudInterfaceDataGame()
 
-    override init() {
-        saveSlot = SaveSlot.Slot1
-        super.init()
+    enum LoadResult {
+        case Unknown
+        case Success
+        case CorruptFile
     }
+    var loadResult = LoadResult.Unknown
 
     init(saveSlot: SaveSlot) {
         self.saveSlot = saveSlot
@@ -46,6 +48,10 @@ class World: SKNode {
         switch cmdLoadGame.result {
         case .Success:
             loadWorldData(worldData: cmdLoadGame.worldData)
+            loadResult = .Success
+        case .SaveFileNotCompatible:
+            loadResult = .CorruptFile
+            fallthrough
         default:
             print ("[World] [Loading SaveFile] [Error=Loading File] [Result\(cmdLoadGame.result)]")
         }

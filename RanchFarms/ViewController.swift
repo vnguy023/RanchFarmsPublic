@@ -20,6 +20,16 @@ class ViewController: NSViewController {
         }
     }
 
+    func loadEndDayScene(world: World) {
+        if let scene = SKScene(fileNamed: "EndDayScene") {
+            let endDayScene = (scene as! EndDayScene)
+
+            endDayScene.world = world
+
+            presentScene(scene: endDayScene)
+        }
+    }
+
     func loadSplashScene() {
         if let scene = SKScene(fileNamed: "SplashScene") {
             presentScene(scene: scene)

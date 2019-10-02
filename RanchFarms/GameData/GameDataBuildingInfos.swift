@@ -16,7 +16,7 @@ extension GameData {
                                  isBlocking: true,
                                  name: "Rock"))
         data.append(BuildingInfo(buildingId: .SingleBed,
-                                 buildingType: .Bed,
+                                 buildingType: .Unknown,
                                  objSize: CGSize(width: 2, height: 2),
                                  isBlocking: true,
                                  name: "Single Bed"))
