@@ -36,6 +36,7 @@ class Building: GameObject {
                                    height: self.buildingInfo.objSize.height * Config.tileSize.height)
         self.boundaryAnchorPoint = CGPoint(x: 0.5 / self.buildingInfo.objSize.width,
                                            y: 0.5 / self.buildingInfo.objSize.height)
+        self.hasSpriteIndices = buildingInfo.hasSpriteIndices
         self.isBlocking = buildingInfo.isBlocking
 
         updateTexture()

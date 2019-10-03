@@ -35,6 +35,8 @@ class GameObject: SKNode {
     var money = Int(1050)
 
     let sprite = SKSpriteNode(color: .red, size: Config.tileSize)
+    var spriteIndex: SpriteIndex? = nil
+    var hasSpriteIndices = false
     var boundaryAnchorPoint = CGPoint(x: 0.5, y: 0.5)
     var boundarySize = Config.tileSize
     let boundaryTrim = CGFloat(2) // this is to account for imperfect movement
@@ -97,7 +99,7 @@ class GameObject: SKNode {
     }
 
     func applyAnimationFrame(_ frame: AnimationFrame) {
-        self.sprite.texture = frame.texture
+        applyTexture(frame.texture)
         self.sprite.size = CGSize(width: frame.imageSize.width * Config.tileSize.width,
                                   height: frame.imageSize.height * Config.tileSize.height)
         self.sprite.anchorPoint = frame.anchorPoint
@@ -116,7 +118,15 @@ class GameObject: SKNode {
 
     func applyTexture(_ texture: SKTexture?) {
         if texture != nil {
+            if hasSpriteIndices && spriteIndex != nil {
+                self.sprite.texture = SKTexture(rect: spriteIndex!.getRect(),
+                                                in: texture!)
+                return
+            }
             self.sprite.texture = texture!
+        } else {
+            // Not sure why we would ever need this
+            self.sprite.texture = nil
         }
     }
 
