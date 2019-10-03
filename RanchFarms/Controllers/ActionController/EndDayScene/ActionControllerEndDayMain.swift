@@ -5,7 +5,17 @@ extension ActionControllerEndDay {
         let cmdEndDay  = CmdEndDay(world: world)
         cmdEndDay.execute()
 
-        scene.vc.loadGameScene(saveSlot: world.saveSlot)
+        let worldData = world.getWorldDataSave()
+
+        let cmdSave = CmdSaveGame(worldData: worldData, saveSlot: world.saveSlot)
+        cmdSave.execute()
+
+        switch cmdSave.result {
+        case .Success:
+            scene.vc.loadGameScene(world: cmdSave.world)
+        default:
+            print ("[ActionController] [EndDay] [Error=Save Game] [Result\(cmdSave.result)]")
+        }
     }
 
     func actionUseMain() {

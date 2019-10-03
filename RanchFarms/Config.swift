@@ -35,6 +35,7 @@ class Config {
     static let SaveFileName1 = "save1"
     static let SaveFileName2 = "save2"
     static let SaveFileName3 = "save3"
+    static let SaveFileNameTemp = "Temp" // This is for us to validate that we can load it
     static let SaveFileExtension = "json"
     static let SaveSlotCount = 3
 

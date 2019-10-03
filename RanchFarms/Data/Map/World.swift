@@ -31,33 +31,14 @@ class World: SKNode {
     // This should be temporary data for now. Think about throwing this into global
     var hudInterfaceData = HudInterfaceDataGame()
 
-    enum LoadResult {
-        case Unknown
-        case Success
-        case CorruptFile
-    }
-    var loadResult = LoadResult.Unknown
-
-    init(saveSlot: SaveSlot) {
+    init(saveSlot: SaveSlot, worldData: WorldData) {
         self.saveSlot = saveSlot
         super.init()
 
-        let cmdLoadGame = CmdLoadGame(saveSlot: saveSlot)
-        cmdLoadGame.execute()
-
-        switch cmdLoadGame.result {
-        case .Success:
-            loadWorldData(worldData: cmdLoadGame.worldData)
-            loadResult = .Success
-        case .SaveFileNotCompatible:
-            loadResult = .CorruptFile
-            fallthrough
-        default:
-            print ("[World] [Loading SaveFile] [Error=Loading File] [Result\(cmdLoadGame.result)]")
-        }
+        loadWorldData(worldData: worldData)
     }
 
-    func loadWorldData(worldData: WorldData) {
+    private func loadWorldData(worldData: WorldData) {
         var gameAreasDataToLoad = worldData.gameAreas.map({return $0.value})
 
         gameAreasDataToLoad.append(GameData.BasicHouse())

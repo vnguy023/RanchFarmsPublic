@@ -36,8 +36,6 @@ class CmdEndDay: Command {
         sellItems()
 
         world.daysElapsed += 1
-
-        saveGame()
     }
 
     private func sellItems() {
@@ -45,10 +43,5 @@ class CmdEndDay: Command {
             world.player.money += item.quantity * item.itemInfo.sellPrice
         }
         world.farmDeliveryBoxItems.removeAll()
-    }
-
-    private func saveGame() {
-        let cmdSaveGame = CmdSaveGame(worldData: world.getWorldDataSave(), saveSlot: world.saveSlot)
-        cmdSaveGame.execute()
     }
 }

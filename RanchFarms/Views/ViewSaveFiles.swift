@@ -57,6 +57,8 @@ class ViewSaveFiles: SKNode {
                 saveSlot2.state = .Highlight
             case .Slot3:
                 saveSlot3.state = .Highlight
+            case .Temp:
+                print("[ViewSaveFile] [Error=Got Temp for some reason]")
             }
         }
 
@@ -68,6 +70,8 @@ class ViewSaveFiles: SKNode {
                 trashSlot2.state = .Highlight
             case .Slot3:
                 trashSlot3.state = .Highlight
+            case .Temp:
+                print("[ViewSaveFile] [Error=Got Temp for some reason]")
             }
         }
     }

@@ -8,12 +8,12 @@ extension ActionControllerSplashScene {
 
             switch cmdLoadGame.result {
             case .Success:
-                scene.vc.loadGameScene(saveSlot: saveSlot)
+                scene.vc.loadGameScene(world: cmdLoadGame.world)
             case .NoSaveFile:
-                createNewGame(saveSlot: saveSlot)
+                let newWorld = createNewGame(saveSlot: saveSlot)
 
                 // temporary until we change scene to creating
-                scene.vc.loadGameScene(saveSlot: saveSlot)
+                scene.vc.loadGameScene(world: newWorld)
             default:
                 print ("[ActionController] [SplashScene] [Loading SaveFile] [Error=Loading File] [Result\(cmdLoadGame.result)]")
             }
@@ -51,12 +51,15 @@ extension ActionControllerSplashScene {
         hudInterfaceData.changeSelectSaveCursor(CGVector(dx: 1, dy: 0))
     }
 
-    private func createNewGame(saveSlot: SaveSlot) {
+    private func createNewGame(saveSlot: SaveSlot) -> World {
         let cmdCreateNewGame = CmdCreateNewGame()
         cmdCreateNewGame.execute()
 
         let cmdSaveGame = CmdSaveGame(worldData: cmdCreateNewGame.worldData, saveSlot: saveSlot)
         cmdSaveGame.execute()
+        // TODO: add a verification here taht the save was a success or not and react accordingly
+
+        return cmdSaveGame.world
     }
 
     private func deleteGame(saveSlot: SaveSlot) {

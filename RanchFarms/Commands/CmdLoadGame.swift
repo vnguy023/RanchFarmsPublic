@@ -1,10 +1,15 @@
 import Foundation
 
 class CmdLoadGame: Command {
+    // Input
     let saveSlot: SaveSlot
 
-    var worldData: WorldData! = nil
+    // Output
+    var world: World! = nil
     var result = Result.AwaitingExecution
+
+    // temporary
+    private var worldData: WorldData! = nil
 
     enum Result {
         case AwaitingExecution
@@ -40,6 +45,7 @@ class CmdLoadGame: Command {
             return
         }
 
+        world = World(saveSlot: saveSlot, worldData: worldData)
         result = .Success
     }
 }

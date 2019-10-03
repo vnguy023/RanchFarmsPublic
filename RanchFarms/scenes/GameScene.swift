@@ -23,16 +23,11 @@ class GameScene: BaseScene {
         mLastUpdate = Date.init()
         mPaused = false
 
-        loadGame()
+        let cmdStartDay = CmdStartDay(world: world)
+        cmdStartDay.execute()
 
         linkControllers()
         linkNodes()
-    }
-
-    private func loadGame() {
-        world = World(saveSlot: saveSlot)
-        let cmdStartDay = CmdStartDay(world: world)
-        cmdStartDay.execute()
     }
 
     private func linkControllers() {
