@@ -22,7 +22,7 @@ extension GameData {
                              name: "Sand"))
         data.append(TileInfo(tileId: .StonePath,
                              tileType: .Grass,
-                             hasSpriteIndices: false,
+                             hasSpriteIndices: true,
                              isBlocking: false,
                              name: "StonePath"))
         data.append(TileInfo(tileId: .Water,

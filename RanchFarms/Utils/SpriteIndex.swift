@@ -10,7 +10,7 @@ enum SpriteIndex: UInt, Codable {
 
     case North = 2// SWE
     case South = 10// NWE
-    case WEST = 5 // NSE
+    case West = 5 // NSE
     case East = 7 // NSW
 
     case Corner_NW = 1 // SE
@@ -27,7 +27,43 @@ enum SpriteIndex: UInt, Codable {
     case Opposite_Horizontal = 14 // WE
 
     func getRect() -> CGRect {
-        return CGRect(origin: CGPoint(), size: CGSize())
+        switch self {
+        case .Orphan:
+            return CGRect(origin: CGPoint(x: 0, y: 0.75), size: CGSize(width: 0.25, height: 0.25))
+        case .Corner_NW:
+            return CGRect(origin: CGPoint(x: 0.25, y: 0.75), size: CGSize(width: 0.25, height: 0.25))
+        case .North:
+            return CGRect(origin: CGPoint(x: 0.5, y: 0.75), size: CGSize(width: 0.25, height: 0.25))
+        case .Corner_NE:
+            return CGRect(origin: CGPoint(x: 0.75, y: 0.75), size: CGSize(width: 0.25, height: 0.25))
+
+        case .U_South:
+            return CGRect(origin: CGPoint(x: 0, y: 0.5), size: CGSize(width: 0.25, height: 0.25))
+        case .West:
+            return CGRect(origin: CGPoint(x: 0.25, y: 0.5), size: CGSize(width: 0.25, height: 0.25))
+        case .Center:
+            return CGRect(origin: CGPoint(x: 0.5, y: 0.5), size: CGSize(width: 0.25, height: 0.25))
+        case .East:
+            return CGRect(origin: CGPoint(x: 0.75, y: 0.5), size: CGSize(width: 0.25, height: 0.25))
+
+        case .Opposite_Vertical:
+            return CGRect(origin: CGPoint(x: 0, y: 0.25), size: CGSize(width: 0.25, height: 0.25))
+        case .Corner_SW:
+            return CGRect(origin: CGPoint(x: 0.25, y: 0.25), size: CGSize(width: 0.25, height: 0.25))
+        case .South:
+            return CGRect(origin: CGPoint(x: 0.5, y: 0.25), size: CGSize(width: 0.25, height: 0.25))
+        case .Corner_SE:
+            return CGRect(origin: CGPoint(x: 0.75, y: 0.25), size: CGSize(width: 0.25, height: 0.25))
+
+        case .U_North:
+            return CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 0.25, height: 0.25))
+        case .U_West:
+            return CGRect(origin: CGPoint(x: 0.25, y: 0), size: CGSize(width: 0.25, height: 0.25))
+        case .Opposite_Horizontal:
+            return CGRect(origin: CGPoint(x: 0.5, y: 0), size: CGSize(width: 0.25, height: 0.25))
+        case .U_East:
+            return CGRect(origin: CGPoint(x: 0.75, y: 0), size: CGSize(width: 0.25, height: 0.25))
+        }
     }
 
     // must pass in absolutes
@@ -55,6 +91,16 @@ enum SpriteIndex: UInt, Codable {
             return .Corner_NE
         } else if neighbors == Set<CGVector>([CGVector.SOUTH, CGVector.EAST]) {
             return .Corner_NW
+        }
+
+        if neighbors == Set<CGVector>([CGVector.SOUTH, CGVector.WEST, CGVector.EAST]) {
+            return .North
+        } else if neighbors == Set<CGVector>([CGVector.NORTH, CGVector.WEST, CGVector.EAST]) {
+            return .South
+        } else if neighbors == Set<CGVector>([CGVector.NORTH, CGVector.SOUTH, CGVector.EAST]) {
+            return .West
+        } else if neighbors == Set<CGVector>([CGVector.NORTH, CGVector.SOUTH, CGVector.WEST]) {
+            return .East
         }
 
         if neighbors == Set<CGVector>([CGVector.NORTH, CGVector.SOUTH]) {

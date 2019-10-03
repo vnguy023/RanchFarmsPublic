@@ -138,6 +138,7 @@
 		6CB381DB23448BFE0051D632 /* ActionControllerEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381DA23448BFE0051D632 /* ActionControllerEndDay.swift */; };
 		6CB381DE23448C8B0051D632 /* ActionControllerEndDayMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381DD23448C8B0051D632 /* ActionControllerEndDayMain.swift */; };
 		6CB381E22345B75A0051D632 /* SpriteIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381E12345B75A0051D632 /* SpriteIndex.swift */; };
+		6CB381E42345CDA60051D632 /* CmdSetSpriteIndices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381E32345CDA60051D632 /* CmdSetSpriteIndices.swift */; };
 		6CBC8D12231A5C38005454E1 /* CmdActionHarvest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */; };
 		6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D13231B425D005454E1 /* MapPoint.swift */; };
 		6CBC8D17231CC833005454E1 /* ActionControllerGameGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */; };
@@ -293,6 +294,7 @@
 		6CB381DA23448BFE0051D632 /* ActionControllerEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerEndDay.swift; sourceTree = "<group>"; };
 		6CB381DD23448C8B0051D632 /* ActionControllerEndDayMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerEndDayMain.swift; sourceTree = "<group>"; };
 		6CB381E12345B75A0051D632 /* SpriteIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteIndex.swift; sourceTree = "<group>"; };
+		6CB381E32345CDA60051D632 /* CmdSetSpriteIndices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdSetSpriteIndices.swift; sourceTree = "<group>"; };
 		6CBC8D11231A5C38005454E1 /* CmdActionHarvest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdActionHarvest.swift; sourceTree = "<group>"; };
 		6CBC8D13231B425D005454E1 /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
 		6CBC8D16231CC833005454E1 /* ActionControllerGameGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionControllerGameGame.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				6C696457233C475E0033D9EE /* CmdValidateRequirements.swift */,
 				6C1BFE8C232A230C00294BF3 /* CmdCreateNewGame.swift */,
 				6C4701CA23309EE50013AD0F /* CmdLoadGame.swift */,
+				6CB381E32345CDA60051D632 /* CmdSetSpriteIndices.swift */,
 				6C1BFE96232B8B9F00294BF3 /* CmdSaveGame.swift */,
 				6C4701CE2330CA140013AD0F /* CmdGetSaveDataInfo.swift */,
 				6CD007B8231DFD66008B9825 /* FileUtils */,
@@ -905,6 +908,7 @@
 				6C2336E8231147BA00261944 /* BuildingInfo.swift in Sources */,
 				6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */,
 				6C0F561D2313D56E0017192E /* ViewDayInfo.swift in Sources */,
+				6CB381E42345CDA60051D632 /* CmdSetSpriteIndices.swift in Sources */,
 				6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */,
 				6C4701B6232F2E730013AD0F /* ViewSaveSlot.swift in Sources */,
 				6CB381D523447CD20051D632 /* EndDayScene.swift in Sources */,

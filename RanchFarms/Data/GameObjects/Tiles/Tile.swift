@@ -22,11 +22,9 @@ class Tile: GameObject {
         self.boundaryAnchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.hasSpriteIndices = info.hasSpriteIndices
         self.isBlocking = info.isBlocking
-
-        updateTexture()
     }
 
-    private func updateTexture() {
+    func updateTexture() {
         applyTexture(TextureManager.shared.getTexture(tileId: id))
     }
 

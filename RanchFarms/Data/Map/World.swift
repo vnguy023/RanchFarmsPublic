@@ -194,6 +194,11 @@ class World: SKNode {
             gameArea.buildings.forEach({self.addChild($0)})
             gameArea.tiles.forEach({self.addChild($0)})
             gameArea.terrains.forEach({self.addChild($0)})
+
+            let cmdSetSpriteIndices = CmdSetSpriteIndices(gameArea: gameArea)
+            cmdSetSpriteIndices.execute()
+
+            gameArea.tiles.forEach({$0.updateTexture()})
         }
 
         // Animation/sfx stuff
