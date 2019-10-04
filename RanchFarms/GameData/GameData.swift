@@ -153,7 +153,7 @@ class GameData {
         let location = Location.Town
 
         var buildings = [MapPoint: BuildingData]()
-        let terrains = [MapPoint: TerrainData]()
+        var terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
 
         // Buildings
@@ -189,34 +189,34 @@ class GameData {
         // path to GeneralStore
         for x in 2...3 {
             for y in 0...5 {
-                let tile = TileData(tileId: TileId.StonePath,
-                                    mapPoint: MapPoint(x: x, y: y, location: location))
-                tiles[tile.mapPoint] = tile
+                let terrain = TerrainData(playerIndex: .Game, terrainType: TerrainType.StonePath,
+                                          mapPoint: MapPoint(x: x, y: y, location: location))
+                terrains[terrain.mapPoint] = terrain
             }
         }
 
         // path to JamesHouse
         for x in 8...9 {
             for y in 0...5 {
-                let tile = TileData(tileId: TileId.StonePath,
-                                    mapPoint: MapPoint(x: x, y: y, location: location))
-                tiles[tile.mapPoint] = tile
+                let terrain = TerrainData(playerIndex: .Game, terrainType: TerrainType.StonePath,
+                                          mapPoint: MapPoint(x: x, y: y, location: location))
+                terrains[terrain.mapPoint] = terrain
             }
         }
 
         for x in 0...9 {
             for y in 0...1 {
-                let tile = TileData(tileId: TileId.StonePath,
-                                    mapPoint: MapPoint(x: x, y: y, location: location))
-                tiles[tile.mapPoint] = tile
+                let terrain = TerrainData(playerIndex: .Game, terrainType: TerrainType.StonePath,
+                                          mapPoint: MapPoint(x: x, y: y, location: location))
+                terrains[terrain.mapPoint] = terrain
             }
         }
 
         for x in 4...5 {
             for y in -5...1 {
-                let tile = TileData(tileId: TileId.StonePath,
-                                    mapPoint: MapPoint(x: x, y: y, location: location))
-                tiles[tile.mapPoint] = tile
+                let terrain = TerrainData(playerIndex: .Game, terrainType: TerrainType.StonePath,
+                                          mapPoint: MapPoint(x: x, y: y, location: location))
+                terrains[terrain.mapPoint] = terrain
             }
         }
 

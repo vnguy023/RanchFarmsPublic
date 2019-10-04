@@ -6,4 +6,5 @@ enum TerrainType: UInt, Codable {
 
     // Craftable Floors
     case Wood = 100
+    case StonePath
 }

@@ -157,6 +157,9 @@
 		6CD007C923208783008B9825 /* StoreFront.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007C823208783008B9825 /* StoreFront.swift */; };
 		6CD007CB232087EA008B9825 /* StoreCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007CA232087EA008B9825 /* StoreCatalog.swift */; };
 		6CD007CD232087F4008B9825 /* StoreCatalogId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007CC232087F4008B9825 /* StoreCatalogId.swift */; };
+		6CFA39FB23473535001E1EA1 /* TerrainInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA39FA23473535001E1EA1 /* TerrainInfoManager.swift */; };
+		6CFA39FD23473595001E1EA1 /* TerrainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA39FC23473595001E1EA1 /* TerrainInfo.swift */; };
+		6CFA39FF2347370A001E1EA1 /* GameDataTerrainInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA39FE2347370A001E1EA1 /* GameDataTerrainInfos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -313,6 +316,9 @@
 		6CD007C823208783008B9825 /* StoreFront.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreFront.swift; sourceTree = "<group>"; };
 		6CD007CA232087EA008B9825 /* StoreCatalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCatalog.swift; sourceTree = "<group>"; };
 		6CD007CC232087F4008B9825 /* StoreCatalogId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCatalogId.swift; sourceTree = "<group>"; };
+		6CFA39FA23473535001E1EA1 /* TerrainInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainInfoManager.swift; sourceTree = "<group>"; };
+		6CFA39FC23473595001E1EA1 /* TerrainInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainInfo.swift; sourceTree = "<group>"; };
+		6CFA39FE2347370A001E1EA1 /* GameDataTerrainInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataTerrainInfos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				6C4701A4232C630A0013AD0F /* Terrain.swift */,
+				6CFA39FC23473595001E1EA1 /* TerrainInfo.swift */,
 				6C4701A2232C62FD0013AD0F /* TerrainType.swift */,
 			);
 			path = Terrain;
@@ -381,6 +388,7 @@
 				6C69646C233C833A0033D9EE /* GameDataItemInfos.swift */,
 				6CB381CC233F2CC30051D632 /* GameDataSchedules.swift */,
 				6C696468233C77640033D9EE /* GameDataTileInfos.swift */,
+				6CFA39FE2347370A001E1EA1 /* GameDataTerrainInfos.swift */,
 				6C69646A233C78E00033D9EE /* GameDataTeleports.swift */,
 				6C696465233C70FB0033D9EE /* GameEvents */,
 			);
@@ -586,6 +594,7 @@
 				6C6D78DE232217B900573B25 /* StoreFrontManager.swift */,
 				6C6033D8230B7E5600746309 /* TextureManager.swift */,
 				6C4701B3232ED0630013AD0F /* TeleportManager.swift */,
+				6CFA39FA23473535001E1EA1 /* TerrainInfoManager.swift */,
 				6C696445233AFE2F0033D9EE /* TileInfoManager.swift */,
 			);
 			path = Managers;
@@ -900,6 +909,7 @@
 				6CD007C2231FAD4F008B9825 /* Store.swift in Sources */,
 				6C4701A8232C68400013AD0F /* TerrainData.swift in Sources */,
 				6C6033D2230B6A1500746309 /* ItemInfo.swift in Sources */,
+				6CFA39FD23473595001E1EA1 /* TerrainInfo.swift in Sources */,
 				6C47019F232B97EB0013AD0F /* InventoryData.swift in Sources */,
 				6C4701BA232F7BFB0013AD0F /* HudInterfaceDataSplash.swift in Sources */,
 				6C696458233C475E0033D9EE /* CmdValidateRequirements.swift in Sources */,
@@ -925,6 +935,7 @@
 				6CB381DB23448BFE0051D632 /* ActionControllerEndDay.swift in Sources */,
 				6CB381C6233F2B3A0051D632 /* Schedule.swift in Sources */,
 				6CD007CB232087EA008B9825 /* StoreCatalog.swift in Sources */,
+				6CFA39FB23473535001E1EA1 /* TerrainInfoManager.swift in Sources */,
 				6C6033BB230B636B00746309 /* GameObject.swift in Sources */,
 				6CB381B6233DB3520051D632 /* BaseSystem.swift in Sources */,
 				6C6D78E123221DAC00573B25 /* StoreCatalogManager.swift in Sources */,
@@ -993,6 +1004,7 @@
 				6C9E3E15230E8FFE007417E1 /* Teleport.swift in Sources */,
 				6C696462233C70EC0033D9EE /* GameDataGameEventDialogs.swift in Sources */,
 				6CB381D12340356C0051D632 /* DayId.swift in Sources */,
+				6CFA39FF2347370A001E1EA1 /* GameDataTerrainInfos.swift in Sources */,
 				6CD007BC231F3C5D008B9825 /* ViewDialog.swift in Sources */,
 				6C696464233C70F30033D9EE /* GameDataGameEventStores.swift in Sources */,
 				6C8735542325CB23006020A7 /* AnimationFrame.swift in Sources */,

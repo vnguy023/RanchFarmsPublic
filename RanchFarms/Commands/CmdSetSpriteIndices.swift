@@ -8,8 +8,13 @@ class CmdSetSpriteIndices: Command {
     // InternalData
     var uniqueTileIds = [TileId: Bool]()
     var tileMap = [MapPoint: Tile]()
-    var wallMap = [MapPoint: Building]()
     var tileMapTileIdFilter = [TileId: [MapPoint: Tile]]()
+
+    var uniqueTerrainTypes = [TerrainType: Bool]()
+    var terrainMap = [MapPoint: Terrain]()
+    var terrainMapTerrainTypeFilter = [TerrainType: [MapPoint: Terrain]]()
+
+    var wallMap = [MapPoint: Building]()
 
     init(gameArea: GameArea) {
         self.gameArea = gameArea
@@ -18,6 +23,7 @@ class CmdSetSpriteIndices: Command {
     func execute() {
         preprocess()
         processTiles()
+        processTerrains()
         processWalls()
     }
 
@@ -26,13 +32,22 @@ class CmdSetSpriteIndices: Command {
             uniqueTileIds[tile.id] = true
             tileMap[tile.mapPoint] = tile
         }
-
         for tileId in uniqueTileIds{
             tileMapTileIdFilter[tileId.key] = [MapPoint:Tile]()
+        }
+        for tile in gameArea.tiles {
+            tileMapTileIdFilter[tile.id]![tile.mapPoint] = tile
+        }
 
-            for tile in gameArea.tiles.filter({$0.id == tileId.key}) {
-                tileMapTileIdFilter[tile.id]![tile.mapPoint] = tile
-            }
+        for terrain in gameArea.terrains {
+            uniqueTerrainTypes[terrain.type] = true
+            terrainMap[terrain.mapPoint] = terrain
+        }
+        for terrainType in uniqueTerrainTypes {
+            terrainMapTerrainTypeFilter[terrainType.key] = [MapPoint:Terrain]()
+        }
+        for terrain in gameArea.terrains {
+            terrainMapTerrainTypeFilter[terrain.type]![terrain.mapPoint] = terrain
         }
 
         for wall in gameArea.buildings.filter({$0.id == .Wall}) {
@@ -73,6 +88,42 @@ class CmdSetSpriteIndices: Command {
             }
 
             tile.spriteIndex = SpriteIndex.getSpriteIndex(neighbors: neighbors)
+        }
+    }
+
+    private func processTerrains() {
+        for terrain in gameArea.terrains {
+            if !terrain.info.hasSpriteIndices {
+                continue
+            }
+
+            var neighbors = Set<CGVector>()
+
+            var north = terrain.mapPoint
+            north.y += 1
+            if terrainMapTerrainTypeFilter[terrain.type]![north] != nil {
+                neighbors.insert(CGVector.NORTH)
+            }
+
+            var south = terrain.mapPoint
+            south.y -= 1
+            if terrainMapTerrainTypeFilter[terrain.type]![south] != nil {
+                neighbors.insert(CGVector.SOUTH)
+            }
+
+            var west = terrain.mapPoint
+            west.x -= 1
+            if terrainMapTerrainTypeFilter[terrain.type]![west] != nil {
+                neighbors.insert(CGVector.WEST)
+            }
+
+            var east = terrain.mapPoint
+            east.x += 1
+            if terrainMapTerrainTypeFilter[terrain.type]![east] != nil {
+                neighbors.insert(CGVector.EAST)
+            }
+
+            terrain.spriteIndex = SpriteIndex.getSpriteIndex(neighbors: neighbors)
         }
     }
 

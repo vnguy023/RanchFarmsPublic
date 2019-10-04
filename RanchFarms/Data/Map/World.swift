@@ -199,6 +199,7 @@ class World: SKNode {
             cmdSetSpriteIndices.execute()
 
             gameArea.buildings.forEach({$0.updateTexture()})
+            gameArea.terrains.forEach({$0.updateTexture()})
             gameArea.tiles.forEach({$0.updateTexture()})
         }
 

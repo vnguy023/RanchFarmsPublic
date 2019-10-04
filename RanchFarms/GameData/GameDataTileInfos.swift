@@ -20,11 +20,6 @@ extension GameData {
                              hasSpriteIndices: false,
                              isBlocking: false,
                              name: "Sand"))
-        data.append(TileInfo(tileId: .StonePath,
-                             tileType: .Grass,
-                             hasSpriteIndices: true,
-                             isBlocking: false,
-                             name: "StonePath"))
         data.append(TileInfo(tileId: .Water,
                              tileType: .Water,
                              hasSpriteIndices: false,
