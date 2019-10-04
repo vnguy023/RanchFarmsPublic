@@ -13,6 +13,7 @@ class ViewDialog: SKNode {
 
     let background = SpriteNodeNine(size: Config.viewDialogSize)
     let portrait = SKSpriteNode(color: .clear, size: Config.viewDialogPortraitSize)
+    let portraitName = SKLabelNode(fontNamed: "ChalkDuster")
 
     init(world: World) {
         self.world = world
@@ -33,12 +34,21 @@ class ViewDialog: SKNode {
                                      y: self.size.height / 2 - background.cornerSize.height)
         self.addChild(textLabel)
 
-        portrait.size = CGSize(width: size.height - background.cornerSize.height*2,
-                               height: size.height - background.cornerSize.height*2)
-        portrait.position = CGPoint(x: self.size.width / 2 - background.cornerSize.width/2 - portrait.size.width/2 ,
-                                    y: 0)
+        portrait.size = CGSize(width: size.height - background.cornerSize.height*2 - 24 * 2,
+                               height: size.height - background.cornerSize.height*2 - 24 * 2)
+        portrait.position = CGPoint(x: self.size.width / 2 - background.cornerSize.width/2 - portrait.size.width/2 - 48,
+                                    y: 24)
         portrait.zPosition = 100
         self.addChild(portrait)
+
+        portraitName.horizontalAlignmentMode = .center
+        portraitName.verticalAlignmentMode = .bottom
+        portraitName.fontSize = 24
+        portraitName.fontColor = .white
+        portraitName.zPosition = 100
+        portraitName.position = CGPoint(x: self.size.width / 2 - background.cornerSize.width/2 - portrait.size.width/2 - 48,
+                                        y: self.size.height / -2 + background.cornerSize.height)
+        self.addChild(portraitName)
     }
 
     func update() {
@@ -50,6 +60,7 @@ class ViewDialog: SKNode {
         textLabel.text = dialog.text
 
         portrait.texture = TextureManager.shared.getTexture(portraitId: dialog.portraitId)
+        portraitName.text = dialog.portraitName
     }
 
     required init?(coder aDecoder: NSCoder) {
