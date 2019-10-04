@@ -57,7 +57,7 @@ extension GameData {
                                  buildingType: .Unknown,
                                  objSize: CGSize(width: 1, height: 1),
                                  isBlocking: true,
-                                 hasSpriteIndices: false,
+                                 hasSpriteIndices: true,
                                  name: "Wall"))
 
         // Crops

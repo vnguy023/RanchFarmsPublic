@@ -100,8 +100,8 @@ class AnimationManager {
         buildingAnimations[.Wall] = Animation()
         buildingAnimations[.Wall]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .Wall),
                                                             duration: 1,
-                                                            imageSize: CGSize(width: 1, height: 1),
-                                                            anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/2.0)))
+                                                            imageSize: CGSize(width: 1, height: 2),
+                                                            anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
 
 
         buildingAnimations[.PlayerHouseSign] = Animation()

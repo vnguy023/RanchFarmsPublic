@@ -52,7 +52,7 @@ class Building: GameObject {
         return BuildingData(playerIndex: player, buildingId: id, mapPoint: mapPoint, inventory: inventory.getInventoryData(), growthProgress: growthProgress)
     }
 
-    private func updateTexture() {
+    func updateTexture() {
         switch type {
         case .Crop:
             if let animation = AnimationManager.shared.getAnimation(building: self) {

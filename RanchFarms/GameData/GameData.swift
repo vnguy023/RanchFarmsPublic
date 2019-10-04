@@ -400,7 +400,7 @@ class GameData {
 
             // Mid Row
             wallLocations[MapPoint(x: tile.key.x-1, y: tile.key.y, location: tile.key.location)] = true
-            wallLocations[MapPoint(x: tile.key.x+0, y: tile.key.y, location: tile.key.location)] = true
+            //wallLocations[MapPoint(x: tile.key.x+0, y: tile.key.y, location: tile.key.location)] = true
             wallLocations[MapPoint(x: tile.key.x+1, y: tile.key.y, location: tile.key.location)] = true
 
             // Bot Row

@@ -26,6 +26,11 @@ enum SpriteIndex: UInt, Codable {
     case Opposite_Vertical = 8// NS
     case Opposite_Horizontal = 14 // WE
 
+    case ICorner_NW = 16 // -- occupie same space as 12
+    case ICorner_NE = 17 // -- occupie same space as 13
+    case ICorner_SW = 18 // -- occupie same space as 14
+    case ICorner_SE = 19 // -- occupie same space as 15
+
     func getRect() -> CGRect {
         switch self {
         case .Orphan:
@@ -55,13 +60,17 @@ enum SpriteIndex: UInt, Codable {
         case .Corner_SE:
             return CGRect(origin: CGPoint(x: 0.75, y: 0.25), size: CGSize(width: 0.25, height: 0.25))
 
-        case .U_North:
+        case .U_North: fallthrough
+        case .ICorner_NW:
             return CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 0.25, height: 0.25))
-        case .U_West:
+        case .U_West: fallthrough
+        case .ICorner_NE:
             return CGRect(origin: CGPoint(x: 0.25, y: 0), size: CGSize(width: 0.25, height: 0.25))
-        case .Opposite_Horizontal:
+        case .Opposite_Horizontal: fallthrough
+        case .ICorner_SW:
             return CGRect(origin: CGPoint(x: 0.5, y: 0), size: CGSize(width: 0.25, height: 0.25))
-        case .U_East:
+        case .U_East: fallthrough
+        case .ICorner_SE:
             return CGRect(origin: CGPoint(x: 0.75, y: 0), size: CGSize(width: 0.25, height: 0.25))
         }
     }
@@ -107,6 +116,30 @@ enum SpriteIndex: UInt, Codable {
             return .Opposite_Vertical
         } else if neighbors == Set<CGVector>([CGVector.WEST, CGVector.EAST]) {
             return .Opposite_Horizontal
+        }
+
+        return .Orphan
+    }
+
+    static func getSpriteIndexWall(neighbors: Set<CGVector>) -> SpriteIndex {
+        if neighbors == Set<CGVector>([CGVector.NORTH]) {
+            return .South
+        } else if neighbors == Set<CGVector>([CGVector.SOUTH]) {
+            return .North
+        } else if neighbors == Set<CGVector>([CGVector.WEST]) {
+            return .East
+        } else if neighbors == Set<CGVector>([CGVector.EAST]) {
+            return .West
+        }
+
+        if neighbors == Set<CGVector>([CGVector.NORTH, CGVector.WEST]) {
+            return .ICorner_SE
+        } else if neighbors == Set<CGVector>([CGVector.NORTH, CGVector.EAST]) {
+            return .ICorner_SW
+        } else if neighbors == Set<CGVector>([CGVector.SOUTH, CGVector.WEST]) {
+            return .ICorner_NE
+        } else if neighbors == Set<CGVector>([CGVector.SOUTH, CGVector.EAST]) {
+            return .ICorner_NW
         }
 
         return .Orphan
