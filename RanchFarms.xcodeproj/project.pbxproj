@@ -160,6 +160,7 @@
 		6CFA39FB23473535001E1EA1 /* TerrainInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA39FA23473535001E1EA1 /* TerrainInfoManager.swift */; };
 		6CFA39FD23473595001E1EA1 /* TerrainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA39FC23473595001E1EA1 /* TerrainInfo.swift */; };
 		6CFA39FF2347370A001E1EA1 /* GameDataTerrainInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA39FE2347370A001E1EA1 /* GameDataTerrainInfos.swift */; };
+		6CFA3A012347494E001E1EA1 /* SpriteNodeNine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA3A002347494E001E1EA1 /* SpriteNodeNine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -319,6 +320,7 @@
 		6CFA39FA23473535001E1EA1 /* TerrainInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainInfoManager.swift; sourceTree = "<group>"; };
 		6CFA39FC23473595001E1EA1 /* TerrainInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainInfo.swift; sourceTree = "<group>"; };
 		6CFA39FE2347370A001E1EA1 /* GameDataTerrainInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataTerrainInfos.swift; sourceTree = "<group>"; };
+		6CFA3A002347494E001E1EA1 /* SpriteNodeNine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteNodeNine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -713,6 +715,7 @@
 				6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */,
 				6C4701C8233026E00013AD0F /* ViewSplash.swift */,
 				6CD007B9231F3C15008B9825 /* ViewStore.swift */,
+				6CFA3A002347494E001E1EA1 /* SpriteNodeNine.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				6CFA39FD23473595001E1EA1 /* TerrainInfo.swift in Sources */,
 				6C47019F232B97EB0013AD0F /* InventoryData.swift in Sources */,
 				6C4701BA232F7BFB0013AD0F /* HudInterfaceDataSplash.swift in Sources */,
+				6CFA3A012347494E001E1EA1 /* SpriteNodeNine.swift in Sources */,
 				6C696458233C475E0033D9EE /* CmdValidateRequirements.swift in Sources */,
 				6C1BFE95232B8ABD00294BF3 /* ItemData.swift in Sources */,
 				6C4701AA232DB85B0013AD0F /* GameData.swift in Sources */,
