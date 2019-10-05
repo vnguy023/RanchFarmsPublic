@@ -60,6 +60,10 @@ class CmdActionUseItem: Command {
             return
         }
 
+        if !buildingsInFront.isEmpty {
+            return
+        }
+
         if tileInFront.type == .Dirt {
             if terrainInFront == nil {
                 world.add(terrain: Terrain(player: .PlayerOne, terrainType: .Tilled, mapPoint: tileInFront.mapPoint))

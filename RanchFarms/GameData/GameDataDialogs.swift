@@ -13,7 +13,9 @@ extension GameData {
 
         sections.removeAll()
         sections.append(DialogSection(portraitId: portraitId, portraitName: "Locked Door",
-                                      text: "Door is locked. Store open at  8:00AM-6:00PM."))
+                                      text: "Door is locked."))
+        sections.append(DialogSection(portraitId: portraitId, portraitName: "Locked Door",
+                                      text: "Come back at 8:00AM-6:00PM."))
         data.append(Dialog(dialogId: .Door_IsLocked, dialogSections: sections))
 
         sections.removeAll()
