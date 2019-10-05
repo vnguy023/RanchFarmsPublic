@@ -10,7 +10,7 @@ extension GameData {
                                 name: "Tilled"))
 
         data.append(TerrainInfo(terrainType: .Watered,
-                                hasSpriteIndices: false, isBlocking: false,
+                                hasSpriteIndices: false, isBlocking: true,
                                 name: "Watered"))
 
         data.append(TerrainInfo(terrainType: .Wood,
