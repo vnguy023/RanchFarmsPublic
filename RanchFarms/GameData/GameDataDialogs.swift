@@ -4,6 +4,7 @@ extension GameData {
         let portraitId = PortraitId.Dummy
 
         var sections = [DialogSection]()
+        var dialogOptions = [DialogOption]()
         var data = [Dialog]()
 
         sections.removeAll()
@@ -16,6 +17,12 @@ extension GameData {
                                       text: "Door is locked."))
         sections.append(DialogSection(portraitId: portraitId, portraitName: "Locked Door",
                                       text: "Come back at 8:00AM-6:00PM."))
+        dialogOptions.removeAll()
+        dialogOptions.append(DialogOption(text: "Yes", gameEventId: .Teleport_Town_GeneralStore))
+        dialogOptions.append(DialogOption(text: "No", gameEventId: nil))
+        sections.append(DialogSection(portraitId: portraitId, portraitName: "Locked Door",
+                                      text: "Do you want to enter anyways?",
+                                      dialogOptions: dialogOptions))
         data.append(Dialog(dialogId: .Door_IsLocked, dialogSections: sections))
 
         sections.removeAll()

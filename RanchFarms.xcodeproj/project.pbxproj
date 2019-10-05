@@ -162,6 +162,7 @@
 		6CFA39FF2347370A001E1EA1 /* GameDataTerrainInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA39FE2347370A001E1EA1 /* GameDataTerrainInfos.swift */; };
 		6CFA3A012347494E001E1EA1 /* SpriteNodeNine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA3A002347494E001E1EA1 /* SpriteNodeNine.swift */; };
 		6CFA3A03234814F9001E1EA1 /* DialogSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA3A02234814F9001E1EA1 /* DialogSection.swift */; };
+		6CFA3A0523489FF2001E1EA1 /* DialogOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA3A0423489FF1001E1EA1 /* DialogOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -323,6 +324,7 @@
 		6CFA39FE2347370A001E1EA1 /* GameDataTerrainInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataTerrainInfos.swift; sourceTree = "<group>"; };
 		6CFA3A002347494E001E1EA1 /* SpriteNodeNine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteNodeNine.swift; sourceTree = "<group>"; };
 		6CFA3A02234814F9001E1EA1 /* DialogSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogSection.swift; sourceTree = "<group>"; };
+		6CFA3A0423489FF1001E1EA1 /* DialogOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -747,6 +749,7 @@
 			children = (
 				6CB381BA233DE79E0051D632 /* Dialog.swift */,
 				6CB381BF233DE8130051D632 /* DialogId.swift */,
+				6CFA3A0423489FF1001E1EA1 /* DialogOption.swift */,
 				6CFA3A02234814F9001E1EA1 /* DialogSection.swift */,
 			);
 			path = Dialog;
@@ -932,6 +935,7 @@
 				6CB381D523447CD20051D632 /* EndDayScene.swift in Sources */,
 				6CB381D9234487650051D632 /* GameDataGameEventGeneric.swift in Sources */,
 				6CBC8D14231B425D005454E1 /* MapPoint.swift in Sources */,
+				6CFA3A0523489FF2001E1EA1 /* DialogOption.swift in Sources */,
 				6CD007C72320875F008B9825 /* StoreFrontId.swift in Sources */,
 				6C2336F3231272B300261944 /* CmdEndDay.swift in Sources */,
 				6C4701A5232C630A0013AD0F /* Terrain.swift in Sources */,

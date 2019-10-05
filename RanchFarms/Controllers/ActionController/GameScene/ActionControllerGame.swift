@@ -53,7 +53,8 @@ class ActionControllerGame {
         case .Dialog:
             if let dialog = DialogManager.shared.getDialog(dialogId: gameEvent.dialogId) {
                 world.hudInterfaceData.dialog = dialog
-                world.hudInterfaceData.currentDialogSectionId = 0
+                world.hudInterfaceData.currentDialogSectionIndex = 0
+                world.hudInterfaceData.currentDialogOptionIndex = 0
                 changeState(to: .Dialog)
             }
         case .Store:
@@ -66,6 +67,7 @@ class ActionControllerGame {
         case .Teleport:
             world.teleport(to: gameEvent.teleportId)
             cameraController.fadeScreen()
+            changeState(to: .Game)
         }
     }
 

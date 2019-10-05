@@ -14,7 +14,8 @@ class HudInterfaceDataGame {
     var state = State.Unknown
 
     var dialog: Dialog? = nil
-    var currentDialogSectionId = 0
+    var currentDialogSectionIndex = 0
+    var currentDialogOptionIndex = 0
 
     var hotbarCursor = CGPoint()
 

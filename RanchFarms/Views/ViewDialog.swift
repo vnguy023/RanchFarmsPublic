@@ -8,12 +8,15 @@ class ViewDialog: SKNode {
     }
 
     private var currentSection: DialogSection! {
-        get {return world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionId]}
+        get {return world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionIndex]}
     }
 
     let size = Config.viewDialogSize
 
     let textLabel = SKLabelNode(fontNamed: "ChalkDuster")
+
+    var optionLabels = [SKLabelNode]()
+    var optionCursor = SKSpriteNode(color: .white, size: CGSize(width: 16, height: 16))
 
     let background = SpriteNodeNine(size: Config.viewDialogSize)
     let portrait = SKSpriteNode(color: .clear, size: Config.viewDialogPortraitSize)
@@ -30,12 +33,12 @@ class ViewDialog: SKNode {
         self.addChild(background)
 
         textLabel.horizontalAlignmentMode = .left
-        textLabel.verticalAlignmentMode = .top
+        textLabel.verticalAlignmentMode = .center
         textLabel.fontSize = 24
         textLabel.fontColor = .white
         textLabel.zPosition = 100
         textLabel.position = CGPoint(x: self.size.width / -2 + background.cornerSize.width,
-                                     y: self.size.height / 2 - background.cornerSize.height)
+                                     y: self.size.height / 2 - background.cornerSize.height - textLabel.fontSize / 2)
         self.addChild(textLabel)
 
         portrait.size = CGSize(width: size.height - background.cornerSize.height*2 - 24 * 2,
@@ -53,6 +56,9 @@ class ViewDialog: SKNode {
         portraitName.position = CGPoint(x: self.size.width / 2 - background.cornerSize.width/2 - portrait.size.width/2 - 48,
                                         y: self.size.height / -2 + background.cornerSize.height)
         self.addChild(portraitName)
+
+        optionCursor.zPosition = 100
+        self.addChild(optionCursor)
     }
 
     func update() {
@@ -64,6 +70,35 @@ class ViewDialog: SKNode {
         textLabel.text = currentSection.text
         portrait.texture = TextureManager.shared.getTexture(portraitId: currentSection.portraitId)
         portraitName.text = currentSection.portraitName
+
+        optionCursor.isHidden = true
+        displayOptions()
+    }
+
+    private func displayOptions() {
+        optionLabels.forEach({$0.removeFromParent()})
+        optionLabels.removeAll()
+
+        for option in currentSection.dialogOptions {
+            if option === currentSection.dialogOptions[world.hudInterfaceData.currentDialogOptionIndex] {
+                optionCursor.isHidden = false
+                optionCursor.position = CGPoint(x: textLabel.position.x + 16,
+                                                y: textLabel.position.y - textLabel.fontSize * CGFloat((1 + optionLabels.count)))
+            }
+
+            let optionLabel = SKLabelNode(fontNamed: "Chalkduster")
+            optionLabel.horizontalAlignmentMode = .left
+            optionLabel.verticalAlignmentMode = .center
+            optionLabel.fontSize = textLabel.fontSize
+            optionLabel.fontColor = .white
+            optionLabel.zPosition = 100
+            optionLabel.position = CGPoint(x: textLabel.position.x + 32,
+                                           y: textLabel.position.y - textLabel.fontSize * CGFloat((1 + optionLabels.count)))
+            optionLabel.text = option.text
+
+            self.addChild(optionLabel)
+            optionLabels.append(optionLabel)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
