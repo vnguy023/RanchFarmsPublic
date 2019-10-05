@@ -1,16 +1,11 @@
 class Dialog {
     let id: DialogId
 
-    let portraitId: PortraitId
-    let portraitName: String
-    let text: String
+    let sections: [DialogSection]
 
-    init (dialogId: DialogId, portraitId: PortraitId, portraitName: String, text: String) {
+    init (dialogId: DialogId, dialogSections: [DialogSection]) {
         self.id = dialogId
 
-        self.portraitId = portraitId
-        self.portraitName = portraitName
-        
-        self.text = text
+        self.sections = dialogSections
     }
 }

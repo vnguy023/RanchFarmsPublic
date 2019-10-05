@@ -53,6 +53,7 @@ class ActionControllerGame {
         case .Dialog:
             if let dialog = DialogManager.shared.getDialog(dialogId: gameEvent.dialogId) {
                 world.hudInterfaceData.dialog = dialog
+                world.hudInterfaceData.currentDialogSectionId = 0
                 changeState(to: .Dialog)
             }
         case .Store:

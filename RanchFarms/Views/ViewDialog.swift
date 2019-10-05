@@ -7,6 +7,10 @@ class ViewDialog: SKNode {
         get {return world.hudInterfaceData.dialog}
     }
 
+    private var currentSection: DialogSection! {
+        get {return world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionId]}
+    }
+
     let size = Config.viewDialogSize
 
     let textLabel = SKLabelNode(fontNamed: "ChalkDuster")
@@ -57,10 +61,9 @@ class ViewDialog: SKNode {
             return
         }
 
-        textLabel.text = dialog.text
-
-        portrait.texture = TextureManager.shared.getTexture(portraitId: dialog.portraitId)
-        portraitName.text = dialog.portraitName
+        textLabel.text = currentSection.text
+        portrait.texture = TextureManager.shared.getTexture(portraitId: currentSection.portraitId)
+        portraitName.text = currentSection.portraitName
     }
 
     required init?(coder aDecoder: NSCoder) {
