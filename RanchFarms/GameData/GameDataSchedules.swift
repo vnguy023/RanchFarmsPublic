@@ -61,7 +61,7 @@ extension GameData {
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(Config.GameTicksPerGameHour * 20),
-                                            destination: MapPoint(x: -1, y: 0, location: .Town), teleport: false,
+                                            destination: MapPoint(x: 3, y: 0, location: .Town), teleport: false,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
 
