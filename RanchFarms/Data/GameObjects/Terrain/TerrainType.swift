@@ -1,5 +1,3 @@
-import SpriteKit
-
 enum TerrainType: UInt, Codable {
     case Tilled
     case Watered

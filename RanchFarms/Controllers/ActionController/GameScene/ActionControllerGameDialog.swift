@@ -1,10 +1,23 @@
 import SpriteKit
 
 extension ActionControllerGame {
+    // Things to make code a bit more simpler
+    var dialog: Dialog! { get {world.hudInterfaceData.dialog} }
+    var currentSection: DialogSection! {
+        get {world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionIndex]}
+    }
+    var currentDialogOption: DialogOption! {
+        get {world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionIndex]
+            .dialogOptions[world.hudInterfaceData.currentDialogOptionIndex]
+        }
+    }
+
     func actionPrimaryGameStateDialog() {
-        if !world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionIndex].dialogOptions.isEmpty {
-            if let gameEventId = world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionIndex]
-                .dialogOptions[world.hudInterfaceData.currentDialogOptionIndex].gameEventId {
+        if !currentSection.dialogOptions.isEmpty {
+            let cmdGift = CmdReceiveGifts(world: world, gifts: currentDialogOption.gifts)
+            cmdGift.execute()
+
+            if let gameEventId = currentDialogOption.gameEventId {
                 if let gameEvent = GameEventManager.shared.getGameEvent(gameEventId: gameEventId) {
                     // TODO: Figure out if we should validate the gameEvent requirements here
                     // Shouldn't have let them select the gameEvent in the first place
@@ -16,7 +29,7 @@ extension ActionControllerGame {
         
         world.hudInterfaceData.currentDialogSectionIndex += 1
         world.hudInterfaceData.currentDialogOptionIndex = 0
-        if world.hudInterfaceData.currentDialogSectionIndex >= world.hudInterfaceData.dialog!.sections.count {
+        if world.hudInterfaceData.currentDialogSectionIndex >= dialog.sections.count {
             finishedTalking()
         }
     }
@@ -30,7 +43,7 @@ extension ActionControllerGame {
     }
 
     func actionDPadDownGameStateDialog() {
-        world.hudInterfaceData.currentDialogOptionIndex = min(world.hudInterfaceData.currentDialogOptionIndex + 1, world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionIndex].dialogOptions.count - 1)
+        world.hudInterfaceData.currentDialogOptionIndex = min(world.hudInterfaceData.currentDialogOptionIndex + 1, currentSection.dialogOptions.count - 1)
     }
 
     func actionDPadLeftGameStateDialog() { }

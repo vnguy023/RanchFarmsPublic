@@ -89,6 +89,9 @@ class TextureManager {
         itemMap[.Garlic] = SKTexture(imageNamed: "itemGarlic")
         itemMap[.TurnipSeed] = SKTexture(imageNamed: "itemTurnipSeed")
         itemMap[.Turnip] = SKTexture(imageNamed: "itemTurnip")
+
+        // Fish
+        itemMap[.Crab] = SKTexture(imageNamed: "itemCrab")
     }
 
     func loadPeople() {

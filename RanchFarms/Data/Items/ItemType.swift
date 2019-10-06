@@ -11,4 +11,5 @@ enum ItemType: UInt, Codable {
     case WaterCan
 
     case Crop
+    case Fish
 }

@@ -5,6 +5,7 @@ extension GameData {
 
         var sections = [DialogSection]()
         var dialogOptions = [DialogOption]()
+        let gifts = [Gift]()
         var data = [Dialog]()
 
         sections.removeAll()
@@ -18,8 +19,8 @@ extension GameData {
         sections.append(DialogSection(portraitId: portraitId, portraitName: "Locked Door",
                                       text: "Come back at 8:00AM-6:00PM."))
         dialogOptions.removeAll()
-        dialogOptions.append(DialogOption(text: "Yes", gameEventId: .Teleport_Town_GeneralStore))
-        dialogOptions.append(DialogOption(text: "No", gameEventId: nil))
+        dialogOptions.append(DialogOption(text: "Yes", gifts: gifts, gameEventId: .Teleport_Town_GeneralStore))
+        dialogOptions.append(DialogOption(text: "No", gifts: gifts, gameEventId: nil))
         sections.append(DialogSection(portraitId: portraitId, portraitName: "Locked Door",
                                       text: "Do you want to enter anyways?",
                                       dialogOptions: dialogOptions))
@@ -53,11 +54,25 @@ extension GameData {
         let portraitName = "James"
 
         var sections = [DialogSection]()
+        var dialogOptions = [DialogOption]()
+        var gifts = [Gift]()
+        var items = [Item]()
+
         var data = [Dialog]()
 
         sections.removeAll()
         sections.append(DialogSection(portraitId: portraitId, portraitName: portraitName,
                                       text: "Hey there, Check out my store for some seeds."))
+
+        dialogOptions.removeAll()
+        gifts.removeAll()
+        items.removeAll()
+        items.append(Item(itemId: .Crab, quantity: 2))
+        gifts.append(Gift(giftType: .Item, items: items))
+        dialogOptions.append(DialogOption(text: "Ok, Thank you.", gifts: gifts, gameEventId: nil))
+        sections.append(DialogSection(portraitId: portraitId, portraitName: portraitName,
+                                      text: "Here take these items to start",
+                                      dialogOptions: dialogOptions))
         data.append(Dialog(dialogId: .James_Talk, dialogSections: sections))
 
         return data

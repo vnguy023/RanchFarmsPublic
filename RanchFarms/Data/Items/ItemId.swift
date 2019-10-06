@@ -14,4 +14,7 @@ enum ItemId: UInt, Codable {
     case Garlic
     case TurnipSeed
     case Turnip
+
+    // Fish
+    case Crab = 2000
 }

@@ -63,6 +63,13 @@ extension GameData {
                              sellPrice: 40, purchasePrice: 120,
                              buildingId: nil))
 
+        // Fish
+        data.append(ItemInfo(itemId: .Crab, itemType: .Fish,
+                             name: "Crab",
+                             canSell: true,
+                             sellPrice: 25, purchasePrice: 200,
+                             buildingId: nil))
+
         return data
     }
 }

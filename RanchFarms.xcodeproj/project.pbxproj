@@ -23,6 +23,9 @@
 		6C2336F3231272B300261944 /* CmdEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336F2231272B300261944 /* CmdEndDay.swift */; };
 		6C2336F5231272ED00261944 /* CmdBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336F4231272ED00261944 /* CmdBase.swift */; };
 		6C2336F72312744D00261944 /* CmdActionUseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2336F62312744D00261944 /* CmdActionUseItem.swift */; };
+		6C28CBCF2349B63D00CFA6AF /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28CBCE2349B63D00CFA6AF /* Gift.swift */; };
+		6C28CBD22349C31D00CFA6AF /* GiftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28CBD12349C31D00CFA6AF /* GiftType.swift */; };
+		6C28CBD42349DEBB00CFA6AF /* CmdReceiveGifts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28CBD32349DEBB00CFA6AF /* CmdReceiveGifts.swift */; };
 		6C40AA072328EB14001D21BB /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C40AA062328EB14001D21BB /* Season.swift */; };
 		6C47019F232B97EB0013AD0F /* InventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C47019E232B97EA0013AD0F /* InventoryData.swift */; };
 		6C4701A1232C53130013AD0F /* BuildingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701A0232C53130013AD0F /* BuildingData.swift */; };
@@ -182,6 +185,9 @@
 		6C2336F2231272B300261944 /* CmdEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdEndDay.swift; sourceTree = "<group>"; };
 		6C2336F4231272ED00261944 /* CmdBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdBase.swift; sourceTree = "<group>"; };
 		6C2336F62312744D00261944 /* CmdActionUseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdActionUseItem.swift; sourceTree = "<group>"; };
+		6C28CBCE2349B63D00CFA6AF /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
+		6C28CBD12349C31D00CFA6AF /* GiftType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftType.swift; sourceTree = "<group>"; };
+		6C28CBD32349DEBB00CFA6AF /* CmdReceiveGifts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdReceiveGifts.swift; sourceTree = "<group>"; };
 		6C40AA062328EB14001D21BB /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		6C47019E232B97EA0013AD0F /* InventoryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryData.swift; sourceTree = "<group>"; };
 		6C4701A0232C53130013AD0F /* BuildingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingData.swift; sourceTree = "<group>"; };
@@ -347,6 +353,7 @@
 				6C0F561A2313BE930017192E /* CmdStartDay.swift */,
 				6C2336F2231272B300261944 /* CmdEndDay.swift */,
 				6C6D78E22322686500573B25 /* CmdPurchaseItem.swift */,
+				6C28CBD32349DEBB00CFA6AF /* CmdReceiveGifts.swift */,
 				6C6D78E423226E4E00573B25 /* CmdSellItem.swift */,
 				6C696457233C475E0033D9EE /* CmdValidateRequirements.swift */,
 				6C1BFE8C232A230C00294BF3 /* CmdCreateNewGame.swift */,
@@ -357,6 +364,15 @@
 				6CD007B8231DFD66008B9825 /* FileUtils */,
 			);
 			path = Commands;
+			sourceTree = "<group>";
+		};
+		6C28CBD02349C30F00CFA6AF /* Gifts */ = {
+			isa = PBXGroup;
+			children = (
+				6C28CBCE2349B63D00CFA6AF /* Gift.swift */,
+				6C28CBD12349C31D00CFA6AF /* GiftType.swift */,
+			);
+			path = Gifts;
 			sourceTree = "<group>";
 		};
 		6C47019D232B92260013AD0F /* SaveData */ = {
@@ -550,6 +566,7 @@
 				6C6033D3230B72DA00746309 /* Tiles */,
 				6C4701A6232C63140013AD0F /* Terrain */,
 				6C6033BA230B636B00746309 /* GameObject.swift */,
+				6C28CBD02349C30F00CFA6AF /* Gifts */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -941,12 +958,14 @@
 				6C4701A5232C630A0013AD0F /* Terrain.swift in Sources */,
 				6CC32316233AFAD700DE694C /* TileId.swift in Sources */,
 				6C9E3E00230CE31B007417E1 /* Config.swift in Sources */,
+				6C28CBD22349C31D00CFA6AF /* GiftType.swift in Sources */,
 				6C4701CF2330CA140013AD0F /* CmdGetSaveDataInfo.swift in Sources */,
 				6CB381C9233F2B710051D632 /* ScheduleId.swift in Sources */,
 				6C9E3E1B230F7905007417E1 /* RenderSystem.swift in Sources */,
 				6CB381DB23448BFE0051D632 /* ActionControllerEndDay.swift in Sources */,
 				6CB381C6233F2B3A0051D632 /* Schedule.swift in Sources */,
 				6CD007CB232087EA008B9825 /* StoreCatalog.swift in Sources */,
+				6C28CBD42349DEBB00CFA6AF /* CmdReceiveGifts.swift in Sources */,
 				6CFA39FB23473535001E1EA1 /* TerrainInfoManager.swift in Sources */,
 				6C6033BB230B636B00746309 /* GameObject.swift in Sources */,
 				6CB381B6233DB3520051D632 /* BaseSystem.swift in Sources */,
@@ -983,6 +1002,7 @@
 				6C4701A3232C62FD0013AD0F /* TerrainType.swift in Sources */,
 				6CBC8D19231CC8AB005454E1 /* ActionControllerGameInventory.swift in Sources */,
 				6C2336F72312744D00261944 /* CmdActionUseItem.swift in Sources */,
+				6C28CBCF2349B63D00CFA6AF /* Gift.swift in Sources */,
 				6C1BFE97232B8B9F00294BF3 /* CmdSaveGame.swift in Sources */,
 				6CB381CB233F2C1C0051D632 /* ScheduleManager.swift in Sources */,
 				6C8D2BE323342EA50077AE9D /* SFXFrame.swift in Sources */,
