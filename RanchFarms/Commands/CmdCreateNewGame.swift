@@ -29,7 +29,7 @@ class CmdCreateNewGame: Command {
     }
 
     private func createWorldSettings() {
-        memoryBank = MemoryBankData(dialogIdsSeen: [DialogId]())
+        memoryBank = MemoryBankData(gameEventsSeenCount: [GameEventId: Int](), dialogIdsSeenCount: [DialogId: Int]())
         daysElapsed = 0
     }
 

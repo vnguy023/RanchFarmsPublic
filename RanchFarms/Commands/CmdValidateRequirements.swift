@@ -41,6 +41,22 @@ class CmdValidateRequirements: Command {
             if requirement.personId == person.id {
                 return true
             }
+        case .HasSeenDialogId:
+            if world.memoryBank.hasSeen(dialogId: requirement.dialogId) {
+                return true
+            }
+        case .HasNotSeenDialogId:
+            if !world.memoryBank.hasSeen(dialogId: requirement.dialogId) {
+                return true
+            }
+        case .HasSeenGameEventId:
+            if world.memoryBank.hasSeen(gameEventId: requirement.gameEventId) {
+                return true
+            }
+        case .HasNotSeenGameEventId:
+            if !world.memoryBank.hasSeen(gameEventId: requirement.gameEventId) {
+                return true
+            }
         }
 
         return false

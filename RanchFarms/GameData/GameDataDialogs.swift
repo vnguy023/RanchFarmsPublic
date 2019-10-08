@@ -43,7 +43,12 @@ extension GameData {
 
         sections.removeAll()
         sections.append(DialogSection(portraitId: portraitId, portraitName: portraitName,
-                                      text: "Nice to meet you."))
+                                      text: "Hey, You are that new guy."))
+        data.append(Dialog(dialogId: .Lily_Greeting, dialogSections: sections))
+
+        sections.removeAll()
+        sections.append(DialogSection(portraitId: portraitId, portraitName: portraitName,
+                                      text: "What was your name again?"))
         data.append(Dialog(dialogId: .Lily_Talk, dialogSections: sections))
 
         return data
@@ -73,6 +78,11 @@ extension GameData {
         sections.append(DialogSection(portraitId: portraitId, portraitName: portraitName,
                                       text: "Here take these items to start",
                                       dialogOptions: dialogOptions))
+        data.append(Dialog(dialogId: .James_Greeting, dialogSections: sections))
+
+        sections.removeAll()
+        sections.append(DialogSection(portraitId: portraitId, portraitName: portraitName,
+                                      text: "Please remember to visit the store sometime."))
         data.append(Dialog(dialogId: .James_Talk, dialogSections: sections))
 
         return data

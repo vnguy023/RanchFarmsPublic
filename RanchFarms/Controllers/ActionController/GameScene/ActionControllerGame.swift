@@ -56,6 +56,8 @@ class ActionControllerGame {
                 world.hudInterfaceData.currentDialogSectionIndex = 0
                 world.hudInterfaceData.currentDialogOptionIndex = 0
                 changeState(to: .Dialog)
+
+                world.memoryBank.recordSeen(dialogId: dialog.id)
             }
         case .Store:
             world.hudInterfaceData.store = Store(storeFrontId: gameEvent.storeFrontId,
@@ -69,6 +71,8 @@ class ActionControllerGame {
             cameraController.fadeScreen()
             changeState(to: .Game)
         }
+
+        world.memoryBank.recordSeen(gameEventId: gameEvent.id)
     }
 
     private func assignActionsGameStateDialog() {

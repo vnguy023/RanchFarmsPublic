@@ -1,7 +1,9 @@
 class MemoryBankData: Codable {
-    var dialogIdsSeen: [DialogId]
+    var dialogIdsSeenCount: [DialogId: Int]
+    var gameEventsSeenCount: [GameEventId: Int]
 
-    init(dialogIdsSeen: [DialogId]){
-        self.dialogIdsSeen = dialogIdsSeen
+    init(gameEventsSeenCount: [GameEventId: Int], dialogIdsSeenCount: [DialogId: Int]){
+        self.gameEventsSeenCount = gameEventsSeenCount
+        self.dialogIdsSeenCount = dialogIdsSeenCount
     }
 }
