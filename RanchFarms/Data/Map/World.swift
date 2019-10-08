@@ -8,6 +8,7 @@ class World: SKNode {
     var player: Person!
     var npcs = [Person]()
 
+    var memoryBank: MemoryBank
     var money = Int(0)
     var daysElapsed = Int(0)
 
@@ -33,6 +34,7 @@ class World: SKNode {
 
     init(saveSlot: SaveSlot, worldData: WorldData) {
         self.saveSlot = saveSlot
+        self.memoryBank = MemoryBank(data: worldData.memoryBank)
         super.init()
 
         loadWorldData(worldData: worldData)
@@ -99,6 +101,7 @@ class World: SKNode {
         return WorldData(gameAreas: filteredGameAreaDatas,
                          player: self.player.getPersonData(),
                          npcs: self.npcs.map({return $0.getPersonData()}),
+                         memoryBank: self.memoryBank.getMemoryBankData(),
                          daysElapsed: self.daysElapsed,
                          teleportStartDay: GameData.GetTeleportStartDay())
     }

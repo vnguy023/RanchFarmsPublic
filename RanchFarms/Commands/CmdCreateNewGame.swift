@@ -6,6 +6,7 @@ class CmdCreateNewGame: Command {
     private var player: PersonData!
     private var npcs = [PersonData]()
 
+    private var memoryBank: MemoryBankData!
     private var daysElapsed = 0
 
     var worldData: WorldData!
@@ -22,11 +23,13 @@ class CmdCreateNewGame: Command {
         worldData = WorldData(gameAreas: gameAreas,
                               player: player,
                               npcs: npcs,
+                              memoryBank: memoryBank,
                               daysElapsed: daysElapsed,
                               teleportStartDay: TeleportId.House_Bed)
     }
 
     private func createWorldSettings() {
+        memoryBank = MemoryBankData(dialogIdsSeen: [DialogId]())
         daysElapsed = 0
     }
 

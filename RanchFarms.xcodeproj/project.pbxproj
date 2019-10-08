@@ -26,6 +26,8 @@
 		6C28CBCF2349B63D00CFA6AF /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28CBCE2349B63D00CFA6AF /* Gift.swift */; };
 		6C28CBD22349C31D00CFA6AF /* GiftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28CBD12349C31D00CFA6AF /* GiftType.swift */; };
 		6C28CBD42349DEBB00CFA6AF /* CmdReceiveGifts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28CBD32349DEBB00CFA6AF /* CmdReceiveGifts.swift */; };
+		6C28CBD6234B2AD500CFA6AF /* MemoryBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28CBD5234B2AD500CFA6AF /* MemoryBank.swift */; };
+		6C28CBD9234B2B3900CFA6AF /* MemoryBankData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28CBD8234B2B3900CFA6AF /* MemoryBankData.swift */; };
 		6C40AA072328EB14001D21BB /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C40AA062328EB14001D21BB /* Season.swift */; };
 		6C47019F232B97EB0013AD0F /* InventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C47019E232B97EA0013AD0F /* InventoryData.swift */; };
 		6C4701A1232C53130013AD0F /* BuildingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4701A0232C53130013AD0F /* BuildingData.swift */; };
@@ -188,6 +190,8 @@
 		6C28CBCE2349B63D00CFA6AF /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
 		6C28CBD12349C31D00CFA6AF /* GiftType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftType.swift; sourceTree = "<group>"; };
 		6C28CBD32349DEBB00CFA6AF /* CmdReceiveGifts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdReceiveGifts.swift; sourceTree = "<group>"; };
+		6C28CBD5234B2AD500CFA6AF /* MemoryBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryBank.swift; sourceTree = "<group>"; };
+		6C28CBD8234B2B3900CFA6AF /* MemoryBankData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryBankData.swift; sourceTree = "<group>"; };
 		6C40AA062328EB14001D21BB /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		6C47019E232B97EA0013AD0F /* InventoryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryData.swift; sourceTree = "<group>"; };
 		6C4701A0232C53130013AD0F /* BuildingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingData.swift; sourceTree = "<group>"; };
@@ -375,6 +379,14 @@
 			path = Gifts;
 			sourceTree = "<group>";
 		};
+		6C28CBD7234B2B1800CFA6AF /* Memories */ = {
+			isa = PBXGroup;
+			children = (
+				6C28CBD5234B2AD500CFA6AF /* MemoryBank.swift */,
+			);
+			path = Memories;
+			sourceTree = "<group>";
+		};
 		6C47019D232B92260013AD0F /* SaveData */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +394,7 @@
 				6C4701AC232DD97A0013AD0F /* GameAreaData.swift */,
 				6C47019E232B97EA0013AD0F /* InventoryData.swift */,
 				6C1BFE94232B8ABD00294BF3 /* ItemData.swift */,
+				6C28CBD8234B2B3900CFA6AF /* MemoryBankData.swift */,
 				6C1BFE92232B892D00294BF3 /* PersonData.swift */,
 				6C4701A7232C68400013AD0F /* TerrainData.swift */,
 				6C4701AE232DD9C20013AD0F /* TileData.swift */,
@@ -547,6 +560,7 @@
 				6C69644B233B4D310033D9EE /* GameEvents */,
 				6C6033C7230B64EB00746309 /* Items */,
 				6C6033D0230B66B400746309 /* Map */,
+				6C28CBD7234B2B1800CFA6AF /* Memories */,
 				6C696454233C255E0033D9EE /* Requirement */,
 				6C47019D232B92260013AD0F /* SaveData */,
 				6CB381C7233F2B660051D632 /* Schedule */,
@@ -955,6 +969,7 @@
 				6CFA3A0523489FF2001E1EA1 /* DialogOption.swift in Sources */,
 				6CD007C72320875F008B9825 /* StoreFrontId.swift in Sources */,
 				6C2336F3231272B300261944 /* CmdEndDay.swift in Sources */,
+				6C28CBD9234B2B3900CFA6AF /* MemoryBankData.swift in Sources */,
 				6C4701A5232C630A0013AD0F /* Terrain.swift in Sources */,
 				6CC32316233AFAD700DE694C /* TileId.swift in Sources */,
 				6C9E3E00230CE31B007417E1 /* Config.swift in Sources */,
@@ -1043,6 +1058,7 @@
 				6C696451233B542F0033D9EE /* GameEventManager.swift in Sources */,
 				6CB381C4233EBD7F0051D632 /* GameDataDialogs.swift in Sources */,
 				6C4701C6233024C50013AD0F /* HudControllerSplash.swift in Sources */,
+				6C28CBD6234B2AD500CFA6AF /* MemoryBank.swift in Sources */,
 				6C4701C02330204F0013AD0F /* ActionControllerSplashSplash.swift in Sources */,
 				6C69645A233C4BAF0033D9EE /* TriggerType.swift in Sources */,
 				6C9E3E04230D43D3007417E1 /* HudControllerGame.swift in Sources */,
