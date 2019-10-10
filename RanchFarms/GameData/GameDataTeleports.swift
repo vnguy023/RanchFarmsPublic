@@ -34,17 +34,23 @@ extension GameData {
         data.append(Teleport(teleportId: .SouthBeach_Town,
                              mapPoint: MapPoint(x: 4, y: -5, location: .Town),
                              directionToFace: .NORTH))
+        data.append(Teleport(teleportId: .SouthBeach_DungeonEntrance,
+                             mapPoint: MapPoint(x: 1, y: 0, location: .Dungeon_Entrance),
+                             directionToFace: .NORTH))
         data.append(Teleport(teleportId: .Town_Farm,
                              mapPoint: MapPoint(x: 5, y: 3, location: .Farm),
                              directionToFace: .WEST))
         data.append(Teleport(teleportId: .Town_GeneralStore,
-                             mapPoint: MapPoint(x: 1, y: 0, location: .GeneralStore),
+                             mapPoint: MapPoint(x: 1, y: 0, location: .General_Store),
                              directionToFace: .NORTH))
         data.append(Teleport(teleportId: .Town_JamesHouse,
-                             mapPoint: MapPoint(x: 1, y: 0, location: .JamesHouse),
+                             mapPoint: MapPoint(x: 1, y: 0, location: .James_House),
                              directionToFace: .NORTH))
         data.append(Teleport(teleportId: .Town_SouthBeach,
-                             mapPoint: MapPoint(x: 4, y: 0, location: .SouthBeach),
+                             mapPoint: MapPoint(x: 4, y: 0, location: .South_Beach),
+                             directionToFace: .SOUTH))
+        data.append(Teleport(teleportId: .DungeonEntrance_SouthBeach,
+                             mapPoint: MapPoint(x: 8, y: 0, location: .South_Beach),
                              directionToFace: .SOUTH))
 
         return data

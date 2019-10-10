@@ -22,15 +22,15 @@ extension GameData {
 
         scheduleEvents.removeAll()
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(0),
-                                            destination: MapPoint(x: 3, y: 14, location: .GeneralStore), teleport: true,
+                                            destination: MapPoint(x: 3, y: 14, location: .General_Store), teleport: true,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(Config.GameTicksPerGameHour * 8),
-                                            destination: MapPoint(x: 1, y: 4, location: .GeneralStore), teleport: false,
+                                            destination: MapPoint(x: 1, y: 4, location: .General_Store), teleport: false,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(Config.GameTicksPerGameHour * 20),
-                                            destination: MapPoint(x: -1, y: 14, location: .GeneralStore), teleport: false,
+                                            destination: MapPoint(x: -1, y: 14, location: .General_Store), teleport: false,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
 

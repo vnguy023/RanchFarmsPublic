@@ -24,24 +24,30 @@ extension GameData {
 
         // GeneralStore
         data.append(GameEvent(gameEventId: .Teleport_GeneralStore_Town, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .GeneralStore),
-                                               end: MapPoint(x: 1, y: -2, location: .GeneralStore)),
+                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .General_Store),
+                                               end: MapPoint(x: 1, y: -2, location: .General_Store)),
                               requirements: [Requirement](),
                               teleportId: .GeneralStore_Town))
 
         // JamesHouse
         data.append(GameEvent(gameEventId: .Teleport_JamesHouse_Town, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .JamesHouse),
-                                               end: MapPoint(x: 1, y: -2, location: .JamesHouse)),
+                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .James_House),
+                                               end: MapPoint(x: 1, y: -2, location: .James_House)),
                               requirements: [Requirement](),
                               teleportId: .JamesHouse_Town))
 
         // SouthBeach
         data.append(GameEvent(gameEventId: .Teleport_SouthBeach_Town, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 4, y: 2, location: .SouthBeach),
-                                               end: MapPoint(x: 4, y: 2, location: .SouthBeach)),
+                              trigger: Trigger(start: MapPoint(x: 4, y: 2, location: .South_Beach),
+                                               end: MapPoint(x: 4, y: 2, location: .South_Beach)),
                               requirements: [Requirement](),
                               teleportId: .SouthBeach_Town))
+
+        data.append(GameEvent(gameEventId: .Teleport_SouthBeach_DungeonEntrance, priority: 100,
+                              trigger: Trigger(start: MapPoint(x: 8, y: 2, location: .South_Beach),
+                                               end: MapPoint(x: 8, y: 2, location: .South_Beach)),
+                              requirements: [Requirement](),
+                              teleportId: .SouthBeach_DungeonEntrance))
 
         // Town
         data.append(GameEvent(gameEventId: .Teleport_Town_Farm, priority: 100,
@@ -53,6 +59,13 @@ extension GameData {
                               trigger: Trigger(buildingId: .TownToGeneralStoreDoor, actionType: .Interact),
                               requirements: [Requirement](),
                               dialogId: .Door_IsLocked))
+
+        // DungeonEntrance
+        data.append(GameEvent(gameEventId: .Teleport_DungeonEntrance_SouthBeach, priority: 100,
+                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .Dungeon_Entrance),
+                                               end: MapPoint(x: 1, y: -2, location: .Dungeon_Entrance)),
+                              requirements: [Requirement](),
+                              teleportId: .DungeonEntrance_SouthBeach))
 
         requirements.removeAll()
         requirements.append(Requirement(startTime: Config.GameTicksPerGameHour * 8, endTime: Config.GameTicksPerGameHour * 16))

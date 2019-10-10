@@ -101,7 +101,7 @@ class GameData {
     }
 
     static func SouthBeach() -> GameAreaData {
-        let location = Location.SouthBeach
+        let location = Location.South_Beach
 
         let buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
@@ -124,7 +124,7 @@ class GameData {
             }
         }
 
-        // SouthBeachTownDoor
+        // SouthBeach -> Town
         for x in 4...4 {
             for y in (1)...(2) {
                 let tile = TileData(tileId: .Grass,
@@ -133,6 +133,14 @@ class GameData {
             }
         }
 
+        // SouthBeach -> DungeonEntrance
+        for x in 8...8 {
+            for y in (1)...(2) {
+                let tile = TileData(tileId: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles[tile.mapPoint] = tile
+            }
+        }
 
         for x in 2...3 {
             for y in (-8)...(-4) {
@@ -236,7 +244,7 @@ class GameData {
     }
 
     static func GeneralStore() -> GameAreaData {
-        let location = Location.GeneralStore
+        let location = Location.General_Store
 
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
@@ -298,7 +306,7 @@ class GameData {
     }
 
     static func JamesHouse() -> GameAreaData {
-        let location = Location.JamesHouse
+        let location = Location.James_House
 
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
@@ -343,6 +351,44 @@ class GameData {
                                                   mapPoint: tile.key)
         }
 
+        for wall in GenerateWalls(tiles: tiles, wallType: .Wall) {
+            buildings[wall.mapPoint] = wall
+        }
+
+        // Buildings
+
+        return GameAreaData(location: location,
+                            buildings: buildings.compactMap({return $0.value}),
+                            terrains: terrains.compactMap({return $0.value}),
+                            tiles: tiles.compactMap({return $0.value}))
+    }
+
+    static func Dungeon_Entrance() -> GameAreaData {
+        let location = Location.Dungeon_Entrance
+
+        var buildings = [MapPoint: BuildingData]()
+        let terrains = [MapPoint: TerrainData]()
+        var tiles = [MapPoint: TileData]()
+
+        // Main area
+        for x in 0...4 {
+            for y in 0...4 {
+                let tile = TileData(tileId: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles[tile.mapPoint] = tile
+            }
+        }
+
+        // Front door entrance
+        for x in 1...1 {
+            for y in (-2)...(-1) {
+                let tile = TileData(tileId: .Dirt,
+                                    mapPoint: MapPoint(x: x, y: y, location: location))
+                tiles[tile.mapPoint] = tile
+            }
+        }
+
+        // TODO: Replace with dungeonWalls
         for wall in GenerateWalls(tiles: tiles, wallType: .Wall) {
             buildings[wall.mapPoint] = wall
         }

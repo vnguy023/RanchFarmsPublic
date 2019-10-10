@@ -16,10 +16,12 @@ enum GameEventId: UInt, Codable {
     case Teleport_GeneralStore_Town
     case Teleport_JamesHouse_Town
     case Teleport_SouthBeach_Town
+    case Teleport_SouthBeach_DungeonEntrance
     case Teleport_Town_Farm
     case Teleport_Town_GeneralStore
     case Teleport_Town_JamesHouse
     case Teleport_Town_SouthBeach
+    case Teleport_DungeonEntrance_SouthBeach
 
     // Lily
     case Lily_Greeting = 10000

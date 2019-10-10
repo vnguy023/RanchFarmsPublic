@@ -49,7 +49,7 @@ class World: SKNode {
         gameAreasDataToLoad.append(GameData.JamesHouse())
         gameAreasDataToLoad.append(GameData.Town())
         gameAreasDataToLoad.append(GameData.SouthBeach())
-
+        gameAreasDataToLoad.append(GameData.Dungeon_Entrance())
 
         for gameArea in gameAreasDataToLoad {
             if gameAreas[gameArea.location] == nil {
