@@ -10,6 +10,7 @@ class GameData {
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
+        let people = [PersonData]()
 
         // MainRoom
         for x in 0...9 {
@@ -49,7 +50,8 @@ class GameData {
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
                             terrains: terrains.compactMap({return $0.value}),
-                            tiles: tiles.compactMap({return $0.value}))
+                            tiles: tiles.compactMap({return $0.value}),
+                            people: people)
     }
 
     static func Farm() -> GameAreaData {
@@ -58,6 +60,7 @@ class GameData {
         var buildings = [MapPoint: BuildingData]()
         let terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
+        let people = [PersonData]()
 
         // Buildings
         let farmHouse = BuildingData(playerIndex: .Game,
@@ -97,7 +100,8 @@ class GameData {
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
                             terrains: terrains.compactMap({return $0.value}),
-                            tiles: tiles.compactMap({return $0.value}))
+                            tiles: tiles.compactMap({return $0.value}),
+                            people: people)
     }
 
     static func SouthBeach() -> GameAreaData {
@@ -106,6 +110,7 @@ class GameData {
         let buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
+        let people = [PersonData]()
 
         // Buildings
 
@@ -154,7 +159,8 @@ class GameData {
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
                             terrains: terrains.compactMap({return $0.value}),
-                            tiles: tiles.compactMap({return $0.value}))
+                            tiles: tiles.compactMap({return $0.value}),
+                            people: people)
     }
 
     static func Town() -> GameAreaData {
@@ -163,6 +169,7 @@ class GameData {
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
+        let people = [PersonData]()
 
         // Buildings
         let farmDoor = BuildingData(playerIndex: .Game,
@@ -240,7 +247,8 @@ class GameData {
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
                             terrains: terrains.compactMap({return $0.value}),
-                            tiles: tiles.compactMap({return $0.value}))
+                            tiles: tiles.compactMap({return $0.value}),
+                            people: people)
     }
 
     static func GeneralStore() -> GameAreaData {
@@ -249,6 +257,7 @@ class GameData {
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
+        let people = [PersonData]()
 
         // Main store area
         for x in 0...4 {
@@ -302,7 +311,8 @@ class GameData {
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
                             terrains: terrains.compactMap({return $0.value}),
-                            tiles: tiles.compactMap({return $0.value}))
+                            tiles: tiles.compactMap({return $0.value}),
+                            people: people)
     }
 
     static func JamesHouse() -> GameAreaData {
@@ -311,6 +321,7 @@ class GameData {
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
+        let people = [PersonData]()
 
         // Main store area
         for x in 0...4 {
@@ -360,7 +371,8 @@ class GameData {
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
                             terrains: terrains.compactMap({return $0.value}),
-                            tiles: tiles.compactMap({return $0.value}))
+                            tiles: tiles.compactMap({return $0.value}),
+                            people: people)
     }
 
     static func Dungeon_Entrance() -> GameAreaData {
@@ -369,6 +381,7 @@ class GameData {
         var buildings = [MapPoint: BuildingData]()
         let terrains = [MapPoint: TerrainData]()
         var tiles = [MapPoint: TileData]()
+        var people = [PersonData]()
 
         // Main area
         for x in 0...4 {
@@ -395,10 +408,14 @@ class GameData {
 
         // Buildings
 
+        // Monsters
+        people.append(PersonData(personId: .Goblin, mapPoint: MapPoint(x: 4, y: 4, location: location), money: 0, inventory: InventoryData()))
+
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
                             terrains: terrains.compactMap({return $0.value}),
-                            tiles: tiles.compactMap({return $0.value}))
+                            tiles: tiles.compactMap({return $0.value}),
+                            people: people)
     }
 
     static func getDialogs() -> [Dialog] {

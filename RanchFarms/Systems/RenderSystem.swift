@@ -12,6 +12,8 @@ class RenderSystem: BaseSystem {
     override func process() {
         renderPlayer()
         renderNPCs()
+        renderGameAreaPeople()
+
         updateSFXs()
         updateZOffsets()
     }
@@ -73,6 +75,29 @@ class RenderSystem: BaseSystem {
         }
     }
 
+    private func renderGameAreaPeople() {
+        for person in world.gameAreas[world.currentLocation]!.people {
+            if let animation = AnimationManager.shared.getAnimation(person: person) {
+                var stateAnimationDuration = GameTick(1)
+                switch person.state {
+                case .Idle: break
+                case .Walking:
+                    stateAnimationDuration = Config.animationWalkGameTickDuration
+
+                // Tool related states
+                case .Axeing: fallthrough
+                case .Hoeing: fallthrough
+                case .Mining: fallthrough
+                case .Watering:
+                    stateAnimationDuration = Config.animationHoeingGameTickDuration
+                }
+
+                let progressPercentage = CGFloat(person.stateDurationElapsed)/CGFloat(stateAnimationDuration)
+                person.applyAnimationFrame(animation.getFrame(animationProgress: progressPercentage))
+            }
+        }
+    }
+
     private func updateSFXs() {
         var gameObjects = [GameObject]()
         gameObjects.append(world.player)
@@ -81,6 +106,7 @@ class RenderSystem: BaseSystem {
             // not sure if we need these yet
             //gameArea.terrains.forEach({gameObjects.append($0)})
             //gameArea.tiles.forEach({gameObjects.append($0)})
+            gameArea.people.forEach({gameObjects.append($0)})
         }
 
         for object in gameObjects.filter({$0.sfxApplied != nil}) {
@@ -109,6 +135,7 @@ class RenderSystem: BaseSystem {
             currentArea.tiles.forEach({gameObjects.append($0)})
             currentArea.terrains.forEach({gameObjects.append($0)})
             currentArea.buildings.forEach({gameObjects.append($0)})
+            currentArea.people.forEach({gameObjects.append($0)})
 
             for object in gameObjects {
                 object.zPosition = object.position.y * -1 + object.zOffset

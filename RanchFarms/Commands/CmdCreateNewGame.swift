@@ -45,7 +45,7 @@ class CmdCreateNewGame: Command {
         playerItems[28] = ItemData(itemId: .Garlic, quantity: 990)
         playerItems[29] = ItemData(itemId: .Garlic, quantity: 5)
 
-        player = PersonData(personId: .Player, money: 200, inventory: InventoryData(items: playerItems ))
+        player = PersonData(personId: .Player, mapPoint: MapPoint(), money: 200, inventory: InventoryData(items: playerItems ))
     }
 
     private func createPlayerHouse() {
@@ -54,6 +54,7 @@ class CmdCreateNewGame: Command {
         var buildings = [BuildingData]()
         let terrains = [TerrainData]()
         let tiles = [TileData]()
+        let people = [PersonData]()
 
         let chair = BuildingData(playerIndex: .PlayerOne,
                      buildingId: .Chair,
@@ -70,11 +71,15 @@ class CmdCreateNewGame: Command {
                                  mapPoint: MapPoint(x: 0, y: 5, location: location))
         buildings.append(tv)
 
-        gameAreas[location] = GameAreaData(location: location, buildings: buildings, terrains: terrains, tiles: tiles)
+        gameAreas[location] = GameAreaData(location: location,
+                                           buildings: buildings,
+                                           terrains: terrains,
+                                           tiles: tiles,
+                                           people: people)
     }
 
     private func createNpcs() {
-        npcs.append(PersonData(personId: .Lily, money: 0, inventory: InventoryData()))
-        npcs.append(PersonData(personId: .James, money: 0, inventory: InventoryData()))
+        npcs.append(PersonData(personId: .Lily, mapPoint: MapPoint(), money: 0, inventory: InventoryData()))
+        npcs.append(PersonData(personId: .James, mapPoint: MapPoint(), money: 0, inventory: InventoryData()))
     }
 }

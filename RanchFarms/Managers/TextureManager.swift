@@ -10,6 +10,7 @@ class TextureManager {
     private var terrainMap = [TerrainType: SKTexture]()
     private var tileMap = [TileId: SKTexture]()
 
+    private var monsterMap = [String: SKTexture]()
     private var personMap = [String: SKTexture]()
     private var portraitMap = [PortraitId: SKTexture]()
 
@@ -22,6 +23,7 @@ class TextureManager {
         loadTerrains()
         loadTiles()
 
+        loadMonsters()
         loadPeople()
         loadPortraits()
 
@@ -93,6 +95,12 @@ class TextureManager {
         // Fish
         itemMap[.Crab] = SKTexture(imageNamed: "itemCrab")
     }
+
+    func loadMonsters() {
+        // Goblin
+        monsterMap["monsterGoblinIdleSouth"] = SKTexture.init(imageNamed: "monsterGoblinIdleSouth")
+    }
+
 
     func loadPeople() {
         // Player
@@ -220,6 +228,15 @@ class TextureManager {
         return nil
     }
 
+    func getTexture(monsterTextureName: String) -> SKTexture? {
+        if monsterMap[monsterTextureName] == nil {
+            print ("[TextureManager] [Desc=No texture] [MonsterTextureName=\(monsterTextureName)]")
+        } else {
+            return monsterMap[monsterTextureName]
+        }
+        return nil
+    }
+
     func getTexture(personTextureName: String) -> SKTexture? {
         if personMap[personTextureName] == nil {
             print ("[TextureManager] [Desc=No texture] [PersonTextureName=\(personTextureName)]")
@@ -247,6 +264,7 @@ class TextureManager {
         terrainMap.forEach({$0.value.filteringMode = .nearest})
         tileMap.forEach({$0.value.filteringMode = .nearest})
 
+        monsterMap.forEach({$0.value.filteringMode = .nearest})
         personMap.forEach({$0.value.filteringMode = .nearest})
         portraitMap.forEach({$0.value.filteringMode = .nearest})
     }

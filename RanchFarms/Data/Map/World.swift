@@ -82,6 +82,12 @@ class World: SKNode {
 
                 add(tile: tile)
             }
+
+            for peopleData in gameArea.people {
+                let person = Person(personId: peopleData.personId, mapPoint: peopleData.mapPoint)
+
+                add(person: person)
+            }
         }
 
         self.player = Person(data: worldData.player)
@@ -197,6 +203,7 @@ class World: SKNode {
             gameArea.buildings.forEach({self.addChild($0)})
             gameArea.tiles.forEach({self.addChild($0)})
             gameArea.terrains.forEach({self.addChild($0)})
+            gameArea.people.forEach({self.addChild($0)})
 
             let cmdSetSpriteIndices = CmdSetSpriteIndices(gameArea: gameArea)
             cmdSetSpriteIndices.execute()
@@ -261,6 +268,24 @@ class World: SKNode {
             gameArea.tiles.append(tile)
             if currentLocation == tile.location {
                 self.addChild(tile)
+            }
+        }
+    }
+
+    // This is meant for monsters most likley
+    func add(person: Person) {
+        if let gameArea = gameAreas[person.location] {
+            gameArea.people.append(person)
+            if currentLocation == person.location {
+                self.addChild(person)
+            }
+        }
+    }
+    func delete(person: Person) {
+        if let gameArea = gameAreas[person.location] {
+            gameArea.people = gameArea.people.filter({$0 !== person})
+            if person.parent != nil {
+                person.removeFromParent()
             }
         }
     }

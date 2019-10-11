@@ -7,6 +7,8 @@ class AnimationManager {
     private var lilyAnimations = [Person.State: [CGVector: Animation]]()
     private var jamesAnimations = [Person.State: [CGVector: Animation]]()
 
+    private var monsterAnimations = [PersonId: [Person.State: [CGVector: Animation]]]()
+
     private var buildingAnimations = [BuildingId: Animation]()
 
     private init() {
@@ -16,6 +18,8 @@ class AnimationManager {
         loadPlayerAnimations()
         loadLilyAnimations()
         loadJamesAnimations()
+
+        loadMonsterAnimations()
     }
 
     private func loadBuildingAnimations() {
@@ -404,8 +408,43 @@ class AnimationManager {
         jamesAnimations[Person.State.Idle] = idleAnimations
     }
 
+    private func loadMonsterAnimations() {
+        monsterAnimations[.Goblin] = [Person.State: [CGVector: Animation]]()
+
+        let anchorPoint = CGPoint(x: 0.5, y: 1.0/4.0)
+
+        ////////////////////////////////
+        // Idle Animations
+        var idleAnimations = [CGVector: Animation]()
+        idleAnimations[.NORTH] = Animation()
+        idleAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(monsterTextureName: "monsterGoblinIdleSouth"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 2),
+                                                        anchorPoint: anchorPoint))
+
+        idleAnimations[.SOUTH] = Animation()
+        idleAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(monsterTextureName: "monsterGoblinIdleSouth"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 2),
+                                                        anchorPoint: anchorPoint))
+
+        idleAnimations[.WEST] = Animation()
+        idleAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(monsterTextureName: "monsterGoblinIdleSouth"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 2),
+                                                        anchorPoint: anchorPoint))
+
+        idleAnimations[.EAST] = Animation()
+        idleAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(monsterTextureName: "monsterGoblinIdleSouth"),
+                                                        duration: 1,
+                                                        imageSize: CGSize(width: 1, height: 2),
+                                                        anchorPoint: anchorPoint))
+
+        self.monsterAnimations[.Goblin]![Person.State.Idle] = idleAnimations
+    }
+
     func getAnimation(person: Person) -> Animation? {
-        var animations = playerAnimations
+        var animations: [Person.State: [CGVector: Animation]]! = nil
         switch person.id {
         case .Player:
             animations = playerAnimations
@@ -413,10 +452,12 @@ class AnimationManager {
             animations = lilyAnimations
         case .James:
             animations = jamesAnimations
+        case .Goblin:
+            animations = monsterAnimations[.Goblin]
         default: break
         }
 
-        if let stateAnimations = animations[person.state] {
+        if animations != nil, let stateAnimations = animations[person.state] {
             if let result = stateAnimations[person.faceDirection] {
                 return result
             } else {

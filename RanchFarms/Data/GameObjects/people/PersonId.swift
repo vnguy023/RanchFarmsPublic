@@ -3,4 +3,6 @@ enum PersonId: UInt, Codable {
     case Player = 100
     case Lily = 200
     case James = 201
+
+    case Goblin
 }

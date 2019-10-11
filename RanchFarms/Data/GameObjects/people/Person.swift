@@ -31,13 +31,13 @@ class Person: GameObject {
     }
 
     convenience init(data: PersonData) {
-        self.init(personId: data.personId, mapPoint: MapPoint(x: 0, y: 0, location: .House))
+        self.init(personId: data.personId, mapPoint: data.mapPoint)
         self.money = data.money
         self.inventory = Inventory(data: data.inventory)
     }
 
     func getPersonData() -> PersonData {
-        return PersonData(personId: self.id, money: self.money, inventory: inventory.getInventoryData())
+        return PersonData(personId: self.id, mapPoint: self.mapPoint, money: self.money, inventory: inventory.getInventoryData())
     }
     
     required init?(coder aDecoder: NSCoder) {
