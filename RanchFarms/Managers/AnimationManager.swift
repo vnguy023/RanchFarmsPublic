@@ -67,6 +67,11 @@ class AnimationManager {
                                                             duration: 1,
                                                             imageSize: CGSize(width: 1, height: 2),
                                                             anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+        buildingAnimations[.Bookshelf] = Animation()
+        buildingAnimations[.Bookshelf]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .Bookshelf),
+                                                                duration: 1,
+                                                                imageSize: CGSize(width: 1, height: 2),
+                                                                anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
 
         buildingAnimations[.SingleBed] = Animation()
         buildingAnimations[.SingleBed]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .SingleBed),

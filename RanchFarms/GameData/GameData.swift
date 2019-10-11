@@ -310,8 +310,18 @@ class GameData {
 
         let easel = BuildingData(playerIndex: .Game,
                                  buildingId: .Easel,
-                                 mapPoint: MapPoint(x: 3, y: 15, location: location))
+                                 mapPoint: MapPoint(x: 2, y: 15, location: location))
         buildings[easel.mapPoint] = easel
+
+        let bookshelf1 = BuildingData(playerIndex: .Game,
+                                      buildingId: .Bookshelf,
+                                      mapPoint: MapPoint(x: 3, y: 15, location: location))
+        buildings[bookshelf1.mapPoint] = bookshelf1
+
+        let bookshelf2 = BuildingData(playerIndex: .Game,
+                                      buildingId: .Bookshelf,
+                                      mapPoint: MapPoint(x: 4, y: 15, location: location))
+        buildings[bookshelf2.mapPoint] = bookshelf2
 
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
