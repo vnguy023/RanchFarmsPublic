@@ -308,6 +308,11 @@ class GameData {
                                           mapPoint: MapPoint(x: 2, y: 4, location: location))
         buildings[vendingMachine.mapPoint] = vendingMachine
 
+        let easel = BuildingData(playerIndex: .Game,
+                                 buildingId: .Easel,
+                                 mapPoint: MapPoint(x: 3, y: 15, location: location))
+        buildings[easel.mapPoint] = easel
+
         return GameAreaData(location: location,
                             buildings: buildings.compactMap({return $0.value}),
                             terrains: terrains.compactMap({return $0.value}),

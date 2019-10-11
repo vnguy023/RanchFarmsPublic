@@ -20,6 +20,7 @@ enum BuildingId: UInt, Codable {
     case Chair = 500
     case Table
     case TV
+    case Easel
 
     case Rock = 1000
 

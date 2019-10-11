@@ -41,6 +41,12 @@ extension GameData {
                                  isBlocking: true,
                                  hasSpriteIndices: false,
                                  name: "TV"))
+        data.append(BuildingInfo(buildingId: .Easel,
+                                 buildingType: .Unknown,
+                                 objSize: CGSize(width: 1, height: 2),
+                                 isBlocking: true,
+                                 hasSpriteIndices: false,
+                                 name: "Easel"))
         data.append(BuildingInfo(buildingId: .FarmHouse,
                                  buildingType: .Unknown,
                                  objSize: CGSize(width: 5, height: 5),
