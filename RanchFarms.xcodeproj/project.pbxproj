@@ -736,6 +736,7 @@
 				6C1BFE8E232A2E4C00294BF3 /* SaveSlot.swift */,
 				6C40AA062328EB14001D21BB /* Season.swift */,
 				6CB381E12345B75A0051D632 /* SpriteIndex.swift */,
+				6CFA3A002347494E001E1EA1 /* SpriteNodeNine.swift */,
 				6C6033E1230BA4F000746309 /* Utils.swift */,
 			);
 			path = Utils;
@@ -744,19 +745,8 @@
 		6C9E3DFE230CE2DD007417E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6C0F561C2313D56E0017192E /* ViewDayInfo.swift */,
-				6CD007BB231F3C5D008B9825 /* ViewDialog.swift */,
-				6C9E3E01230CFCAE007417E1 /* ViewHotbar.swift */,
-				6C97F8D12317808A00940C61 /* ViewInventory.swift */,
-				6C9E3DFC230CE2D6007417E1 /* ViewItemButton.swift */,
-				6C9E3E0D230E61D2007417E1 /* ViewMoneyInfo.swift */,
-				6C4701B7232F2F6A0013AD0F /* ViewSaveFiles.swift */,
-				6C4701B5232F2E730013AD0F /* ViewSaveSlot.swift */,
-				6C4701D02330D1EA0013AD0F /* ViewSaveDelete.swift */,
-				6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */,
-				6C4701C8233026E00013AD0F /* ViewSplash.swift */,
-				6CD007B9231F3C15008B9825 /* ViewStore.swift */,
-				6CFA3A002347494E001E1EA1 /* SpriteNodeNine.swift */,
+				6CCC6DA42351BE0200983957 /* GameScene */,
+				6CCC6DA32351BDF200983957 /* SplashScene */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -819,6 +809,32 @@
 				6C4701BB23301EA40013AD0F /* GameScene */,
 			);
 			path = ActionController;
+			sourceTree = "<group>";
+		};
+		6CCC6DA32351BDF200983957 /* SplashScene */ = {
+			isa = PBXGroup;
+			children = (
+				6C4701B7232F2F6A0013AD0F /* ViewSaveFiles.swift */,
+				6C4701B5232F2E730013AD0F /* ViewSaveSlot.swift */,
+				6C4701D02330D1EA0013AD0F /* ViewSaveDelete.swift */,
+				6C4701C8233026E00013AD0F /* ViewSplash.swift */,
+			);
+			path = SplashScene;
+			sourceTree = "<group>";
+		};
+		6CCC6DA42351BE0200983957 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				6C0F561C2313D56E0017192E /* ViewDayInfo.swift */,
+				6CD007BB231F3C5D008B9825 /* ViewDialog.swift */,
+				6C9E3E01230CFCAE007417E1 /* ViewHotbar.swift */,
+				6C97F8D12317808A00940C61 /* ViewInventory.swift */,
+				6C9E3DFC230CE2D6007417E1 /* ViewItemButton.swift */,
+				6C9E3E0D230E61D2007417E1 /* ViewMoneyInfo.swift */,
+				6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */,
+				6CD007B9231F3C15008B9825 /* ViewStore.swift */,
+			);
+			path = GameScene;
 			sourceTree = "<group>";
 		};
 		6CD007B8231DFD66008B9825 /* FileUtils */ = {
