@@ -37,8 +37,7 @@ class ViewDialog: SKNode {
         textLabel.fontSize = 24
         textLabel.fontColor = .white
         textLabel.zPosition = 100
-        textLabel.position = CGPoint(x: self.size.width / -2 + background.cornerSize.width,
-                                     y: self.size.height / 2 - background.cornerSize.height - textLabel.fontSize / 2)
+        textLabel.position = linePosition(lineNo: 0)
         self.addChild(textLabel)
 
         portrait.size = CGSize(width: size.height - background.cornerSize.height*2 - 24 * 2,
@@ -80,10 +79,13 @@ class ViewDialog: SKNode {
         optionLabels.removeAll()
 
         for option in currentSection.dialogOptions {
+            // one is for the textLabel
+            let lineNo = optionLabels.count + 1
+
             if option === currentSection.dialogOptions[world.hudInterfaceData.currentDialogOptionIndex] {
                 optionCursor.isHidden = false
-                optionCursor.position = CGPoint(x: textLabel.position.x + 16,
-                                                y: textLabel.position.y - textLabel.fontSize * CGFloat((1 + optionLabels.count)))
+                optionCursor.position = linePosition(lineNo: lineNo)
+                optionCursor.position.x += 16 // small adjustment for now
             }
 
             let optionLabel = SKLabelNode(fontNamed: "Chalkduster")
@@ -92,13 +94,29 @@ class ViewDialog: SKNode {
             optionLabel.fontSize = textLabel.fontSize
             optionLabel.fontColor = .white
             optionLabel.zPosition = 100
-            optionLabel.position = CGPoint(x: textLabel.position.x + 32,
-                                           y: textLabel.position.y - textLabel.fontSize * CGFloat((1 + optionLabels.count)))
+            optionLabel.position = linePosition(lineNo: lineNo, isDialogOption: true)
             optionLabel.text = option.text
 
             self.addChild(optionLabel)
             optionLabels.append(optionLabel)
         }
+    }
+
+    // Assumption: fontSize is static, text is vertically aligned .center, text is horizontally aligned left
+    // as lineNo goes Up postion goes down
+    private func linePosition(lineNo: Int, isDialogOption: Bool = false) -> CGPoint {
+        var result = CGPoint(x: self.size.width / -2 + background.cornerSize.width,
+                             y: self.size.height / 2 - background.cornerSize.height - textLabel.fontSize / 2 - 8)
+
+        if isDialogOption {
+            result.x += 32
+        }
+
+        // Fontsize + extra spacing
+        let vertSpacingPerLine = 24 + 8
+        result.y -= CGFloat(vertSpacingPerLine * lineNo)
+
+        return result
     }
 
     required init?(coder aDecoder: NSCoder) {
