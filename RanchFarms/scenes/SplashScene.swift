@@ -9,7 +9,7 @@ class SplashScene: BaseScene {
     var hudController: HudControllerSplash! = nil
     var inputController = InputController()
 
-    // unique because this scene isn't presented like the others~
+    // unique to this scene because didMoveTo is not called for first Scene~
     override func sceneDidLoad() {
         linkControllers()
         linkNodes()

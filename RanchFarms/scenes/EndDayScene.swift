@@ -4,23 +4,23 @@ import GameplayKit
 
 class EndDayScene: BaseScene {    
     let inputController = InputController()
+    var hudController: HudControllerEndDay! = nil
 
-    var actionController: ActionControllerEndDay!
-
-    override func didMove(to view: SKView) {
-        let endDayLabel = SKLabelNode(fontNamed: "ChalkDuster")
-
-        endDayLabel.fontColor = .white
-        endDayLabel.fontSize = 32
-        endDayLabel.text = "End Day: Press Primary Action to continue"
-
-        self.addChild(endDayLabel)
-
-        linkControllers()
-    }
+    var actionController: ActionControllerEndDay! = nil
+    var hudInterfaceDataEndDay = HudInterfaceDataEndDay()
 
     private func linkControllers() {
+        hudController = HudControllerEndDay(hudInterfaceDataEndDay: hudInterfaceDataEndDay, screenSize: self.size)
         actionController = ActionControllerEndDay(scene: self, inputController: inputController, world: world)
+    }
+
+    private func linkNodes() {
+        self.addChild(hudController.node)
+    }
+
+    override func didMove(to view: SKView) {
+        linkControllers()
+        linkNodes()
     }
     
     func touchDown(atPoint pos : CGPoint) { }

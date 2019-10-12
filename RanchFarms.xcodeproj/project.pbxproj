@@ -153,6 +153,9 @@
 		6CC32316233AFAD700DE694C /* TileId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC32315233AFAD700DE694C /* TileId.swift */; };
 		6CCC6DA023516DB600983957 /* GameDataGameEventEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6D9F23516DB600983957 /* GameDataGameEventEndDay.swift */; };
 		6CCC6DA2235170C100983957 /* GameEventsTimeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DA1235170C100983957 /* GameEventsTimeSystem.swift */; };
+		6CCC6DA62351BF1D00983957 /* ViewEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DA52351BF1D00983957 /* ViewEndDay.swift */; };
+		6CCC6DA92351BFFC00983957 /* HudControllerEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DA82351BFFC00983957 /* HudControllerEndDay.swift */; };
+		6CCC6DAD2351C04100983957 /* HudInterfaceDataEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DAC2351C04100983957 /* HudInterfaceDataEndDay.swift */; };
 		6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */; };
 		6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */; };
 		6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B9231F3C15008B9825 /* ViewStore.swift */; };
@@ -322,6 +325,9 @@
 		6CC32315233AFAD700DE694C /* TileId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileId.swift; sourceTree = "<group>"; };
 		6CCC6D9F23516DB600983957 /* GameDataGameEventEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventEndDay.swift; sourceTree = "<group>"; };
 		6CCC6DA1235170C100983957 /* GameEventsTimeSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEventsTimeSystem.swift; sourceTree = "<group>"; };
+		6CCC6DA52351BF1D00983957 /* ViewEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEndDay.swift; sourceTree = "<group>"; };
+		6CCC6DA82351BFFC00983957 /* HudControllerEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudControllerEndDay.swift; sourceTree = "<group>"; };
+		6CCC6DAC2351C04100983957 /* HudInterfaceDataEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudInterfaceDataEndDay.swift; sourceTree = "<group>"; };
 		6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDeleteFile.swift; sourceTree = "<group>"; };
 		6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdFileExists.swift; sourceTree = "<group>"; };
 		6CD007B9231F3C15008B9825 /* ViewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStore.swift; sourceTree = "<group>"; };
@@ -468,8 +474,9 @@
 		6C4701C3233024B20013AD0F /* HudController */ = {
 			isa = PBXGroup;
 			children = (
-				6C4701C7233024CA0013AD0F /* SplashScene */,
+				6CCC6DAA2351C00300983957 /* EndDayScene */,
 				6C4701C4233024B90013AD0F /* GameScene */,
+				6C4701C7233024CA0013AD0F /* SplashScene */,
 			);
 			path = HudController;
 			sourceTree = "<group>";
@@ -557,8 +564,7 @@
 		6C6033B9230B633A00746309 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				6C9E3E0B230E4C08007417E1 /* HudInterfaceDataGame.swift */,
-				6C4701B9232F7BFB0013AD0F /* HudInterfaceDataSplash.swift */,
+				6CCC6DAB2351C02A00983957 /* HudInterfaceData */,
 				6CB381BC233DE7B60051D632 /* Dialog */,
 				6C6033C2230B646D00746309 /* GameObjects */,
 				6C69644B233B4D310033D9EE /* GameEvents */,
@@ -745,6 +751,7 @@
 		6C9E3DFE230CE2DD007417E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6CCC6DA72351BF2200983957 /* EndDayScene */,
 				6CCC6DA42351BE0200983957 /* GameScene */,
 				6CCC6DA32351BDF200983957 /* SplashScene */,
 			);
@@ -835,6 +842,32 @@
 				6CD007B9231F3C15008B9825 /* ViewStore.swift */,
 			);
 			path = GameScene;
+			sourceTree = "<group>";
+		};
+		6CCC6DA72351BF2200983957 /* EndDayScene */ = {
+			isa = PBXGroup;
+			children = (
+				6CCC6DA52351BF1D00983957 /* ViewEndDay.swift */,
+			);
+			path = EndDayScene;
+			sourceTree = "<group>";
+		};
+		6CCC6DAA2351C00300983957 /* EndDayScene */ = {
+			isa = PBXGroup;
+			children = (
+				6CCC6DA82351BFFC00983957 /* HudControllerEndDay.swift */,
+			);
+			path = EndDayScene;
+			sourceTree = "<group>";
+		};
+		6CCC6DAB2351C02A00983957 /* HudInterfaceData */ = {
+			isa = PBXGroup;
+			children = (
+				6CCC6DAC2351C04100983957 /* HudInterfaceDataEndDay.swift */,
+				6C9E3E0B230E4C08007417E1 /* HudInterfaceDataGame.swift */,
+				6C4701B9232F7BFB0013AD0F /* HudInterfaceDataSplash.swift */,
+			);
+			path = HudInterfaceData;
 			sourceTree = "<group>";
 		};
 		6CD007B8231DFD66008B9825 /* FileUtils */ = {
@@ -953,6 +986,7 @@
 				6C6033A3230B60B000746309 /* ViewController.swift in Sources */,
 				6C4701D12330D1EA0013AD0F /* ViewSaveDelete.swift in Sources */,
 				6C696467233C74310033D9EE /* GameDataBuildingInfos.swift in Sources */,
+				6CCC6DAD2351C04100983957 /* HudInterfaceDataEndDay.swift in Sources */,
 				6C4701B4232ED0630013AD0F /* TeleportManager.swift in Sources */,
 				6C2336EA231147EA00261944 /* BuildingType.swift in Sources */,
 				6C4701D32331D8930013AD0F /* PhysicsSystem.swift in Sources */,
@@ -1062,6 +1096,7 @@
 				6C8D2BE52334317C0077AE9D /* SFXId.swift in Sources */,
 				6C6033DC230B833200746309 /* CameraController.swift in Sources */,
 				6CB381CF233F63660051D632 /* ScheduleEvent.swift in Sources */,
+				6CCC6DA62351BF1D00983957 /* ViewEndDay.swift in Sources */,
 				6CD007C923208783008B9825 /* StoreFront.swift in Sources */,
 				6C2336EC2311484C00261944 /* BuildingInfoManager.swift in Sources */,
 				6C9E3E12230E8500007417E1 /* BuildingId.swift in Sources */,
@@ -1074,6 +1109,7 @@
 				6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */,
 				6C9E3E15230E8FFE007417E1 /* Teleport.swift in Sources */,
 				6C696462233C70EC0033D9EE /* GameDataGameEventDialogs.swift in Sources */,
+				6CCC6DA92351BFFC00983957 /* HudControllerEndDay.swift in Sources */,
 				6CB381D12340356C0051D632 /* DayId.swift in Sources */,
 				6CFA39FF2347370A001E1EA1 /* GameDataTerrainInfos.swift in Sources */,
 				6CD007BC231F3C5D008B9825 /* ViewDialog.swift in Sources */,
