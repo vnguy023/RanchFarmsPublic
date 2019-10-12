@@ -16,13 +16,11 @@ extension GameData {
         sections.removeAll()
         sections.append(DialogSection(portraitId: portraitId, portraitName: "Locked Door",
                                       text: "Door is locked."))
-        sections.append(DialogSection(portraitId: portraitId, portraitName: "Locked Door",
-                                      text: "Come back at 8:00AM-6:00PM."))
         dialogOptions.removeAll()
         dialogOptions.append(DialogOption(text: "Yes", gifts: gifts, gameEventId: .Teleport_Town_GeneralStore))
         dialogOptions.append(DialogOption(text: "No", gifts: gifts, gameEventId: nil))
         sections.append(DialogSection(portraitId: portraitId, portraitName: "Locked Door",
-                                      text: "Do you want to enter anyways?",
+                                      text: "Come back at 8:00AM-6:00PM.${n}Do you want to enter anyways?",
                                       dialogOptions: dialogOptions))
         data.append(Dialog(dialogId: .Door_IsLocked, dialogSections: sections))
 
@@ -67,7 +65,7 @@ extension GameData {
 
         sections.removeAll()
         sections.append(DialogSection(portraitId: portraitId, portraitName: portraitName,
-                                      text: "Hey there, Check out my store for some seeds."))
+                                      text: "Hey there,${n}Check out my store for some seeds."))
 
         dialogOptions.removeAll()
         gifts.removeAll()
