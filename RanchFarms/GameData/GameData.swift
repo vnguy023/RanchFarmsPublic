@@ -448,6 +448,7 @@ class GameData {
 
         data.append(contentsOf: getGameEventGeneric())
 
+        data.append(contentsOf: getGameEventEndDays())
         data.append(contentsOf: getGameEventStores())
         data.append(contentsOf: getGameEventTeleports())
         data.append(contentsOf: getGameEventDialogs())

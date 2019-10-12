@@ -311,7 +311,11 @@ class World: SKNode {
     }
 
     func getCurrentMeridian() -> String {
-        return "AM"
+        if getCurrentHour()%24 < 12 {
+            return "AM"
+        }
+
+        return "PM"
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -29,7 +29,6 @@ class GameEvent {
         self.teleportId = teleportId
     }
 
-    // Temporary until we figure out a data structure to represent this
     convenience init(gameEventId: GameEventId, priority: Int, trigger: Trigger, requirements: [Requirement], dialogId: DialogId) {
         self.init(gameEventId: gameEventId, gameEventType: .Dialog, priority: priority,
                   trigger: trigger, requirements: requirements,
@@ -48,9 +47,9 @@ class GameEvent {
                   dialogId: nil, storeFrontId: nil, storeCatalogId: nil, teleportId: teleportId)
     }
 
-    convenience init(gameEventId: GameEventId, priority: Int, trigger: Trigger, requirements: [Requirement], bedBuildingId: BuildingId) {
+    convenience init(gameEventId: GameEventId, priority: Int, trigger: Trigger, requirements: [Requirement], endDayTeleport: TeleportId) {
         self.init(gameEventId: gameEventId, gameEventType: .Sleep, priority: priority,
                   trigger: trigger, requirements: requirements,
-                  dialogId: nil, storeFrontId: nil, storeCatalogId: nil, teleportId: nil)
+                  dialogId: nil, storeFrontId: nil, storeCatalogId: nil, teleportId: endDayTeleport)
     }
 }

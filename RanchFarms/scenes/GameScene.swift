@@ -11,6 +11,7 @@ class GameScene: BaseScene {
     var actionController: ActionControllerGame!
     var hudController: HudControllerGame!
 
+    var gameEventsTimeSystem: GameEventsTimeSystem!
     var npcScheduleSystem: NPCScheduleSystem!
     var physicsSystem: PhysicsSystems!
     var renderSystem: RenderSystem!
@@ -34,6 +35,7 @@ class GameScene: BaseScene {
         hudController = HudControllerGame(camera: cameraController.camera, world: world, screenSize: self.size)
         actionController = ActionControllerGame(scene: self, world: world, cameraController: cameraController, hudController: hudController, inputController: inputController)
 
+        gameEventsTimeSystem = GameEventsTimeSystem(gameScene: self, world: world)
         npcScheduleSystem = NPCScheduleSystem(world: world)
         physicsSystem = PhysicsSystems(world: world)
         renderSystem = RenderSystem(world: world)
@@ -179,6 +181,7 @@ class GameScene: BaseScene {
                 npcScheduleSystem.update()
                 physicsSystem.update()
                 teleportSystem.update()
+                gameEventsTimeSystem.update()
 
                 world.update()
 

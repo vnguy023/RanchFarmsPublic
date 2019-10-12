@@ -4,6 +4,7 @@ enum GameEventId: UInt, Codable {
     case Dialog_Sign
 
     case Sleep_FarmBed
+    case Sleep_Collapse_Time
 
     // Store
     case Store_VendingMachine

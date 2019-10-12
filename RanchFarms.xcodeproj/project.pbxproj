@@ -151,6 +151,8 @@
 		6CBC8D1B231CF5D4005454E1 /* CmdSaveFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */; };
 		6CBC8D1D231CF5DF005454E1 /* CmdLoadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */; };
 		6CC32316233AFAD700DE694C /* TileId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC32315233AFAD700DE694C /* TileId.swift */; };
+		6CCC6DA023516DB600983957 /* GameDataGameEventEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6D9F23516DB600983957 /* GameDataGameEventEndDay.swift */; };
+		6CCC6DA2235170C100983957 /* GameEventsTimeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DA1235170C100983957 /* GameEventsTimeSystem.swift */; };
 		6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */; };
 		6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */; };
 		6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B9231F3C15008B9825 /* ViewStore.swift */; };
@@ -318,6 +320,8 @@
 		6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdSaveFile.swift; sourceTree = "<group>"; };
 		6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdLoadFile.swift; sourceTree = "<group>"; };
 		6CC32315233AFAD700DE694C /* TileId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileId.swift; sourceTree = "<group>"; };
+		6CCC6D9F23516DB600983957 /* GameDataGameEventEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventEndDay.swift; sourceTree = "<group>"; };
+		6CCC6DA1235170C100983957 /* GameEventsTimeSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEventsTimeSystem.swift; sourceTree = "<group>"; };
 		6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDeleteFile.swift; sourceTree = "<group>"; };
 		6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdFileExists.swift; sourceTree = "<group>"; };
 		6CD007B9231F3C15008B9825 /* ViewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStore.swift; sourceTree = "<group>"; };
@@ -681,6 +685,7 @@
 			children = (
 				6CB381D8234487650051D632 /* GameDataGameEventGeneric.swift */,
 				6C696461233C70EC0033D9EE /* GameDataGameEventDialogs.swift */,
+				6CCC6D9F23516DB600983957 /* GameDataGameEventEndDay.swift */,
 				6C696463233C70F30033D9EE /* GameDataGameEventStores.swift */,
 				6C69645F233C6F580033D9EE /* GameDataGameEventTeleports.swift */,
 				6CB381B9233DC6020051D632 /* People */,
@@ -692,6 +697,7 @@
 			isa = PBXGroup;
 			children = (
 				6CB381B5233DB3520051D632 /* BaseSystem.swift */,
+				6CCC6DA1235170C100983957 /* GameEventsTimeSystem.swift */,
 				6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */,
 				6C4701D22331D8930013AD0F /* PhysicsSystem.swift */,
 				6C9E3E1A230F7905007417E1 /* RenderSystem.swift */,
@@ -1016,6 +1022,7 @@
 				6C6D78DD2321F8BB00573B25 /* PortraitId.swift in Sources */,
 				6C4701A3232C62FD0013AD0F /* TerrainType.swift in Sources */,
 				6CBC8D19231CC8AB005454E1 /* ActionControllerGameInventory.swift in Sources */,
+				6CCC6DA2235170C100983957 /* GameEventsTimeSystem.swift in Sources */,
 				6C2336F72312744D00261944 /* CmdActionUseItem.swift in Sources */,
 				6C28CBCF2349B63D00CFA6AF /* Gift.swift in Sources */,
 				6C1BFE97232B8B9F00294BF3 /* CmdSaveGame.swift in Sources */,
@@ -1042,6 +1049,7 @@
 				6CD007C923208783008B9825 /* StoreFront.swift in Sources */,
 				6C2336EC2311484C00261944 /* BuildingInfoManager.swift in Sources */,
 				6C9E3E12230E8500007417E1 /* BuildingId.swift in Sources */,
+				6CCC6DA023516DB600983957 /* GameDataGameEventEndDay.swift in Sources */,
 				6C69645E233C5AED0033D9EE /* ActionType.swift in Sources */,
 				6CB381B4233DB33D0051D632 /* NPCScheduleSystem.swift in Sources */,
 				6C9D3607230BA83500168A28 /* PlayerIndex.swift in Sources */,

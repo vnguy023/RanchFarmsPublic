@@ -53,4 +53,14 @@ class GameEventManager {
         }
         return result.sorted(by: {return $0.priority > $1.priority})
     }
+
+    func getGameEventsTriggered(currentTime: GameTick) -> [GameEvent] {
+        var result = [GameEvent]()
+        for (_, gameEvent) in gameEventMap.filter({$0.value.trigger.type == .Time}) {
+            if gameEvent.trigger.startTime <= currentTime {
+                result.append(gameEvent)
+            }
+        }
+        return result.sorted(by: {return $0.priority > $1.priority})
+    }
 }

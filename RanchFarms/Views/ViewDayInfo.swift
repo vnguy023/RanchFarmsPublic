@@ -54,8 +54,8 @@ class ViewDayInfo: SKSpriteNode {
 
         currentWeekDayLabel.text = world.getCurrentWeekDay().getString()
 
-        var hoursText = "\(world.getCurrentHour())"
-        if world.getCurrentHour() == 0 { hoursText = "12" }
+        var hoursText = "\(world.getCurrentHour()%12)"
+        if world.getCurrentHour()%12 == 0  { hoursText = "12" }
 
         var minutesText = "\((world.getCurrentMinutes()/10)*10)"
         if world.getCurrentMinutes() < 10 { minutesText = "00" }

@@ -6,11 +6,13 @@ class Trigger {
     let personId: PersonId!
     let botLeftMapPoint: MapPoint!
     let topRightMapPoint: MapPoint!
+    let startTime: GameTick!
+
     private init(triggerType: TriggerType, actionType: ActionType?,
                  buildingId: BuildingId?,
                  personId: PersonId?,
-                 botLeftMapPoint: MapPoint?,
-                 topRightMapPoint: MapPoint?) {
+                 botLeftMapPoint: MapPoint?, topRightMapPoint: MapPoint?,
+                 startTime: GameTick!) {
         self.type = triggerType
 
         self.actionType = actionType
@@ -18,6 +20,7 @@ class Trigger {
         self.personId = personId
         self.botLeftMapPoint = botLeftMapPoint
         self.topRightMapPoint = topRightMapPoint
+        self.startTime = startTime
     }
 
     // Person
@@ -26,8 +29,8 @@ class Trigger {
                   actionType: actionType,
                   buildingId: nil,
                   personId: personId,
-                  botLeftMapPoint: nil,
-                  topRightMapPoint: nil)
+                  botLeftMapPoint: nil, topRightMapPoint: nil,
+                  startTime: nil)
     }
 
     // Building
@@ -36,8 +39,8 @@ class Trigger {
                   actionType: actionType,
                   buildingId: buildingId,
                   personId: nil,
-                  botLeftMapPoint: nil,
-                  topRightMapPoint: nil)
+                  botLeftMapPoint: nil, topRightMapPoint: nil,
+                  startTime: nil)
     }
 
     // Presence
@@ -49,8 +52,18 @@ class Trigger {
                   actionType: nil,
                   buildingId: nil,
                   personId: nil,
-                  botLeftMapPoint: botLeft,
-                  topRightMapPoint: topRight)
+                  botLeftMapPoint: botLeft, topRightMapPoint: topRight,
+                  startTime: nil)
+    }
+
+    // Time
+    convenience init(startTime: GameTick) {
+        self.init(triggerType: .Time,
+                  actionType: nil,
+                  buildingId: nil,
+                  personId: nil,
+                  botLeftMapPoint: nil, topRightMapPoint: nil,
+                  startTime: startTime)
     }
 }
 
