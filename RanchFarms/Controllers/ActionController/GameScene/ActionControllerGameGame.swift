@@ -62,15 +62,15 @@ extension ActionControllerGame {
     }
 
     func actionUseGameStateGame() {
-        let cmdActionUseItem  = CmdActionUseItem(world: world)
+        let cmdActionUseItem  = CmdActionUseItem(world: world, hudInterfaceData: hudInterfaceData)
         cmdActionUseItem.execute()
     }
 
     func actionSwitchLeftGameStateGame() {
-        world.hudInterfaceData.changeHotBarCursorPosition(CGVector(dx: -1, dy: 0))
+        hudInterfaceData.changeHotBarCursorPosition(CGVector(dx: -1, dy: 0))
     }
 
     func actionSwitchRightGameStateGame() {
-        world.hudInterfaceData.changeHotBarCursorPosition(CGVector(dx: 1, dy: 0))
+        hudInterfaceData.changeHotBarCursorPosition(CGVector(dx: 1, dy: 0))
     }
 }

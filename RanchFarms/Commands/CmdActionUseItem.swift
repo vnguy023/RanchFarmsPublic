@@ -1,15 +1,17 @@
 class CmdActionUseItem: Command {
     let world: World
+    let hudInterfaceData: HudInterfaceDataGame
 
     private var itemToUse: Item!
     private var terrainInFront: Terrain!
     private var tileInFront: Tile!
     private var buildingsInFront: [Building]
 
-    init(world: World) {
+    init(world: World, hudInterfaceData: HudInterfaceDataGame) {
         self.world = world
+        self.hudInterfaceData = hudInterfaceData
 
-        if let itemIndex = world.hudInterfaceData.getHotBarItemIndex() {
+        if let itemIndex = hudInterfaceData.getHotBarItemIndex() {
             itemToUse = world.player.inventory.items[itemIndex]
         }
         terrainInFront = world.getTerrainAt(position: world.player.getPositionInFront(), location: world.currentLocation)
@@ -115,7 +117,7 @@ class CmdActionUseItem: Command {
 
             itemToUse.quantity -= 1
             if itemToUse.quantity <= 0 {
-                if let itemIndex = world.hudInterfaceData.getHotBarItemIndex() {
+                if let itemIndex = hudInterfaceData.getHotBarItemIndex() {
                     world.player.inventory.items[itemIndex] = nil
                 }
             }

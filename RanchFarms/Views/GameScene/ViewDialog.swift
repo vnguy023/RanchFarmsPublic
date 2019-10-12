@@ -2,13 +2,14 @@ import SpriteKit
 
 class ViewDialog: SKNode {
     private let world: World
+    private let hudInterfaceData: HudInterfaceDataGame
 
     private var dialog: Dialog!{
-        get {return world.hudInterfaceData.dialog}
+        get {return hudInterfaceData.dialog}
     }
 
     private var currentSection: DialogSection! {
-        get {return world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionIndex]}
+        get {return hudInterfaceData.dialog!.sections[hudInterfaceData.currentDialogSectionIndex]}
     }
 
     let size = Config.viewDialogSize
@@ -23,8 +24,9 @@ class ViewDialog: SKNode {
 
     private let fontSize = CGFloat(24)
 
-    init(world: World) {
+    init(world: World, hudInterfaceData: HudInterfaceDataGame) {
         self.world = world
+        self.hudInterfaceData = hudInterfaceData
 
         super.init()
 
@@ -96,7 +98,7 @@ class ViewDialog: SKNode {
             let option = currentSection.dialogOptions[optionNo]
             let lineNo = optionNo + currentSection.text.components(separatedBy: "${n}").count
 
-            if option === currentSection.dialogOptions[world.hudInterfaceData.currentDialogOptionIndex] {
+            if option === currentSection.dialogOptions[hudInterfaceData.currentDialogOptionIndex] {
                 optionCursor.isHidden = false
                 optionCursor.position = linePosition(lineNo: lineNo)
                 optionCursor.position.x += 16 // small adjustment for now

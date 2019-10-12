@@ -4,14 +4,16 @@ import GameplayKit
 
 class EndDayScene: BaseScene {    
     let inputController = InputController()
-    var hudController: HudControllerEndDay! = nil
-
     var actionController: ActionControllerEndDay! = nil
     var hudInterfaceDataEndDay = HudInterfaceDataEndDay()
+    var hudController: HudControllerEndDay! = nil
 
     private func linkControllers() {
         hudController = HudControllerEndDay(hudInterfaceDataEndDay: hudInterfaceDataEndDay, screenSize: self.size)
-        actionController = ActionControllerEndDay(scene: self, inputController: inputController, world: world)
+        actionController = ActionControllerEndDay(scene: self,
+                                                  inputController: inputController,
+                                                  hudInterfaceDataEndDay: hudInterfaceDataEndDay,
+                                                  world: world)
     }
 
     private func linkNodes() {

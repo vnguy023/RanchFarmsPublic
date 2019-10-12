@@ -4,13 +4,15 @@ class ActionControllerEndDay {
     let scene: EndDayScene
 
     let inputController: InputController!
+    let hudInterfaceDataEndDay: HudInterfaceDataEndDay!
 
     let world: World
 
-    init(scene: EndDayScene, inputController: InputController, world: World) {
+    init(scene: EndDayScene, inputController: InputController, hudInterfaceDataEndDay: HudInterfaceDataEndDay, world: World) {
         self.scene = scene
 
         self.inputController = inputController
+        self.hudInterfaceDataEndDay = hudInterfaceDataEndDay
 
         self.world = world
 

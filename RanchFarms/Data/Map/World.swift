@@ -28,10 +28,6 @@ class World: SKNode {
     // Items to sell
     var farmDeliveryBoxItems = [Item]()
 
-    // Hud Data
-    // This should be temporary data for now. Think about throwing this into global
-    var hudInterfaceData = HudInterfaceDataGame()
-
     init(saveSlot: SaveSlot, worldData: WorldData) {
         self.saveSlot = saveSlot
         self.memoryBank = MemoryBank(data: worldData.memoryBank)

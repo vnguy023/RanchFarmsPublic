@@ -3,7 +3,8 @@ import SpriteKit
 class HudControllerGame{
     let screenSize: CGSize
 
-    let world: World!
+    private let world: World
+    private let hudInterfaceData: HudInterfaceDataGame
 
     let camera: SKCameraNode!
 
@@ -27,20 +28,21 @@ class HudControllerGame{
     // Hud Ingame
     let viewSelectedGameTile: ViewSelectedGameTile
 
-    init(camera: SKCameraNode, world: World, screenSize: CGSize) {
+    init(camera: SKCameraNode, world: World, hudInterfaceData: HudInterfaceDataGame, screenSize: CGSize) {
         self.screenSize = screenSize
 
         self.camera = camera
         camera.zPosition = 10000
 
         self.world = world
+        self.hudInterfaceData = hudInterfaceData
 
         viewDayInfo = ViewDayInfo(world: world)
         viewDayInfo.position.x = screenSize.width / 2 - viewDayInfo.size.width/2
         viewDayInfo.position.y = screenSize.height / 2 - viewDayInfo.size.height/2
         camera.addChild(viewDayInfo)
 
-        viewHotbar = ViewHotbar(world: world)
+        viewHotbar = ViewHotbar(world: world, hudInterfaceData: hudInterfaceData)
         viewHotbar.position.y = screenSize.height / -2 + viewHotbar.size.height/2
         camera.addChild(viewHotbar)
 
@@ -53,16 +55,16 @@ class HudControllerGame{
         viewSelectedGameTile.zPosition = 500
         worldHudNode.addChild(viewSelectedGameTile)
 
-        viewInventory = ViewInventory(world: world)
+        viewInventory = ViewInventory(world: world, hudInterfaceData: hudInterfaceData)
         viewInventory.zPosition = 1000
         camera.addChild(viewInventory)
 
-        viewDialog = ViewDialog(world: world)
+        viewDialog = ViewDialog(world: world, hudInterfaceData: hudInterfaceData)
         viewDialog.position = CGPoint(x: 0, y: screenSize.height / -2 + viewDialog.size.height/2)
         viewDialog.zPosition = 1000
         camera.addChild(viewDialog)
 
-        viewStore = ViewStore(world: world)
+        viewStore = ViewStore(world: world, hudInterfaceData: hudInterfaceData)
         viewStore.position = CGPoint(x: 0, y: 0)
         viewStore.zPosition = 1000
         camera.addChild(viewStore)
@@ -76,21 +78,21 @@ class HudControllerGame{
         viewMoneyInfo.update()
         viewSelectedGameTile.update()
 
-        if world.hudInterfaceData.state == .Dialog {
+        if hudInterfaceData.state == .Dialog {
             viewDialog.isHidden = false
             viewDialog.update()
         } else {
             viewDialog.isHidden = true
         }
 
-        if world.hudInterfaceData.state == .Inventory {
+        if hudInterfaceData.state == .Inventory {
             viewInventory.isHidden = false
             viewInventory.update()
         } else {
             viewInventory.isHidden = true
         }
 
-        if world.hudInterfaceData.state == .Store {
+        if hudInterfaceData.state == .Store {
             viewStore.isHidden = false
             viewStore.update()
         } else {

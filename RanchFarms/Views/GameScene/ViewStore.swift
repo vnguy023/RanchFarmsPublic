@@ -2,13 +2,14 @@ import SpriteKit
 
 class ViewStore: SKSpriteNode {
     private let world: World
+    private let hudInterfaceData: HudInterfaceDataGame
     private let player: Person
 
     private var store: Store!{
-        get {return world.hudInterfaceData.store}
+        get {return hudInterfaceData.store}
     }
     private var cursor: CGPoint {
-        get {return world.hudInterfaceData.storeCursor}
+        get {return hudInterfaceData.storeCursor}
     }
 
     private let blackScreen = SKSpriteNode(color: .black, size: Config.screenSize)
@@ -34,8 +35,9 @@ class ViewStore: SKSpriteNode {
                                                    y: 200)
     private var storeItems = [ViewItemButton]()
 
-    init(world: World) {
+    init(world: World, hudInterfaceData: HudInterfaceDataGame) {
         self.world = world
+        self.hudInterfaceData = hudInterfaceData
         self.player = world.player
 
         super.init(texture: nil, color: .clear, size: Config.viewStoreSize)
@@ -99,7 +101,7 @@ class ViewStore: SKSpriteNode {
         updatePlayerItems()
         updateStoreItems()
 
-        if let playerItemIndex = world.hudInterfaceData.getStorePlayerItemIndex()
+        if let playerItemIndex = hudInterfaceData.getStorePlayerItemIndex()
             , let item = world.player.inventory.items[playerItemIndex] {
             itemInfoPortrait.setItem(item: item)
             itemInfoDescriptionText.text = item.itemInfo.name
@@ -108,7 +110,7 @@ class ViewStore: SKSpriteNode {
             } else {
                 itemInfoBuySellPrice.text = "Can't Sell"
             }
-        } else if let storeItemIndex = world.hudInterfaceData.getStoreStoreItemIndex()
+        } else if let storeItemIndex = hudInterfaceData.getStoreStoreItemIndex()
             , let item = store.items[storeItemIndex] {
             itemInfoPortrait.setItem(item: item)
             itemInfoDescriptionText.text = item.itemInfo.name
@@ -134,7 +136,7 @@ class ViewStore: SKSpriteNode {
                 itemButton.position.y -= (CGFloat(y) * Config.itemImageSize.height) - Config.itemImageSize.height/2
                 self.addChild(itemButton)
 
-                if let itemIndex = world.hudInterfaceData.getStorePlayerItemIndex(), itemIndex == index {
+                if let itemIndex = hudInterfaceData.getStorePlayerItemIndex(), itemIndex == index {
                     itemButton.state = .Highlight
                 }
 
@@ -158,7 +160,7 @@ class ViewStore: SKSpriteNode {
                 itemButton.position.y -= (CGFloat(y) * Config.itemImageSize.height) - Config.itemImageSize.height/2
                 self.addChild(itemButton)
 
-                if let itemIndex = world.hudInterfaceData.getStoreStoreItemIndex(), itemIndex == index {
+                if let itemIndex = hudInterfaceData.getStoreStoreItemIndex(), itemIndex == index {
                     itemButton.state = .Highlight
                 }
 

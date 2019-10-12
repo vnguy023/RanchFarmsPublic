@@ -2,13 +2,13 @@ import SpriteKit
 
 extension ActionControllerGame {
     // Things to make code a bit more simpler
-    var dialog: Dialog! { get {world.hudInterfaceData.dialog} }
+    var dialog: Dialog! { get {hudInterfaceData.dialog} }
     var currentSection: DialogSection! {
-        get {world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionIndex]}
+        get {hudInterfaceData.dialog!.sections[hudInterfaceData.currentDialogSectionIndex]}
     }
     var currentDialogOption: DialogOption! {
-        get {world.hudInterfaceData.dialog!.sections[world.hudInterfaceData.currentDialogSectionIndex]
-            .dialogOptions[world.hudInterfaceData.currentDialogOptionIndex]
+        get {hudInterfaceData.dialog!.sections[hudInterfaceData.currentDialogSectionIndex]
+            .dialogOptions[hudInterfaceData.currentDialogOptionIndex]
         }
     }
 
@@ -27,9 +27,9 @@ extension ActionControllerGame {
             }
         }
         
-        world.hudInterfaceData.currentDialogSectionIndex += 1
-        world.hudInterfaceData.currentDialogOptionIndex = 0
-        if world.hudInterfaceData.currentDialogSectionIndex >= dialog.sections.count {
+        hudInterfaceData.currentDialogSectionIndex += 1
+        hudInterfaceData.currentDialogOptionIndex = 0
+        if hudInterfaceData.currentDialogSectionIndex >= dialog.sections.count {
             finishedTalking()
         }
     }
@@ -39,11 +39,11 @@ extension ActionControllerGame {
     }
 
     func actionDPadUpGameStateDialog() {
-        world.hudInterfaceData.currentDialogOptionIndex = max(0, world.hudInterfaceData.currentDialogOptionIndex - 1)
+        hudInterfaceData.currentDialogOptionIndex = max(0, hudInterfaceData.currentDialogOptionIndex - 1)
     }
 
     func actionDPadDownGameStateDialog() {
-        world.hudInterfaceData.currentDialogOptionIndex = min(world.hudInterfaceData.currentDialogOptionIndex + 1, currentSection.dialogOptions.count - 1)
+        hudInterfaceData.currentDialogOptionIndex = min(hudInterfaceData.currentDialogOptionIndex + 1, currentSection.dialogOptions.count - 1)
     }
 
     func actionDPadLeftGameStateDialog() { }

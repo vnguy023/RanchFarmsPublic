@@ -1,11 +1,8 @@
 import SpriteKit
 
 class ViewInventory: SKSpriteNode {
-    let world: World
-
-    var hudInterfaceData: HudInterfaceDataGame {
-        get {return world.hudInterfaceData}
-    }
+    private let world: World
+    private let hudInterfaceData: HudInterfaceDataGame
 
     private var itemButtons = [ViewItemButton]()
     private var trashCan = ViewSaveDelete() // reusing this for now
@@ -16,8 +13,9 @@ class ViewInventory: SKSpriteNode {
 
     private let blackScreen = SKSpriteNode(color: .black, size: Config.screenSize)
 
-    init(world: World) {
+    init(world: World, hudInterfaceData: HudInterfaceDataGame) {
         self.world = world
+        self.hudInterfaceData = hudInterfaceData
 
         let inventorySize = CGSize(width: Config.itemImageSize.width * Config.viewInventoryColumns,
                                    height: Config.itemImageSize.height)

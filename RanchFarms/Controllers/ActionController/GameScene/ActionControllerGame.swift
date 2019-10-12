@@ -7,27 +7,29 @@ class ActionControllerGame {
     let cameraController: CameraController!
     let inputController: InputController!
     let hudController: HudControllerGame!
+    let hudInterfaceData: HudInterfaceDataGame!
 
     var handlePause: (()->())!
     var handleUnpause: (()->())!
 
-    init(scene: GameScene, world: World, cameraController: CameraController, hudController: HudControllerGame, inputController: InputController) {
+    init(scene: GameScene, world: World, cameraController: CameraController, hudController: HudControllerGame, inputController: InputController, hudInterfaceDataGame: HudInterfaceDataGame) {
         self.scene = scene
         self.world = world
 
         self.cameraController = cameraController
         self.hudController = hudController
+        self.hudInterfaceData = hudInterfaceDataGame
         self.inputController = inputController
 
         changeState(to: .Game)
     }
 
     func changeState(to state: HudInterfaceDataGame.State) {
-        if world.hudInterfaceData.state == state {
+        if hudInterfaceData.state == state {
             return
         }
 
-        world.hudInterfaceData.state = state
+        hudInterfaceData.state = state
 
         switch state {
         case .Dialog:
@@ -40,7 +42,7 @@ class ActionControllerGame {
             assignActionsGameStateInventory()
             if handlePause != nil { handlePause() }
         case .Store:
-            world.hudInterfaceData.storeCursor = CGPoint(x: 0, y: 2)
+            hudInterfaceData.storeCursor = CGPoint(x: 0, y: 2)
             assignActionsGameStateStore()
             if handlePause != nil { handlePause() }
         default:
@@ -52,16 +54,16 @@ class ActionControllerGame {
         switch gameEvent.type {
         case .Dialog:
             if let dialog = DialogManager.shared.getDialog(dialogId: gameEvent.dialogId) {
-                world.hudInterfaceData.dialog = dialog
-                world.hudInterfaceData.currentDialogSectionIndex = 0
-                world.hudInterfaceData.currentDialogOptionIndex = 0
+                hudInterfaceData.dialog = dialog
+                hudInterfaceData.currentDialogSectionIndex = 0
+                hudInterfaceData.currentDialogOptionIndex = 0
                 changeState(to: .Dialog)
 
                 world.memoryBank.recordSeen(dialogId: dialog.id)
             }
         case .Store:
-            world.hudInterfaceData.store = Store(storeFrontId: gameEvent.storeFrontId,
-                                                 storeCatalogId: gameEvent.storeCatalogId)
+            hudInterfaceData.store = Store(storeFrontId: gameEvent.storeFrontId,
+                                           storeCatalogId: gameEvent.storeCatalogId)
             changeState(to: .Store)
         case .Sleep:
             scene.vc.loadEndDayScene(world: world)
