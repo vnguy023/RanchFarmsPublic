@@ -128,8 +128,9 @@ class EndDayScene: BaseScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         processControllerInput()
-
         inputController.update()
+
+        hudController.update()
     }
 
     func processControllerInput() {

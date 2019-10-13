@@ -19,8 +19,8 @@ class StoreFrontManager {
     }
 
     private func loadStoreFronts() {
-        storeFrontMap[.VendingMachine] = StoreFront(storeFrontId: .VendingMachine,
-                                                    portraitId: .VendingMachine,
-                                                    slogan: "Vending Machine")
+        storeFrontMap[.Cashier] = StoreFront(storeFrontId: .Cashier,
+                                                    portraitId: .Lily,
+                                                    slogan: "Lily")
     }
 }

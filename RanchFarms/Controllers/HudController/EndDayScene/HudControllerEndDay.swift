@@ -10,6 +10,8 @@ class HudControllerEndDay {
     // Hud Overlay
     let title = SKLabelNode(fontNamed: "Chalkduster")
 
+    let viewSoldItems: ViewSoldItems!
+
     init(hudInterfaceDataEndDay: HudInterfaceDataEndDay, screenSize: CGSize) {
         self.hudInterfaceData = hudInterfaceDataEndDay
         self.screenSize = screenSize
@@ -20,16 +22,19 @@ class HudControllerEndDay {
 
         self.node.addChild(title)
 
+        self.viewSoldItems = ViewSoldItems()
+        self.node.addChild(viewSoldItems)
+
         update()
     }
 
     func update() {
         if hudInterfaceData.reloadHud {
+            title.text = "End Day: Press Primary Action to continue"
 
+            viewSoldItems.update()
         }
 
         hudInterfaceData.reloadHud = false
-
-        title.text = "End Day: Press Primary Action to continue"
     }
 }

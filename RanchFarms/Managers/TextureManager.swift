@@ -61,8 +61,8 @@ class TextureManager {
         buildingMap[.TV] = SKTexture(imageNamed: "buildingTv")
         buildingMap[.Easel] = SKTexture(imageNamed: "buildingEasel")
         buildingMap[.Bookshelf] = SKTexture(imageNamed: "buildingBookshelf")
+        buildingMap[.Cashier] = SKTexture(imageNamed: "buildingCashier")
 
-        buildingMap[.VendingMachine] = SKTexture(imageNamed: "buildingVendingMachine")
         buildingMap[.PlayerHouseSign] = SKTexture(imageNamed: "buildingSign")
     }
 
@@ -155,7 +155,6 @@ class TextureManager {
 
     private func loadPortraits() {
         portraitMap[.Dummy] = SKTexture(imageNamed: "portraitDummy")
-        portraitMap[.VendingMachine] = SKTexture(imageNamed: "portraitDummy")
         
         portraitMap[.Lily] = SKTexture(imageNamed: "portraitLily")
         portraitMap[.James] = SKTexture(imageNamed: "portraitDummy")

@@ -15,7 +15,7 @@ class Store {
             self.storeFront = storeFront
         } else {
             print ("[Store] [Desc=Unable to load storeFront] [storeFrontId=\(storeFrontId)]")
-            self.storeFront = StoreFront(storeFrontId: storeFrontId, portraitId: .VendingMachine, slogan: "Welcome2")
+            self.storeFront = StoreFront(storeFrontId: storeFrontId, portraitId: .Lily, slogan: "Welcome2")
         }
 
         if let storeCatalog = StoreCatalogManager.shared.getStoreCatalog(storeCatalogId: storeCatalogId) {

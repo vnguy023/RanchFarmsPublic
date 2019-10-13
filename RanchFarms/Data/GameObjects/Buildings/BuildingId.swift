@@ -2,7 +2,6 @@ enum BuildingId: UInt, Codable {
     case Unknown = 0
 
     case PlayerHouseSign
-    case VendingMachine
     case FarmDeliveryBox
 
     case FarmToHouseDoor = 10000
@@ -22,6 +21,7 @@ enum BuildingId: UInt, Codable {
     case TV
     case Easel
     case Bookshelf
+    case Cashier
 
     case Rock = 1000
 

@@ -72,18 +72,17 @@ class AnimationManager {
                                                                 duration: 1,
                                                                 imageSize: CGSize(width: 1, height: 2),
                                                                 anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
+        buildingAnimations[.Cashier] = Animation()
+        buildingAnimations[.Cashier]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .Cashier),
+                                                              duration: 1,
+                                                              imageSize: CGSize(width: 1, height: 2),
+                                                              anchorPoint: CGPoint(x:1.0/2.0, y: 1.0/4.0)))
 
         buildingAnimations[.SingleBed] = Animation()
         buildingAnimations[.SingleBed]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .SingleBed),
                                                                 duration: 1,
                                                                 imageSize: CGSize(width: 2, height: 2),
                                                                 anchorPoint: CGPoint(x:1.0/4.0, y: 1.0/4.0)))
-
-        buildingAnimations[.VendingMachine] = Animation()
-        buildingAnimations[.VendingMachine]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .VendingMachine),
-                                                                     duration: 1,
-                                                                     imageSize: CGSize(width: 2, height: 2),
-                                                                     anchorPoint: CGPoint(x:1.0/4.0, y: 1.0/4.0)))
 
         buildingAnimations[.FarmDeliveryBox] = Animation()
         buildingAnimations[.FarmDeliveryBox]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(buildingId: .FarmDeliveryBox),

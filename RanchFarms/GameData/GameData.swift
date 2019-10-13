@@ -303,10 +303,10 @@ class GameData {
         }
 
         // Buildings
-        let vendingMachine = BuildingData(playerIndex: .Game,
-                                          buildingId: .VendingMachine,
-                                          mapPoint: MapPoint(x: 2, y: 4, location: location))
-        buildings[vendingMachine.mapPoint] = vendingMachine
+        let cashier = BuildingData(playerIndex: .Game,
+                                      buildingId: .Cashier,
+                                      mapPoint: MapPoint(x: 1, y: 3, location: location))
+        buildings[cashier.mapPoint] = cashier
 
         let easel = BuildingData(playerIndex: .Game,
                                  buildingId: .Easel,

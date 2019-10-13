@@ -1,6 +1,6 @@
 enum StoreFrontId: UInt, Codable {
     case Unknown = 0
 
-    case VendingMachine
+    case Cashier
     case GeneralStore
 }

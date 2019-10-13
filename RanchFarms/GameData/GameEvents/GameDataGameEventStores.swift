@@ -4,10 +4,10 @@ extension GameData {
         var data = [GameEvent]()
 
         data.append(GameEvent(gameEventId: .Store_VendingMachine, priority: 100,
-                              trigger: Trigger(buildingId: .VendingMachine, actionType: .Interact),
+                              trigger: Trigger(buildingId: .Cashier, actionType: .Interact),
                               requirements: [Requirement](),
-                              storeFrontId: .VendingMachine,
-                              storeCatalogId: .VendingMachine))
+                              storeFrontId: .Cashier,
+                              storeCatalogId: .Cashier))
 
         return data
     }

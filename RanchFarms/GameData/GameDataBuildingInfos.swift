@@ -53,6 +53,12 @@ extension GameData {
                                  isBlocking: true,
                                  hasSpriteIndices: false,
                                  name: "Bookshelf"))
+        data.append(BuildingInfo(buildingId: .Cashier,
+                                 buildingType: .Unknown,
+                                 objSize: CGSize(width: 1, height: 1),
+                                 isBlocking: true,
+                                 hasSpriteIndices: false,
+                                 name: "Cashier"))
         data.append(BuildingInfo(buildingId: .FarmHouse,
                                  buildingType: .Unknown,
                                  objSize: CGSize(width: 5, height: 5),
@@ -97,12 +103,6 @@ extension GameData {
                                  isBlocking: true,
                                  hasSpriteIndices: false,
                                  name: "Player House Sign"))
-        data.append(BuildingInfo(buildingId: .VendingMachine,
-                                 buildingType: .Unknown,
-                                 objSize: CGSize(width: 2, height: 1),
-                                 isBlocking: true,
-                                 hasSpriteIndices: false,
-                                 name: "Vending Machine"))
 
         // Doors
         data.append(BuildingInfo(buildingId: .FarmToHouseDoor,

@@ -24,6 +24,6 @@ class StoreCatalogManager {
         items.removeAll()
         items.append(Item(itemId: .GarlicSeed, quantity: 1))
         items.append(Item(itemId: .TurnipSeed, quantity: 1))
-        storeCatalogMap[.VendingMachine] = StoreCatalog(storeCatalogId: .VendingMachine, items: items)
+        storeCatalogMap[.Cashier] = StoreCatalog(storeCatalogId: .Cashier, items: items)
     }
 }
