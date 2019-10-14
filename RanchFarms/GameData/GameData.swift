@@ -5,7 +5,7 @@ class GameData {
     }
 
     static func BasicHouse() -> GameAreaData {
-        let location = Location.House
+        let location = Location(gameAreaId: .House)
 
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
@@ -55,7 +55,7 @@ class GameData {
     }
 
     static func Farm() -> GameAreaData {
-        let location = Location.Farm
+        let location = Location(gameAreaId: .Farm)
 
         var buildings = [MapPoint: BuildingData]()
         let terrains = [MapPoint: TerrainData]()
@@ -105,7 +105,7 @@ class GameData {
     }
 
     static func SouthBeach() -> GameAreaData {
-        let location = Location.South_Beach
+        let location = Location(gameAreaId: .South_Beach)
 
         let buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
@@ -164,7 +164,7 @@ class GameData {
     }
 
     static func Town() -> GameAreaData {
-        let location = Location.Town
+        let location = Location(gameAreaId: .Town)
 
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
@@ -252,7 +252,7 @@ class GameData {
     }
 
     static func GeneralStore() -> GameAreaData {
-        let location = Location.General_Store
+        let location = Location(gameAreaId: .General_Store)
 
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
@@ -331,7 +331,7 @@ class GameData {
     }
 
     static func JamesHouse() -> GameAreaData {
-        let location = Location.James_House
+        let location = Location(gameAreaId: .James_House)
 
         var buildings = [MapPoint: BuildingData]()
         var terrains = [MapPoint: TerrainData]()
@@ -391,7 +391,7 @@ class GameData {
     }
 
     static func Dungeon_Entrance() -> GameAreaData {
-        let location = Location.Dungeon_Entrance
+        let location = Location(gameAreaId: .Dungeon)
 
         var buildings = [MapPoint: BuildingData]()
         let terrains = [MapPoint: TerrainData]()

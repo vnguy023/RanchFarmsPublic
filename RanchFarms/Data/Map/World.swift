@@ -17,7 +17,7 @@ class World: SKNode {
             if player != nil {
                 return player.location
             }
-            return .House
+            return Location(gameAreaId: .House)
         }
     }
 

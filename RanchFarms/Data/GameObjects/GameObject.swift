@@ -62,7 +62,7 @@ class GameObject: SKNode {
 
     init (player: PlayerIndex, mapPoint: MapPoint) {
         self.player = player
-        mMapPoint = MapPoint(x: 0, y: 0, location: .House)
+        mMapPoint = MapPoint(x: 0, y: 0, location: Location(gameAreaId: .House))
         super.init()
         self.mapPoint = mapPoint
 

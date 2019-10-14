@@ -18,7 +18,7 @@ class Person: GameObject {
 
     var state = State.Idle
 
-    var previousLocation = Location.House
+    var previousLocation: Location
     var previousPosition = CGPoint()
 
     var velocity = CGVector()
@@ -27,6 +27,7 @@ class Person: GameObject {
 
     init(personId: PersonId, mapPoint: MapPoint) {
         self.id = personId
+        self.previousLocation = Location()
         super.init(player: .PlayerOne, mapPoint: mapPoint)
     }
 

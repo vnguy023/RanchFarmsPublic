@@ -7,8 +7,8 @@ extension GameData {
 
         // House
         data.append(GameEvent(gameEventId: .Teleport_House_Farm, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .House),
-                                               end: MapPoint(x: 1, y: -2, location: .House)),
+                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: Location(gameAreaId: .House)),
+                                               end: MapPoint(x: 1, y: -2, location: Location(gameAreaId: .House))),
                               requirements: [Requirement](),
                               teleportId: .House_Farm))
 
@@ -24,28 +24,28 @@ extension GameData {
 
         // GeneralStore
         data.append(GameEvent(gameEventId: .Teleport_GeneralStore_Town, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .General_Store),
-                                               end: MapPoint(x: 1, y: -2, location: .General_Store)),
+                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: Location(gameAreaId: .General_Store)),
+                                               end: MapPoint(x: 1, y: -2, location: Location(gameAreaId: .General_Store))),
                               requirements: [Requirement](),
                               teleportId: .GeneralStore_Town))
 
         // JamesHouse
         data.append(GameEvent(gameEventId: .Teleport_JamesHouse_Town, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .James_House),
-                                               end: MapPoint(x: 1, y: -2, location: .James_House)),
+                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: Location(gameAreaId: .James_House)),
+                                               end: MapPoint(x: 1, y: -2, location: Location(gameAreaId: .James_House))),
                               requirements: [Requirement](),
                               teleportId: .JamesHouse_Town))
 
         // SouthBeach
         data.append(GameEvent(gameEventId: .Teleport_SouthBeach_Town, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 4, y: 2, location: .South_Beach),
-                                               end: MapPoint(x: 4, y: 2, location: .South_Beach)),
+                              trigger: Trigger(start: MapPoint(x: 4, y: 2, location: Location(gameAreaId: .South_Beach)),
+                                               end: MapPoint(x: 4, y: 2, location: Location(gameAreaId: .South_Beach))),
                               requirements: [Requirement](),
                               teleportId: .SouthBeach_Town))
 
         data.append(GameEvent(gameEventId: .Teleport_SouthBeach_DungeonEntrance, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 8, y: 2, location: .South_Beach),
-                                               end: MapPoint(x: 8, y: 2, location: .South_Beach)),
+                              trigger: Trigger(start: MapPoint(x: 8, y: 2, location: Location(gameAreaId: .South_Beach)),
+                                               end: MapPoint(x: 8, y: 2, location: Location(gameAreaId: .South_Beach))),
                               requirements: [Requirement](),
                               teleportId: .SouthBeach_DungeonEntrance))
 
@@ -62,8 +62,8 @@ extension GameData {
 
         // DungeonEntrance
         data.append(GameEvent(gameEventId: .Teleport_DungeonEntrance_SouthBeach, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: .Dungeon_Entrance),
-                                               end: MapPoint(x: 1, y: -2, location: .Dungeon_Entrance)),
+                              trigger: Trigger(start: MapPoint(x: 1, y: -2, location: Location(gameAreaId: .Dungeon)),
+                                               end: MapPoint(x: 1, y: -2, location: Location(gameAreaId: .Dungeon))),
                               requirements: [Requirement](),
                               teleportId: .DungeonEntrance_SouthBeach))
 
@@ -80,8 +80,8 @@ extension GameData {
                               teleportId: .Town_JamesHouse))
 
         data.append(GameEvent(gameEventId: .Teleport_Town_SouthBeach, priority: 100,
-                              trigger: Trigger(start: MapPoint(x: 4, y: -7, location: .Town),
-                                               end: MapPoint(x: 4, y: -7, location: .Town)),
+                              trigger: Trigger(start: MapPoint(x: 4, y: -7, location: Location(gameAreaId: .Town)),
+                                               end: MapPoint(x: 4, y: -7, location: Location(gameAreaId: .Town))),
                               requirements: [Requirement](),
                               teleportId: .Town_SouthBeach))
         return data

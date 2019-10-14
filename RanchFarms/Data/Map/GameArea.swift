@@ -1,7 +1,7 @@
 import SpriteKit
 
 class GameArea {
-    var location = Location.Farm
+    var location = Location(gameAreaId: .Farm)
 
     var buildings = [Building]()
     var terrains = [Terrain]()

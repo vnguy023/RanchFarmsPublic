@@ -49,7 +49,7 @@ class CmdCreateNewGame: Command {
     }
 
     private func createPlayerHouse() {
-        let location = Location.House
+        let location = Location(gameAreaId: .House)
 
         var buildings = [BuildingData]()
         let terrains = [TerrainData]()

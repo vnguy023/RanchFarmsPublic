@@ -156,6 +156,7 @@
 		6CCC6DA92351BFFC00983957 /* HudControllerEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DA82351BFFC00983957 /* HudControllerEndDay.swift */; };
 		6CCC6DAD2351C04100983957 /* HudInterfaceDataEndDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DAC2351C04100983957 /* HudInterfaceDataEndDay.swift */; };
 		6CCC6DAF2351CB7700983957 /* ViewSoldItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DAE2351CB7700983957 /* ViewSoldItems.swift */; };
+		6CCC6DB123542A4B00983957 /* GameAreaId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DB023542A4B00983957 /* GameAreaId.swift */; };
 		6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */; };
 		6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */; };
 		6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B9231F3C15008B9825 /* ViewStore.swift */; };
@@ -328,6 +329,7 @@
 		6CCC6DA82351BFFC00983957 /* HudControllerEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudControllerEndDay.swift; sourceTree = "<group>"; };
 		6CCC6DAC2351C04100983957 /* HudInterfaceDataEndDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudInterfaceDataEndDay.swift; sourceTree = "<group>"; };
 		6CCC6DAE2351CB7700983957 /* ViewSoldItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSoldItems.swift; sourceTree = "<group>"; };
+		6CCC6DB023542A4B00983957 /* GameAreaId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameAreaId.swift; sourceTree = "<group>"; };
 		6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDeleteFile.swift; sourceTree = "<group>"; };
 		6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdFileExists.swift; sourceTree = "<group>"; };
 		6CD007B9231F3C15008B9825 /* ViewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStore.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 			isa = PBXGroup;
 			children = (
 				6C6033CA230B663500746309 /* GameArea.swift */,
+				6CCC6DB023542A4B00983957 /* GameAreaId.swift */,
 				6C6033CC230B666F00746309 /* World.swift */,
 			);
 			path = Map;
@@ -1009,6 +1012,7 @@
 				6CFA39FD23473595001E1EA1 /* TerrainInfo.swift in Sources */,
 				6C47019F232B97EB0013AD0F /* InventoryData.swift in Sources */,
 				6C4701BA232F7BFB0013AD0F /* HudInterfaceDataSplash.swift in Sources */,
+				6CCC6DB123542A4B00983957 /* GameAreaId.swift in Sources */,
 				6CFA3A012347494E001E1EA1 /* SpriteNodeNine.swift in Sources */,
 				6C696458233C475E0033D9EE /* CmdValidateRequirements.swift in Sources */,
 				6C1BFE95232B8ABD00294BF3 /* ItemData.swift in Sources */,

@@ -22,15 +22,18 @@ extension GameData {
 
         scheduleEvents.removeAll()
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(0),
-                                            destination: MapPoint(x: 3, y: 14, location: .General_Store), teleport: true,
+                                            destination: MapPoint(x: 3, y: 14, location: Location(gameAreaId: .General_Store)),
+                                            teleport: true,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(Config.GameTicksPerGameHour * 8),
-                                            destination: MapPoint(x: 1, y: 4, location: .General_Store), teleport: false,
+                                            destination: MapPoint(x: 1, y: 4, location: Location(gameAreaId: .General_Store)),
+                                            teleport: false,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(Config.GameTicksPerGameHour * 20),
-                                            destination: MapPoint(x: -1, y: 14, location: .General_Store), teleport: false,
+                                            destination: MapPoint(x: -1, y: 14, location: Location(gameAreaId: .General_Store)),
+                                            teleport: false,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
 
@@ -53,15 +56,18 @@ extension GameData {
 
         scheduleEvents.removeAll()
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(0),
-                                            destination: MapPoint(x: 3, y: 0, location: .Town), teleport: true,
+                                            destination: MapPoint(x: 3, y: 0, location: Location(gameAreaId: .Town)),
+                                            teleport: true,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(Config.GameTicksPerGameHour * 8),
-                                            destination: MapPoint(x: 1, y: 4, location: .Town), teleport: false,
+                                            destination: MapPoint(x: 1, y: 4, location: Location(gameAreaId: .Town)),
+                                            teleport: false,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
         scheduleEvents.append(ScheduleEvent(startTime: GameTick(Config.GameTicksPerGameHour * 20),
-                                            destination: MapPoint(x: 3, y: 0, location: .Town), teleport: false,
+                                            destination: MapPoint(x: 3, y: 0, location: Location(gameAreaId: .Town)),
+                                            teleport: false,
                                             facedirection: .SOUTH,
                                             stateAtDestination: .Idle))
 
