@@ -97,6 +97,7 @@ class HudControllerGame{
             viewDialog.update()
         case .Game:
             viewGameNotifications.isHidden = false
+            viewGameNotifications.update()
         case .Inventory:
             viewInventory.isHidden = false
             viewInventory.update()

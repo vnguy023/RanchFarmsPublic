@@ -164,6 +164,7 @@
 		6CCC6DC2235452EE00983957 /* ObserverSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DC1235452EE00983957 /* ObserverSubject.swift */; };
 		6CCC6DC423545E7400983957 /* EventReceiveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DC323545E7400983957 /* EventReceiveItem.swift */; };
 		6CCC6DC82354612C00983957 /* ViewGameNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DC72354612C00983957 /* ViewGameNotifications.swift */; };
+		6CCC6DCA235473BC00983957 /* ViewGameNotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC6DC9235473BC00983957 /* ViewGameNotificationItem.swift */; };
 		6CD007B5231DFB7C008B9825 /* CmdDeleteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */; };
 		6CD007B7231DFCE7008B9825 /* CmdFileExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */; };
 		6CD007BA231F3C15008B9825 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD007B9231F3C15008B9825 /* ViewStore.swift */; };
@@ -344,6 +345,7 @@
 		6CCC6DC1235452EE00983957 /* ObserverSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverSubject.swift; sourceTree = "<group>"; };
 		6CCC6DC323545E7400983957 /* EventReceiveItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventReceiveItem.swift; sourceTree = "<group>"; };
 		6CCC6DC72354612C00983957 /* ViewGameNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewGameNotifications.swift; sourceTree = "<group>"; };
+		6CCC6DC9235473BC00983957 /* ViewGameNotificationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewGameNotificationItem.swift; sourceTree = "<group>"; };
 		6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDeleteFile.swift; sourceTree = "<group>"; };
 		6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdFileExists.swift; sourceTree = "<group>"; };
 		6CD007B9231F3C15008B9825 /* ViewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStore.swift; sourceTree = "<group>"; };
@@ -856,6 +858,7 @@
 				6C0F561C2313D56E0017192E /* ViewDayInfo.swift */,
 				6CD007BB231F3C5D008B9825 /* ViewDialog.swift */,
 				6CCC6DC72354612C00983957 /* ViewGameNotifications.swift */,
+				6CCC6DC9235473BC00983957 /* ViewGameNotificationItem.swift */,
 				6C9E3E01230CFCAE007417E1 /* ViewHotbar.swift */,
 				6C97F8D12317808A00940C61 /* ViewInventory.swift */,
 				6C9E3DFC230CE2D6007417E1 /* ViewItemButton.swift */,
@@ -1150,6 +1153,7 @@
 				6C6033DC230B833200746309 /* CameraController.swift in Sources */,
 				6CB381CF233F63660051D632 /* ScheduleEvent.swift in Sources */,
 				6CD007C923208783008B9825 /* StoreFront.swift in Sources */,
+				6CCC6DCA235473BC00983957 /* ViewGameNotificationItem.swift in Sources */,
 				6C2336EC2311484C00261944 /* BuildingInfoManager.swift in Sources */,
 				6C9E3E12230E8500007417E1 /* BuildingId.swift in Sources */,
 				6CCC6DC423545E7400983957 /* EventReceiveItem.swift in Sources */,

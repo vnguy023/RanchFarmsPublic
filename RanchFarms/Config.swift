@@ -18,6 +18,8 @@ class Config {
     static var viewDialogSize = CGSize(width: Config.screenSize.width, height: 240)
     static var viewDialogPortraitSize = CGSize(width: 240, height: 240)
 
+    static var viewGameNotificationItemSize = CGSize(width: 300, height: Config.itemImageSize.height + 8)
+
     static let viewInventoryColumns = CGFloat(10)
     static let viewInventoryRows = CGFloat(3)
 
