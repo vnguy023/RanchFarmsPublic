@@ -5,6 +5,7 @@ class ActionControllerGame {
     let world: World
 
     let cameraController: CameraController!
+    let eventController: EventController!
     let inputController: InputController!
     let hudController: HudControllerGame!
     let hudInterfaceData: HudInterfaceDataGame!
@@ -12,15 +13,17 @@ class ActionControllerGame {
     var handlePause: (()->())!
     var handleUnpause: (()->())!
 
-    init(scene: GameScene, world: World, cameraController: CameraController, hudController: HudControllerGame, inputController: InputController, hudInterfaceDataGame: HudInterfaceDataGame) {
+    init(scene: GameScene, world: World, cameraController: CameraController, eventController: EventController, hudController: HudControllerGame, inputController: InputController, hudInterfaceDataGame: HudInterfaceDataGame) {
         self.scene = scene
         self.world = world
 
         self.cameraController = cameraController
+        self.eventController = eventController
         self.hudController = hudController
         self.hudInterfaceData = hudInterfaceDataGame
         self.inputController = inputController
 
+        assignActionsGameStateGame() //Hack to start off with something
         changeState(to: .Game)
     }
 

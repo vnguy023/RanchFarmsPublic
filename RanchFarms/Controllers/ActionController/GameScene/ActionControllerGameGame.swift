@@ -45,6 +45,11 @@ extension ActionControllerGame {
                 if buildingInFront.canHarvest {
                     let cmdHarvest = CmdActionHarvest(world: world, crop: buildingInFront)
                     cmdHarvest.execute()
+
+                    if cmdHarvest.success {
+                        eventController.notify(event: EventReceiveItem(item: cmdHarvest.itemReceived))
+                    }
+
                     return
                 } else {
                     if buildingInFront.sfxApplied == nil {

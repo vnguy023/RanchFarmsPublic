@@ -7,6 +7,7 @@ class GameScene: BaseScene {
 
     let cameraController = CameraController()
     let inputController = InputController()
+    let eventController = EventController()
 
     var actionController: ActionControllerGame!
     var hudInterfaceData = HudInterfaceDataGame()
@@ -33,8 +34,8 @@ class GameScene: BaseScene {
     }
 
     private func linkControllers() {
-        hudController = HudControllerGame(camera: cameraController.camera, world: world, hudInterfaceData: hudInterfaceData, screenSize: self.size)
-        actionController = ActionControllerGame(scene: self, world: world, cameraController: cameraController, hudController: hudController, inputController: inputController, hudInterfaceDataGame: hudInterfaceData)
+        hudController = HudControllerGame(camera: cameraController.camera, eventController: eventController, world: world, hudInterfaceData: hudInterfaceData, screenSize: self.size)
+        actionController = ActionControllerGame(scene: self, world: world, cameraController: cameraController, eventController: eventController, hudController: hudController, inputController: inputController, hudInterfaceDataGame: hudInterfaceData)
 
         gameEventsTimeSystem = GameEventsTimeSystem(gameScene: self, world: world)
         npcScheduleSystem = NPCScheduleSystem(world: world)

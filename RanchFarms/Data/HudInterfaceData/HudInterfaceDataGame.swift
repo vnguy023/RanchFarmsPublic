@@ -11,7 +11,7 @@ class HudInterfaceDataGame {
         case Store
     }
 
-    var state = State.Unknown
+    var state = State.Game
 
     var dialog: Dialog? = nil
     var currentDialogSectionIndex = 0

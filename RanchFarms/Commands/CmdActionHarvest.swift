@@ -1,8 +1,13 @@
 class CmdActionHarvest: Command {
     let world: World
+    let crop: Building
 
-    private var crop: Building
     private var player: Person
+
+    // output
+    var itemReceived: Item!
+
+    var success = false
 
     init(world: World, crop: Building) {
         self.world = world
@@ -18,6 +23,9 @@ class CmdActionHarvest: Command {
                 if player.inventory.canAcquire(item: harvestItem) {
                     player.inventory.acquire(item: harvestItem)
                     world.delete(building: crop)
+
+                    success = true
+                    itemReceived = harvestItem.clone()
                 }
             }
         default:

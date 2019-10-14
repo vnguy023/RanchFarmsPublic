@@ -5,6 +5,7 @@ class HudControllerGame{
 
     private let world: World
     private let hudInterfaceData: HudInterfaceDataGame
+    private let eventController: EventController
 
     let camera: SKCameraNode!
 
@@ -15,6 +16,7 @@ class HudControllerGame{
     let viewDayInfo: ViewDayInfo
     let viewHotbar: ViewHotbar
     let viewMoneyInfo: ViewMoneyInfo
+    let viewGameNotifications: ViewGameNotifications
 
     // -- Inventory Views
     let viewInventory :ViewInventory
@@ -28,8 +30,9 @@ class HudControllerGame{
     // Hud Ingame
     let viewSelectedGameTile: ViewSelectedGameTile
 
-    init(camera: SKCameraNode, world: World, hudInterfaceData: HudInterfaceDataGame, screenSize: CGSize) {
+    init(camera: SKCameraNode, eventController: EventController, world: World, hudInterfaceData: HudInterfaceDataGame, screenSize: CGSize) {
         self.screenSize = screenSize
+        self.eventController = eventController
 
         self.camera = camera
         camera.zPosition = 10000
@@ -69,6 +72,10 @@ class HudControllerGame{
         viewStore.zPosition = 1000
         camera.addChild(viewStore)
 
+        viewGameNotifications = ViewGameNotifications()
+        viewGameNotifications.subscribe(subject: eventController)
+        camera.addChild(viewGameNotifications)
+
         update()
     }
 
@@ -78,25 +85,26 @@ class HudControllerGame{
         viewMoneyInfo.update()
         viewSelectedGameTile.update()
 
-        if hudInterfaceData.state == .Dialog {
+        // disable things then turn on as needed
+        viewGameNotifications.isHidden = true
+        viewDialog.isHidden = true
+        viewInventory.isHidden = true
+        viewStore.isHidden = true
+
+        switch hudInterfaceData.state {
+        case .Dialog:
             viewDialog.isHidden = false
             viewDialog.update()
-        } else {
-            viewDialog.isHidden = true
-        }
-
-        if hudInterfaceData.state == .Inventory {
+        case .Game:
+            viewGameNotifications.isHidden = false
+        case .Inventory:
             viewInventory.isHidden = false
             viewInventory.update()
-        } else {
-            viewInventory.isHidden = true
-        }
-
-        if hudInterfaceData.state == .Store {
+        case .Store:
             viewStore.isHidden = false
             viewStore.update()
-        } else {
-            viewStore.isHidden = true
+        default:
+            print ("[HudControllerGame::Update] [Error=State not handled] [state=\(hudInterfaceData.state)]")
         }
     }
 }
