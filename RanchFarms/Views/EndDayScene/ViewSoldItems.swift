@@ -10,11 +10,23 @@ class ViewSoldItems: SKNode {
     var itemNames = [SKLabelNode]()
     var itemReceipts = [SKLabelNode]()
 
+    let totalMoney = SKLabelNode(fontNamed: "ChalkDuster")
+
     init(world: World, hudInterfaceData: HudInterfaceDataEndDay) {
         self.world = world
         self.hudInterfaceData = hudInterfaceData
 
         super.init()
+
+        totalMoney.zPosition = 100
+        totalMoney.position = startPos
+        totalMoney.position.x *= -1
+        totalMoney.position.y = Config.screenSize.height / -8 * 3
+        totalMoney.fontColor = .white
+        totalMoney.fontSize = 24
+        totalMoney.verticalAlignmentMode = .center
+        totalMoney.horizontalAlignmentMode = .right
+        self.addChild(totalMoney)
 
         update()
     }
@@ -68,6 +80,8 @@ class ViewSoldItems: SKNode {
             self.addChild(itemReceipt)
             itemReceipts.append(itemReceipt)
         }
+
+        totalMoney.text = "Total Earned Today: \(world.farmDeliveryBox.getTotalMoneyIfSold())"
     }
 
     required init?(coder aDecoder: NSCoder) {
