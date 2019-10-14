@@ -9,7 +9,7 @@ class EndDayScene: BaseScene {
     var hudController: HudControllerEndDay! = nil
 
     private func linkControllers() {
-        hudController = HudControllerEndDay(hudInterfaceDataEndDay: hudInterfaceDataEndDay, screenSize: self.size)
+        hudController = HudControllerEndDay(world: world, hudInterfaceDataEndDay: hudInterfaceDataEndDay, screenSize: self.size)
         actionController = ActionControllerEndDay(scene: self,
                                                   inputController: inputController,
                                                   hudInterfaceDataEndDay: hudInterfaceDataEndDay,

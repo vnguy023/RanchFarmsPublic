@@ -33,6 +33,8 @@ class CmdActionUseItem: Command {
                 processWaterCan()
             case .Crop:
                 processCrop()
+            case .Fish:
+                processFish()
             case .Unknown: break
             default:
                 print ("[ActionUse] [Desc=itemType notHandled] [itemType=\(itemToUse.itemInfo.itemType)]")
@@ -41,6 +43,12 @@ class CmdActionUseItem: Command {
     }
 
     private func processCrop() {
+        if !buildingsInFront.filter({$0.type == .DeliveryBox}).isEmpty {
+            sellItem()
+        }
+    }
+
+    private func processFish() {
         if !buildingsInFront.filter({$0.type == .DeliveryBox}).isEmpty {
             sellItem()
         }

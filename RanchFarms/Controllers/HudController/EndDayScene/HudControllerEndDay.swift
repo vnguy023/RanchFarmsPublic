@@ -4,7 +4,8 @@ class HudControllerEndDay {
     let screenSize: CGSize
 
     let node = SKNode()
-    
+
+    let world: World
     let hudInterfaceData: HudInterfaceDataEndDay
 
     // Hud Overlay
@@ -12,19 +13,22 @@ class HudControllerEndDay {
 
     let viewSoldItems: ViewSoldItems!
 
-    init(hudInterfaceDataEndDay: HudInterfaceDataEndDay, screenSize: CGSize) {
+    init(world: World, hudInterfaceDataEndDay: HudInterfaceDataEndDay, screenSize: CGSize) {
+        self.world = world
         self.hudInterfaceData = hudInterfaceDataEndDay
         self.screenSize = screenSize
 
         title.fontColor = .white
         title.fontSize = 32
-        title.position = CGPoint(x: 0, y: screenSize.height/4)
+        title.verticalAlignmentMode = .bottom
+        title.position = CGPoint(x: 0, y: screenSize.height / -2 + 16)
 
         self.node.addChild(title)
 
-        self.viewSoldItems = ViewSoldItems()
+        self.viewSoldItems = ViewSoldItems(world: world, hudInterfaceData: hudInterfaceData)
         self.node.addChild(viewSoldItems)
 
+        hudInterfaceData.reloadHud = true
         update()
     }
 
