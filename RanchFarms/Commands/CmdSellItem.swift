@@ -11,9 +11,9 @@ class CmdSellItem: Command {
     }
 
     func execute() {
-        if itemToSell.itemInfo.canSell && player.inventory.canDeleteItem(item: itemToSell, quantity: quantity) {
+        if itemToSell.info.canSell && player.inventory.canDeleteItem(item: itemToSell, quantity: quantity) {
             player.inventory.deleteItem(item: itemToSell, quantity: quantity)
-            player.money += itemToSell.itemInfo.sellPrice * quantity
+            player.money += itemToSell.getMoneyIfSold()
         }
     }
 }

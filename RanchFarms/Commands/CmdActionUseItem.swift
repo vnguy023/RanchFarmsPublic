@@ -21,7 +21,7 @@ class CmdActionUseItem: Command {
 
     func execute() {
         if itemToUse != nil {
-            switch itemToUse.itemInfo.itemType {
+            switch itemToUse.info.itemType {
             case .Axe: break
             case .Hoe:
                 processHoe()
@@ -37,7 +37,7 @@ class CmdActionUseItem: Command {
                 processFish()
             case .Unknown: break
             default:
-                print ("[ActionUse] [Desc=itemType notHandled] [itemType=\(itemToUse.itemInfo.itemType)]")
+                print ("[ActionUse] [Desc=itemType notHandled] [itemType=\(itemToUse.info.itemType)]")
             }
         }
     }
@@ -116,12 +116,12 @@ class CmdActionUseItem: Command {
         }
 
         if terrainInFront.isTilled {
-            if itemToUse.itemInfo.buildingId == nil {
+            if itemToUse.info.buildingId == nil {
                 print ("[CmdActionUseItem] [Error=trying to plant a seed w/o buildingId assigned] [itemId=\(itemToUse.id)]")
                 return
             }
 
-            world.add(building: Building(player: .PlayerOne, buildingId: itemToUse.itemInfo.buildingId!, mapPoint: tileInFront.mapPoint))
+            world.add(building: Building(player: .PlayerOne, buildingId: itemToUse.info.buildingId!, mapPoint: tileInFront.mapPoint))
 
             itemToUse.quantity -= 1
             if itemToUse.quantity <= 0 {
@@ -153,9 +153,9 @@ class CmdActionUseItem: Command {
     }
 
     private func sellItem() {
-        if itemToUse.itemInfo.canSell {
+        if itemToUse.info.canSell {
             if !buildingsInFront.filter({$0.id == .FarmDeliveryBox}).isEmpty {
-                world.farmDeliveryBoxItems.append(itemToUse)
+                world.farmDeliveryBox.addItem(itemToUse)
                 world.player.inventory.deleteItem(item: itemToUse)
             }
         }

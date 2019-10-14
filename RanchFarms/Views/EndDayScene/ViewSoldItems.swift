@@ -21,8 +21,8 @@ class ViewSoldItems: SKNode {
         itemSprites.forEach({$0.removeFromParent()})
         itemSprites.removeAll()
 
-        for index in 0..<world.farmDeliveryBoxItems.count {
-            let itemSprite = ViewItemButton(item: world.farmDeliveryBoxItems[index])
+        for index in 0..<world.farmDeliveryBox.count {
+            let itemSprite = ViewItemButton(item: world.farmDeliveryBox.getItems()[index])
             itemSprite.position = startPos
             itemSprite.position.y -= (itemSprite.size.height + 16)*CGFloat(index)
 

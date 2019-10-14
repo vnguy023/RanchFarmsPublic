@@ -3,22 +3,30 @@ import SpriteKit
 class Item {
     let id: ItemId
     var type: ItemType {
-        get {return itemInfo.itemType}
+        get {return info.itemType}
     }
 
     var quantity: Int
 
-    let itemInfo: ItemInfo!
+    let info: ItemInfo!
 
     init(itemId: ItemId, quantity: Int) {
         self.id = itemId
-        itemInfo = ItemInfoManager.shared.getItemInfo(itemId: itemId)
+        info = ItemInfoManager.shared.getItemInfo(itemId: itemId)
 
         self.quantity = quantity
     }
 
     convenience init(data: ItemData) {
         self.init(itemId: data.itemId, quantity: data.quantity)
+    }
+
+    func getMoneyIfSold() -> Int {
+        if info.canSell {
+            return info.sellPrice * quantity
+        }
+
+        return 0
     }
 
     func getItemData() -> ItemData {

@@ -26,7 +26,7 @@ class World: SKNode {
     var teleportStartDay = TeleportId.House_Bed
 
     // Items to sell
-    var farmDeliveryBoxItems = [Item]()
+    var farmDeliveryBox = DeliveryBox()
 
     init(saveSlot: SaveSlot, worldData: WorldData) {
         self.saveSlot = saveSlot

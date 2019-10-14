@@ -104,17 +104,17 @@ class ViewStore: SKSpriteNode {
         if let playerItemIndex = hudInterfaceData.getStorePlayerItemIndex()
             , let item = world.player.inventory.items[playerItemIndex] {
             itemInfoPortrait.setItem(item: item)
-            itemInfoDescriptionText.text = item.itemInfo.name
-            if item.itemInfo.canSell {
-                itemInfoBuySellPrice.text = "Sell: \(item.itemInfo.sellPrice * item.quantity)(\(item.itemInfo.sellPrice) each)"
+            itemInfoDescriptionText.text = item.info.name
+            if item.info.canSell {
+                itemInfoBuySellPrice.text = "Sell: \(item.getMoneyIfSold())(\(item.info.sellPrice) each)"
             } else {
                 itemInfoBuySellPrice.text = "Can't Sell"
             }
         } else if let storeItemIndex = hudInterfaceData.getStoreStoreItemIndex()
             , let item = store.items[storeItemIndex] {
             itemInfoPortrait.setItem(item: item)
-            itemInfoDescriptionText.text = item.itemInfo.name
-            itemInfoBuySellPrice.text = "Buy: \(item.itemInfo.purchasePrice)"
+            itemInfoDescriptionText.text = item.info.name
+            itemInfoBuySellPrice.text = "Buy: \(item.info.purchasePrice)"
         } else {
             itemInfoPortrait.setItem(item: nil)
             itemInfoDescriptionText.text = ""

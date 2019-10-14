@@ -36,7 +36,7 @@ class Inventory {
     func canAcquire(item: Item, slot: Int) -> Bool {
         if let currentItemInSlot = items[slot] {
             if currentItemInSlot.id != item.id
-                || currentItemInSlot.quantity + item.quantity > currentItemInSlot.itemInfo.maxStack {
+                || currentItemInSlot.quantity + item.quantity > currentItemInSlot.info.maxStack {
                 return false
             }
         }

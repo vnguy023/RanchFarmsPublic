@@ -39,9 +39,7 @@ class CmdEndDay: Command {
     }
 
     private func sellItems() {
-        for item in world.farmDeliveryBoxItems {
-            world.player.money += item.quantity * item.itemInfo.sellPrice
-        }
-        world.farmDeliveryBoxItems.removeAll()
+        world.player.money += world.farmDeliveryBox.getTotalMoneyIfSold()
+        world.farmDeliveryBox.removeAll()
     }
 }

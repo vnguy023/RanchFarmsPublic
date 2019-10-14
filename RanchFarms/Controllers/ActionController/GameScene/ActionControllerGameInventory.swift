@@ -21,9 +21,9 @@ extension ActionControllerGame {
                         world.player.inventory.items[selectedItemIndex] = nil
                         hudInterfaceData.selectedInventoryCursor = nil
                     } else {
-                        if highlightedItem != nil && highlightedItem!.type == selectedItem!.type && highlightedItem!.quantity < highlightedItem!.itemInfo.maxStack{
+                        if highlightedItem != nil && highlightedItem!.type == selectedItem!.type && highlightedItem!.quantity < highlightedItem!.info.maxStack{
                             let total = selectedItem!.quantity + highlightedItem!.quantity
-                            highlightedItem!.quantity = highlightedItem!.itemInfo.maxStack
+                            highlightedItem!.quantity = highlightedItem!.info.maxStack
                             selectedItem!.quantity = total - highlightedItem!.quantity
                             hudInterfaceData.selectedInventoryCursor = nil
                         }

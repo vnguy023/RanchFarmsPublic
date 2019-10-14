@@ -8,7 +8,7 @@ class CmdPurchaseItem: Command {
     }
 
     func execute() {
-        let costOfItems = itemToPurchase.quantity * itemToPurchase.itemInfo.purchasePrice
+        let costOfItems = itemToPurchase.quantity * itemToPurchase.info.purchasePrice
 
         if player.money >= costOfItems
             && player.inventory.canAcquire(item: itemToPurchase) {
