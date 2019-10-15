@@ -9,6 +9,8 @@ enum ItemId: UInt, Codable {
     case Sickle
     case WaterCan
 
+    case Sword = 200
+
     // Crops
     case GarlicSeed = 1000
     case Garlic

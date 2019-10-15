@@ -10,6 +10,8 @@ enum ItemType: UInt, Codable {
     case Seed
     case WaterCan
 
+    case Weapon = 200
+
     case Crop
     case Fish
 }

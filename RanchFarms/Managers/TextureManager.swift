@@ -83,10 +83,14 @@ class TextureManager {
     }
 
     private func loadItems() {
+        // Tools
         itemMap[.Axe] = SKTexture(imageNamed: "itemAxe")
         itemMap[.Hoe] = SKTexture(imageNamed: "itemHoe")
         itemMap[.PickAxe] = SKTexture(imageNamed: "itemPickAxe")
         itemMap[.WaterCan] = SKTexture(imageNamed: "itemWatercan")
+
+        // Weapons
+        itemMap[.Sword] = SKTexture(imageNamed: "itemSword")
 
         // Crops
         itemMap[.GarlicSeed] = SKTexture(imageNamed: "itemGarlicSeed")

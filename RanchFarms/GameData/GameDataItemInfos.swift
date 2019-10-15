@@ -41,6 +41,13 @@ extension GameData {
                              sellPrice: 0, purchasePrice: 0,
                              buildingId: nil))
 
+        // Weapons
+        data.append(ItemInfo(itemId: .Sword, itemType: .Weapon,
+                             name: "Sword",
+                             canSell: true,
+                             sellPrice: 100, purchasePrice: 1000,
+                             buildingId: nil))
+
         // Crops
         data.append(ItemInfo(itemId: .GarlicSeed, itemType: .Seed,
                              name: "Garlic Seed",
