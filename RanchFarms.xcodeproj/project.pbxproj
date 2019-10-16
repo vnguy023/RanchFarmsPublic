@@ -94,7 +94,6 @@
 		6C696467233C74310033D9EE /* GameDataBuildingInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C696466233C74310033D9EE /* GameDataBuildingInfos.swift */; };
 		6C696469233C77640033D9EE /* GameDataTileInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C696468233C77640033D9EE /* GameDataTileInfos.swift */; };
 		6C69646B233C78E00033D9EE /* GameDataTeleports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C69646A233C78E00033D9EE /* GameDataTeleports.swift */; };
-		6C69646D233C833A0033D9EE /* GameDataItemInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C69646C233C833A0033D9EE /* GameDataItemInfos.swift */; };
 		6C69646F233C87E70033D9EE /* TeleportSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C69646E233C87E70033D9EE /* TeleportSystem.swift */; };
 		6C6D78DD2321F8BB00573B25 /* PortraitId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6D78DC2321F8BB00573B25 /* PortraitId.swift */; };
 		6C6D78DF232217B900573B25 /* StoreFrontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6D78DE232217B900573B25 /* StoreFrontManager.swift */; };
@@ -123,6 +122,10 @@
 		6C9E3E1B230F7905007417E1 /* RenderSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1A230F7905007417E1 /* RenderSystem.swift */; };
 		6C9E3E1D230F79FF007417E1 /* PersonId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E1C230F79FF007417E1 /* PersonId.swift */; };
 		6C9E3E212310D7A8007417E1 /* ViewSelectedGameTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */; };
+		6CB2715C2356D3DA00F8A719 /* CmdConvertCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2715B2356D3DA00F8A719 /* CmdConvertCSV.swift */; };
+		6CB2715E2356D73200F8A719 /* ItemInfo.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2715D2356D73200F8A719 /* ItemInfo.csv */; };
+		6CB271672356DDA200F8A719 /* README-CSV.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6CB271662356DDA200F8A719 /* README-CSV.txt */; };
+		6CB271692356E57200F8A719 /* CmdDataItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB271682356E57200F8A719 /* CmdDataItemInfo.swift */; };
 		6CB381B4233DB33D0051D632 /* NPCScheduleSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */; };
 		6CB381B6233DB3520051D632 /* BaseSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B5233DB3520051D632 /* BaseSystem.swift */; };
 		6CB381B8233DC5FC0051D632 /* GameDataGameEventLily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B7233DC5FC0051D632 /* GameDataGameEventLily.swift */; };
@@ -275,7 +278,6 @@
 		6C696466233C74310033D9EE /* GameDataBuildingInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataBuildingInfos.swift; sourceTree = "<group>"; };
 		6C696468233C77640033D9EE /* GameDataTileInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataTileInfos.swift; sourceTree = "<group>"; };
 		6C69646A233C78E00033D9EE /* GameDataTeleports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataTeleports.swift; sourceTree = "<group>"; };
-		6C69646C233C833A0033D9EE /* GameDataItemInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataItemInfos.swift; sourceTree = "<group>"; };
 		6C69646E233C87E70033D9EE /* TeleportSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleportSystem.swift; sourceTree = "<group>"; };
 		6C6D78DC2321F8BB00573B25 /* PortraitId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortraitId.swift; sourceTree = "<group>"; };
 		6C6D78DE232217B900573B25 /* StoreFrontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreFrontManager.swift; sourceTree = "<group>"; };
@@ -304,6 +306,10 @@
 		6C9E3E1A230F7905007417E1 /* RenderSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderSystem.swift; sourceTree = "<group>"; };
 		6C9E3E1C230F79FF007417E1 /* PersonId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonId.swift; sourceTree = "<group>"; };
 		6C9E3E202310D7A8007417E1 /* ViewSelectedGameTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSelectedGameTile.swift; sourceTree = "<group>"; };
+		6CB2715B2356D3DA00F8A719 /* CmdConvertCSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdConvertCSV.swift; sourceTree = "<group>"; };
+		6CB2715D2356D73200F8A719 /* ItemInfo.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ItemInfo.csv; sourceTree = "<group>"; };
+		6CB271662356DDA200F8A719 /* README-CSV.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "README-CSV.txt"; sourceTree = "<group>"; };
+		6CB271682356E57200F8A719 /* CmdDataItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDataItemInfo.swift; sourceTree = "<group>"; };
 		6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPCScheduleSystem.swift; sourceTree = "<group>"; };
 		6CB381B5233DB3520051D632 /* BaseSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSystem.swift; sourceTree = "<group>"; };
 		6CB381B7233DC5FC0051D632 /* GameDataGameEventLily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventLily.swift; sourceTree = "<group>"; };
@@ -393,7 +399,7 @@
 				6CB381E32345CDA60051D632 /* CmdSetSpriteIndices.swift */,
 				6C1BFE96232B8B9F00294BF3 /* CmdSaveGame.swift */,
 				6C4701CE2330CA140013AD0F /* CmdGetSaveDataInfo.swift */,
-				6CD007B8231DFD66008B9825 /* FileUtils */,
+				6CB2716A2356E58300F8A719 /* Data */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -448,12 +454,13 @@
 				6C4701A9232DB85B0013AD0F /* GameData.swift */,
 				6C696466233C74310033D9EE /* GameDataBuildingInfos.swift */,
 				6CB381C3233EBD7F0051D632 /* GameDataDialogs.swift */,
-				6C69646C233C833A0033D9EE /* GameDataItemInfos.swift */,
 				6CB381CC233F2CC30051D632 /* GameDataSchedules.swift */,
 				6C696468233C77640033D9EE /* GameDataTileInfos.swift */,
 				6CFA39FE2347370A001E1EA1 /* GameDataTerrainInfos.swift */,
 				6C69646A233C78E00033D9EE /* GameDataTeleports.swift */,
 				6C696465233C70FB0033D9EE /* GameEvents */,
+				6CB2715D2356D73200F8A719 /* ItemInfo.csv */,
+				6CB271662356DDA200F8A719 /* README-CSV.txt */,
 			);
 			path = GameData;
 			sourceTree = "<group>";
@@ -548,7 +555,6 @@
 				6C6033B6230B631A00746309 /* scenes */,
 				6C6033A2230B60B000746309 /* ViewController.swift */,
 				6C6033B9230B633A00746309 /* Data */,
-				6C4701AB232DB8690013AD0F /* GameData */,
 				6C4701D623342D720013AD0F /* Animations */,
 				6CCC6DB9235450E500983957 /* EventNotifications */,
 				6C8D2BDF23342DF70077AE9D /* SFXs */,
@@ -559,6 +565,7 @@
 				6C9E3DFE230CE2DD007417E1 /* Views */,
 				6C9D3605230BA82A00168A28 /* Utils */,
 				6C6033A4230B60B300746309 /* Assets.xcassets */,
+				6C4701AB232DB8690013AD0F /* GameData */,
 				6C6033A6230B60B300746309 /* Main.storyboard */,
 				6C6033A9230B60B300746309 /* Info.plist */,
 				6C6033AA230B60B300746309 /* RanchFarms.entitlements */,
@@ -756,6 +763,7 @@
 		6C9D3605230BA82A00168A28 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6CD007B8231DFD66008B9825 /* FileManagement */,
 				6C69645D233C5AED0033D9EE /* ActionType.swift */,
 				6CB381D02340356C0051D632 /* DayId.swift */,
 				6C6033CE230B66A600746309 /* Location.swift */,
@@ -790,6 +798,14 @@
 				6C2336E9231147EA00261944 /* BuildingType.swift */,
 			);
 			path = Buildings;
+			sourceTree = "<group>";
+		};
+		6CB2716A2356E58300F8A719 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6CB271682356E57200F8A719 /* CmdDataItemInfo.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		6CB381B9233DC6020051D632 /* People */ = {
@@ -921,15 +937,16 @@
 			path = Observer;
 			sourceTree = "<group>";
 		};
-		6CD007B8231DFD66008B9825 /* FileUtils */ = {
+		6CD007B8231DFD66008B9825 /* FileManagement */ = {
 			isa = PBXGroup;
 			children = (
-				6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */,
-				6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */,
 				6CD007B4231DFB7C008B9825 /* CmdDeleteFile.swift */,
 				6CD007B6231DFCE7008B9825 /* CmdFileExists.swift */,
+				6CB2715B2356D3DA00F8A719 /* CmdConvertCSV.swift */,
+				6CBC8D1C231CF5DF005454E1 /* CmdLoadFile.swift */,
+				6CBC8D1A231CF5D4005454E1 /* CmdSaveFile.swift */,
 			);
-			path = FileUtils;
+			path = FileManagement;
 			sourceTree = "<group>";
 		};
 		6CD007C3231FAD7D008B9825 /* Store */ = {
@@ -1004,9 +1021,11 @@
 			files = (
 				6C60339D230B60B000746309 /* GameScene.sks in Resources */,
 				6C6033A5230B60B300746309 /* Assets.xcassets in Resources */,
+				6CB271672356DDA200F8A719 /* README-CSV.txt in Resources */,
 				6C6033A8230B60B300746309 /* Main.storyboard in Resources */,
 				6CB381D723447CDE0051D632 /* EndDayScene.sks in Resources */,
 				6C6033B1230B61B600746309 /* SplashScene.sks in Resources */,
+				6CB2715E2356D73200F8A719 /* ItemInfo.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1051,7 @@
 				6CB381E22345B75A0051D632 /* SpriteIndex.swift in Sources */,
 				6C696460233C6F580033D9EE /* GameDataGameEventTeleports.swift in Sources */,
 				6C1BFE8F232A2E4C00294BF3 /* SaveSlot.swift in Sources */,
+				6CB2715C2356D3DA00F8A719 /* CmdConvertCSV.swift in Sources */,
 				6C4701BD23301EB70013AD0F /* ActionControllerSplash.swift in Sources */,
 				6C9E3E0C230E4C08007417E1 /* HudInterfaceDataGame.swift in Sources */,
 				6CB381C0233DE8130051D632 /* DialogId.swift in Sources */,
@@ -1109,6 +1129,7 @@
 				6CB381DE23448C8B0051D632 /* ActionControllerEndDayMain.swift in Sources */,
 				6C9E3E1D230F79FF007417E1 /* PersonId.swift in Sources */,
 				6C9D3604230BA7C000168A28 /* InputController.swift in Sources */,
+				6CB271692356E57200F8A719 /* CmdDataItemInfo.swift in Sources */,
 				6C6D78DF232217B900573B25 /* StoreFrontManager.swift in Sources */,
 				6C6D78E523226E4E00573B25 /* CmdSellItem.swift in Sources */,
 				6C9E3E212310D7A8007417E1 /* ViewSelectedGameTile.swift in Sources */,
@@ -1136,7 +1157,6 @@
 				6C8D2BE323342EA50077AE9D /* SFXFrame.swift in Sources */,
 				6C69646F233C87E70033D9EE /* TeleportSystem.swift in Sources */,
 				6C9E3E10230E84F5007417E1 /* Building.swift in Sources */,
-				6C69646D233C833A0033D9EE /* GameDataItemInfos.swift in Sources */,
 				6C6033CB230B663500746309 /* GameArea.swift in Sources */,
 				6C69644D233B4D510033D9EE /* GameEventType.swift in Sources */,
 				6C696448233B4CE70033D9EE /* GameEvent.swift in Sources */,

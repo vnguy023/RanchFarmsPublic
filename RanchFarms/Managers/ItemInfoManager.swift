@@ -6,7 +6,18 @@ class ItemInfoManager {
     private var itemInfoMap = [ItemId: ItemInfo]()
 
     private init() {
-        GameData.getItemInfos().forEach({itemInfoMap[$0.id] = $0})
+        loadData()
+    }
+
+    private func loadData() {
+        let cmdDataItemInfo = CmdDataItemInfo()
+        cmdDataItemInfo.execute()
+
+        if cmdDataItemInfo.result != .Success {
+            print ("[ItemInfoManager] [Error=ItemInfo.csv could not be loaded] [Result=\(cmdDataItemInfo.result)]")
+        }
+
+        cmdDataItemInfo.itemInfos.forEach({itemInfoMap[$0.id] = $0})
     }
 
     func getItemInfo(itemId: ItemId) -> ItemInfo? {
