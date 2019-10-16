@@ -32,6 +32,10 @@ class RenderSystem: BaseSystem {
             case .Mining: fallthrough
             case .Watering:
                 stateAnimationDuration = Config.animationHoeingGameTickDuration
+
+            // Weapon related States
+            case .Attacking:
+                stateAnimationDuration = Config.animationAttackingGameTickDuration
             }
 
             let progressPercentage = CGFloat(world.player.stateDurationElapsed)/CGFloat(stateAnimationDuration)
@@ -67,6 +71,8 @@ class RenderSystem: BaseSystem {
                 case .Mining: fallthrough
                 case .Watering:
                     stateAnimationDuration = Config.animationHoeingGameTickDuration
+                case .Attacking:
+                    stateAnimationDuration = Config.animationAttackingGameTickDuration
                 }
 
                 let progressPercentage = CGFloat(npc.stateDurationElapsed)/CGFloat(stateAnimationDuration)
@@ -89,6 +95,10 @@ class RenderSystem: BaseSystem {
                 case .Hoeing: fallthrough
                 case .Mining: fallthrough
                 case .Watering:
+                    stateAnimationDuration = Config.animationHoeingGameTickDuration
+
+                // Tool related states
+                case .Attacking:
                     stateAnimationDuration = Config.animationHoeingGameTickDuration
                 }
 

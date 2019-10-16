@@ -12,6 +12,10 @@ class Person: GameObject {
         case Hoeing
         case Mining
         case Watering
+
+        // Weapon Usage
+        // TODO: Think about how we can attack with the other weapons too
+        case Attacking
     }
 
     var schedule: Schedule? = nil

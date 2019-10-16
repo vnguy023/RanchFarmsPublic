@@ -126,6 +126,11 @@ class World: SKNode {
                 player.state = .Idle
                 player.stateDurationElapsed = 0
             }
+        case .Attacking:
+            if player.stateDurationElapsed == Config.animationAttackingGameTickDuration {
+                player.state = .Idle
+                player.stateDurationElapsed = 0
+            }
         }
 
         postUpdate()

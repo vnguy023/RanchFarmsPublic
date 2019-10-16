@@ -35,6 +35,8 @@ class CmdActionUseItem: Command {
                 processCrop()
             case .Fish:
                 processFish()
+            case .Weapon:
+                processWeapon()
             case .Unknown: break
             default:
                 print ("[ActionUse] [Desc=itemType notHandled] [itemType=\(itemToUse.info.itemType)]")
@@ -150,6 +152,15 @@ class CmdActionUseItem: Command {
                 terrainInFront.type = .Watered
             }
         }
+    }
+
+    private func processWeapon() {
+        if !world.player.canUseTool() {
+            return
+        }
+
+        world.player.setNewState(state: .Attacking)
+
     }
 
     private func sellItem() {

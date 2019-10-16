@@ -349,6 +349,33 @@ class AnimationManager {
         playerAnimations[Person.State.Hoeing] = useToolUpDownAnimations
         playerAnimations[Person.State.Mining] = useToolUpDownAnimations
         playerAnimations[Person.State.Watering] = useToolUpDownAnimations
+
+        var attackAnimations = [CGVector: Animation]()
+        attackAnimations[.NORTH] = Animation()
+
+        attackAnimations[.NORTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleNorth"),
+                                                          duration: 6,
+                                                          imageSize: CGSize(width: 1, height: 1.5),
+                                                          anchorPoint: anchorPoint))
+
+        attackAnimations[.SOUTH] = Animation()
+        attackAnimations[.SOUTH]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleSouth"),
+                                                          duration: 6,
+                                                          imageSize: CGSize(width: 1, height: 1.5),
+                                                          anchorPoint: anchorPoint))
+
+        attackAnimations[.WEST] = Animation()
+        attackAnimations[.WEST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleWest"),
+                                                          duration: 6,
+                                                          imageSize: CGSize(width: 1, height: 1.5),
+                                                          anchorPoint: anchorPoint))
+
+        attackAnimations[.EAST] = Animation()
+        attackAnimations[.EAST]!.addFrame(AnimationFrame(texture: TextureManager.shared.getTexture(personTextureName: "playerIdleEast"),
+                                                          duration: 6,
+                                                          imageSize: CGSize(width: 1, height: 1.5),
+                                                          anchorPoint: anchorPoint))
+        playerAnimations[Person.State.Attacking] = attackAnimations
     }
 
     private func loadLilyAnimations() {
