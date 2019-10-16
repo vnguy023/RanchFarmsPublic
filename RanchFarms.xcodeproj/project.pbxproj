@@ -127,6 +127,8 @@
 		6CB271672356DDA200F8A719 /* README-CSV.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6CB271662356DDA200F8A719 /* README-CSV.txt */; };
 		6CB271692356E57200F8A719 /* CmdDataItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB271682356E57200F8A719 /* CmdDataItemInfo.swift */; };
 		6CB2716C2357042900F8A719 /* BuildingInfo.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2716B2357042900F8A719 /* BuildingInfo.csv */; };
+		6CB2716E235711D600F8A719 /* CmdDataBuildingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2716D235711D600F8A719 /* CmdDataBuildingInfo.swift */; };
+		6CB27170235711ED00F8A719 /* CmdDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2716F235711ED00F8A719 /* CmdDataBase.swift */; };
 		6CB381B4233DB33D0051D632 /* NPCScheduleSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */; };
 		6CB381B6233DB3520051D632 /* BaseSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B5233DB3520051D632 /* BaseSystem.swift */; };
 		6CB381B8233DC5FC0051D632 /* GameDataGameEventLily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B7233DC5FC0051D632 /* GameDataGameEventLily.swift */; };
@@ -312,6 +314,8 @@
 		6CB271662356DDA200F8A719 /* README-CSV.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "README-CSV.txt"; sourceTree = "<group>"; };
 		6CB271682356E57200F8A719 /* CmdDataItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDataItemInfo.swift; sourceTree = "<group>"; };
 		6CB2716B2357042900F8A719 /* BuildingInfo.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BuildingInfo.csv; sourceTree = "<group>"; };
+		6CB2716D235711D600F8A719 /* CmdDataBuildingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDataBuildingInfo.swift; sourceTree = "<group>"; };
+		6CB2716F235711ED00F8A719 /* CmdDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDataBase.swift; sourceTree = "<group>"; };
 		6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPCScheduleSystem.swift; sourceTree = "<group>"; };
 		6CB381B5233DB3520051D632 /* BaseSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSystem.swift; sourceTree = "<group>"; };
 		6CB381B7233DC5FC0051D632 /* GameDataGameEventLily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventLily.swift; sourceTree = "<group>"; };
@@ -806,6 +810,8 @@
 		6CB2716A2356E58300F8A719 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				6CB2716F235711ED00F8A719 /* CmdDataBase.swift */,
+				6CB2716D235711D600F8A719 /* CmdDataBuildingInfo.swift */,
 				6CB271682356E57200F8A719 /* CmdDataItemInfo.swift */,
 			);
 			path = Data;
@@ -1130,6 +1136,7 @@
 				6C9E3E19230EAB8A007417E1 /* AnimationManager.swift in Sources */,
 				6C6D78E32322686500573B25 /* CmdPurchaseItem.swift in Sources */,
 				6C4701AF232DD9C20013AD0F /* TileData.swift in Sources */,
+				6CB27170235711ED00F8A719 /* CmdDataBase.swift in Sources */,
 				6CB381DE23448C8B0051D632 /* ActionControllerEndDayMain.swift in Sources */,
 				6C9E3E1D230F79FF007417E1 /* PersonId.swift in Sources */,
 				6C9D3604230BA7C000168A28 /* InputController.swift in Sources */,
@@ -1144,6 +1151,7 @@
 				6C6033C6230B64B200746309 /* ItemId.swift in Sources */,
 				6C4701CB23309EE50013AD0F /* CmdLoadGame.swift in Sources */,
 				6C9D3609230BEC3C00168A28 /* ActionControllerGame.swift in Sources */,
+				6CB2716E235711D600F8A719 /* CmdDataBuildingInfo.swift in Sources */,
 				6C1BFE8D232A230C00294BF3 /* CmdCreateNewGame.swift in Sources */,
 				6C2336E62311390400261944 /* ItemInfoManager.swift in Sources */,
 				6C4701CD2330C9580013AD0F /* SaveDataInfo.swift in Sources */,

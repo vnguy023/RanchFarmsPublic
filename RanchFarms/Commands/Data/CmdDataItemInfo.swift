@@ -1,45 +1,20 @@
 import Foundation
 
-class CmdDataItemInfo: Command {
+class CmdDataItemInfo: CmdDataBase {
     // Output
     var itemInfos = [ItemInfo]()
-    var result = Result.AwaitingExecution
-
-    enum Result {
-        case AwaitingExecution
-        case Success
-
-        case NoFile
-        case BadFile
-    }
 
     init() {
+        super.init(fileName: "ItemInfo")
     }
 
-    func execute() {
-        var text = ""
-        do {
-            if let path = Bundle.main.path(forResource: "ItemInfo", ofType: "csv") {
-                try text = String(contentsOfFile: path, encoding: .utf8)
-            } else {
-                result = .NoFile
-                return
-            }
-        } catch {
-            result = .NoFile
-            return
-        }
-
-        let cmdConvertCSV = CmdConvertCSV(text: text)
-        cmdConvertCSV.execute()
-
-        if cmdConvertCSV.result != .Success {
-            result = .BadFile
-        }
+    override func execute() {
+        super.execute()
+        if result != .AwaitingExecution { return }
 
         // Skipping line one since that is Table Name
-        for index in 1..<cmdConvertCSV.table.count {
-            let line = cmdConvertCSV.table[index]
+        for index in 1..<table.count {
+            let line = table[index]
             if let itemInfo = parseItemInfo(line: line) {
                 self.itemInfos.append(itemInfo)
             } else {
@@ -52,7 +27,7 @@ class CmdDataItemInfo: Command {
 
     private func parseItemInfo(line: [String]) -> ItemInfo? {
         let name = line[0]
-        guard UInt(line[1]) != nil, let itemId = ItemId(rawValue: UInt(line[1])!) else {
+        guard let itemId = getItemId(text: line[1]) else {
             print ("[itemId] [\(line[1])]"); return nil
         }
         guard let itemType = ItemType(string: line[2]) else {
@@ -75,12 +50,5 @@ class CmdDataItemInfo: Command {
                         maxStack: maxStack,
                         canSell: canSell, sellPrice: sellPrice, purchasePrice: purchasePrice,
                         buildingId: buildingId)
-    }
-
-    private func getBuildingId(text: String) -> BuildingId? {
-        if text.lowercased() == "null" || UInt(text) == nil {
-            return nil
-        }
-        return BuildingId(rawValue: UInt(text)!)
     }
 }
