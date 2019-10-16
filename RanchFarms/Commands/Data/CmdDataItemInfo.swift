@@ -51,22 +51,36 @@ class CmdDataItemInfo: Command {
     }
 
     private func parseItemInfo(line: [String]) -> ItemInfo? {
-        // Validate the data
-        if UInt(line[1]) == nil || ItemId(rawValue: UInt(line[1])!) == nil { print ("[itemId] [\(line[1])]"); return nil }
-        if ItemType(string: line[2]) == nil { print ("[itemtype] [\(line[2])]"); return nil }
-        if Int(line[4]) == nil { print ("[sellprice] [\(line[4])]"); return nil }
-        if Int(line[5]) == nil { print ("[purchasePrice] [\(line[5])]"); return nil }
-        if line[6] != "null" && BuildingId(rawValue: UInt(line[6])!) == nil { print ("[buildingId] [\(line[6])]"); return nil }
-        if Int(line[7]) == nil { print ("[maxStack] [\(line[7])]"); return nil }
+        let name = line[0]
+        guard UInt(line[1]) != nil, let itemId = ItemId(rawValue: UInt(line[1])!) else {
+            print ("[itemId] [\(line[1])]"); return nil
+        }
+        guard let itemType = ItemType(string: line[2]) else {
+            print ("[itemType] [\(line[2])]"); return nil
+        }
+        let canSell = ((line[3].lowercased() == "yes") ? true: false)
+        guard let sellPrice = Int(line[4]) else {
+            print ("[sellPrice] [\(line[4])]"); return nil
+        }
+        guard let purchasePrice = Int(line[5]) else {
+            print ("[purchasePrice] [\(line[5])]"); return nil
+        }
+        let buildingId = getBuildingId(text: line[6])
+        guard let maxStack = Int(line[7]) else {
+            print ("[maxStack] [\(line[7])]"); return nil
+        }
+        let textureName = line[8]
 
-        return ItemInfo(itemId: ItemId(rawValue: UInt(line[1])!)!,
-                        itemType: ItemType(string: line[2])!,
-                        name: line[0],
-                        textureName: line[8],
-                        maxStack: Int(line[7])!,
-                        canSell: ((line[3] == "yes") ? true: false),
-                        sellPrice: Int(line[4])!,
-                        purchasePrice: Int(line[5])!,
-                        buildingId: (line[6] == "null" ? nil : BuildingId(rawValue: UInt(line[6])!)!))
+        return ItemInfo(itemId: itemId, itemType: itemType, name: name, textureName: textureName,
+                        maxStack: maxStack,
+                        canSell: canSell, sellPrice: sellPrice, purchasePrice: purchasePrice,
+                        buildingId: buildingId)
+    }
+
+    private func getBuildingId(text: String) -> BuildingId? {
+        if text.lowercased() == "null" || UInt(text) == nil {
+            return nil
+        }
+        return BuildingId(rawValue: UInt(text)!)
     }
 }

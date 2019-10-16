@@ -126,6 +126,7 @@
 		6CB2715E2356D73200F8A719 /* ItemInfo.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2715D2356D73200F8A719 /* ItemInfo.csv */; };
 		6CB271672356DDA200F8A719 /* README-CSV.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6CB271662356DDA200F8A719 /* README-CSV.txt */; };
 		6CB271692356E57200F8A719 /* CmdDataItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB271682356E57200F8A719 /* CmdDataItemInfo.swift */; };
+		6CB2716C2357042900F8A719 /* BuildingInfo.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2716B2357042900F8A719 /* BuildingInfo.csv */; };
 		6CB381B4233DB33D0051D632 /* NPCScheduleSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */; };
 		6CB381B6233DB3520051D632 /* BaseSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B5233DB3520051D632 /* BaseSystem.swift */; };
 		6CB381B8233DC5FC0051D632 /* GameDataGameEventLily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB381B7233DC5FC0051D632 /* GameDataGameEventLily.swift */; };
@@ -310,6 +311,7 @@
 		6CB2715D2356D73200F8A719 /* ItemInfo.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = ItemInfo.csv; sourceTree = "<group>"; };
 		6CB271662356DDA200F8A719 /* README-CSV.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "README-CSV.txt"; sourceTree = "<group>"; };
 		6CB271682356E57200F8A719 /* CmdDataItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CmdDataItemInfo.swift; sourceTree = "<group>"; };
+		6CB2716B2357042900F8A719 /* BuildingInfo.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BuildingInfo.csv; sourceTree = "<group>"; };
 		6CB381B3233DB33D0051D632 /* NPCScheduleSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NPCScheduleSystem.swift; sourceTree = "<group>"; };
 		6CB381B5233DB3520051D632 /* BaseSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSystem.swift; sourceTree = "<group>"; };
 		6CB381B7233DC5FC0051D632 /* GameDataGameEventLily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventLily.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				6CFA39FE2347370A001E1EA1 /* GameDataTerrainInfos.swift */,
 				6C69646A233C78E00033D9EE /* GameDataTeleports.swift */,
 				6C696465233C70FB0033D9EE /* GameEvents */,
+				6CB2716B2357042900F8A719 /* BuildingInfo.csv */,
 				6CB2715D2356D73200F8A719 /* ItemInfo.csv */,
 				6CB271662356DDA200F8A719 /* README-CSV.txt */,
 			);
@@ -1023,6 +1026,7 @@
 				6C6033A5230B60B300746309 /* Assets.xcassets in Resources */,
 				6CB271672356DDA200F8A719 /* README-CSV.txt in Resources */,
 				6C6033A8230B60B300746309 /* Main.storyboard in Resources */,
+				6CB2716C2357042900F8A719 /* BuildingInfo.csv in Resources */,
 				6CB381D723447CDE0051D632 /* EndDayScene.sks in Resources */,
 				6C6033B1230B61B600746309 /* SplashScene.sks in Resources */,
 				6CB2715E2356D73200F8A719 /* ItemInfo.csv in Resources */,

@@ -35,11 +35,4 @@ class BuildingInfo {
         self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking,
                   hasSpriteIndices: hasSpriteIndices, name: name, harvestDate: 0, harvestItemId: nil)
     }
-
-    // Crops
-    /* -- for now this is the same as default initializor
-    convenience init(buildingId: BuildingId, buildingType: BuildingType, objSize: CGSize, isBlocking: Bool, name: String, harvestDate: Int, harvestItemId: ItemId) {
-        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking, name: name, harvestDate: harvestDate, harvestItemId: harvestItemId)
-    }
-     */
 }
