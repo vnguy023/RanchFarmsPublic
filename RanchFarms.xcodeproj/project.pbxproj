@@ -91,7 +91,6 @@
 		6C696460233C6F580033D9EE /* GameDataGameEventTeleports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C69645F233C6F580033D9EE /* GameDataGameEventTeleports.swift */; };
 		6C696462233C70EC0033D9EE /* GameDataGameEventDialogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C696461233C70EC0033D9EE /* GameDataGameEventDialogs.swift */; };
 		6C696464233C70F30033D9EE /* GameDataGameEventStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C696463233C70F30033D9EE /* GameDataGameEventStores.swift */; };
-		6C696467233C74310033D9EE /* GameDataBuildingInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C696466233C74310033D9EE /* GameDataBuildingInfos.swift */; };
 		6C696469233C77640033D9EE /* GameDataTileInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C696468233C77640033D9EE /* GameDataTileInfos.swift */; };
 		6C69646B233C78E00033D9EE /* GameDataTeleports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C69646A233C78E00033D9EE /* GameDataTeleports.swift */; };
 		6C69646F233C87E70033D9EE /* TeleportSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C69646E233C87E70033D9EE /* TeleportSystem.swift */; };
@@ -278,7 +277,6 @@
 		6C69645F233C6F580033D9EE /* GameDataGameEventTeleports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventTeleports.swift; sourceTree = "<group>"; };
 		6C696461233C70EC0033D9EE /* GameDataGameEventDialogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventDialogs.swift; sourceTree = "<group>"; };
 		6C696463233C70F30033D9EE /* GameDataGameEventStores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataGameEventStores.swift; sourceTree = "<group>"; };
-		6C696466233C74310033D9EE /* GameDataBuildingInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataBuildingInfos.swift; sourceTree = "<group>"; };
 		6C696468233C77640033D9EE /* GameDataTileInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataTileInfos.swift; sourceTree = "<group>"; };
 		6C69646A233C78E00033D9EE /* GameDataTeleports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDataTeleports.swift; sourceTree = "<group>"; };
 		6C69646E233C87E70033D9EE /* TeleportSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleportSystem.swift; sourceTree = "<group>"; };
@@ -458,7 +456,6 @@
 			isa = PBXGroup;
 			children = (
 				6C4701A9232DB85B0013AD0F /* GameData.swift */,
-				6C696466233C74310033D9EE /* GameDataBuildingInfos.swift */,
 				6CB381C3233EBD7F0051D632 /* GameDataDialogs.swift */,
 				6CB381CC233F2CC30051D632 /* GameDataSchedules.swift */,
 				6C696468233C77640033D9EE /* GameDataTileInfos.swift */,
@@ -1067,7 +1064,6 @@
 				6CB381C0233DE8130051D632 /* DialogId.swift in Sources */,
 				6C6033A3230B60B000746309 /* ViewController.swift in Sources */,
 				6C4701D12330D1EA0013AD0F /* ViewSaveDelete.swift in Sources */,
-				6C696467233C74310033D9EE /* GameDataBuildingInfos.swift in Sources */,
 				6CCC6DAD2351C04100983957 /* HudInterfaceDataEndDay.swift in Sources */,
 				6C4701B4232ED0630013AD0F /* TeleportManager.swift in Sources */,
 				6C2336EA231147EA00261944 /* BuildingType.swift in Sources */,

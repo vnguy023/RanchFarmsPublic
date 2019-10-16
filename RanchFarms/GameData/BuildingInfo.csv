@@ -1,1 +1,21 @@
-// TODO: Finish this
+Name,Id,Type,ObjectSizeWidth,ObjectSizeHeight,IsBlocking,HasSpriteIndices,HarvestItemId,HarvestDate
+Farm Delivery Box,2,DeliveryBox,2,1,yes,no,null,0
+Rock,1000,Unknown,1,1,yes,no,null,0
+Single Bed,110,Unknown,2,2,yes,no,null,0
+Chair,500,Unknown,1,1,yes,no,null,0
+Table,501,Unknown,2,2,yes,no,null,0
+TV,502,Unknown,1,1,yes,no,null,0
+Easel,503,Unknown,1,1,yes,no,null,0
+Bookshelf,504,Unknown,1,1,yes,no,null,0
+Cashier,505,Unknown,1,1,yes,no,null,0
+Farm House,150,Unknown,5,5,yes,no,null,0
+James House,151,Unknown,5,5,yes,no,null,0
+Wall,152,Unknown,1,1,yes,yes,null,0
+Player House Sign,1,Unknown,1,1,yes,no,null,0
+Farm To House Door,10000,Unknown,1,2,yes,no,null,0
+Farm To Town Door,10001,Unknown,1,2,yes,no,null,0
+Town To Farm Door,10002,Unknown,1,2,yes,no,null,0
+Town To GeneralStore Door,10003,Unknown,1,2,yes,no,null,0
+Town To JamesHouse Door,10004,Unknown,1,2,yes,no,null,0
+Garlic,2000,Crop,1,1,no,no,1001,8
+Turnip,2001,Crop,1,1,no,no,1003,4

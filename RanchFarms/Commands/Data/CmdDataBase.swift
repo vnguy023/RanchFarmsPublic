@@ -57,4 +57,16 @@ class CmdDataBase: Command {
         }
         return BuildingId(rawValue: UInt(text)!)
     }
+
+    func getCGFloat(text: String) -> CGFloat? {
+        guard let n = NumberFormatter().number(from: text) else {return nil}
+        return CGFloat(truncating: n)
+    }
+
+    func getBool(text: String) -> Bool {
+        if text.lowercased() == "yes" {
+            return true
+        }
+        return false
+    }
 }

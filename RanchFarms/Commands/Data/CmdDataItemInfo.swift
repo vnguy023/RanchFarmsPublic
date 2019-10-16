@@ -33,7 +33,7 @@ class CmdDataItemInfo: CmdDataBase {
         guard let itemType = ItemType(string: line[2]) else {
             print ("[itemType] [\(line[2])]"); return nil
         }
-        let canSell = ((line[3].lowercased() == "yes") ? true: false)
+        let canSell = getBool(text: line[3])
         guard let sellPrice = Int(line[4]) else {
             print ("[sellPrice] [\(line[4])]"); return nil
         }

@@ -5,7 +5,7 @@ class BuildingInfo {
 
     let buildingType: BuildingType
     let name: String
-    let harvestDate: Int
+    let harvestDate: Int!
     let harvestItemId: ItemId?
     let objSize: CGSize
     let isBlocking: Bool
@@ -15,7 +15,7 @@ class BuildingInfo {
          objSize: CGSize, isBlocking: Bool,
          hasSpriteIndices: Bool,
          name: String,
-         harvestDate: Int, harvestItemId: ItemId?) {
+         harvestDate: Int?, harvestItemId: ItemId?) {
         self.id = buildingId
         self.buildingType = buildingType
         self.objSize = objSize
@@ -25,14 +25,5 @@ class BuildingInfo {
         
         self.harvestDate = harvestDate
         self.harvestItemId = harvestItemId
-    }
-
-    // Standard building
-    convenience init(buildingId: BuildingId, buildingType: BuildingType,
-                     objSize: CGSize, isBlocking: Bool,
-                     hasSpriteIndices: Bool,
-                     name: String) {
-        self.init(buildingId: buildingId, buildingType: buildingType, objSize: objSize, isBlocking: isBlocking,
-                  hasSpriteIndices: hasSpriteIndices, name: name, harvestDate: 0, harvestItemId: nil)
     }
 }

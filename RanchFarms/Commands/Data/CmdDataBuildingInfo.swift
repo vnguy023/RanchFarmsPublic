@@ -26,6 +26,31 @@ class CmdDataBuildingInfo: CmdDataBase {
     }
 
     private func parseBuildingInfo(line: [String]) -> BuildingInfo? {
-        return nil
+        let name = line[0]
+        guard let buildingId = getBuildingId(text: line[1]) else {
+            print ("[buildingId] [\(line[1])]"); return nil
+        }
+        guard let buildingType = BuildingType(string: line[2]) else {
+            print ("[buildingType] [\(line[2])]"); return nil
+        }
+
+        guard let objSizeWidth = getCGFloat(text: line[3]) else {
+            print ("[objSizeWidth] [\(line[3])]"); return nil
+        }
+        guard let objSizeHeight = getCGFloat(text: line[4]) else {
+            print ("[objSizeHeight] [\(line[4])]"); return nil
+        }
+        let objSize = CGSize(width: objSizeWidth, height: objSizeHeight)
+
+        let isBlocking = getBool(text: line[5])
+        let hasSpriteIndices = getBool(text: line[6])
+        let harvestItemId = getItemId(text: line[7])
+        let harvestDate = Int(line[8])
+
+        return BuildingInfo(buildingId: buildingId, buildingType: buildingType,
+                            objSize: objSize, isBlocking: isBlocking,
+                            hasSpriteIndices: hasSpriteIndices,
+                            name: name,
+                            harvestDate: harvestDate, harvestItemId: harvestItemId)
     }
 }
