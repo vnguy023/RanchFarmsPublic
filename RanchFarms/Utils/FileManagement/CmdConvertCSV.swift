@@ -21,7 +21,11 @@ class CmdConvertCSV: Command {
     func execute() {
         let lines = text.split{$0 == "\n"}.map(String.init)
         for line in lines {
-            table.append(line.split{$0 == ","}.map(String.init))
+            if line.isEmpty {
+                table.append([String]())
+            } else {
+                table.append(line.split{$0 == ","}.map(String.init))
+            }
         }
         result = .Success
     }

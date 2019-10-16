@@ -15,6 +15,8 @@ class CmdDataBuildingInfo: CmdDataBase {
         // Skipping line one since that is Table Name
         for index in 1..<table.count {
             let line = table[index]
+            if line.isEmpty { continue }
+
             if let info = parseBuildingInfo(line: line) {
                 self.buildingInfos.append(info)
             } else {
