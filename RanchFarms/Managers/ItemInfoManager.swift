@@ -4,6 +4,7 @@ class ItemInfoManager {
     static let shared = ItemInfoManager()
 
     private var itemInfoMap = [ItemId: ItemInfo]()
+    var itemInfos: [ItemInfo]{ get {itemInfoMap.map({return $0.value})} }
 
     private init() {
         loadData()

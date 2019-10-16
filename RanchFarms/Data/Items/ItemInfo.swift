@@ -3,6 +3,7 @@ class ItemInfo {
 
     let itemType: ItemType
     let name: String
+    let textureName: String
     let maxStack: Int
 
     let canSell: Bool
@@ -11,10 +12,11 @@ class ItemInfo {
 
     let buildingId: BuildingId?
 
-    init(itemId: ItemId, itemType: ItemType, name: String, maxStack: Int, canSell: Bool, sellPrice: Int, purchasePrice: Int, buildingId: BuildingId?) {
+    init(itemId: ItemId, itemType: ItemType, name: String, textureName: String, maxStack: Int, canSell: Bool, sellPrice: Int, purchasePrice: Int, buildingId: BuildingId?) {
         self.id = itemId
         self.itemType = itemType
         self.name = name
+        self.textureName = textureName
         self.maxStack = 999
         self.canSell = canSell
         self.sellPrice = sellPrice

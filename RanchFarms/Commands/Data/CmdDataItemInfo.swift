@@ -62,6 +62,7 @@ class CmdDataItemInfo: Command {
         return ItemInfo(itemId: ItemId(rawValue: UInt(line[1])!)!,
                         itemType: ItemType(string: line[2])!,
                         name: line[0],
+                        textureName: line[8],
                         maxStack: Int(line[7])!,
                         canSell: ((line[3] == "yes") ? true: false),
                         sellPrice: Int(line[4])!,

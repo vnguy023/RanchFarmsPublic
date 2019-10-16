@@ -19,7 +19,7 @@ class TextureManager {
 
         loadBuildings()
         loadCrops()
-        loadItems()
+        ItemInfoManager.shared.itemInfos.forEach({itemMap[$0.id] = SKTexture(imageNamed: $0.textureName)})
         loadTerrains()
         loadTiles()
 
@@ -80,26 +80,6 @@ class TextureManager {
         cropMap["turnip4"] = SKTexture(imageNamed: "buildingTurnip4")
         cropMap["turnip5"] = SKTexture(imageNamed: "buildingTurnip5")
 
-    }
-
-    private func loadItems() {
-        // Tools
-        itemMap[.Axe] = SKTexture(imageNamed: "itemAxe")
-        itemMap[.Hoe] = SKTexture(imageNamed: "itemHoe")
-        itemMap[.PickAxe] = SKTexture(imageNamed: "itemPickAxe")
-        itemMap[.WaterCan] = SKTexture(imageNamed: "itemWatercan")
-
-        // Weapons
-        itemMap[.Sword] = SKTexture(imageNamed: "itemSword")
-
-        // Crops
-        itemMap[.GarlicSeed] = SKTexture(imageNamed: "itemGarlicSeed")
-        itemMap[.Garlic] = SKTexture(imageNamed: "itemGarlic")
-        itemMap[.TurnipSeed] = SKTexture(imageNamed: "itemTurnipSeed")
-        itemMap[.Turnip] = SKTexture(imageNamed: "itemTurnip")
-
-        // Fish
-        itemMap[.Crab] = SKTexture(imageNamed: "itemCrab")
     }
 
     func loadMonsters() {
