@@ -1,0 +1,5 @@
+Name,Id,Type,IsBlocking,HasSpriteIndices,Texture
+Dirt,10,Dirt,no,no,tileDirt
+Grass,11,Grass,no,no,tileGrass2
+Sand,12,Sand,no,no,tileSand
+Water,13,Water,yes,no,tileWater

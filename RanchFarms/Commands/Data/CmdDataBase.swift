@@ -44,6 +44,13 @@ class CmdDataBase: Command {
         }
     }
 
+    func getBuildingId(text: String) -> BuildingId? {
+        if text.lowercased() == "null" || UInt(text) == nil {
+            return nil
+        }
+        return BuildingId(rawValue: UInt(text)!)
+    }
+
     func getItemId(text: String) -> ItemId? {
         if text.lowercased() == "null" || UInt(text) == nil {
             return nil
@@ -51,11 +58,11 @@ class CmdDataBase: Command {
         return ItemId(rawValue: UInt(text)!)
     }
 
-    func getBuildingId(text: String) -> BuildingId? {
+    func getTileId(text: String) -> TileId? {
         if text.lowercased() == "null" || UInt(text) == nil {
             return nil
         }
-        return BuildingId(rawValue: UInt(text)!)
+        return TileId(rawValue: UInt(text)!)
     }
 
     func getCGFloat(text: String) -> CGFloat? {

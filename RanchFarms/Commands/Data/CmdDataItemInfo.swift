@@ -17,8 +17,8 @@ class CmdDataItemInfo: CmdDataBase {
             let line = table[index]
             if line.isEmpty { continue }
             
-            if let itemInfo = parseItemInfo(line: line) {
-                self.itemInfos.append(itemInfo)
+            if let info = parseItemInfo(line: line) {
+                self.itemInfos.append(info)
             } else {
                 print ("[CmdDataItemInfo] [Desc=Bad Data] [lineNo=\(index + 1)]")
             }

@@ -20,8 +20,8 @@ class TextureManager {
         loadBuildings()
         loadCrops()
         ItemInfoManager.shared.itemInfos.forEach({itemMap[$0.id] = SKTexture(imageNamed: $0.textureName)})
-        loadTerrains()
-        loadTiles()
+        TerrainInfoManager.shared.terrainInfos.forEach({terrainMap[$0.type] = SKTexture(imageNamed: $0.textureName)})
+        TileInfoManager.shared.tileInfos.forEach({tileMap[$0.id] = SKTexture(imageNamed: $0.textureName)})
 
         loadMonsters()
         loadPeople()
@@ -142,21 +142,6 @@ class TextureManager {
         
         portraitMap[.Lily] = SKTexture(imageNamed: "portraitLily")
         portraitMap[.James] = SKTexture(imageNamed: "portraitDummy")
-    }
-
-    private func loadTerrains() {
-        terrainMap[.Tilled] = SKTexture(imageNamed: "terrainTilled")
-        terrainMap[.Watered] = SKTexture(imageNamed: "terrainWatered")
-
-        terrainMap[.Wood] = SKTexture(imageNamed: "terrainWood")
-        terrainMap[.StonePath] = SKTexture(imageNamed: "terrainStonePath")
-    }
-
-    private func loadTiles() {
-        tileMap[.Dirt] = SKTexture(imageNamed: "tileDirt")
-        tileMap[.Grass] = SKTexture(imageNamed: "tileGrass3")
-        tileMap[.Sand] = SKTexture(imageNamed: "tileSand")
-        tileMap[.Water] = SKTexture(imageNamed: "tileWater")
     }
 
     func getTexture(hudImageName: String) -> SKTexture? {

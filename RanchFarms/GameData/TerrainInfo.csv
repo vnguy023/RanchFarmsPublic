@@ -1,0 +1,5 @@
+Name,Type,IsBlocking,HasSpriteIndices,TextureName
+Tilled,Tilled,no,no,terrainTilled
+Watered,Watered,no,no,terrainWatered
+Wood,Wood,no,no,terrainWood
+StonePath,StonePath,no,yes,terrainStonePath

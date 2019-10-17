@@ -21,7 +21,7 @@ class CmdConvertCSV: Command {
     func execute() {
         let lines = text.split{$0 == "\n"}.map(String.init)
         for line in lines {
-            if line.isEmpty {
+            if line.isEmpty || line.lowercased().contains("#note") {
                 table.append([String]())
             } else {
                 table.append(line.split{$0 == ","}.map(String.init))
